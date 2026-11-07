@@ -1,0 +1,393 @@
+{
+  "status": "passed",
+  "seed": 2026,
+  "device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "torch": "2.6.0+cu124",
+  "checks": {
+    "all_variables_updated": true,
+    "all_quaternion_components_have_gradients_and_updates": true,
+    "correct_training_real_parameter_count": true,
+    "correct_exported_real_parameter_count": true,
+    "valid_exported_permutation": true,
+    "hard_export_equivalence": true,
+    "serialized_hard_model_equivalence": true,
+    "balanced_soft_row_marginals": true,
+    "balanced_soft_column_marginals": true
+  },
+  "first_update": {
+    "parameters": [
+      {
+        "name": "blocks.0.0.kernel",
+        "shape": [
+          4,
+          8,
+          1,
+          3,
+          3
+        ],
+        "gradient_norm": 1.0638808012008667,
+        "max_abs_update": 0.0010068416595458984
+      },
+      {
+        "name": "blocks.0.1.weight",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.13624629378318787,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.0.1.bias",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.12074020504951477,
+        "max_abs_update": 0.0009999996982514858
+      },
+      {
+        "name": "blocks.0.3.kernel",
+        "shape": [
+          4,
+          8,
+          8,
+          3,
+          3
+        ],
+        "gradient_norm": 2.335320234298706,
+        "max_abs_update": 0.0010032057762145996
+      },
+      {
+        "name": "blocks.0.4.weight",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.20612689852714539,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.0.4.bias",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.1280704140663147,
+        "max_abs_update": 0.0009999998146668077
+      },
+      {
+        "name": "blocks.1.0.kernel",
+        "shape": [
+          4,
+          16,
+          8,
+          3,
+          3
+        ],
+        "gradient_norm": 2.452610969543457,
+        "max_abs_update": 0.0010031461715698242
+      },
+      {
+        "name": "blocks.1.1.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.18502122163772583,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.1.1.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.15782678127288818,
+        "max_abs_update": 0.0009999998146668077
+      },
+      {
+        "name": "blocks.1.3.kernel",
+        "shape": [
+          4,
+          16,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 2.97556209564209,
+        "max_abs_update": 0.0010025054216384888
+      },
+      {
+        "name": "blocks.1.4.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.2115020602941513,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.1.4.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.13424555957317352,
+        "max_abs_update": 0.000999999581836164
+      },
+      {
+        "name": "blocks.2.0.kernel",
+        "shape": [
+          4,
+          32,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 3.5885775089263916,
+        "max_abs_update": 0.0010024309158325195
+      },
+      {
+        "name": "blocks.2.1.weight",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.21717920899391174,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.2.1.bias",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.15455934405326843,
+        "max_abs_update": 0.0009999996982514858
+      },
+      {
+        "name": "blocks.2.3.kernel",
+        "shape": [
+          4,
+          32,
+          32,
+          3,
+          3
+        ],
+        "gradient_norm": 4.611621379852295,
+        "max_abs_update": 0.001001611351966858
+      },
+      {
+        "name": "blocks.2.4.weight",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.5705668330192566,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.2.4.bias",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.5162147283554077,
+        "max_abs_update": 0.0009999999310821295
+      },
+      {
+        "name": "readout.weight",
+        "shape": [
+          10,
+          128
+        ],
+        "gradient_norm": 5.004827499389648,
+        "max_abs_update": 0.001002088189125061
+      },
+      {
+        "name": "readout.bias",
+        "shape": [
+          10
+        ],
+        "gradient_norm": 0.4287606477737427,
+        "max_abs_update": 0.0009999999310821295
+      },
+      {
+        "name": "router.logits",
+        "shape": [
+          32,
+          32
+        ],
+        "gradient_norm": 0.05216483399271965,
+        "max_abs_update": 0.0010399818420410156
+      }
+    ],
+    "quaternion_layers": {
+      "blocks.0.0": {
+        "component_gradient_norms": [
+          0.5534969568252563,
+          0.5446063280105591,
+          0.5383791923522949,
+          0.4889124035835266
+        ],
+        "component_update_norms": [
+          0.00848348531872034,
+          0.008485243655741215,
+          0.00848547276109457,
+          0.008485733531415462
+        ]
+      },
+      "blocks.0.3": {
+        "component_gradient_norms": [
+          1.1296292543411255,
+          1.1533299684524536,
+          1.170918583869934,
+          1.215087890625
+        ],
+        "component_update_norms": [
+          0.024000532925128937,
+          0.023999998345971107,
+          0.023999616503715515,
+          0.023998958989977837
+        ]
+      },
+      "blocks.1.0": {
+        "component_gradient_norms": [
+          1.2291184663772583,
+          1.2689226865768433,
+          1.2263497114181519,
+          1.1791821718215942
+        ],
+        "component_update_norms": [
+          0.03394071012735367,
+          0.03394176438450813,
+          0.033941347151994705,
+          0.03394138440489769
+        ]
+      },
+      "blocks.1.3": {
+        "component_gradient_norms": [
+          1.567252278327942,
+          1.405394434928894,
+          1.4999445676803589,
+          1.4740160703659058
+        ],
+        "component_update_norms": [
+          0.04800008237361908,
+          0.04799869284033775,
+          0.04799974709749222,
+          0.04800025001168251
+        ]
+      },
+      "blocks.2.0": {
+        "component_gradient_norms": [
+          1.8231817483901978,
+          1.8148107528686523,
+          1.8032184839248657,
+          1.7345781326293945
+        ],
+        "component_update_norms": [
+          0.06788171082735062,
+          0.0678822472691536,
+          0.06788228452205658,
+          0.06788214296102524
+        ]
+      },
+      "blocks.2.3": {
+        "component_gradient_norms": [
+          2.2604451179504395,
+          2.3143277168273926,
+          2.305659770965576,
+          2.3420634269714355
+        ],
+        "component_update_norms": [
+          0.0959998294711113,
+          0.09599939733743668,
+          0.09599923342466354,
+          0.09599967300891876
+        ]
+      }
+    },
+    "checks": {
+      "all_variables_updated": true,
+      "all_quaternion_components_have_gradients_and_updates": true
+    },
+    "loss_before": 3.1949782371520996,
+    "correct_before": 1
+  },
+  "routing": {
+    "row_sum_max_error": 2.3748725652694702e-07,
+    "column_sum_max_error": 2.1327286958694458e-07,
+    "mean_row_entropy": 1.898455237887598,
+    "matching": [
+      18,
+      30,
+      1,
+      17,
+      4,
+      3,
+      25,
+      27,
+      9,
+      13,
+      14,
+      0,
+      2,
+      11,
+      21,
+      31,
+      24,
+      10,
+      7,
+      19,
+      22,
+      26,
+      8,
+      29,
+      23,
+      28,
+      15,
+      5,
+      16,
+      6,
+      20,
+      12
+    ],
+    "initial_matching": [
+      18,
+      30,
+      1,
+      17,
+      4,
+      3,
+      25,
+      27,
+      9,
+      13,
+      14,
+      0,
+      2,
+      11,
+      21,
+      31,
+      24,
+      10,
+      7,
+      19,
+      22,
+      26,
+      8,
+      29,
+      23,
+      28,
+      15,
+      5,
+      16,
+      6,
+      20,
+      12
+    ],
+    "changed_output_positions": 0,
+    "hard_enabled": false,
+    "temperature": 1.0
+  },
+  "training_real_parameters": 74922,
+  "exported_real_parameters": 73898,
+  "hard_export_error": 0.0,
+  "reload_error": 0.0,
+  "soft_to_hard_max_logit_shift": 1.2455613613128662,
+  "scope": "Synthetic integrity check only; no CIFAR quality or compression gain.",
+  "source_hashes": {
+    "scripts/routing_smoke.py": "d76ee5258ea13524fa5751a1ed7502eaa4cb86add6fd98ab1b057d4f1fb18a96",
+    "src/models/channel_routing.py": "c1c47305a8869b489d482d38c585b6e54c2dcd1c0643a7d4f786b8be6de2fb39"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "output": "results/eurosat_cnn",
+  "data": ".cache/eurosat/prepared",
+  "seeds": [2026, 2027, 2028],
+  "models": ["quaternion", "real"],
+  "quaternion_widths": [8, 16, 32],
+  "real_widths": [16, 32, 64],
+  "dropout": [0.1, 0.2, 0.3],
+  "epochs": 50,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "minimum_learning_rate": 0.00001,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "device": "cuda",
+  "mixed_precision": true,
+  "cpu_threads": 4,
+  "augmentation": "Per-image random crop from 4-pixel zero padding and horizontal flip, on training only (unchanged CIFAR trainer).",
+  "checkpoint_selection": "Minimum validation cross-entropy, as in the frozen CIFAR trainer.",
+  "quaternion_encoding": "q = B08(NIR) + B04(R) i + B03(G) j + B02(B) k; NIR in the real part is a choice, not canonical.",
+  "scope": "Second dataset for the compression studies: identical CNN6 widths, optimizer and epoch budget as CIFAR; only the four-band input differs. The 5,400-image test split is held out and NOT evaluated here. Quaternion and real models differ in widths and compute; they are not matched-cost models."
+}

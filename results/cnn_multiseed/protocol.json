@@ -1,0 +1,33 @@
+{
+  "plan": {
+    "source_run": "results/cifar_cnn",
+    "source_block_analysis": "results/block_analysis",
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "new_seeds": [
+      2027,
+      2028
+    ],
+    "models": [
+      "quaternion",
+      "real"
+    ],
+    "protocol": "Reuse seed 2026. Change only training seed for 2027/2028. Complete all four trainings before new test evaluation. No architecture or optimizer tuning."
+  },
+  "runner_sha256": "9cd29910440a6480d696397cda6bea951129896e08736f39c45adf31cb3ea803",
+  "source_hashes": {
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc"
+  },
+  "original_summary_sha256": "7746423e40c6481a56e28dbebc3ddf5d6705c993d776ee257067b521b51958b5",
+  "selected_block": 3
+}

@@ -1,0 +1,25 @@
+{
+  "output": "results/direct_consumer_pilot",
+  "baseline_source": "results/cifar_cnn",
+  "reference_group": "results/structure_cost_study/cifar/bn/seed_2026/f_500",
+  "seed": 2026,
+  "fraction": 0.5,
+  "normalization": "bn",
+  "ridge_alpha": 0.001,
+  "batch_size": 128,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "finetune": {
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000
+  },
+  "hypothesis": "Part of the observed Q/full gap may arise from shared feature reconstruction followed by folding, rather than from the compact quaternion architecture alone. Direct consumer-output regression may improve quality at exactly the same size.",
+  "scope": "One CIFAR CNN6 BN source, one fraction, one seed, no new baseline. Same six frozen victim sets as the completed all-site comparison. At each site, build the current Q map-then-fold candidate using 500 fit images; for each of five quaternion consumers refit ALL its kernel coefficients to the pre-BN outputs of the current reference before this local removal. Use float64 exact normal equations and ridge centered on the folded candidate (alpha fixed .001), no labels, new biases, new parameters or BN-stat changes. The sixth site feeds an already real readout and uses only the original map-fold procedure, without a direct head fit. Check on the other 500 calibration images. Each site uses its own current already-compressed path; no access to validation for fitting/tuning. Global before/after three-epoch validation/check metrics; all reference outcomes reused. This changes objective and parameterization together, not a pure isolated feasible-space theorem. Centered ridge cannot increase the fitted local objective at its exact solution; held-out/classification improvements are not guaranteed. New exploratory study after prior test outcomes; no new test inference, no automatic replication or alpha search. Direct output reconstruction is prior art (He2017ChannelPruning); no new algorithm or priority claimed.",
+  "official_test_evaluation": false
+}

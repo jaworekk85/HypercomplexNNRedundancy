@@ -1,0 +1,8 @@
+{
+  "pilot": "results/direct_consumer_pilot",
+  "output": "results/direct_consumer_pilot/gap_diagnostic",
+  "sites": [0, 1, 2, 3, 4],
+  "relative_eigen_cutoff": 1e-10,
+  "cpu_threads": 2,
+  "scope": "Post-pilot algebraic diagnostic on the same saved input/target moments only; no new network training or inference. Fit the best shared quaternion-map perturbation around each stored folded prior for the SAME centered consumer-output ridge objective used by direct Q. Compare folded prior, numerically optimized shared-map subspace, and existing full-Q consumer solution. Teacher consumer weights are loaded from the preceding pilot checkpoint (or original source at site0). All check moments remain evaluation-only. This separates re-optimizing shared maps for the new objective from releasing their ties across outputs/spatial offsets; the first difference includes the change of objective/regularization, not a pure isolated loss effect. Numerical least-squares projection facts are background, not novelty. One existing CIFAR source/point; local regularized objectives, not a decomposition of whole-network accuracy or an architecture lower bound. No automatic wider study."
+}

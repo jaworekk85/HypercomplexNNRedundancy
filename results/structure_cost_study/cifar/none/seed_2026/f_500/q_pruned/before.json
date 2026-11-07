@@ -1,0 +1,34 @@
+{
+  "dataset": "cifar",
+  "normalization": "none",
+  "seed": 2026,
+  "fraction": 0.5,
+  "case": "q_pruned",
+  "stage": "before",
+  "real_parameters": 18650,
+  "quaternion_convolutions": 6,
+  "dense_real_convolutions": 0,
+  "output_group_widths": [
+    4,
+    4,
+    8,
+    8,
+    16,
+    16
+  ],
+  "bn_layers": 0,
+  "source_real_parameters": 73002,
+  "original_q_saving": 0.744527547190488,
+  "evaluation": {
+    "validation": {
+      "cross_entropy": 3.730271301269531,
+      "accuracy": 0.104
+    },
+    "check_calibration": {
+      "cross_entropy": 3.7445338745117187,
+      "accuracy": 0.1
+    }
+  },
+  "checkpoint_bytes": 77708,
+  "test_evaluated": false
+}

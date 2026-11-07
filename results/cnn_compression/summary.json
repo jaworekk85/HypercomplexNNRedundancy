@@ -1,0 +1,2256 @@
+{
+  "status": "completed",
+  "config": {
+    "source_multiseed": "results/cnn_multiseed",
+    "source_block_analysis": "results/block_analysis",
+    "block": 3,
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "removed_fractions": [
+      0.0,
+      0.25,
+      0.5
+    ],
+    "policies": [
+      "random",
+      "incoming_norm",
+      "activation_similarity"
+    ],
+    "random_repetitions": 10,
+    "random_seed_offset": 100000,
+    "maximum_validation_accuracy_drop_for_useful_compression": 0.02,
+    "minimum_real_parameter_fraction_saved": 0.1,
+    "device": "cuda",
+    "batch_size": 256,
+    "fine_tuning_updates": 0,
+    "protocol": "Freeze block 3 from seed-2026 calibration/validation gate. Scores use calibration only, no label-based unit selection. Finish all size/policy manifests and validation evaluations before final test. Report all policies, fractions, training seeds and random repetitions."
+  },
+  "rows": [
+    {
+      "seed": 2026,
+      "case": "baseline_r00_removed00",
+      "policy": "baseline",
+      "repetition": 0,
+      "removed_fraction": 0.0,
+      "manifest_sha256": "538d55cd71b44d10fc54cb8b3bb959d6512c40c9d145f709333a2c9208644966",
+      "removed_quaternion_units": 0,
+      "retained_quaternion_units": 32,
+      "real_trainable_parameters": 73898,
+      "real_parameter_fraction_saved": 0.0,
+      "nontrainable_buffer_elements": 902,
+      "checkpoint_bytes": 308368,
+      "checkpoint_sha256": "c48d9aeb786e6705dbd3838a47c778f79238968d5c7e00d1f9643931c9597209",
+      "compact_vs_masked_max_abs_logit_error": 0.0,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.625937515258789,
+        "accuracy": 0.783
+      },
+      "validation_accuracy_drop": 0.0,
+      "validation_cross_entropy_increase": 0.0,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6079736074447631,
+        "accuracy": 0.79
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r00_removed08",
+      "policy": "random",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "cb295ea8c9b4b27b9f47c7f9e0803cba2b6572b59419cc08e5c20cb0d1cdd953",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "4de8c8ff06d262a56f4bd0837172558e910a09467d1b46914de51a978e0842bb",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6844779968261718,
+        "accuracy": 0.773
+      },
+      "validation_accuracy_drop": 0.010000000000000009,
+      "validation_cross_entropy_increase": 0.058540481567382785,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6677947560310363,
+        "accuracy": 0.7688
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r00_removed16",
+      "policy": "random",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "d52296e3001e2763c6be9e5ae7ec4459ef1c8bcbedddb3bd82f61fe6a63a0237",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "5be9ceadc59bcc35eee2e006114490eacd7963e9fa970451495b28054f72f82e",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8143475646972657,
+        "accuracy": 0.738
+      },
+      "validation_accuracy_drop": 0.04500000000000004,
+      "validation_cross_entropy_increase": 0.1884100494384766,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.7943374708175659,
+        "accuracy": 0.7516
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r01_removed08",
+      "policy": "random",
+      "repetition": 1,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "288f5b6bed4420a4a0f35a38c97c3648a16207b351862e315cadcb07f779ac0c",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "43ac0dd21532170450328bfd50bc9bf44a85c504b8834103c2ac7fe1f7774e37",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6942021484375,
+        "accuracy": 0.759
+      },
+      "validation_accuracy_drop": 0.02400000000000002,
+      "validation_cross_entropy_increase": 0.06826463317871101,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.669283805847168,
+        "accuracy": 0.777
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r01_removed16",
+      "policy": "random",
+      "repetition": 1,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "c139b1dfbf15d53d9db5871653edf2a2f71b657c72cd826f1d9f19fa226ec5d6",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "e4b86de98ce87e384efa81146232c7cecfcb0c3fcdae04d942aeabb261117cc4",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8487978210449219,
+        "accuracy": 0.736
+      },
+      "validation_accuracy_drop": 0.04700000000000004,
+      "validation_cross_entropy_increase": 0.2228603057861328,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8370108494758606,
+        "accuracy": 0.7397
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r02_removed08",
+      "policy": "random",
+      "repetition": 2,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "998ef7bafd52cc4bda66836953ddef0ce52ac8f1ae7a6d337124948d1c3b4e4c",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "948759192814ab17016feb079b26536b4659908603a712ccd07ae1808cdded96",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6834344940185547,
+        "accuracy": 0.754
+      },
+      "validation_accuracy_drop": 0.029000000000000026,
+      "validation_cross_entropy_increase": 0.05749697875976567,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6671489610671997,
+        "accuracy": 0.774
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r02_removed16",
+      "policy": "random",
+      "repetition": 2,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "b29820dd99026895157d90e6ddbd5e5c974508037cbb6c7ef86bba028b498952",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "ac9022acac8c11101e384c553d7c9039dfc3b503b19f274fafe75001a43197c7",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8292394409179688,
+        "accuracy": 0.735
+      },
+      "validation_accuracy_drop": 0.04800000000000004,
+      "validation_cross_entropy_increase": 0.2033019256591797,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8070026739120484,
+        "accuracy": 0.7529
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r03_removed08",
+      "policy": "random",
+      "repetition": 3,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "cb45987f6fb1537392ae556a8a3dee7668bfeec33da5f717813c76972b825fe8",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "4ba8c16af28e00a7ec4cb54fe07a974a0c38fffce2230bd1ace604a631512a69",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7043782806396485,
+        "accuracy": 0.754
+      },
+      "validation_accuracy_drop": 0.029000000000000026,
+      "validation_cross_entropy_increase": 0.07844076538085942,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.684320623588562,
+        "accuracy": 0.7648
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r03_removed16",
+      "policy": "random",
+      "repetition": 3,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "0aacdd13db8870c7ed7b30cdb1e38efb6206a124184b164f3e1bf03b3d63efe8",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "c0dfa0fc21db94f312a5cf6a9c2ea8f607eedfa2bac00df95a590c81c8887823",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.9214722290039062,
+        "accuracy": 0.691
+      },
+      "validation_accuracy_drop": 0.09200000000000008,
+      "validation_cross_entropy_increase": 0.2955347137451172,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.9011284854888916,
+        "accuracy": 0.6906
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r04_removed08",
+      "policy": "random",
+      "repetition": 4,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "d4d5e5f36860d0fb9d2153c2e4f0ed5bcf3b00520e7a381a28341f0da4c25cc3",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "dfad092d878884b3173bfa6e44565aee2af843f11bc946704dcd6d82f41902d9",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6671242065429688,
+        "accuracy": 0.778
+      },
+      "validation_accuracy_drop": 0.0050000000000000044,
+      "validation_cross_entropy_increase": 0.04118669128417973,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6494352041244507,
+        "accuracy": 0.779
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r04_removed16",
+      "policy": "random",
+      "repetition": 4,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "d0f8098756f53cdb2066fec6bd0ee46d70998f27d3fb4aab0df27746c19bebae",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "6c2ac8a9976e4db26afd92eb72286bd228c7c60286d279743f2b627d051ea52f",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8212090454101563,
+        "accuracy": 0.75
+      },
+      "validation_accuracy_drop": 0.03300000000000003,
+      "validation_cross_entropy_increase": 0.19527153015136722,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.795468886756897,
+        "accuracy": 0.7591
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r05_removed08",
+      "policy": "random",
+      "repetition": 5,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "5e3a2cf8b96aa076bd51bdbdaab4355d0093498084b1cacffdf3dd449c9a6174",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "d82967920ada6e4c04dad6a51d0f3a689e650f8fdac6960beaaee0186ab14225",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6743281402587891,
+        "accuracy": 0.771
+      },
+      "validation_accuracy_drop": 0.01200000000000001,
+      "validation_cross_entropy_increase": 0.04839062500000002,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.657168761920929,
+        "accuracy": 0.7769
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r05_removed16",
+      "policy": "random",
+      "repetition": 5,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "83978405dfa7d2990083c4b82eb2a670c8f34127470a960938123ccf1858bc66",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "b86318dd4a60cb694533b23f83bd468f9aa8c6781f2031d458d0fedc2d4e303d",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.862390625,
+        "accuracy": 0.704
+      },
+      "validation_accuracy_drop": 0.07900000000000007,
+      "validation_cross_entropy_increase": 0.23645310974121092,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8465189973831176,
+        "accuracy": 0.7312
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r06_removed08",
+      "policy": "random",
+      "repetition": 6,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "772bc76b08635123348c7aa79fefc10cf24df27627b791797106ea1af1a611c0",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "ffd3c17a923cbfa38fec635c82f60a9aaa88e0bd0a37108e29e20c55baaced97",
+      "compact_vs_masked_max_abs_logit_error": 1.430511474609375e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6756858673095704,
+        "accuracy": 0.77
+      },
+      "validation_accuracy_drop": 0.013000000000000012,
+      "validation_cross_entropy_increase": 0.04974835205078132,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6680742446899414,
+        "accuracy": 0.7728
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r06_removed16",
+      "policy": "random",
+      "repetition": 6,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "552cdc4c6a24aa56ed1c6a185c8a84a8cb87328ddaffaaf21c0eccfc63922e6a",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "8c8d0996b079de98e953bb31e8c62ce8cd9bc6f41829bb593b491f5b7b1aaea3",
+      "compact_vs_masked_max_abs_logit_error": 4.76837158203125e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8640112152099609,
+        "accuracy": 0.731
+      },
+      "validation_accuracy_drop": 0.052000000000000046,
+      "validation_cross_entropy_increase": 0.2380736999511719,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8486391532897949,
+        "accuracy": 0.7277
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r07_removed08",
+      "policy": "random",
+      "repetition": 7,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "8b8f892cbbb5eac7ebbb9e9b0bf17524703eff1515549d1baad7e1b7ebcad00f",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "9a577ad01eeb8a34617e45b7a4c484670f30635ee0d2a24fd5178cf48675e2ef",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6936527862548828,
+        "accuracy": 0.76
+      },
+      "validation_accuracy_drop": 0.02300000000000002,
+      "validation_cross_entropy_increase": 0.06771527099609376,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6830248521804809,
+        "accuracy": 0.7682
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r07_removed16",
+      "policy": "random",
+      "repetition": 7,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "54ca3760fea1d0d44228038367e2712ca28eb9896642137362fa2e86e1258c11",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "0a19460a52e9918e277c704c35d307295e2664054a527b45fb7a98acaafdb43b",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8745355377197266,
+        "accuracy": 0.699
+      },
+      "validation_accuracy_drop": 0.08400000000000007,
+      "validation_cross_entropy_increase": 0.24859802246093754,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8680534482002258,
+        "accuracy": 0.7111
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r08_removed08",
+      "policy": "random",
+      "repetition": 8,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "b8c5e16f412db2a535d5e07dd0e63fdb479a5ce5a573189c58bd5ad441979cc6",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "556942df609d2c9ef0f60a39ab6b042cb3d5afe9bb433f27e31b7834a33e0fc1",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6736717681884765,
+        "accuracy": 0.774
+      },
+      "validation_accuracy_drop": 0.009000000000000008,
+      "validation_cross_entropy_increase": 0.04773425292968747,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6522461441993713,
+        "accuracy": 0.776
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r08_removed16",
+      "policy": "random",
+      "repetition": 8,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "8b0de3ae884eb0e8a2367c511371c208dfdaff22ceba87bb0b7c327f5e5aade1",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "fb2a5e762559eb08b0c7e6c0b24337a3a7eea4e8ef1aea0646efb1b7e3d12641",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8660394439697265,
+        "accuracy": 0.749
+      },
+      "validation_accuracy_drop": 0.03400000000000003,
+      "validation_cross_entropy_increase": 0.2401019287109375,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8400487869262695,
+        "accuracy": 0.7473
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r09_removed08",
+      "policy": "random",
+      "repetition": 9,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "ccd2b9963f1b74f1940e794ee220d529d833ec0821d41f6ea33ee9b2f4d88adf",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "0ab4dfd197296ea641182bb0ac27b32e6c79250f82b4b427aef58f3961f10425",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6861062927246093,
+        "accuracy": 0.77
+      },
+      "validation_accuracy_drop": 0.013000000000000012,
+      "validation_cross_entropy_increase": 0.06016877746582028,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6636509472846985,
+        "accuracy": 0.7708
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "random_r09_removed16",
+      "policy": "random",
+      "repetition": 9,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "5ce089f44dd0247ad5ff004cded779cbced4ab2bf94bff291e290148940ff8ea",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "c03d4166999dc36200cec399536b672024ee08055f49721cdbcc674c6c5203b6",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8099604644775391,
+        "accuracy": 0.753
+      },
+      "validation_accuracy_drop": 0.030000000000000027,
+      "validation_cross_entropy_increase": 0.18402294921875006,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.7865572880744934,
+        "accuracy": 0.7595
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "incoming_norm_r00_removed08",
+      "policy": "incoming_norm",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "c1f09fa0e77927ed6ff45ef2ebb9eaeec389aada8248ac09ac8c3ef9f15cee4b",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "1aebffe480de698efd2f3b53b1059a4752d57a1fd5eb82325f233a14f6641a45",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6771849365234375,
+        "accuracy": 0.775
+      },
+      "validation_accuracy_drop": 0.008000000000000007,
+      "validation_cross_entropy_increase": 0.05124742126464843,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6710468713760376,
+        "accuracy": 0.7685
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "incoming_norm_r00_removed16",
+      "policy": "incoming_norm",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "03c3c1e7322ba5a6c86eeafe95ffaa00a94d173e9d2422dfc6b3057ffcec8a80",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "e5f45ab79a7747491fe4f655b8cf96b8af74c0a346d8456e54ac041ed233982e",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.9022757873535157,
+        "accuracy": 0.713
+      },
+      "validation_accuracy_drop": 0.07000000000000006,
+      "validation_cross_entropy_increase": 0.2763382720947266,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.900832177734375,
+        "accuracy": 0.7085
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "activation_similarity_r00_removed08",
+      "policy": "activation_similarity",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "1c2df5532c5654366ac543869fc5b2fa44ca48513ab8630a6e01e2a96e4af7c9",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "8f679570ba12c1e54fe8561161292caf56598eff14537cecc1ef2e5766ea41f2",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6608475952148437,
+        "accuracy": 0.778
+      },
+      "validation_accuracy_drop": 0.0050000000000000044,
+      "validation_cross_entropy_increase": 0.03491007995605466,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6574935127258301,
+        "accuracy": 0.777
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "activation_similarity_r00_removed16",
+      "policy": "activation_similarity",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "d0e99a3141478866929e98f0d39f955d63b948f2afdf0db792170518beef19a3",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "1b482e6d45b1a03393784392d315f863d18b201e6685b86a1b77fcecb460dae2",
+      "compact_vs_masked_max_abs_logit_error": 4.76837158203125e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.872682373046875,
+        "accuracy": 0.732
+      },
+      "validation_accuracy_drop": 0.051000000000000045,
+      "validation_cross_entropy_increase": 0.24674485778808597,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8678921135902404,
+        "accuracy": 0.7311
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "baseline_r00_removed00",
+      "policy": "baseline",
+      "repetition": 0,
+      "removed_fraction": 0.0,
+      "manifest_sha256": "9420b76dabeec2880d205c726d83f3437cdc5c1cd319de2e1266d7069113df76",
+      "removed_quaternion_units": 0,
+      "retained_quaternion_units": 32,
+      "real_trainable_parameters": 73898,
+      "real_parameter_fraction_saved": 0.0,
+      "nontrainable_buffer_elements": 902,
+      "checkpoint_bytes": 308368,
+      "checkpoint_sha256": "47ba3720c8142816b1c56b1afa73a72b7b8433946420f2fc859af40b7eecb23a",
+      "compact_vs_masked_max_abs_logit_error": 0.0,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6589958190917968,
+        "accuracy": 0.767
+      },
+      "validation_accuracy_drop": 0.0,
+      "validation_cross_entropy_increase": 0.0,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6154761263847351,
+        "accuracy": 0.7877
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r00_removed08",
+      "policy": "random",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "5740dd339312ca47f6de631a651d2e15fc189a8fd7c09f9bc24e3bb62cf0311a",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "217df4e99aefc15463095ff11458d3a2389fb3c1afa63ec77da156b18577f3a1",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6963863067626953,
+        "accuracy": 0.759
+      },
+      "validation_accuracy_drop": 0.008000000000000007,
+      "validation_cross_entropy_increase": 0.037390487670898476,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6554374934196472,
+        "accuracy": 0.7797
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r00_removed16",
+      "policy": "random",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "a59b8b87245591acc440af058ed19aa7a76dd0b9dc7b3ddba134fe5c716ee694",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "9658ff3e85b892d702b195e2127deafb3c8fd967582f763669282b981a227dae",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8152505950927734,
+        "accuracy": 0.749
+      },
+      "validation_accuracy_drop": 0.018000000000000016,
+      "validation_cross_entropy_increase": 0.1562547760009766,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.7897340504646301,
+        "accuracy": 0.7712
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r01_removed08",
+      "policy": "random",
+      "repetition": 1,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "0e53c91241d3a298ba3935a1b704ccdaa09468d9abceeea0d19737dd912243eb",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "0bea56167b860494e3566f2e4cb90351d8f51f466c47f22f76dd5fec32bdb180",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7038915557861328,
+        "accuracy": 0.753
+      },
+      "validation_accuracy_drop": 0.014000000000000012,
+      "validation_cross_entropy_increase": 0.044895736694336,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.668419850730896,
+        "accuracy": 0.7733
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r01_removed16",
+      "policy": "random",
+      "repetition": 1,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "c3b0ea5c135754b42748f08722eea65fa33a160394d65566a7857dc05e7c43b3",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "3bbc64e6df8a7645aa6a47422510714ea666ab5f60c43ea6c0b6e678a719fcd0",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8654300994873046,
+        "accuracy": 0.709
+      },
+      "validation_accuracy_drop": 0.05800000000000005,
+      "validation_cross_entropy_increase": 0.20643428039550782,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.840151042175293,
+        "accuracy": 0.7297
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r02_removed08",
+      "policy": "random",
+      "repetition": 2,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "fcbea284f0b3da7a8455cd36cc6446e57ac3a27f2dd9af7fd664a8a082dce138",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "caa0cc20c6e888811c448cef57042397ea5ee27d9d31efa45e1607fcfdc024f6",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6973559112548828,
+        "accuracy": 0.754
+      },
+      "validation_accuracy_drop": 0.013000000000000012,
+      "validation_cross_entropy_increase": 0.038360092163086,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6612214352607727,
+        "accuracy": 0.7761
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r02_removed16",
+      "policy": "random",
+      "repetition": 2,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "ab9d696d7b22e13ffe7354c1ea42723008ce871b68b15b347342f738c891ff78",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "a2164bab70dfb49f92378340a882d3c30f8bd5bd21683e2db59001100cd1732d",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8410423583984376,
+        "accuracy": 0.721
+      },
+      "validation_accuracy_drop": 0.04600000000000004,
+      "validation_cross_entropy_increase": 0.18204653930664072,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8154257314682006,
+        "accuracy": 0.7442
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r03_removed08",
+      "policy": "random",
+      "repetition": 3,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "748b4ded8fced1eb4845e2278c1098a02728195bd00dd7406edc583dfac52a34",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "2942b26ff60545c81bf2fa799589061d43aa232cb3b4cc1fadc1d97038522577",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7246875305175782,
+        "accuracy": 0.747
+      },
+      "validation_accuracy_drop": 0.020000000000000018,
+      "validation_cross_entropy_increase": 0.06569171142578134,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6979140316009521,
+        "accuracy": 0.7656
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r03_removed16",
+      "policy": "random",
+      "repetition": 3,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "477b039f7c980fc20c91b2456d4f500d5cc56cec82ee36f9c2fe9bb95e605ef7",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "d8a991e4f27c9c711098838abee2a5c401c9d3190161d6298bfad03d27714c23",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.89188232421875,
+        "accuracy": 0.714
+      },
+      "validation_accuracy_drop": 0.05300000000000005,
+      "validation_cross_entropy_increase": 0.2328865051269532,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.86450102891922,
+        "accuracy": 0.7273
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r04_removed08",
+      "policy": "random",
+      "repetition": 4,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "bf2fc3492393d082b3f614b29c4423f45ccd2aa8af3a5f26d7f18b69dd5289e3",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "0a3ee541bf5cf5c6a6bd1c8d81560afb5dc3be58aa94180bf3d6e3710671fa03",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7111688690185547,
+        "accuracy": 0.753
+      },
+      "validation_accuracy_drop": 0.014000000000000012,
+      "validation_cross_entropy_increase": 0.052173049926757864,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6676219620704651,
+        "accuracy": 0.7709
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r04_removed16",
+      "policy": "random",
+      "repetition": 4,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "2ea1bd43f6e5eba783518530c5eb76b78857bfbace4e534b52bd12736a5e707d",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "f8b4fa77698d7f935ef501a6c753d62d3e77491ac7cd711045cfc01c5815720c",
+      "compact_vs_masked_max_abs_logit_error": 4.76837158203125e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8435132751464843,
+        "accuracy": 0.74
+      },
+      "validation_accuracy_drop": 0.027000000000000024,
+      "validation_cross_entropy_increase": 0.1845174560546875,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8128017706871032,
+        "accuracy": 0.7575
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r05_removed08",
+      "policy": "random",
+      "repetition": 5,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "ba58b6bf504f9210e49728a3a0a8291f4d3e3c51b53dbf526feaca980b7610e8",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "49eaa40330b8fedcbb093d33d8cd0bb9e79ed76081b9d5e2f00877a20ec76a01",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6953017883300782,
+        "accuracy": 0.752
+      },
+      "validation_accuracy_drop": 0.015000000000000013,
+      "validation_cross_entropy_increase": 0.03630596923828133,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6544200444221496,
+        "accuracy": 0.7823
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r05_removed16",
+      "policy": "random",
+      "repetition": 5,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "210e0425490f73f46ecc42dad0d2393ae991078f474c20b9565a66bd35389fda",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "0a3dff431d500b1174986cc98ffb0d75a483ee9c4c9a0e9761e4217668abe671",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8343910369873047,
+        "accuracy": 0.746
+      },
+      "validation_accuracy_drop": 0.02100000000000002,
+      "validation_cross_entropy_increase": 0.17539521789550783,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.7952017996788024,
+        "accuracy": 0.7671
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r06_removed08",
+      "policy": "random",
+      "repetition": 6,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "4f901520fdaafff1f5ec998ab20c33717ebe9f3fd30833529bc08c65dbe82681",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "b83c918489f508e00a81a26979cc8632e97f3087842cbc4885846a8fc2f0e915",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7064522857666016,
+        "accuracy": 0.742
+      },
+      "validation_accuracy_drop": 0.025000000000000022,
+      "validation_cross_entropy_increase": 0.04745646667480474,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6710021325111389,
+        "accuracy": 0.7712
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r06_removed16",
+      "policy": "random",
+      "repetition": 6,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "2ed28ee62c6fc48e0de60dad96c2d9a626d6ccae00e5d13f28d240d5018c00f6",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "a3fe4f28c7f323d83fa32ca3d79b7421feccaf8a8528213c7bcb680ffc988480",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.85182421875,
+        "accuracy": 0.723
+      },
+      "validation_accuracy_drop": 0.04400000000000004,
+      "validation_cross_entropy_increase": 0.1928283996582032,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8270067867279053,
+        "accuracy": 0.7434
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r07_removed08",
+      "policy": "random",
+      "repetition": 7,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "4c25671a434a5a7665c190efabb21be537c8be7c93b2efe51ba6619a9e4c6ccb",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "eab0daf16a71f2e2abc2fbbef35bea68f2d626bb3590ce5a554728270447fc25",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6906139526367188,
+        "accuracy": 0.763
+      },
+      "validation_accuracy_drop": 0.0040000000000000036,
+      "validation_cross_entropy_increase": 0.031618133544921934,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6500932576179504,
+        "accuracy": 0.7799
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r07_removed16",
+      "policy": "random",
+      "repetition": 7,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "5f38681a647b48a3ef01bccd9877e068bc473b718cccda2305743db7410e0ce6",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "de4619420a61912bdb79e45ec7092494ea67f01b25842ea9f4f3aca7eca6ad11",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8499717559814454,
+        "accuracy": 0.747
+      },
+      "validation_accuracy_drop": 0.020000000000000018,
+      "validation_cross_entropy_increase": 0.19097593688964853,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.8256618436813354,
+        "accuracy": 0.7492
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r08_removed08",
+      "policy": "random",
+      "repetition": 8,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "fc3d988943bb9375f6cd939ede4d57aa091b17cdbb25145cd7f8adb6c68b8427",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "e2e2dba1f41ce1317fa1305cf5df49634ed233139c8f5c74dc8b1a0cf96fe05f",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7170106811523438,
+        "accuracy": 0.746
+      },
+      "validation_accuracy_drop": 0.02100000000000002,
+      "validation_cross_entropy_increase": 0.05801486206054696,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6722081045150757,
+        "accuracy": 0.77
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r08_removed16",
+      "policy": "random",
+      "repetition": 8,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "7f79348e5212ed587547bc17627052725a89caf2bba69fb43b1bbc173791a6d1",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "86a12b5e78064c1b7c0e5ece39cb059147703b22d42358f94bd5ec82ad6e92be",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.9297772216796875,
+        "accuracy": 0.687
+      },
+      "validation_accuracy_drop": 0.07999999999999996,
+      "validation_cross_entropy_increase": 0.27078140258789063,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8933677448272705,
+        "accuracy": 0.7106
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r09_removed08",
+      "policy": "random",
+      "repetition": 9,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "f6787664710d733afb91f056a9a1c43ff97b6011055977f4b6ccddc77cc8443e",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "7f5b15fd46d9ccb525a6c16bb2d8fd7a1e284fcebbb18c661734df1b8ca8ad22",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7392571716308594,
+        "accuracy": 0.758
+      },
+      "validation_accuracy_drop": 0.009000000000000008,
+      "validation_cross_entropy_increase": 0.08026135253906252,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6991993787765503,
+        "accuracy": 0.7647
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "random_r09_removed16",
+      "policy": "random",
+      "repetition": 9,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "3ddeaec368c30dbb2280d5a04197a90dc3333a7ac04c1396b29d96d7eb19a6b1",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "808db6816cfecef25268bb435a2169fdc507db3220890990a0a74653d9ad2c2c",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8805832824707032,
+        "accuracy": 0.706
+      },
+      "validation_accuracy_drop": 0.061000000000000054,
+      "validation_cross_entropy_increase": 0.22158746337890634,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8509819742202759,
+        "accuracy": 0.7237
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "incoming_norm_r00_removed08",
+      "policy": "incoming_norm",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "9332ca7a94600bd020ddc9bf6d50e055e85cae80f941e7bc697d0cf1fd136424",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "28a7178bac5edf5ee0c2d7d1b77e9d48e872c5bd50369a211700a849aa32bcff",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7219329833984375,
+        "accuracy": 0.749
+      },
+      "validation_accuracy_drop": 0.018000000000000016,
+      "validation_cross_entropy_increase": 0.06293716430664065,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6958797407150269,
+        "accuracy": 0.7573
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "incoming_norm_r00_removed16",
+      "policy": "incoming_norm",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "e2b9c53dcba562c069dd8abc7533141e95497b92c730735a8387f1c985fc27ef",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "75b3291893deab081530e87033335f7fdb6f1a17bda6ee47e9d88e8bf7d23bba",
+      "compact_vs_masked_max_abs_logit_error": 5.960464477539062e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.9114442291259766,
+        "accuracy": 0.686
+      },
+      "validation_accuracy_drop": 0.08099999999999996,
+      "validation_cross_entropy_increase": 0.2524484100341797,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.9034999342918396,
+        "accuracy": 0.7003
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "activation_similarity_r00_removed08",
+      "policy": "activation_similarity",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "cfb7aaf6e7775719b3b32d36b32218ecd297ae35027631456b89069252fda37a",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "b2b4c52d58136ae32b52bf65a4b17f3f8d573d6b4e89ab308f0d4ffc0f3e30bf",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6816026306152344,
+        "accuracy": 0.752
+      },
+      "validation_accuracy_drop": 0.015000000000000013,
+      "validation_cross_entropy_increase": 0.022606811523437575,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6548415380477906,
+        "accuracy": 0.776
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "activation_similarity_r00_removed16",
+      "policy": "activation_similarity",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "f9193f1906421555ddcd6c5ff3bd1384c73a48678f4b86263357140430be70a4",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "1e09916bb75473f33d0006c8e607f9a9f3a89a9d08a8b26671c348857cdf80ed",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8545491638183593,
+        "accuracy": 0.756
+      },
+      "validation_accuracy_drop": 0.01100000000000001,
+      "validation_cross_entropy_increase": 0.1955533447265625,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.8352838224411011,
+        "accuracy": 0.756
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "baseline_r00_removed00",
+      "policy": "baseline",
+      "repetition": 0,
+      "removed_fraction": 0.0,
+      "manifest_sha256": "c5c155b04fdb1d96baba41fc1d5f69bbca00719c8fc723194ca144da1cd43ac5",
+      "removed_quaternion_units": 0,
+      "retained_quaternion_units": 32,
+      "real_trainable_parameters": 73898,
+      "real_parameter_fraction_saved": 0.0,
+      "nontrainable_buffer_elements": 902,
+      "checkpoint_bytes": 308368,
+      "checkpoint_sha256": "a5878b3530c9b5f108f8f3494d55cfea5ff2a166b9dc3c8bf22ac8d14a2a913d",
+      "compact_vs_masked_max_abs_logit_error": 0.0,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6282565002441406,
+        "accuracy": 0.788
+      },
+      "validation_accuracy_drop": 0.0,
+      "validation_cross_entropy_increase": 0.0,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6121872174263,
+        "accuracy": 0.792
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r00_removed08",
+      "policy": "random",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "8f70416beb1631f74a2776bf025ac5c3f4b5e9f9631b10dbd6bc9755e0367e6f",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "49940d28c7b4a32e6a86b2798e89d5957de84e16fa3e942b487aece4dc35ae0e",
+      "compact_vs_masked_max_abs_logit_error": 1.430511474609375e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6652406158447266,
+        "accuracy": 0.776
+      },
+      "validation_accuracy_drop": 0.01200000000000001,
+      "validation_cross_entropy_increase": 0.03698411560058601,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6501273683547973,
+        "accuracy": 0.785
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r00_removed16",
+      "policy": "random",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "4a2ba74bdeb25916043b0baea9125efe79483bcb2dbfd6a58fbfe7dc0eda8f45",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "d0da0872ccb45549f505469732a7e8d64aa445938020d34e8c5a61f28851e89d",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8433717193603516,
+        "accuracy": 0.747
+      },
+      "validation_accuracy_drop": 0.041000000000000036,
+      "validation_cross_entropy_increase": 0.215115219116211,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8429612500190735,
+        "accuracy": 0.7425
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r01_removed08",
+      "policy": "random",
+      "repetition": 1,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "e6784f32ac3e7d906fa7c5b8d3062454d6c254392c268142a8ea465f8c2a003b",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "8190c2835c5fd1f8d15f4de44939f1c00eaeec3534847741c6f6193c8e8eef60",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6800588073730469,
+        "accuracy": 0.767
+      },
+      "validation_accuracy_drop": 0.02100000000000002,
+      "validation_cross_entropy_increase": 0.05180230712890632,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6694508163452149,
+        "accuracy": 0.772
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r01_removed16",
+      "policy": "random",
+      "repetition": 1,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "46e3ba49058953f9e99774aecec588112b7566cec5751023d4472f715f8b3f8c",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "a9863d47fcda1ace400c243c06870205f26ba9b0743d4db1a5b422c99711d74b",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8486607360839844,
+        "accuracy": 0.728
+      },
+      "validation_accuracy_drop": 0.06000000000000005,
+      "validation_cross_entropy_increase": 0.2204042358398438,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8415147780418396,
+        "accuracy": 0.7296
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r02_removed08",
+      "policy": "random",
+      "repetition": 2,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "b24e4cc5bd0b89931136b96106894ad180636c4bef3e0706e720faef4f01716d",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "3906902020a4882cbf6eda1d6223c647c9e4fb48aa96b8b91f17ca0909f37541",
+      "compact_vs_masked_max_abs_logit_error": 1.430511474609375e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6721294250488281,
+        "accuracy": 0.769
+      },
+      "validation_accuracy_drop": 0.019000000000000017,
+      "validation_cross_entropy_increase": 0.04387292480468752,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6558430596351623,
+        "accuracy": 0.7816
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r02_removed16",
+      "policy": "random",
+      "repetition": 2,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "4e09861ecdd48e637e06fc0d503a154f8f2cf2cd46e4ebad72f8c98794793e52",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "891cb2e3576b37a79c3e53fb6ccd7f637c937df26c17d723ef33c71c45927093",
+      "compact_vs_masked_max_abs_logit_error": 4.76837158203125e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8344661560058594,
+        "accuracy": 0.739
+      },
+      "validation_accuracy_drop": 0.049000000000000044,
+      "validation_cross_entropy_increase": 0.2062096557617188,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8200447273254394,
+        "accuracy": 0.739
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r03_removed08",
+      "policy": "random",
+      "repetition": 3,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "d3a06c63a00e04089963b4343fdbe66659bbed22628097d1ed58368efe0142c7",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "fbba7933288f9fd1d3c45c3cd77b02a1af5114c66ff64ff876914ecbe2cd7d8a",
+      "compact_vs_masked_max_abs_logit_error": 1.430511474609375e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6720468292236328,
+        "accuracy": 0.772
+      },
+      "validation_accuracy_drop": 0.016000000000000014,
+      "validation_cross_entropy_increase": 0.0437903289794922,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6569070395469665,
+        "accuracy": 0.7818
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r03_removed16",
+      "policy": "random",
+      "repetition": 3,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "52b1d30b079c0e2ff600b4d6bfb3cc281bbe4f69aaeeb86058aa4e99807ae2e9",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "b1450b22723b3236d0afc9ec0389d09fee013e8d67eaf750caf0f2f5da86130f",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8088145904541015,
+        "accuracy": 0.757
+      },
+      "validation_accuracy_drop": 0.031000000000000028,
+      "validation_cross_entropy_increase": 0.18055809020996094,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.790950394821167,
+        "accuracy": 0.7637
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r04_removed08",
+      "policy": "random",
+      "repetition": 4,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "fbb4d068fe72bbb1e104e34acbc5e77b6463ce6f7cdb7a71dc6326af2ec1f662",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "a2d048b7b1db6b7cfdb6c19344492e52c137de15c8c0a6c774225502c3816275",
+      "compact_vs_masked_max_abs_logit_error": 1.430511474609375e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6702606811523437,
+        "accuracy": 0.778
+      },
+      "validation_accuracy_drop": 0.010000000000000009,
+      "validation_cross_entropy_increase": 0.042004180908203126,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6605742765426635,
+        "accuracy": 0.773
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r04_removed16",
+      "policy": "random",
+      "repetition": 4,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "1ddedf37b8b2720d9abd1dd376f18f9d186cefd7f17fb7859c57ea89deb311a3",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "3eea1b0841226ad1a29041c7105c0e9f0a5a13a91832d307ebb6d70a70c05e22",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8532660980224609,
+        "accuracy": 0.739
+      },
+      "validation_accuracy_drop": 0.049000000000000044,
+      "validation_cross_entropy_increase": 0.2250095977783203,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8425721914291382,
+        "accuracy": 0.7418
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r05_removed08",
+      "policy": "random",
+      "repetition": 5,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "971b714710cc0d6678ac4718cd988b3bd31f09052afdb3c72e7deb1c4d2ee6ff",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "ecbebb5cb4fb2932bec38c3c570629bdb85de0c74f48397a16eaed5b05ea5ba4",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6671114807128906,
+        "accuracy": 0.769
+      },
+      "validation_accuracy_drop": 0.019000000000000017,
+      "validation_cross_entropy_increase": 0.03885498046875002,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6503823401451111,
+        "accuracy": 0.7831
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r05_removed16",
+      "policy": "random",
+      "repetition": 5,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "6cf60fd3ef1561caa9fa4498eead3ba65ea21c56d581e3f79be54167ffafd659",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "9f61f42cf141f787dd95661b6dffd2c8fb1065471b7574812f6491c66bfc7fc0",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8445495452880859,
+        "accuracy": 0.728
+      },
+      "validation_accuracy_drop": 0.06000000000000005,
+      "validation_cross_entropy_increase": 0.2162930450439453,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8304008228302002,
+        "accuracy": 0.7337
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r06_removed08",
+      "policy": "random",
+      "repetition": 6,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "dcf1ae1b026005862dc219d865aa7eac313d84c0b9dbc4e38d95d802b5039f55",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "32baa3ac7d4c476664c0640596156c29d9d63026a27af3988a7a02042a0fffb7",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6861018524169922,
+        "accuracy": 0.762
+      },
+      "validation_accuracy_drop": 0.026000000000000023,
+      "validation_cross_entropy_increase": 0.05784535217285158,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6640980358123779,
+        "accuracy": 0.7741
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r06_removed16",
+      "policy": "random",
+      "repetition": 6,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "b47880666062920c703a47ba3b935a3f4ead8b9f01a796961a7fa65f770bdfd0",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "d9c88c41eacd161e293eb0c4bd927609fff7f873def8f018ecff54386cd332ec",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.840261734008789,
+        "accuracy": 0.728
+      },
+      "validation_accuracy_drop": 0.06000000000000005,
+      "validation_cross_entropy_increase": 0.21200523376464842,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8223225455284119,
+        "accuracy": 0.7438
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r07_removed08",
+      "policy": "random",
+      "repetition": 7,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "2c34e46ffaca7f4fe23c03a3efc821bcae226df156241057273e691385ff463a",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "78e60062fbd4c932956f02a1b0de487cf1c3ac7750a51e77b08e45f2071e8b32",
+      "compact_vs_masked_max_abs_logit_error": 1.430511474609375e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6507384338378907,
+        "accuracy": 0.783
+      },
+      "validation_accuracy_drop": 0.0050000000000000044,
+      "validation_cross_entropy_increase": 0.02248193359375006,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6391547161102294,
+        "accuracy": 0.7859
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r07_removed16",
+      "policy": "random",
+      "repetition": 7,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "cc37a4d770454775f5edde0268a7d05fb8ca974d93d22adf6da4bc831b99c9ff",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "96027f8a2e3f062ff73403d4f27d16f24b1cf06c86b864dcf375c906285c1416",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8041149444580078,
+        "accuracy": 0.775
+      },
+      "validation_accuracy_drop": 0.013000000000000012,
+      "validation_cross_entropy_increase": 0.1758584442138672,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.7949964032173157,
+        "accuracy": 0.7737
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r08_removed08",
+      "policy": "random",
+      "repetition": 8,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "33be5bc8a041cdfed84b1bc691106ba2cb369b0d1c2f55d749c0f83fd5cb58a6",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "9629f4ca0f8c11ed888b3026332cb0e86f83543b163e984e7a2ea2310900ad7d",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6710246887207031,
+        "accuracy": 0.768
+      },
+      "validation_accuracy_drop": 0.020000000000000018,
+      "validation_cross_entropy_increase": 0.042768188476562496,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6579560393333435,
+        "accuracy": 0.7767
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r08_removed16",
+      "policy": "random",
+      "repetition": 8,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "f5dee8bcaf9b71b38d95e80a6aec933fce6af6756d937df1f64f03026958997e",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "32c1577d095ba7b6362b00f6b5c088abe0fb8b6fc2791d097bc6a4c1d4c5000c",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8433814392089843,
+        "accuracy": 0.741
+      },
+      "validation_accuracy_drop": 0.04700000000000004,
+      "validation_cross_entropy_increase": 0.21512493896484375,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8280899104118347,
+        "accuracy": 0.7482
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r09_removed08",
+      "policy": "random",
+      "repetition": 9,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "82b1e7129e6190319555668ad579cd5ae91a066dfcce125337122a4f66d9122c",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "6952b596c636446e07addcb7ad65b8343b0dd5d68ff47bd41cde13c813baffe7",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6789272003173829,
+        "accuracy": 0.776
+      },
+      "validation_accuracy_drop": 0.01200000000000001,
+      "validation_cross_entropy_increase": 0.05067070007324226,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6738338230133056,
+        "accuracy": 0.7757
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "random_r09_removed16",
+      "policy": "random",
+      "repetition": 9,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "c48cdbb6ecd5ac9417f8c46e95301e36d906c0cf04d0ddee1ea3c7ea93b5962c",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "bf15b9026dca9a9bd7d287727c247f25711fd804edb0f8fd0d11ca11524a1e8b",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8789789733886719,
+        "accuracy": 0.718
+      },
+      "validation_accuracy_drop": 0.07000000000000006,
+      "validation_cross_entropy_increase": 0.25072247314453133,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8731894895553589,
+        "accuracy": 0.7131
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "incoming_norm_r00_removed08",
+      "policy": "incoming_norm",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "ab519bce7a849a1131e57101c3dd4c359993231a7f4f20b73c90982d74f99127",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "8d5b932493e64f13929cee85c50ca76f8f5e35489f302d30a543bc6c400c964d",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6708457489013672,
+        "accuracy": 0.775
+      },
+      "validation_accuracy_drop": 0.013000000000000012,
+      "validation_cross_entropy_increase": 0.042589248657226575,
+      "meets_prespecified_validation_usefulness_threshold": true,
+      "test": {
+        "cross_entropy": 0.6616125559806824,
+        "accuracy": 0.7752
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "incoming_norm_r00_removed16",
+      "policy": "incoming_norm",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "55b6210d84b56f7249c6e6479d8e83fc94294d55c39fb4738a8f5b927e0314c9",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "0db5b864a5926981942581ef320cce0615b42fc557147c28a553e10b07aa2f06",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.830109603881836,
+        "accuracy": 0.755
+      },
+      "validation_accuracy_drop": 0.03300000000000003,
+      "validation_cross_entropy_increase": 0.20185310363769537,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8211799757957459,
+        "accuracy": 0.7587
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "activation_similarity_r00_removed08",
+      "policy": "activation_similarity",
+      "repetition": 0,
+      "removed_fraction": 0.25,
+      "manifest_sha256": "dee94446be82be2faa0c55d2d006c6dbc4835ea1fb303c486f4781a0cb4704b5",
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "real_parameter_fraction_saved": 0.12990879320143983,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "762ff654552bc4441073416f070fb271fb0eb1dd466d01080b722143fbfd47c5",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.69661376953125,
+        "accuracy": 0.761
+      },
+      "validation_accuracy_drop": 0.027000000000000024,
+      "validation_cross_entropy_increase": 0.06835726928710939,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.6834685688972473,
+        "accuracy": 0.7715
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "activation_similarity_r00_removed16",
+      "policy": "activation_similarity",
+      "repetition": 0,
+      "removed_fraction": 0.5,
+      "manifest_sha256": "0df7f98fcabfe54fa7c761c43b1a25ad1da900e653feec53d13133b0143110ae",
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "real_parameter_fraction_saved": 0.25981758640287966,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "0621d2c5b0f9fd35229dd2f63f9b9d5e48d685d70042aa6583691b4442904fdf",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.874590835571289,
+        "accuracy": 0.726
+      },
+      "validation_accuracy_drop": 0.062000000000000055,
+      "validation_cross_entropy_increase": 0.24633433532714843,
+      "meets_prespecified_validation_usefulness_threshold": false,
+      "test": {
+        "cross_entropy": 0.8626455356597901,
+        "accuracy": 0.7364
+      },
+      "test_evaluated_after_all_validation_cases_frozen": true
+    }
+  ],
+  "protocol": {
+    "config": {
+      "source_multiseed": "results/cnn_multiseed",
+      "source_block_analysis": "results/block_analysis",
+      "block": 3,
+      "seeds": [
+        2026,
+        2027,
+        2028
+      ],
+      "removed_fractions": [
+        0.0,
+        0.25,
+        0.5
+      ],
+      "policies": [
+        "random",
+        "incoming_norm",
+        "activation_similarity"
+      ],
+      "random_repetitions": 10,
+      "random_seed_offset": 100000,
+      "maximum_validation_accuracy_drop_for_useful_compression": 0.02,
+      "minimum_real_parameter_fraction_saved": 0.1,
+      "device": "cuda",
+      "batch_size": 256,
+      "fine_tuning_updates": 0,
+      "protocol": "Freeze block 3 from seed-2026 calibration/validation gate. Scores use calibration only, no label-based unit selection. Finish all size/policy manifests and validation evaluations before final test. Report all policies, fractions, training seeds and random repetitions."
+    },
+    "source_hashes": {
+      "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+      "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+      "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+      "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+      "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+      "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+      "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+      "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+      "scripts/cnn_compression.py": "c1b49c55ee20399577fb20bcf2ece8535c29a865055bd52b816c81ddf928699d",
+      "scripts/analyze_cnn_blocks.py": "abf8cf59ec4277683eb2d927c14568ef739293680ee572af35e4d8a501263d44",
+      "src/evaluation/block_ablation.py": "b3db492a534b41af02f8e963b5d7758161c36b9dbb1112fb424fdcc40905fa3f",
+      "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+      "src/evaluation/thresholds.py": "12d001390a9e69e3f49bc23964a7cfcf08a593bc4fdfca0d17c511344c95fc58"
+    },
+    "multiseed_summary_sha256": "3d173c9cc038198cba79d3854fe67e349bc035843510fad4a34bb9e4a80088b2"
+  },
+  "validation_freeze_sha256": "709cb9ea3f2cba3f4dc5866a4c5b267ec29cef81f273c71f52c018bb882dcaa0",
+  "fine_tuning_updates": 0
+}

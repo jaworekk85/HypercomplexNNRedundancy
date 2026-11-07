@@ -1,0 +1,86 @@
+{
+  "study": {
+    "output": "results/internal_replication",
+    "source_architecture_a": "results/cnn_multiseed",
+    "source_initial_study": "results/internal_merging",
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "removed_units": [
+      4,
+      8
+    ],
+    "block": 2,
+    "architecture_b_widths": [
+      8,
+      16,
+      24,
+      32
+    ],
+    "architecture_b_dropout": [
+      0.1,
+      0.2,
+      0.3,
+      0.3
+    ],
+    "architecture_b_epochs": 50,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "minimum_learning_rate": 1e-05,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "device": "cuda",
+    "cpu_threads": 4,
+    "fit_images": 500,
+    "check_images": 500,
+    "intercept": false,
+    "random_repetitions": 10,
+    "random_seed_offset": 600000,
+    "equivalence_tolerance": 0.0001,
+    "weighted_projection_tolerance": 1e-10,
+    "archive": ".cache/keras/datasets/cifar-10-batches-py-target_archive",
+    "data_source": "results/cifar_cnn",
+    "architecture_b_selection": "Minimum validation cross-entropy over epochs 0-50, as in the frozen original CNN trainer",
+    "pair_selection": "Same fit-only full-map residual MSE times outgoing quaternion-kernel energy as the original internal study; use nested prefixes of four/eight disjoint pairs",
+    "policies": [
+      "paired_pruned",
+      "quaternion_exact",
+      "full_projected",
+      "weighted_projected",
+      "random"
+    ],
+    "functional_oracles": [
+      "quaternion_substitution",
+      "full_substitution"
+    ],
+    "official_test_evaluation": false,
+    "compression_optimizer_updates": 0,
+    "bn_recalibration": false,
+    "scope": "Prespecified extension to 4/8 removals and two sequential CNN depths (6 and 8 convolutions), not arbitrary architecture families. Reuse existing CNN6 baselines and mark its four-removal condition as exploratory, not independent replication. Train three CNN8 baselines with the same data/optimizer/epoch budget. Data-weighted projection is an equivalent strong control, not a new algorithm. No official-test inference or compression fine-tuning."
+  },
+  "source_hashes": {
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+    "scripts/train_fourblock.py": "42a4a7038a0bdc75349794eae020f462a7ea1c0c397eee2db930e0a36b6d8854",
+    "src/models/cifar_fourblock.py": "9f6792bbd24e2a30dc48028e46d7ba89318a07109b815577dc7b6d1ad97cede6"
+  },
+  "source_summary_sha256": "7746423e40c6481a56e28dbebc3ddf5d6705c993d776ee257067b521b51958b5",
+  "split_sha256": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+  "statistics_sha256": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "torch": "2.6.0+cu124",
+    "numpy": "2.2.6",
+    "cuda": "12.4",
+    "platform": "Windows-10-10.0.26200-SP0"
+  },
+  "official_test_evaluated": false
+}

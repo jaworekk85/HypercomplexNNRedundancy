@@ -1,0 +1,64 @@
+{
+  "id": "cifar/circulant/seed_2027/f_500/greedy_comp_after",
+  "dataset": "cifar",
+  "family": "circulant",
+  "architecture": "circulant_cnn6",
+  "seed": 2027,
+  "fraction": 0.5,
+  "policy": "greedy_comp",
+  "stage": "after",
+  "checkpoint": "results/structure_control/circulant/finetuned/circulant_cnn6/seed_2027/f_500/greedy_comp/model.pt",
+  "config": {
+    "seed": 2027,
+    "models": [
+      "circulant"
+    ],
+    "quaternion_widths": [
+      4,
+      8,
+      16
+    ],
+    "real_widths": [
+      16,
+      32,
+      64
+    ],
+    "dropout": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "epochs": 50,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "minimum_learning_rate": 1e-05,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "target_accuracy": 0.8,
+    "device": "cuda",
+    "mixed_precision": true,
+    "cpu_threads": 4,
+    "augmentation": "Per-image random crop from 4-pixel zero padding and horizontal flip, on training only.",
+    "split_source": "results/rgb_pilot/split_indices.npz",
+    "archive": ".cache/keras/datasets/cifar-10-batches-py-target_archive",
+    "checkpoint_selection": "Minimum validation cross-entropy; test only after both model trainings finish.",
+    "scope": "One-seed CNN quality gate. 80 percent is a target until measured, not an architecture guarantee.",
+    "structure": "circulant4"
+  },
+  "expected_validation": {
+    "cross_entropy": 1.358486572265625,
+    "accuracy": 0.519
+  },
+  "test": {
+    "cross_entropy": 1.3291037090301514,
+    "accuracy": 0.5234
+  },
+  "test_images": 10000,
+  "verified_validation": {
+    "cross_entropy": 1.358486572265625,
+    "accuracy": 0.519
+  },
+  "real_parameters": 19098,
+  "checkpoint_sha256": "fa39a984d44d6dd2d82e025abc6650ae92e735278544785dd950a2e23fc60c9f",
+  "predictions_sha256": "e72eee99e2e0eee05ff5404f9118215ab370a2a0090fcd4b0f321f5181c7cb9c"
+}

@@ -1,0 +1,31 @@
+{
+  "output": "results/eurosat_compression",
+  "training_config": "configs/eurosat_cnn.json",
+  "seeds": [2026, 2027, 2028],
+  "block": 1,
+  "quaternion_removed_units": [4, 8],
+  "real_removed_channels": [8, 16],
+  "ridge_alpha": 0.001,
+  "random_repetitions": 10,
+  "quaternion_random_seed_offset": 600000,
+  "real_random_seed_offset": 700000,
+  "fit_half": "even calibration images (500)",
+  "check_half": "odd calibration images (500)",
+  "batch_size": 128,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "equivalence_tolerance": 0.0001,
+  "finetune": {
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000,
+    "random_repetitions_finetuned": 3
+  },
+  "official_test_evaluation": false,
+  "scope": "Second-dataset replication of the CIFAR multi-source and fine-tuning studies on four-band EuroSAT CNN6 baselines, with every rule fixed before any EuroSAT compression outcome: same policies, removal levels, ridge alpha, random-set RNG formula, fit/check halves and fine-tuning budget as configs/multisource_compensation.json and configs/finetune_compression.json. Quaternion victims: nested fit-only pairwise selection (full-map residual times outgoing kernel energy), as in the CIFAR internal study. No official-test inference; no novelty claim."
+}

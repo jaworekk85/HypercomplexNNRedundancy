@@ -1,0 +1,34 @@
+{
+  "dataset": "eurosat",
+  "normalization": "bn",
+  "seed": 2027,
+  "fraction": 0.25,
+  "case": "free_q_init",
+  "stage": "before",
+  "real_parameters": 162562,
+  "quaternion_convolutions": 1,
+  "dense_real_convolutions": 5,
+  "output_group_widths": [
+    6,
+    6,
+    12,
+    12,
+    24,
+    24
+  ],
+  "bn_layers": 6,
+  "source_real_parameters": 73898,
+  "original_q_saving": -1.1998159625429645,
+  "evaluation": {
+    "validation": {
+      "cross_entropy": 0.48587886691093446,
+      "accuracy": 0.829
+    },
+    "check_calibration": {
+      "cross_entropy": 0.43642618560791013,
+      "accuracy": 0.836
+    }
+  },
+  "checkpoint_bytes": 664012,
+  "test_evaluated": false
+}

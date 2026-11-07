@@ -1,0 +1,540 @@
+{
+  "source": {
+    "architecture": "cnn6",
+    "seed": 2026,
+    "path": "results/eurosat_cnn/seed_2026",
+    "config": {
+      "seed": 2026,
+      "models": [
+        "quaternion",
+        "real"
+      ],
+      "quaternion_widths": [
+        8,
+        16,
+        32
+      ],
+      "real_widths": [
+        16,
+        32,
+        64
+      ],
+      "dropout": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "epochs": 50,
+      "batch_size": 128,
+      "learning_rate": 0.001,
+      "minimum_learning_rate": 1e-05,
+      "weight_decay": 0.0001,
+      "optimizer": "AdamW",
+      "device": "cuda",
+      "mixed_precision": true,
+      "cpu_threads": 4,
+      "augmentation": "Per-image random crop from 4-pixel zero padding and horizontal flip, on training only (unchanged CIFAR trainer).",
+      "checkpoint_selection": "Minimum validation cross-entropy, as in the frozen CIFAR trainer.",
+      "dataset": "EuroSAT four-band (NIR,R,G,B)"
+    },
+    "normalization": "bn",
+    "dataset": "eurosat",
+    "curve_output": "results/compression_curve_eurosat"
+  },
+  "fraction": 0.25,
+  "frozen_victims": [
+    [
+      0,
+      2
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      6,
+      11,
+      14
+    ],
+    [
+      6,
+      8,
+      11,
+      13
+    ],
+    [
+      0,
+      1,
+      9,
+      19,
+      23,
+      25,
+      27,
+      29
+    ],
+    [
+      2,
+      5,
+      6,
+      20,
+      21,
+      23,
+      25,
+      30
+    ]
+  ],
+  "q_site_records": [
+    {
+      "site": [
+        0,
+        0
+      ],
+      "victims": [
+        0,
+        2
+      ],
+      "kept": 6,
+      "projection_discarded_energy_fraction": 7.903200069537549e-33,
+      "fold_error": 1.71661376953125e-05
+    },
+    {
+      "site": [
+        0,
+        1
+      ],
+      "victims": [
+        3,
+        5
+      ],
+      "kept": 6,
+      "projection_discarded_energy_fraction": 7.972582559847787e-33,
+      "fold_error": 1.1444091796875e-05
+    },
+    {
+      "site": [
+        1,
+        0
+      ],
+      "victims": [
+        4,
+        6,
+        11,
+        14
+      ],
+      "kept": 12,
+      "projection_discarded_energy_fraction": 7.802506914694669e-33,
+      "fold_error": 7.62939453125e-06
+    },
+    {
+      "site": [
+        1,
+        1
+      ],
+      "victims": [
+        6,
+        8,
+        11,
+        13
+      ],
+      "kept": 12,
+      "projection_discarded_energy_fraction": 8.006807508066831e-33,
+      "fold_error": 7.62939453125e-06
+    },
+    {
+      "site": [
+        2,
+        0
+      ],
+      "victims": [
+        0,
+        1,
+        9,
+        19,
+        23,
+        25,
+        27,
+        29
+      ],
+      "kept": 24,
+      "projection_discarded_energy_fraction": 7.998662598681018e-33,
+      "fold_error": 3.814697265625e-06
+    },
+    {
+      "site": [
+        2,
+        1
+      ],
+      "victims": [
+        2,
+        5,
+        6,
+        20,
+        21,
+        23,
+        25,
+        30
+      ],
+      "kept": 24,
+      "projection_discarded_energy_fraction": 0.0,
+      "fold_error": 5.7220458984375e-06
+    }
+  ],
+  "full_site_records": [
+    {
+      "site": [
+        0,
+        0
+      ],
+      "victims": [
+        0,
+        2
+      ],
+      "fold_max_abs_error": 1.9073486328125e-06,
+      "local_reconstruction": [
+        {
+          "victim": 0,
+          "fit_full_mse": 0.031250175146186734,
+          "check_full_mse": 0.028804385127237993,
+          "fit_q_mse": 0.07818961907822439,
+          "check_q_mse": 0.07196772417575398
+        },
+        {
+          "victim": 2,
+          "fit_full_mse": 0.017281520150178493,
+          "check_full_mse": 0.015045338743594244,
+          "fit_q_mse": 0.08222430827606758,
+          "check_q_mse": 0.07426247053491536
+        }
+      ]
+    },
+    {
+      "site": [
+        0,
+        1
+      ],
+      "victims": [
+        3,
+        5
+      ],
+      "fold_max_abs_error": 1.9073486328125e-06,
+      "local_reconstruction": [
+        {
+          "victim": 3,
+          "fit_full_mse": 0.10683769007708134,
+          "check_full_mse": 0.09489233927291735,
+          "fit_q_mse": 0.19436099416595343,
+          "check_q_mse": 0.17330319607653502
+        },
+        {
+          "victim": 5,
+          "fit_full_mse": 0.09340960408659248,
+          "check_full_mse": 0.08767758241967187,
+          "fit_q_mse": 0.18542729258821158,
+          "check_q_mse": 0.17623157976661513
+        }
+      ]
+    },
+    {
+      "site": [
+        1,
+        0
+      ],
+      "victims": [
+        4,
+        6,
+        11,
+        14
+      ],
+      "fold_max_abs_error": 1.9073486328125e-06,
+      "local_reconstruction": [
+        {
+          "victim": 4,
+          "fit_full_mse": 0.0805994895215162,
+          "check_full_mse": 0.07259426763892617,
+          "fit_q_mse": 0.1074145364626553,
+          "check_q_mse": 0.09676120356412422
+        },
+        {
+          "victim": 6,
+          "fit_full_mse": 0.056359488265180405,
+          "check_full_mse": 0.051238106730498716,
+          "fit_q_mse": 0.09426114880179673,
+          "check_q_mse": 0.08883548160957537
+        },
+        {
+          "victim": 11,
+          "fit_full_mse": 0.05117259339659884,
+          "check_full_mse": 0.048639049256389115,
+          "fit_q_mse": 0.08189305996880179,
+          "check_q_mse": 0.07689352759970992
+        },
+        {
+          "victim": 14,
+          "fit_full_mse": 0.061562851516427,
+          "check_full_mse": 0.055115340154574255,
+          "fit_q_mse": 0.10043024003428076,
+          "check_q_mse": 0.09216106777273927
+        }
+      ]
+    },
+    {
+      "site": [
+        1,
+        1
+      ],
+      "victims": [
+        6,
+        8,
+        11,
+        13
+      ],
+      "fold_max_abs_error": 1.9073486328125e-06,
+      "local_reconstruction": [
+        {
+          "victim": 6,
+          "fit_full_mse": 0.06676361244551035,
+          "check_full_mse": 0.06162155603370419,
+          "fit_q_mse": 0.10314339563518837,
+          "check_q_mse": 0.09460563483257331
+        },
+        {
+          "victim": 8,
+          "fit_full_mse": 0.05409323097579122,
+          "check_full_mse": 0.05265726179623692,
+          "fit_q_mse": 0.07288523618452115,
+          "check_q_mse": 0.07005920916988986
+        },
+        {
+          "victim": 11,
+          "fit_full_mse": 0.06404790388715588,
+          "check_full_mse": 0.059143722522336364,
+          "fit_q_mse": 0.09024136893728399,
+          "check_q_mse": 0.0829129726732142
+        },
+        {
+          "victim": 13,
+          "fit_full_mse": 0.05685648788921236,
+          "check_full_mse": 0.05092562473803295,
+          "fit_q_mse": 0.08790112836387755,
+          "check_q_mse": 0.07704116949629947
+        }
+      ]
+    },
+    {
+      "site": [
+        2,
+        0
+      ],
+      "victims": [
+        0,
+        1,
+        9,
+        19,
+        23,
+        25,
+        27,
+        29
+      ],
+      "fold_max_abs_error": 2.86102294921875e-06,
+      "local_reconstruction": [
+        {
+          "victim": 0,
+          "fit_full_mse": 0.021096672952275044,
+          "check_full_mse": 0.020007702946010907,
+          "fit_q_mse": 0.04289037563525443,
+          "check_q_mse": 0.04125761567818734
+        },
+        {
+          "victim": 1,
+          "fit_full_mse": 0.015657215326842847,
+          "check_full_mse": 0.0158087442822042,
+          "fit_q_mse": 0.031494907201856194,
+          "check_q_mse": 0.03094193650117448
+        },
+        {
+          "victim": 9,
+          "fit_full_mse": 0.024435520728266623,
+          "check_full_mse": 0.024236813313219016,
+          "fit_q_mse": 0.037498204274835245,
+          "check_q_mse": 0.0369439120098896
+        },
+        {
+          "victim": 19,
+          "fit_full_mse": 0.01844122492552978,
+          "check_full_mse": 0.01829480205114052,
+          "fit_q_mse": 0.03771237481396025,
+          "check_q_mse": 0.03729821681779308
+        },
+        {
+          "victim": 23,
+          "fit_full_mse": 0.024515421278130903,
+          "check_full_mse": 0.02312468015377752,
+          "fit_q_mse": 0.0499871036603661,
+          "check_q_mse": 0.04713098525822744
+        },
+        {
+          "victim": 25,
+          "fit_full_mse": 0.023178337274225812,
+          "check_full_mse": 0.02215016448780065,
+          "fit_q_mse": 0.04126599920109467,
+          "check_q_mse": 0.0396467424010039
+        },
+        {
+          "victim": 27,
+          "fit_full_mse": 0.03198802666058512,
+          "check_full_mse": 0.03171195710927438,
+          "fit_q_mse": 0.050102347673782785,
+          "check_q_mse": 0.04948527697341049
+        },
+        {
+          "victim": 29,
+          "fit_full_mse": 0.01670749965435641,
+          "check_full_mse": 0.016976088515370323,
+          "fit_q_mse": 0.030815273576994515,
+          "check_q_mse": 0.031169562831014574
+        }
+      ]
+    },
+    {
+      "site": [
+        2,
+        1
+      ],
+      "victims": [
+        2,
+        5,
+        6,
+        20,
+        21,
+        23,
+        25,
+        30
+      ],
+      "fold_max_abs_error": 2.86102294921875e-06,
+      "local_reconstruction": [
+        {
+          "victim": 2,
+          "fit_full_mse": 0.04191508998946585,
+          "check_full_mse": 0.0424915301223341,
+          "fit_q_mse": 0.09152518623680726,
+          "check_q_mse": 0.08891194789598524
+        },
+        {
+          "victim": 5,
+          "fit_full_mse": 0.06609265619021527,
+          "check_full_mse": 0.06851570715883543,
+          "fit_q_mse": 0.10788871892602503,
+          "check_q_mse": 0.10766651666933376
+        },
+        {
+          "victim": 6,
+          "fit_full_mse": 0.07445055947228968,
+          "check_full_mse": 0.0750663120745046,
+          "fit_q_mse": 0.11722330022875531,
+          "check_q_mse": 0.11507531127543041
+        },
+        {
+          "victim": 20,
+          "fit_full_mse": 0.05813285524077207,
+          "check_full_mse": 0.05908224435015825,
+          "fit_q_mse": 0.1017138069755457,
+          "check_q_mse": 0.10128594882647815
+        },
+        {
+          "victim": 21,
+          "fit_full_mse": 0.04935638285490495,
+          "check_full_mse": 0.05037603846109425,
+          "fit_q_mse": 0.10015656334604807,
+          "check_q_mse": 0.09942216209367438
+        },
+        {
+          "victim": 23,
+          "fit_full_mse": 0.05694744654043723,
+          "check_full_mse": 0.05578356492329681,
+          "fit_q_mse": 0.10301431655100567,
+          "check_q_mse": 0.09853102033701441
+        },
+        {
+          "victim": 25,
+          "fit_full_mse": 0.04870315376333667,
+          "check_full_mse": 0.05106544446023986,
+          "fit_q_mse": 0.08628883541259097,
+          "check_q_mse": 0.0850710259584473
+        },
+        {
+          "victim": 30,
+          "fit_full_mse": 0.0663390146085352,
+          "check_full_mse": 0.0666272233746197,
+          "fit_q_mse": 0.10413541098896849,
+          "check_q_mse": 0.10223520025461277
+        }
+      ]
+    }
+  ],
+  "free_q_embedding_max_error": 0.0,
+  "architectures": {
+    "q_pruned": {
+      "real_parameters": 42034,
+      "quaternion_convolutions": 6,
+      "dense_real_convolutions": 0,
+      "output_group_widths": [
+        6,
+        6,
+        12,
+        12,
+        24,
+        24
+      ],
+      "bn_layers": 6
+    },
+    "q_comp": {
+      "real_parameters": 42034,
+      "quaternion_convolutions": 6,
+      "dense_real_convolutions": 0,
+      "output_group_widths": [
+        6,
+        6,
+        12,
+        12,
+        24,
+        24
+      ],
+      "bn_layers": 6
+    },
+    "free_q_init": {
+      "real_parameters": 162562,
+      "quaternion_convolutions": 1,
+      "dense_real_convolutions": 5,
+      "output_group_widths": [
+        6,
+        6,
+        12,
+        12,
+        24,
+        24
+      ],
+      "bn_layers": 6
+    },
+    "free_full_fit": {
+      "real_parameters": 162562,
+      "quaternion_convolutions": 1,
+      "dense_real_convolutions": 5,
+      "output_group_widths": [
+        6,
+        6,
+        12,
+        12,
+        24,
+        24
+      ],
+      "bn_layers": 6
+    }
+  },
+  "checkpoint_hashes": {
+    "q_pruned": "8d14bb19dd4aee8ac0362cd3dcb501c5510267af1fff7b0b9c70f703aef87887",
+    "q_comp": "10d3b46343a7535ba717f671a1e0a2323fc5693b9c323423b5088bb9d744e4a7",
+    "free_q_init": "882881f30782cfce64d6fe6a000db881629c12d4dc7bfeedeefff58bf4f43c87",
+    "free_full_fit": "a45022a5cf567332cbbd32a604e0d76874cfc5607916a90331e7fd0789c94b16"
+  }
+}

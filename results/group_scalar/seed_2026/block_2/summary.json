@@ -1,0 +1,333 @@
+{
+  "seed": 2026,
+  "block": 2,
+  "units": 16,
+  "scores": {
+    "grouped_centered_cosine": [
+      0.20171748241232287,
+      0.17629827170457146,
+      0.280844646241769,
+      0.2372882920302134,
+      0.31320298464686785,
+      0.31320298464686785,
+      0.2440358400686768,
+      0.18068803527522792,
+      0.2440358400686768,
+      0.28322340963485926,
+      0.1393293087336242,
+      0.14991288999568805,
+      0.28322340963485926,
+      0.280844646241769,
+      0.1803062591997126,
+      0.22685542934238187
+    ],
+    "scalar_pearson_mean_external_nn": [
+      0.3012658120011894,
+      0.36073514951306507,
+      0.42541992955708907,
+      0.3699066923812145,
+      0.3550330248682565,
+      0.4050089692977526,
+      0.39599998929219304,
+      0.5155681847830355,
+      0.32769312867173395,
+      0.4493793546996404,
+      0.3712536625925208,
+      0.40353237369432965,
+      0.4807292790484875,
+      0.34552381514763975,
+      0.34630919697869433,
+      0.3438351521407254
+    ]
+  },
+  "calibration_image_half_scores": {
+    "even_images": {
+      "grouped_centered_cosine": [
+        0.20201670676064057,
+        0.18172518946853436,
+        0.2808926453419384,
+        0.24291539423732145,
+        0.3140589861945608,
+        0.3140589861945608,
+        0.23937633371931888,
+        0.17774137338854298,
+        0.23937633371931888,
+        0.2860912698748093,
+        0.14451915738880317,
+        0.15040182994211665,
+        0.2860912698748093,
+        0.2808926453419384,
+        0.18216885807076036,
+        0.2337593836429098
+      ],
+      "scalar_pearson_mean_external_nn": [
+        0.2972797730588865,
+        0.3637868154590799,
+        0.4201851942935514,
+        0.3760414721879778,
+        0.3552539680269662,
+        0.406786858972888,
+        0.3972833596246492,
+        0.5200764667668945,
+        0.3308354813896349,
+        0.45361689731689636,
+        0.37723207587847285,
+        0.40410641063520936,
+        0.48253334997627806,
+        0.3439002086593798,
+        0.3465725657188656,
+        0.34362780520261305
+      ]
+    },
+    "odd_images": {
+      "grouped_centered_cosine": [
+        0.20140245668274342,
+        0.17090463314784177,
+        0.2807228968170049,
+        0.23172511238884583,
+        0.3124010601310401,
+        0.3124010601310401,
+        0.24847985736791384,
+        0.1836556047375572,
+        0.24847985736791384,
+        0.280553408150187,
+        0.13894673886177644,
+        0.14933002395282394,
+        0.280553408150187,
+        0.2807228968170049,
+        0.1784950265398791,
+        0.22004586324556252
+      ],
+      "scalar_pearson_mean_external_nn": [
+        0.30521161322958695,
+        0.35797907864405104,
+        0.4305691143783793,
+        0.3660923996296418,
+        0.3549689125797898,
+        0.40314263368655656,
+        0.39498297135839117,
+        0.5111497931858984,
+        0.32488864975439935,
+        0.4451974079210501,
+        0.3661458119196973,
+        0.40301311181514954,
+        0.4791550717295704,
+        0.34714288480751654,
+        0.34754623276628854,
+        0.34404806030492135
+      ]
+    }
+  },
+  "calibration_image_half_score_spearman": {
+    "grouped_centered_cosine": 0.9585798816568047,
+    "scalar_pearson_mean_external_nn": 1.0
+  },
+  "target_ablations": [
+    {
+      "unit": 0,
+      "nearest_neighbor_similarity": 0.20171748241232287,
+      "incoming_weight_norm": 2.525026321411133,
+      "validation_loss_increase": 0.011463998766810035,
+      "validation_accuracy_drop": 0.0050000000000000044,
+      "validation_accuracy_after_ablation": 0.778,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 1,
+      "nearest_neighbor_similarity": 0.17629827170457146,
+      "incoming_weight_norm": 2.5347723960876465,
+      "validation_loss_increase": 0.0124327568020689,
+      "validation_accuracy_drop": 0.010000000000000009,
+      "validation_accuracy_after_ablation": 0.773,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 2,
+      "nearest_neighbor_similarity": 0.280844646241769,
+      "incoming_weight_norm": 2.5349724292755127,
+      "validation_loss_increase": 0.013771443004548245,
+      "validation_accuracy_drop": 0.0020000000000000018,
+      "validation_accuracy_after_ablation": 0.781,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 3,
+      "nearest_neighbor_similarity": 0.2372882920302134,
+      "incoming_weight_norm": 2.5495688915252686,
+      "validation_loss_increase": 0.006394078220774535,
+      "validation_accuracy_drop": 0.0020000000000000018,
+      "validation_accuracy_after_ablation": 0.781,
+      "individual_low_impact": true
+    },
+    {
+      "unit": 4,
+      "nearest_neighbor_similarity": 0.31320298464686785,
+      "incoming_weight_norm": 2.4681315422058105,
+      "validation_loss_increase": 0.03132446443410486,
+      "validation_accuracy_drop": 0.009000000000000008,
+      "validation_accuracy_after_ablation": 0.774,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 5,
+      "nearest_neighbor_similarity": 0.31320298464686785,
+      "incoming_weight_norm": 2.546600818634033,
+      "validation_loss_increase": 0.014437689200018089,
+      "validation_accuracy_drop": 0.007000000000000006,
+      "validation_accuracy_after_ablation": 0.776,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 6,
+      "nearest_neighbor_similarity": 0.2440358400686768,
+      "incoming_weight_norm": 2.6060521602630615,
+      "validation_loss_increase": 0.015702185709176253,
+      "validation_accuracy_drop": 0.006000000000000005,
+      "validation_accuracy_after_ablation": 0.777,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 7,
+      "nearest_neighbor_similarity": 0.18068803527522792,
+      "incoming_weight_norm": 2.483191967010498,
+      "validation_loss_increase": 0.02173891348906687,
+      "validation_accuracy_drop": -0.0010000000000000009,
+      "validation_accuracy_after_ablation": 0.784,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 8,
+      "nearest_neighbor_similarity": 0.2440358400686768,
+      "incoming_weight_norm": 2.5409555435180664,
+      "validation_loss_increase": 0.021412076292153248,
+      "validation_accuracy_drop": 0.014000000000000012,
+      "validation_accuracy_after_ablation": 0.769,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 9,
+      "nearest_neighbor_similarity": 0.28322340963485926,
+      "incoming_weight_norm": 2.5229873657226562,
+      "validation_loss_increase": 0.011362521787904534,
+      "validation_accuracy_drop": 0.006000000000000005,
+      "validation_accuracy_after_ablation": 0.777,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 10,
+      "nearest_neighbor_similarity": 0.1393293087336242,
+      "incoming_weight_norm": 2.5368149280548096,
+      "validation_loss_increase": 0.016242037145690502,
+      "validation_accuracy_drop": 0.01100000000000001,
+      "validation_accuracy_after_ablation": 0.772,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 11,
+      "nearest_neighbor_similarity": 0.14991288999568805,
+      "incoming_weight_norm": 2.531215190887451,
+      "validation_loss_increase": 0.013925752581017359,
+      "validation_accuracy_drop": 0.0010000000000000009,
+      "validation_accuracy_after_ablation": 0.782,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 12,
+      "nearest_neighbor_similarity": 0.28322340963485926,
+      "incoming_weight_norm": 2.5092556476593018,
+      "validation_loss_increase": 0.028203701243449175,
+      "validation_accuracy_drop": 0.008000000000000007,
+      "validation_accuracy_after_ablation": 0.775,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 13,
+      "nearest_neighbor_similarity": 0.280844646241769,
+      "incoming_weight_norm": 2.566312789916992,
+      "validation_loss_increase": 0.017806968915274224,
+      "validation_accuracy_drop": 0.006000000000000005,
+      "validation_accuracy_after_ablation": 0.777,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 14,
+      "nearest_neighbor_similarity": 0.1803062591997126,
+      "incoming_weight_norm": 2.5227859020233154,
+      "validation_loss_increase": 0.018676921980730676,
+      "validation_accuracy_drop": 0.009000000000000008,
+      "validation_accuracy_after_ablation": 0.774,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 15,
+      "nearest_neighbor_similarity": 0.22685542934238187,
+      "incoming_weight_norm": 2.4836089611053467,
+      "validation_loss_increase": 0.004560130774758031,
+      "validation_accuracy_drop": -0.0030000000000000027,
+      "validation_accuracy_after_ablation": 0.786,
+      "individual_low_impact": true
+    }
+  ],
+  "eligible_units": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "excluded_units": [],
+  "criteria": {
+    "grouped_centered_cosine": {
+      "spearman_score_vs_negative_loss_harm": -0.19911591056614425,
+      "selected_top_units": [
+        4,
+        5,
+        9,
+        12
+      ],
+      "top_k": 4,
+      "top_mean_individual_loss_harm": 0.021332094166369164,
+      "top_mean_individual_accuracy_drop": 0.007500000000000007,
+      "top_individual_low_impact_fraction": 0.0
+    },
+    "scalar_pearson_mean_external_nn": {
+      "spearman_score_vs_negative_loss_harm": -0.14705882352941177,
+      "selected_top_units": [
+        7,
+        12,
+        9,
+        2
+      ],
+      "top_k": 4,
+      "top_mean_individual_loss_harm": 0.018769144881242206,
+      "top_mean_individual_accuracy_drop": 0.0037500000000000033,
+      "top_individual_low_impact_fraction": 0.0
+    }
+  },
+  "uniform_random_expected_individual_loss_harm": 0.016215977521721596,
+  "uniform_random_expected_individual_low_impact_fraction": 0.125,
+  "group_minus_scalar_spearman": -0.05205708703673248,
+  "group_minus_scalar_top_individual_loss_harm": 0.0025629492851269586,
+  "checks": {
+    "saved_grouped_matrix_matches_snapshots": true,
+    "saved_scalar_matrix_matches_snapshots": true,
+    "calibration_snapshot_shape": true,
+    "grouped_scores_match_previous_analysis": true,
+    "grouped_spearman_matches_previous_analysis": true
+  },
+  "source_artifacts": {
+    "results/block_analysis/quaternion/block_2/calibration_similarity.npz": "eecd2ab0cfaaac878147fab2b004fec3722a993d627d47ec8e90da06b82fa213",
+    "results/block_analysis/quaternion/block_2/calibration_activations.npz": "724d5d736eb24b3034d16dfd207b709a61d29ad45340732cc245d6e4374021fe"
+  }
+}

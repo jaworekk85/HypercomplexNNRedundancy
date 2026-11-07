@@ -1,0 +1,39 @@
+{
+  "output": "results/structure_cost_study",
+  "curve_configs": ["configs/compression_curve.json", "configs/compression_curve_eurosat.json"],
+  "seeds": [2026, 2027, 2028],
+  "fractions": [0.25, 0.5],
+  "no_bn_source": "results/no_bn_pilot",
+  "no_bn_seeds": [2026],
+  "cases": ["q_pruned", "q_comp", "free_q_init", "free_full_fit"],
+  "ridge_alpha": 0.001,
+  "batch_size": 128,
+  "equivalence_images": 32,
+  "equivalence_tolerance": 0.001,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "finetune": {
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000
+  },
+  "official_test_evaluation": false,
+  "hypotheses": [
+    "At fixed removed groups, the quality cost of retaining the Hamilton family can be measured against unrestricted physically compiled consumers, with their different size explicitly reported.",
+    "free_full_fit vs free_q_init isolates the compensation initialization at the same dense architecture and repair budget. free_q_init initially equals q_comp; their post-repair difference captures release of weight constraints, not a better initial compensation map.",
+    "The one-seed no-BN control asks whether compensation is useful when BN statistics cannot be stale. Its baseline/selection differ from BN; it does not causally isolate all effects of normalization."
+  ],
+  "decision_rules": [
+    "Do not claim a new ridge/folding algorithm. The candidate contribution is a quantified structural-cost and capacity decomposition, not literature priority.",
+    "If full-fit advantage is explained by free_q_init after repair, attribute that part to extra optimization freedom; do not sell it as a better compensation method.",
+    "If Q has similar observed quality with fewer parameters, report the paired effects and uncertainty; no equivalence claim from n=3 or a small mean gap.",
+    "If unrestricted compiled models exceed the original QNN parameter budget, show negative savings. Equal width is not equal parameters or compute.",
+    "Report all outcomes and unfavorable seeds. No new architecture/activation sweep or test inference. Stop this registered study after the fixed two fractions; extra experiments need a separate scientific reason."
+  ],
+  "scope": "Chosen after prior validation and final-test outcomes; new exploratory validation/check-calibration study, not a fresh blind confirmatory test. BN: both datasets, three existing source seeds; no-BN: CIFAR seed 2026 only. All six sites; same victims across four cases. For BN reuse original phase-A masks and existing Q initial/repair results, verifying reloads. For no-BN select Q greedy victims on its own 500-image fit half and freeze those lists for every case. Full maps are folded exactly into dense Conv2d consumers (five convs; first stays Q); no projection and no explicit runtime reconstruction branch. Global-average readout was already real. Full-map path refits after earlier changes. Both initial and final-epoch-three quality, CE, paired seeds, trainable real parameters, checkpoint bytes and original-Q-relative savings reported. Reused vs new training distinguished; equal attempted schedules do not prove equal successful AMP updates."
+}

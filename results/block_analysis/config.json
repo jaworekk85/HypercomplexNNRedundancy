@@ -1,0 +1,14 @@
+{
+  "source_run": "results/cifar_cnn",
+  "models": [
+    "quaternion",
+    "real"
+  ],
+  "batch_size": 256,
+  "device": "cuda",
+  "maximum_loss_increase_for_individual_low_impact": 0.01,
+  "maximum_accuracy_drop_for_individual_low_impact": 0.005,
+  "minimum_pair_stability_for_candidate_block": 0.9,
+  "minimum_individual_low_impact_quaternion_units": 2,
+  "scope": "Calibration similarities in all blocks and individual validation ablations. No test inference, optimization, or size-saving claim."
+}

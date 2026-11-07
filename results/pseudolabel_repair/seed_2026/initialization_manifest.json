@@ -1,0 +1,237 @@
+{
+  "records": {
+    "greedy_pruned": [
+      {
+        "site": [
+          0,
+          0
+        ],
+        "victims": [
+          1,
+          2
+        ],
+        "kept": 6,
+        "projection_discarded_energy_fraction": 0.0
+      },
+      {
+        "site": [
+          0,
+          1
+        ],
+        "victims": [
+          3,
+          4
+        ],
+        "kept": 6,
+        "projection_discarded_energy_fraction": 0.0
+      },
+      {
+        "site": [
+          1,
+          0
+        ],
+        "victims": [
+          9,
+          12,
+          14,
+          15
+        ],
+        "kept": 12,
+        "projection_discarded_energy_fraction": 0.0
+      },
+      {
+        "site": [
+          1,
+          1
+        ],
+        "victims": [
+          0,
+          2,
+          8,
+          12
+        ],
+        "kept": 12,
+        "projection_discarded_energy_fraction": 0.0
+      },
+      {
+        "site": [
+          2,
+          0
+        ],
+        "victims": [
+          4,
+          5,
+          6,
+          7,
+          11,
+          17,
+          27,
+          30
+        ],
+        "kept": 24,
+        "projection_discarded_energy_fraction": 0.0
+      },
+      {
+        "site": [
+          2,
+          1
+        ],
+        "victims": [
+          2,
+          6,
+          16,
+          18,
+          23,
+          26,
+          29,
+          31
+        ],
+        "kept": 24,
+        "projection_discarded_energy_fraction": 0.0
+      }
+    ],
+    "greedy_comp": [
+      {
+        "site": [
+          0,
+          0
+        ],
+        "victims": [
+          1,
+          2
+        ],
+        "kept": 6,
+        "projection_discarded_energy_fraction": 8.063726769507803e-33,
+        "fold_error": 4.76837158203125e-06
+      },
+      {
+        "site": [
+          0,
+          1
+        ],
+        "victims": [
+          3,
+          4
+        ],
+        "kept": 6,
+        "projection_discarded_energy_fraction": 7.948665983781081e-33,
+        "fold_error": 3.814697265625e-06
+      },
+      {
+        "site": [
+          1,
+          0
+        ],
+        "victims": [
+          9,
+          12,
+          14,
+          15
+        ],
+        "kept": 12,
+        "projection_discarded_energy_fraction": 7.906125177584947e-33,
+        "fold_error": 3.814697265625e-06
+      },
+      {
+        "site": [
+          1,
+          1
+        ],
+        "victims": [
+          0,
+          2,
+          8,
+          12
+        ],
+        "kept": 12,
+        "projection_discarded_energy_fraction": 8.083507969499767e-33,
+        "fold_error": 2.86102294921875e-06
+      },
+      {
+        "site": [
+          2,
+          0
+        ],
+        "victims": [
+          4,
+          5,
+          6,
+          7,
+          11,
+          17,
+          27,
+          30
+        ],
+        "kept": 24,
+        "projection_discarded_energy_fraction": 7.985534603668376e-33,
+        "fold_error": 2.1457672119140625e-06
+      },
+      {
+        "site": [
+          2,
+          1
+        ],
+        "victims": [
+          2,
+          6,
+          16,
+          18,
+          23,
+          26,
+          29,
+          31
+        ],
+        "kept": 24,
+        "projection_discarded_energy_fraction": 0.0,
+        "fold_error": 9.5367431640625e-07
+      }
+    ]
+  },
+  "expected_parent_metrics": {
+    "greedy_pruned": {
+      "architecture": "cnn6",
+      "seed": 2026,
+      "fraction": 0.25,
+      "case": "greedy_pruned",
+      "policy": "greedy_pruned",
+      "random_repetition": null,
+      "stage": "before",
+      "real_parameters": 42034,
+      "quaternion_layers": 6,
+      "evaluation": {
+        "validation": {
+          "cross_entropy": 2.73753564453125,
+          "accuracy": 0.235
+        },
+        "check_calibration": {
+          "cross_entropy": 2.7424678344726563,
+          "accuracy": 0.226
+        }
+      }
+    },
+    "greedy_comp": {
+      "architecture": "cnn6",
+      "seed": 2026,
+      "fraction": 0.25,
+      "case": "greedy_comp",
+      "policy": "greedy_comp",
+      "random_repetition": null,
+      "stage": "before",
+      "real_parameters": 42034,
+      "quaternion_layers": 6,
+      "evaluation": {
+        "validation": {
+          "cross_entropy": 1.122554901123047,
+          "accuracy": 0.594
+        },
+        "check_calibration": {
+          "cross_entropy": 1.159902145385742,
+          "accuracy": 0.572
+        }
+      }
+    }
+  },
+  "partition_sha256": "42e526d20637838352a4997ba2a68ed60ae47c2dbe196c110ffc01c2086b06a3",
+  "real_trainable_parameters": 42034,
+  "fully_supervised_teacher": true
+}

@@ -1,0 +1,110 @@
+{
+  "output": "results/activation_sensitivity/magnitude_tanh/compression_curve",
+  "dataset": "cifar",
+  "architectures": [
+    "cnn6"
+  ],
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "fractions": [
+    0.25,
+    0.5
+  ],
+  "ridge_alpha": 0.001,
+  "random_repetitions": 5,
+  "random_seed_offset": 800000,
+  "fit_half": "even calibration images (500)",
+  "check_half": "odd calibration images (500)",
+  "batch_size": 128,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "equivalence_tolerance": 0.001,
+  "equivalence_images": 200,
+  "limits": null,
+  "policies": {
+    "baseline": "uncompressed source model",
+    "random": "random victims at every site, pruned without compensation",
+    "random_comp": "the same random victims, each replaced by a multi-source ridge reconstruction folded into the consumer (right-Hamilton for quaternion, scalar for real)",
+    "bn_pruned": "smallest BN-folded kernel magnitude at every site, pruned without compensation (standard magnitude reference)",
+    "greedy_comp": "greedy backward elimination by reconstruction residual times outgoing energy, then compensation (main policy)",
+    "greedy_pruned": "the greedy_comp victims, pruned without compensation (isolates compensation from selection)",
+    "greedy_full_projected": "quaternion only, phase A only: the greedy_comp victims with unconstrained 4x4 maps, Hamilton-projected at convolution consumers (cost of fitting without the structure)",
+    "scratch": "the same compact architecture trained from scratch with the baseline trainer and full budget"
+  },
+  "finetune": {
+    "enabled": true,
+    "policies": [
+      "baseline",
+      "random",
+      "bn_pruned",
+      "random_comp",
+      "greedy_comp"
+    ],
+    "random_repetitions_finetuned": 3,
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 1e-06,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000
+  },
+  "scratch": {
+    "enabled": false,
+    "fractions": [],
+    "epochs": null
+  },
+  "comparisons": [
+    [
+      "greedy_comp@before",
+      "random@before"
+    ],
+    [
+      "greedy_comp@before",
+      "bn_pruned@before"
+    ],
+    [
+      "greedy_comp@before",
+      "greedy_pruned@before"
+    ],
+    [
+      "random_comp@before",
+      "random@before"
+    ],
+    [
+      "greedy_comp@before",
+      "random_comp@before"
+    ],
+    [
+      "greedy_comp@before",
+      "greedy_full_projected@before"
+    ],
+    [
+      "greedy_comp@after",
+      "random@after"
+    ],
+    [
+      "greedy_comp@after",
+      "bn_pruned@after"
+    ],
+    [
+      "random_comp@after",
+      "random@after"
+    ],
+    [
+      "greedy_comp@after",
+      "random_comp@after"
+    ]
+  ],
+  "primary_outcome": "Absolute validation/check accuracy and CE plus change relative to each activation own uncompressed baseline, before/after equal three-epoch fine-tuning.",
+  "primary_questions": [
+    "Are within-Q compression conclusions sensitive to activation choice?"
+  ],
+  "official_test_evaluation": false,
+  "scope": "Bounded CIFAR quaternion CNN6 activation-sensitivity pilot, three seeds, two fractions. Fresh 50-epoch baselines; identical fit/fold and three-epoch fine-tuning policies. Reuse original ReLU results; random fraction indices explicitly aligned to the parent. No activation-specific scratch, real/coupled control, EuroSAT replication or test inference. MagnitudeTanh is published prior art (PoppelbaumSchwung2024Activations Eq.21).",
+  "activation": "magnitude_tanh"
+}

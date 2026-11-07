@@ -1,0 +1,67 @@
+{
+  "architecture": "cnn6",
+  "seed": 2028,
+  "fraction": 0.875,
+  "case": "random_r02",
+  "policy": "random",
+  "real_parameters": 1434,
+  "quaternion_layers": 6,
+  "history": [
+    {
+      "epoch": 1,
+      "train_augmented_loss": 2.346290993203922,
+      "train_augmented_accuracy": 0.1268877551020408,
+      "learning_rate_end": 7.525e-05,
+      "epoch_seconds": 5.034860800020397,
+      "validation": {
+        "cross_entropy": 2.1719793548583985,
+        "accuracy": 0.227
+      },
+      "check_calibration": {
+        "cross_entropy": 2.1732763366699217,
+        "accuracy": 0.236
+      }
+    },
+    {
+      "epoch": 2,
+      "train_augmented_loss": 2.1950638331199177,
+      "train_augmented_accuracy": 0.1873469387755102,
+      "learning_rate_end": 2.5749999999999996e-05,
+      "epoch_seconds": 5.052951399935409,
+      "validation": {
+        "cross_entropy": 2.1045970001220704,
+        "accuracy": 0.279
+      },
+      "check_calibration": {
+        "cross_entropy": 2.1127995910644533,
+        "accuracy": 0.276
+      }
+    },
+    {
+      "epoch": 3,
+      "train_augmented_loss": 2.157452327183315,
+      "train_augmented_accuracy": 0.20688775510204083,
+      "learning_rate_end": 1e-06,
+      "epoch_seconds": 5.118848999962211,
+      "validation": {
+        "cross_entropy": 2.089908203125,
+        "accuracy": 0.295
+      },
+      "check_calibration": {
+        "cross_entropy": 2.100499542236328,
+        "accuracy": 0.292
+      }
+    }
+  ],
+  "final": {
+    "validation": {
+      "cross_entropy": 2.089908203125,
+      "accuracy": 0.295
+    },
+    "check_calibration": {
+      "cross_entropy": 2.100499542236328,
+      "accuracy": 0.292
+    }
+  },
+  "official_test_evaluated": false
+}

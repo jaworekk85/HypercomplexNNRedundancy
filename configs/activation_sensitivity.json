@@ -1,0 +1,36 @@
+{
+  "output": "results/activation_sensitivity",
+  "registered_utc": "2026-11-04T17:50:37.618012+00:00",
+  "dataset": "cifar",
+  "baseline_source": "results/cifar_cnn",
+  "relu_reference": "results/compression_curve",
+  "activations": [
+    "split_leaky_relu",
+    "magnitude_tanh"
+  ],
+  "negative_slope": 0.1,
+  "activation_epsilon": 1e-06,
+  "training_epochs": 50,
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "fractions": [
+    0.25,
+    0.5
+  ],
+  "parent_random_fraction_indices": [
+    1,
+    2
+  ],
+  "curve_configs": {
+    "split_leaky_relu": "configs/activation_curve_split_leaky_relu.json",
+    "magnitude_tanh": "configs/activation_curve_magnitude_tanh.json"
+  },
+  "device": "cuda",
+  "cpu_threads": 4,
+  "official_test_evaluation": false,
+  "queue_after": "all existing CIFAR/EuroSAT coarse and 37.5/62.5 refinement curves",
+  "scope": "Exploratory sensitivity study registered after inspecting ReLU results. Six new baseline trainings, then per-activation compression and matched fine-tuning. No novel activation, superiority or isolated component-coupling claim. MagnitudeTanh also changes boundedness/saturation; no split-Tanh or matched real coupled control in this initial study."
+}

@@ -1,0 +1,46 @@
+{
+  "config": {
+    "source_multiseed": "results/cnn_multiseed",
+    "source_block_analysis": "results/block_analysis",
+    "block": 3,
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "removed_fractions": [
+      0.0,
+      0.25,
+      0.5
+    ],
+    "policies": [
+      "random",
+      "incoming_norm",
+      "activation_similarity"
+    ],
+    "random_repetitions": 10,
+    "random_seed_offset": 100000,
+    "maximum_validation_accuracy_drop_for_useful_compression": 0.02,
+    "minimum_real_parameter_fraction_saved": 0.1,
+    "device": "cuda",
+    "batch_size": 256,
+    "fine_tuning_updates": 0,
+    "protocol": "Freeze block 3 from seed-2026 calibration/validation gate. Scores use calibration only, no label-based unit selection. Finish all size/policy manifests and validation evaluations before final test. Report all policies, fractions, training seeds and random repetitions."
+  },
+  "source_hashes": {
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+    "scripts/cnn_compression.py": "c1b49c55ee20399577fb20bcf2ece8535c29a865055bd52b816c81ddf928699d",
+    "scripts/analyze_cnn_blocks.py": "abf8cf59ec4277683eb2d927c14568ef739293680ee572af35e4d8a501263d44",
+    "src/evaluation/block_ablation.py": "b3db492a534b41af02f8e963b5d7758161c36b9dbb1112fb424fdcc40905fa3f",
+    "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+    "src/evaluation/thresholds.py": "12d001390a9e69e3f49bc23964a7cfcf08a593bc4fdfca0d17c511344c95fc58"
+  },
+  "multiseed_summary_sha256": "3d173c9cc038198cba79d3854fe67e349bc035843510fad4a34bb9e4a80088b2"
+}

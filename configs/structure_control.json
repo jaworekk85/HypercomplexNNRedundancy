@@ -1,0 +1,35 @@
+{
+  "output": "results/structure_control",
+  "dataset": "cifar",
+  "baseline_source": "results/cifar_cnn",
+  "parent_curve": "results/compression_curve",
+  "quaternion_sources": {
+    "2026": "results/cifar_cnn",
+    "2027": "results/cnn_multiseed/seed_2027",
+    "2028": "results/cnn_multiseed/seed_2028"
+  },
+  "seeds": [2026, 2027, 2028],
+  "training_epochs": 50,
+  "fractions": [0.25, 0.5],
+  "policies": ["greedy_comp", "greedy_pruned", "bn_pruned"],
+  "ridge_alpha": 0.001,
+  "equivalence_tolerance": 0.001,
+  "equivalence_images": 200,
+  "batch_size": 128,
+  "finetune": {
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000,
+    "policies": ["baseline", "greedy_comp", "greedy_pruned", "bn_pruned"],
+    "random_repetitions_finetuned": 0
+  },
+  "device": "cuda",
+  "cpu_threads": 4,
+  "queue_after": "all existing curve, activation and pseudo-label jobs",
+  "scope": "Existing QNN compression is the primary paper question. One established non-quaternion 4x4 circulant weight-sharing control (Ding2017CirCNN), not a new algebra or a CirCNN/FFT reproduction. Identical scalar widths, trainable real parameter counts, seeded coefficient tensors, input information, BN/ReLU/dropout, 50-epoch training and 3-epoch repair budgets. Circulant groups are not quaternion units. Compare absolute accuracy/CE AND loss from own family baseline, retaining baseline-quality differences. New control selected after inspecting Q/real results; exploratory, not blind independent replication. No claim of isolated quaternion causality, novelty, general superiority, equal MAC/latency, or matched starting quality. No additional Circulant scratch/EuroSAT sweep in this bounded pilot. No official-test inference."
+}

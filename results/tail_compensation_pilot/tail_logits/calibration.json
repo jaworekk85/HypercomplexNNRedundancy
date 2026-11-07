@@ -1,0 +1,105 @@
+{
+  "mode": "tail_logits",
+  "initial": {
+    "fit": {
+      "local_mse": 0.15769570589678283,
+      "logit_mse": 0.453405191559787
+    },
+    "check": {
+      "local_mse": 0.16191081229234017,
+      "logit_mse": 0.4485859137373606
+    }
+  },
+  "final": {
+    "fit": {
+      "local_mse": 0.18132432257704584,
+      "logit_mse": 0.28410141010141504
+    },
+    "check": {
+      "local_mse": 0.18538722898254575,
+      "logit_mse": 0.30660806521866946
+    }
+  },
+  "history": [
+    {
+      "step": 1,
+      "minibatch_reconstruction_mse": 0.44444456696510315,
+      "relative_displacement": 0.0,
+      "objective": 0.44444456696510315
+    },
+    {
+      "step": 25,
+      "minibatch_reconstruction_mse": 0.41880008578300476,
+      "relative_displacement": 0.00020372461585793644,
+      "objective": 0.4188002943992615
+    },
+    {
+      "step": 50,
+      "minibatch_reconstruction_mse": 0.3349686563014984,
+      "relative_displacement": 0.000549420656170696,
+      "objective": 0.3349691927433014
+    },
+    {
+      "step": 75,
+      "minibatch_reconstruction_mse": 0.3931947350502014,
+      "relative_displacement": 0.0008588372729718685,
+      "objective": 0.39319559931755066
+    },
+    {
+      "step": 100,
+      "minibatch_reconstruction_mse": 0.3084445595741272,
+      "relative_displacement": 0.001188979484140873,
+      "objective": 0.3084457516670227
+    },
+    {
+      "step": 125,
+      "minibatch_reconstruction_mse": 0.3452950417995453,
+      "relative_displacement": 0.0015451316721737385,
+      "objective": 0.34529659152030945
+    },
+    {
+      "step": 150,
+      "minibatch_reconstruction_mse": 0.29371827840805054,
+      "relative_displacement": 0.001945043564774096,
+      "objective": 0.29372021555900574
+    },
+    {
+      "step": 175,
+      "minibatch_reconstruction_mse": 0.31009921431541443,
+      "relative_displacement": 0.00235457974486053,
+      "objective": 0.31010156869888306
+    },
+    {
+      "step": 200,
+      "minibatch_reconstruction_mse": 0.3248680830001831,
+      "relative_displacement": 0.0027887909673154354,
+      "objective": 0.32487088441848755
+    }
+  ],
+  "first_update": {
+    "gradient_component_norms": [
+      0.41027194261550903,
+      0.33053672313690186,
+      0.3354088068008423,
+      0.3444497883319855
+    ],
+    "update_component_norms": [
+      0.006788208615034819,
+      0.0067881629802286625,
+      0.006788149010390043,
+      0.006787588819861412
+    ],
+    "passed": true
+  },
+  "only_target_kernel_changed": true,
+  "bn_buffers_and_head_unchanged": true,
+  "steps": 200,
+  "successful_optimizer_steps": 200,
+  "seconds": 0.793838300043717,
+  "fit_images": 500,
+  "check_images": 500,
+  "labels_used": false,
+  "teacher": "Current pre-site4 reference; not the pristine full source",
+  "checkpoint_selection": "Fixed final calibration step",
+  "checkpoint_sha256": "3505d83bf0f93aba0e4782c4b83e007a901fda59a7756d7460b398f57be916da"
+}

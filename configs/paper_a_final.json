@@ -1,0 +1,16 @@
+{
+  "output": "results/paper_a_final",
+  "curve_configs": ["configs/compression_curve.json", "configs/compression_curve_eurosat.json"],
+  "architectures": ["cnn6", "real_cnn6"],
+  "seeds": [2026, 2027, 2028],
+  "fractions": [0.25, 0.5, 0.75],
+  "policies": ["greedy_comp", "bn_pruned"],
+  "stages": ["before", "after", "scratch"],
+  "include_bn_control": "all 42 initial states and both registered BN estimators, no winner selection",
+  "include_circulant": "all existing before/after policies at .25/.5, full baseline, three seeds",
+  "include_quaternion_same_victim_ft": true,
+  "batch_size": 128,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "scope": "Evaluation only, no training/tuning. Moderate (.25), substantial (.5) and severe (.75) removal selected from existing validation outcomes before test inference. All seven original fractions remain validation evidence; the three test levels are a declared subset, not test-selected. EuroSAT test held out until this evaluation; CIFAR test historically seen in earlier pilots, so no fresh-blind CIFAR claim. No post-test selection of BN estimator or checkpoint. Report every seed and unfavorable result. Scratch selection stays frozen at best validation CE after 50 epochs, inherited models at final third repair epoch. Model/data/source hashes frozen together before inference. No attribution of method novelty."
+}

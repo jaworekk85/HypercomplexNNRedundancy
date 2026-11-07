@@ -1,0 +1,56 @@
+{
+  "config": {
+    "output": "results/finetune_compression",
+    "multisource_config": "configs/multisource_compensation.json",
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 1e-06,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000,
+    "random_repetitions_finetuned": 3,
+    "device": "cuda",
+    "cpu_threads": 4,
+    "quaternion_policies": [
+      "baseline",
+      "random",
+      "paired_pruned",
+      "quaternion_exact",
+      "multi_q",
+      "multi_full_projected",
+      "multi_q_random"
+    ],
+    "real_policies": [
+      "baseline",
+      "random",
+      "paired_pruned",
+      "pair_merge",
+      "multi_real",
+      "multi_real_random"
+    ],
+    "primary_outcome": "Validation accuracy after the final (third) fine-tuning epoch; no epoch or checkpoint selection. Per-epoch values and the odd calibration half are secondary.",
+    "primary_comparisons": [
+      "After fine-tuning, is multi_q still better than random, paired_pruned and quaternion_exact at the same budget (paired by training seed)?",
+      "Does the multi_q - multi_full_projected difference survive fine-tuning?",
+      "Real control: multi_real vs random/pair_merge after fine-tuning",
+      "Matched savings (CNN6): quaternion vs real drop from each family's fine-tuned baseline"
+    ],
+    "official_test_evaluation": false,
+    "scope": "Same compact models as results/multisource_compensation (rebuilt deterministically and checked against its frozen maps). The uncompressed baseline gets the same fine-tuning budget as a control for extra training. Every policy of one training seed sees identical batch order and augmentations. Only the first three random victim sets are fine-tuned (compute budget), for both random and multi_*_random. Fixed hyperparameters chosen a priori (10x below the original peak LR); none are tuned on validation. Quaternion consumers remain QuaternionConv2d during fine-tuning, so the Hamilton structure is kept."
+  },
+  "source_hashes": {
+    "scripts/finetune_compression.py": "bb5eed8abf262370f667a5809d806abb9786d70b9cd8bc724d08d3e4db791daf",
+    "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74",
+    "scripts/multisource_compensation.py": "84f5915d76dfaecd9c25e8addeaf0cc74b547b11a33dddcb98abdb86951faca5",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e"
+  },
+  "multisource_summary_sha256": "aa186086b20ffe219ecc458f4283652eef587f32a700f7f497eb5d07e194b0c9",
+  "official_test_evaluated": false
+}

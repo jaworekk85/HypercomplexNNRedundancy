@@ -1,0 +1,394 @@
+{
+  "config": {
+    "seed": 2027,
+    "models": [
+      "circulant"
+    ],
+    "quaternion_widths": [
+      8,
+      16,
+      32
+    ],
+    "real_widths": [
+      16,
+      32,
+      64
+    ],
+    "dropout": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "epochs": 50,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "minimum_learning_rate": 1e-05,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "target_accuracy": 0.8,
+    "device": "cuda",
+    "mixed_precision": true,
+    "cpu_threads": 4,
+    "augmentation": "Per-image random crop from 4-pixel zero padding and horizontal flip, on training only.",
+    "split_source": "results/rgb_pilot/split_indices.npz",
+    "archive": ".cache/keras/datasets/cifar-10-batches-py-target_archive",
+    "checkpoint_selection": "Minimum validation cross-entropy; test only after both model trainings finish.",
+    "scope": "One-seed CNN quality gate. 80 percent is a target until measured, not an architecture guarantee.",
+    "structure": "circulant4"
+  },
+  "models": [
+    {
+      "kind": "circulant",
+      "best_epoch": 39,
+      "selected_validation": {
+        "cross_entropy": 0.6173831787109375,
+        "accuracy": 0.786
+      },
+      "selected_train": {
+        "cross_entropy": 0.5678894537289937,
+        "accuracy": 0.8005416666666667
+      },
+      "real_trainable_parameters": 73898,
+      "nontrainable_buffer_elements": 902,
+      "first_update": {
+        "parameters": [
+          {
+            "name": "blocks.0.0.kernel",
+            "gradient_norm": 0.573076605796814,
+            "shape": [
+              4,
+              8,
+              1,
+              3,
+              3
+            ],
+            "max_abs_update": 0.0010001063346862793
+          },
+          {
+            "name": "blocks.0.1.weight",
+            "gradient_norm": 0.06876777857542038,
+            "shape": [
+              32
+            ],
+            "max_abs_update": 0.0010001063346862793
+          },
+          {
+            "name": "blocks.0.1.bias",
+            "gradient_norm": 0.062390852719545364,
+            "shape": [
+              32
+            ],
+            "max_abs_update": 0.0009999996982514858
+          },
+          {
+            "name": "blocks.0.3.kernel",
+            "gradient_norm": 0.9080045819282532,
+            "shape": [
+              4,
+              8,
+              8,
+              3,
+              3
+            ],
+            "max_abs_update": 0.00100003182888031
+          },
+          {
+            "name": "blocks.0.4.weight",
+            "gradient_norm": 0.07549813389778137,
+            "shape": [
+              32
+            ],
+            "max_abs_update": 0.0010001063346862793
+          },
+          {
+            "name": "blocks.0.4.bias",
+            "gradient_norm": 0.05465834215283394,
+            "shape": [
+              32
+            ],
+            "max_abs_update": 0.000999999581836164
+          },
+          {
+            "name": "blocks.1.0.kernel",
+            "gradient_norm": 0.7789319753646851,
+            "shape": [
+              4,
+              16,
+              8,
+              3,
+              3
+            ],
+            "max_abs_update": 0.00100003182888031
+          },
+          {
+            "name": "blocks.1.1.weight",
+            "gradient_norm": 0.06025237590074539,
+            "shape": [
+              64
+            ],
+            "max_abs_update": 0.0010001063346862793
+          },
+          {
+            "name": "blocks.1.1.bias",
+            "gradient_norm": 0.054511260241270065,
+            "shape": [
+              64
+            ],
+            "max_abs_update": 0.0009999993490055203
+          },
+          {
+            "name": "blocks.1.3.kernel",
+            "gradient_norm": 1.0163441896438599,
+            "shape": [
+              4,
+              16,
+              16,
+              3,
+              3
+            ],
+            "max_abs_update": 0.00100003182888031
+          },
+          {
+            "name": "blocks.1.4.weight",
+            "gradient_norm": 0.07182706892490387,
+            "shape": [
+              64
+            ],
+            "max_abs_update": 0.0010001063346862793
+          },
+          {
+            "name": "blocks.1.4.bias",
+            "gradient_norm": 0.047960441559553146,
+            "shape": [
+              64
+            ],
+            "max_abs_update": 0.0009999991161748767
+          },
+          {
+            "name": "blocks.2.0.kernel",
+            "gradient_norm": 1.2733898162841797,
+            "shape": [
+              4,
+              32,
+              16,
+              3,
+              3
+            ],
+            "max_abs_update": 0.00100003182888031
+          },
+          {
+            "name": "blocks.2.1.weight",
+            "gradient_norm": 0.06382033973932266,
+            "shape": [
+              128
+            ],
+            "max_abs_update": 0.0010001063346862793
+          },
+          {
+            "name": "blocks.2.1.bias",
+            "gradient_norm": 0.04913302883505821,
+            "shape": [
+              128
+            ],
+            "max_abs_update": 0.0009999989997595549
+          },
+          {
+            "name": "blocks.2.3.kernel",
+            "gradient_norm": 1.7535370588302612,
+            "shape": [
+              4,
+              32,
+              32,
+              3,
+              3
+            ],
+            "max_abs_update": 0.0010000169277191162
+          },
+          {
+            "name": "blocks.2.4.weight",
+            "gradient_norm": 0.3100597858428955,
+            "shape": [
+              128
+            ],
+            "max_abs_update": 0.0010001063346862793
+          },
+          {
+            "name": "blocks.2.4.bias",
+            "gradient_norm": 0.2713666558265686,
+            "shape": [
+              128
+            ],
+            "max_abs_update": 0.0009999998146668077
+          },
+          {
+            "name": "readout.weight",
+            "gradient_norm": 2.253438711166382,
+            "shape": [
+              10,
+              128
+            ],
+            "max_abs_update": 0.00100003182888031
+          },
+          {
+            "name": "readout.bias",
+            "gradient_norm": 0.207443505525589,
+            "shape": [
+              10
+            ],
+            "max_abs_update": 0.0009999999310821295
+          }
+        ],
+        "structured_layers": {
+          "blocks.0.0": {
+            "component_gradient_norms": [
+              0.1626480668783188,
+              0.388923317193985,
+              0.18221499025821686,
+              0.3427809774875641
+            ],
+            "component_update_norms": [
+              0.008485189639031887,
+              0.008485251106321812,
+              0.008485228754580021,
+              0.008485264144837856
+            ]
+          },
+          "blocks.0.3": {
+            "component_gradient_norms": [
+              0.47167328000068665,
+              0.4572024941444397,
+              0.43883609771728516,
+              0.44764432311058044
+            ],
+            "component_update_norms": [
+              0.023999962955713272,
+              0.02399991825222969,
+              0.02399996854364872,
+              0.02399989776313305
+            ]
+          },
+          "blocks.1.0": {
+            "component_gradient_norms": [
+              0.3816317021846771,
+              0.3903067409992218,
+              0.38237515091896057,
+              0.40316519141197205
+            ],
+            "component_update_norms": [
+              0.03394097834825516,
+              0.033940885215997696,
+              0.033940862864255905,
+              0.033940888941287994
+            ]
+          },
+          "blocks.1.3": {
+            "component_gradient_norms": [
+              0.5176002383232117,
+              0.47968733310699463,
+              0.4799356758594513,
+              0.5519124865531921
+            ],
+            "component_update_norms": [
+              0.04799969866871834,
+              0.04799962416291237,
+              0.04799961671233177,
+              0.047999732196331024
+            ]
+          },
+          "blocks.2.0": {
+            "component_gradient_norms": [
+              0.6320810914039612,
+              0.6427450180053711,
+              0.6440637111663818,
+              0.6277387738227844
+            ],
+            "component_update_norms": [
+              0.06787726283073425,
+              0.06788156926631927,
+              0.06788169592618942,
+              0.0678815022110939
+            ]
+          },
+          "blocks.2.3": {
+            "component_gradient_norms": [
+              0.8759787678718567,
+              0.8831008672714233,
+              0.866635799407959,
+              0.8812653422355652
+            ],
+            "component_update_norms": [
+              0.09599892795085907,
+              0.0959990844130516,
+              0.09599928557872772,
+              0.09599921107292175
+            ]
+          }
+        },
+        "checks": {
+          "six_structured_layers": true,
+          "all_variables_updated": true,
+          "all_circulant_components_have_gradients_and_updates": true
+        },
+        "loss_before": 3.1387393474578857,
+        "correct_before": 11
+      },
+      "checkpoint_bytes": 309456,
+      "checkpoint_reload_max_error": 0.0,
+      "optimizer_updates_attempted": 18750,
+      "activation_shape": [
+        1000,
+        16,
+        32,
+        4
+      ],
+      "source_hashes": {
+        ".cache/keras/datasets/cifar-10-batches-py-target_archive": "6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce",
+        "configs/compression_curve.json": "3cbe2d14ce27893a1e708d0eb1d728b729a7ae32dd2903441cf15f5fc496b4a5",
+        "configs/structure_control.json": "ee606bf4db941f30c67877b8d32e5626b6a1f6226f9ab13849c46e51496b9332",
+        "results/cifar_cnn/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+        "results/cifar_cnn/quaternion/metrics.json": "3bd8c27ec75da13cb1fedb5a8dca6d572afbfb3d6e323abad98e36512be2cf92",
+        "results/cifar_cnn/quaternion/model.pt": "30d00aa6cf7b8a627bd8e99aa51e885cdfa555815ff7911d6048f88d70115101",
+        "results/cifar_cnn/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+        "results/cifar_cnn/summary.json": "7746423e40c6481a56e28dbebc3ddf5d6705c993d776ee257067b521b51958b5",
+        "results/cnn_multiseed/seed_2027/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+        "results/cnn_multiseed/seed_2027/quaternion/metrics.json": "a1ad66bc982e57ee1cdcd516f690d9c7657a9068e58443c4e466361bb9af9f3e",
+        "results/cnn_multiseed/seed_2027/quaternion/model.pt": "2ef7484bf7e3b223f417296e481368e9fa1e5b7ff14c48ca5e2652f414ad1ba1",
+        "results/cnn_multiseed/seed_2027/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+        "results/cnn_multiseed/seed_2027/summary.json": "fe7eaa871b9b86713103bc651234917a76574f937772e72243a71025c6476485",
+        "results/cnn_multiseed/seed_2028/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+        "results/cnn_multiseed/seed_2028/quaternion/metrics.json": "a9c9bb9432e62e5a0a1800c62101212a2831f32a9ca28637ab707436151c5eed",
+        "results/cnn_multiseed/seed_2028/quaternion/model.pt": "f10f19296c0096efb017a502a118b8dea3858177bac16531fae676a7ee5d8f31",
+        "results/cnn_multiseed/seed_2028/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+        "results/cnn_multiseed/seed_2028/summary.json": "0b47f1135e73ab4536388c8be3c59ca3f093596b32d8d37d968f947c11352f0b",
+        "results/compression_curve/phase_a/cnn6_seed_2026.json": "7e27501ae667ac3c0ba236abdbab84cc000c8c621d75b100f95cd200200e7406",
+        "results/compression_curve/phase_a/cnn6_seed_2027.json": "c88cb87073479c0ddc7b142925c667539fcdd5aaa7aa056f6649b0887ce5c1d4",
+        "results/compression_curve/phase_a/cnn6_seed_2028.json": "053b3931da942badf047024fd70c8932194e80349ed8636803a3071ee52aaadd",
+        "results/compression_curve/summary.json": "384884ac946d3b42c45e1c5815da753f23ff80024e16e4a28b62c6e6e38e410f",
+        "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+        "scripts/compression_curve.py": "d3a3ba3788ae6890712b341276f44bc646cc12404e3119056186ff8ae34651da",
+        "scripts/structure_control.py": "b0a4cde09503b27f0130134e33561e34e1c8fd1a40b294194319b0da3dfb7594",
+        "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+        "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+        "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+        "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654",
+        "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51",
+        "src/compression/multilayer.py": "623af6fd9417782e661ca01eeb30d2e7459b352afeee831156a098e807ec8c14",
+        "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+        "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+        "src/compression/structured_blocks.py": "fb09d1535a12ac8e1fba38499a4e67300a126ce1cec24839070ad701bff6ce15",
+        "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+        "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+        "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74",
+        "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+        "src/models/circulant_cnn.py": "a64e09adbc2ecbb70740517bb3f3e8c6fa382817736dddfdb8173fecb541542b",
+        "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b"
+      },
+      "cuda_peak_allocated_bytes": 605829120,
+      "test_evaluated": false,
+      "masked_parameters": 0,
+      "removed_units": 0,
+      "compact_architecture_savings": 0
+    }
+  ],
+  "official_test_evaluated": false
+}

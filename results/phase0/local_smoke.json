@@ -1,0 +1,204 @@
+{
+  "status": "passed",
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "versions": {
+      "tensorflow": "2.20.0",
+      "keras": "3.11.3",
+      "numpy": "2.2.6",
+      "matplotlib": "3.10.7",
+      "pytest": "8.4.2",
+      "HypercomplexKeras": "1.0.2"
+    },
+    "seed": 2026,
+    "devices": [
+      {
+        "name": "/physical_device:CPU:0",
+        "type": "CPU"
+      }
+    ],
+    "tensorflow_build": {
+      "is_cuda_build": false,
+      "is_rocm_build": false,
+      "is_tensorrt_build": false,
+      "msvcp_dll_names": "msvcp140.dll,msvcp140_1.dll"
+    },
+    "settings": {
+      "KERAS_BACKEND": "tensorflow",
+      "CUDA_VISIBLE_DEVICES": "-1",
+      "TF_DETERMINISTIC_OPS": "1",
+      "TF_ENABLE_ONEDNN_OPTS": "0"
+    }
+  },
+  "config": {
+    "seed": 2026,
+    "input_quaternion_units": 2,
+    "hidden_quaternion_units": 6,
+    "classes": 3,
+    "train_samples": 256,
+    "calibration_samples": 128,
+    "test_samples": 128,
+    "optimizer": "Adam",
+    "learning_rate": 0.01,
+    "steps": 240,
+    "activation": "tanh",
+    "kernel_initializer": "glorot_uniform",
+    "data": "Independent Gaussian inputs; labels are argmax of a fixed random linear teacher.",
+    "encoding": "Eight real scalars grouped consecutively into two (real, i, j, k) quaternions; no padding.",
+    "similarity": "Cosine of unit activation vectors after centering each component over calibration samples."
+  },
+  "upstream_status": "failed",
+  "implementation": "Local QuaternionDense fallback; upstream failure is preserved in upstream_smoke.json.",
+  "parameter_counts": {
+    "hidden_quaternion_units": 6,
+    "quaternion_layer_real_trainable": 72,
+    "real_readout_trainable": 75,
+    "total_real_trainable": 147,
+    "masked_parameters": 0,
+    "removed_units": 0,
+    "compact_architecture_savings": 0
+  },
+  "first_optimizer_step": {
+    "variables": [
+      {
+        "name": "quaternion_hidden/kernel",
+        "shape": [
+          2,
+          6,
+          4
+        ],
+        "real_parameters": 48,
+        "gradient_norm": 0.6086596846580505,
+        "max_abs_update": 0.00999978557229042
+      },
+      {
+        "name": "quaternion_hidden/bias",
+        "shape": [
+          6,
+          4
+        ],
+        "real_parameters": 24,
+        "gradient_norm": 0.11732766777276993,
+        "max_abs_update": 0.009999285452067852
+      },
+      {
+        "name": "real_readout/kernel",
+        "shape": [
+          24,
+          3
+        ],
+        "real_parameters": 72,
+        "gradient_norm": 0.6126126646995544,
+        "max_abs_update": 0.009999781847000122
+      },
+      {
+        "name": "real_readout/bias",
+        "shape": [
+          3
+        ],
+        "real_parameters": 3,
+        "gradient_norm": 0.15333636105060577,
+        "max_abs_update": 0.009999650530517101
+      }
+    ],
+    "all_variables_updated": true,
+    "kernel_component_gradient_norms": [
+      0.3688962459564209,
+      0.3226795792579651,
+      0.2576877772808075,
+      0.25269952416419983
+    ],
+    "kernel_component_update_norms": [
+      0.03463859483599663,
+      0.03462117165327072,
+      0.034631505608558655,
+      0.034637451171875
+    ]
+  },
+  "metrics": {
+    "initial_train": {
+      "cross_entropy": 1.1790730953216553,
+      "accuracy": 0.4296875
+    },
+    "final_train": {
+      "cross_entropy": 0.041382111608982086,
+      "accuracy": 1.0
+    },
+    "held_out_synthetic_test": {
+      "cross_entropy": 0.17972593009471893,
+      "accuracy": 0.9140625
+    }
+  },
+  "calibration": {
+    "layout": "(samples, quaternion_units, 4); component order (real, i, j, k)",
+    "shape": [
+      128,
+      6,
+      4
+    ],
+    "metric": "Cosine of unit activation vectors after centering each component over calibration samples.",
+    "diagnostics": {
+      "initial": {
+        "valid_units": 6,
+        "zero_variance_units": [],
+        "finite_off_diagonal_pairs": 15,
+        "mean_pairwise_similarity": -0.09023792177833755,
+        "max_pairwise_similarity": 0.642172131223738
+      },
+      "trained": {
+        "valid_units": 6,
+        "zero_variance_units": [],
+        "finite_off_diagonal_pairs": 15,
+        "mean_pairwise_similarity": -0.12927417913936232,
+        "max_pairwise_similarity": 0.22934536931558847
+      }
+    },
+    "uses_test_data": false
+  },
+  "model_checkpoint_bytes": 19908,
+  "checkpoint_max_abs_reload_error": 0.0,
+  "checks": {
+    "all_expected_parameters_tracked": true,
+    "quaternion_kernel_is_tracked": true,
+    "all_variables_have_finite_nonzero_gradients": true,
+    "all_variables_updated": true,
+    "all_four_kernel_components_receive_gradients": true,
+    "all_four_kernel_components_update": true,
+    "kernel_components_not_identically_initialized": true,
+    "classifier_output_shape": true,
+    "grouped_activation_shape": true,
+    "training_loss_decreased": true,
+    "checkpoint_roundtrip": true
+  },
+  "source_hashes": {
+    "scripts/phase0.py": {
+      "sha256": "eee8a4fd1cfffeee65a776937e4f771bacd79a116d43bfc8609bd2b335dcf7fd",
+      "git_blob_sha1": "a09aa5cad3ead7e464cec22dbc1e36e120939f96"
+    },
+    "scripts/check_upstream.py": {
+      "sha256": "83b4c7e78b6744d62d1631f72a6a45abab644589a2b0c1a114e427ad7d6384e6",
+      "git_blob_sha1": "922ad622af61c1b8df887105f88e3327ad8d241f"
+    },
+    "scripts/runtime.py": {
+      "sha256": "5022345e031874ddd1df62257b4bdefcd949e1e8269c78860378e95dc109c181",
+      "git_blob_sha1": "40eb57840e25711be308f73bf55cf284b8e5d06e"
+    },
+    "src/models/quaternion_dense.py": {
+      "sha256": "45b94c4f3209f346cbc563f8cb6b86a0bbbae4995752bcaa0327167d992b230b",
+      "git_blob_sha1": "f134cfcf049b1297a16f50012f6210b360521978"
+    },
+    "src/activations/similarity.py": {
+      "sha256": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+      "git_blob_sha1": "ee477ed646b21690810a840198940763fe6315b0"
+    }
+  },
+  "data_sha256": "24da444a3d6b56dcbefc37e588fd56e7656b9ae27bbaf6f85a1daf1e6818c46b",
+  "limitations": [
+    "One seed and synthetic data only; this is a trainability check, not evidence for H1-H3.",
+    "No parameter-matched real control, pruning, compression gain, compute or latency comparison.",
+    "Pairwise activation similarity does not establish removable units or novelty.",
+    "CPU only; GPU and legacy TensorFlow/Keras combinations were not tested."
+  ]
+}

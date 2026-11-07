@@ -1,0 +1,15 @@
+{
+  "source_compression": "results/cnn_compression",
+  "source_initial_analysis": "results/block_analysis",
+  "source_baseline": "results/cifar_cnn",
+  "seeds": [2026, 2027, 2028],
+  "blocks": [1, 2, 3],
+  "primary_block": 3,
+  "top_fraction": 0.25,
+  "criteria": ["grouped_centered_cosine", "scalar_pearson_mean_external_nn"],
+  "primary_metric": "Within-seed Spearman(score, negative validation CE increase from single whole-unit ablation)",
+  "decision_rule": "Descriptive go only if grouped Spearman is greater AND grouped top-quarter mean individual loss harm is no larger in every primary-block training seed; otherwise no repeatable grouped advantage demonstrated",
+  "inference": false,
+  "training_updates": 0,
+  "test_used": false
+}

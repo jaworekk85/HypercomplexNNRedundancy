@@ -1,0 +1,3122 @@
+{
+  "status": "completed",
+  "protocol": {
+    "config": {
+      "source_multiseed": "results/cnn_multiseed",
+      "source_random_compression": "results/cnn_compression",
+      "output": "results/quaternion_merging",
+      "seeds": [
+        2026,
+        2027,
+        2028
+      ],
+      "block": 3,
+      "removed_units": 8,
+      "fit_calibration_positions": "even",
+      "check_calibration_positions": "odd",
+      "fit_images": 500,
+      "check_images": 500,
+      "activation_target": "Global-average-pooled last-block units, not individual spatial feature positions",
+      "diagnostic_maps": [
+        "quaternion_right",
+        "diagonal",
+        "full_real"
+      ],
+      "compression_maps": [
+        "quaternion_right",
+        "full_real"
+      ],
+      "intercept": true,
+      "fitting": "Float64 unregularized least squares on fit half only; right-Hamilton affine map 4+4, diagonal affine 4+4, unrestricted affine 16+4 coefficients",
+      "pair_selection": "Greedy lowest fit-half class-centered single-pair logit residual MSE; disjoint keeper/victim endpoints; deterministic index ties; own pairs for each map",
+      "gate_maximum_check_mse_ratio_vs_mean_only": 0.9,
+      "gate_maximum_check_mse_ratio_vs_pruning": 0.75,
+      "gate_minimum_passing_seeds": 2,
+      "gate": "If either compression map meets both aggregate held-out logit-MSE ratios in at least 2/3 seeds, physically evaluate both maps and all controls in all seeds. Otherwise preserve diagnostics and skip physical compression.",
+      "controls": [
+        "same_victims_pruned",
+        "same_victims_mean_only",
+        "random_pruning_10_reused_selections"
+      ],
+      "random_repetitions": 10,
+      "physical_evaluation_splits": [
+        "check_calibration",
+        "validation"
+      ],
+      "device": "cuda",
+      "cpu_threads": 4,
+      "batch_size": 256,
+      "equivalence_tolerance": 0.0001,
+      "optimizer_updates": 0,
+      "bn_recalibration": false,
+      "official_test_evaluation": false,
+      "scope": "A bounded activation/merging pilot on three existing CNNs. No new CNN training, algebra search, novel-method claim or blind-test claim. Coefficients fitted to calibration are folded into the existing readout and are not additional inference parameters."
+    },
+    "source_hashes": {
+      "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+      "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+      "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+      "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+      "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+      "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+      "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+      "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+      "scripts/cnn_compression.py": "c1b49c55ee20399577fb20bcf2ece8535c29a865055bd52b816c81ddf928699d",
+      "scripts/analyze_cnn_blocks.py": "abf8cf59ec4277683eb2d927c14568ef739293680ee572af35e4d8a501263d44",
+      "src/evaluation/block_ablation.py": "b3db492a534b41af02f8e963b5d7758161c36b9dbb1112fb424fdcc40905fa3f",
+      "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+      "src/evaluation/thresholds.py": "12d001390a9e69e3f49bc23964a7cfcf08a593bc4fdfca0d17c511344c95fc58",
+      "scripts/quaternion_merge_diagnostic.py": "f00a1e25c12c0f99ef358d28f562023e72b9e16304f288e2ba5db1cd27547fa7",
+      "src/compression/quaternion_merging.py": "4c1d1f118072b6976c5266502401aff413da9e09e1d1820ae39fb5877ae6abf3"
+    },
+    "protected_inputs": {
+      "results/cnn_multiseed/summary.json": "3d173c9cc038198cba79d3854fe67e349bc035843510fad4a34bb9e4a80088b2",
+      "results/cnn_compression/summary.json": "84067df327f1e917e251083aa1a6e692907a4888ab2e89878f984510cdb13182",
+      "results/cifar_cnn/summary.json": "7746423e40c6481a56e28dbebc3ddf5d6705c993d776ee257067b521b51958b5",
+      "results/cifar_cnn/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+      "results/cifar_cnn/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+      "results/cifar_cnn/quaternion/model.pt": "30d00aa6cf7b8a627bd8e99aa51e885cdfa555815ff7911d6048f88d70115101",
+      "results/cifar_cnn/quaternion/metrics.json": "3bd8c27ec75da13cb1fedb5a8dca6d572afbfb3d6e323abad98e36512be2cf92",
+      "results/cifar_cnn/quaternion/calibration_activations.npz": "158d52ea35667a22d21b4cdeac95188ecc7a917b448190a5beaf972845974918",
+      "results/cnn_compression/seed_2026/random_r00_removed08/manifest.json": "cb295ea8c9b4b27b9f47c7f9e0803cba2b6572b59419cc08e5c20cb0d1cdd953",
+      "results/cnn_compression/seed_2026/random_r00_removed08/model.pt": "4de8c8ff06d262a56f4bd0837172558e910a09467d1b46914de51a978e0842bb",
+      "results/cnn_compression/seed_2026/random_r00_removed08/validation.json": "9485eb85dce73707de1ee0091350a2a8a2efc67668c8ec2b2bd2804a91da36c7",
+      "results/cnn_compression/seed_2026/random_r01_removed08/manifest.json": "288f5b6bed4420a4a0f35a38c97c3648a16207b351862e315cadcb07f779ac0c",
+      "results/cnn_compression/seed_2026/random_r01_removed08/model.pt": "43ac0dd21532170450328bfd50bc9bf44a85c504b8834103c2ac7fe1f7774e37",
+      "results/cnn_compression/seed_2026/random_r01_removed08/validation.json": "6a04c5ee20b8b5312634f445a4df32771fb9f1ee7e314447a1c71e8a56f9cd9d",
+      "results/cnn_compression/seed_2026/random_r02_removed08/manifest.json": "998ef7bafd52cc4bda66836953ddef0ce52ac8f1ae7a6d337124948d1c3b4e4c",
+      "results/cnn_compression/seed_2026/random_r02_removed08/model.pt": "948759192814ab17016feb079b26536b4659908603a712ccd07ae1808cdded96",
+      "results/cnn_compression/seed_2026/random_r02_removed08/validation.json": "5f50cb3a32e61cb2cd088cc0834f6afe64a89b34faa05db38732b2e03aae9960",
+      "results/cnn_compression/seed_2026/random_r03_removed08/manifest.json": "cb45987f6fb1537392ae556a8a3dee7668bfeec33da5f717813c76972b825fe8",
+      "results/cnn_compression/seed_2026/random_r03_removed08/model.pt": "4ba8c16af28e00a7ec4cb54fe07a974a0c38fffce2230bd1ace604a631512a69",
+      "results/cnn_compression/seed_2026/random_r03_removed08/validation.json": "477f6de614e9f457b939ae16932c3c52584724344a9d0f17e136da37d093b784",
+      "results/cnn_compression/seed_2026/random_r04_removed08/manifest.json": "d4d5e5f36860d0fb9d2153c2e4f0ed5bcf3b00520e7a381a28341f0da4c25cc3",
+      "results/cnn_compression/seed_2026/random_r04_removed08/model.pt": "dfad092d878884b3173bfa6e44565aee2af843f11bc946704dcd6d82f41902d9",
+      "results/cnn_compression/seed_2026/random_r04_removed08/validation.json": "c0c320b03929a306c3f544fd98dba68b5c86ed4bcf295b5668a0e7b53268b068",
+      "results/cnn_compression/seed_2026/random_r05_removed08/manifest.json": "5e3a2cf8b96aa076bd51bdbdaab4355d0093498084b1cacffdf3dd449c9a6174",
+      "results/cnn_compression/seed_2026/random_r05_removed08/model.pt": "d82967920ada6e4c04dad6a51d0f3a689e650f8fdac6960beaaee0186ab14225",
+      "results/cnn_compression/seed_2026/random_r05_removed08/validation.json": "2eeb7781491d0f3545ad0988164bea68f070189933c8efe9308033e667c65097",
+      "results/cnn_compression/seed_2026/random_r06_removed08/manifest.json": "772bc76b08635123348c7aa79fefc10cf24df27627b791797106ea1af1a611c0",
+      "results/cnn_compression/seed_2026/random_r06_removed08/model.pt": "ffd3c17a923cbfa38fec635c82f60a9aaa88e0bd0a37108e29e20c55baaced97",
+      "results/cnn_compression/seed_2026/random_r06_removed08/validation.json": "978103ef9826e58bc9c8a58bf340e3733c3cee94f629b22e92aa354ec111b3a0",
+      "results/cnn_compression/seed_2026/random_r07_removed08/manifest.json": "8b8f892cbbb5eac7ebbb9e9b0bf17524703eff1515549d1baad7e1b7ebcad00f",
+      "results/cnn_compression/seed_2026/random_r07_removed08/model.pt": "9a577ad01eeb8a34617e45b7a4c484670f30635ee0d2a24fd5178cf48675e2ef",
+      "results/cnn_compression/seed_2026/random_r07_removed08/validation.json": "bd857d18dc18b8b21de32359c672e8506d82ca1ffa040c6c87b2bc08c80d5ee3",
+      "results/cnn_compression/seed_2026/random_r08_removed08/manifest.json": "b8c5e16f412db2a535d5e07dd0e63fdb479a5ce5a573189c58bd5ad441979cc6",
+      "results/cnn_compression/seed_2026/random_r08_removed08/model.pt": "556942df609d2c9ef0f60a39ab6b042cb3d5afe9bb433f27e31b7834a33e0fc1",
+      "results/cnn_compression/seed_2026/random_r08_removed08/validation.json": "8f579ca5682d393a725258ea462a9ad12a27108844bfd950f56922cf73c1ae60",
+      "results/cnn_compression/seed_2026/random_r09_removed08/manifest.json": "ccd2b9963f1b74f1940e794ee220d529d833ec0821d41f6ea33ee9b2f4d88adf",
+      "results/cnn_compression/seed_2026/random_r09_removed08/model.pt": "0ab4dfd197296ea641182bb0ac27b32e6c79250f82b4b427aef58f3961f10425",
+      "results/cnn_compression/seed_2026/random_r09_removed08/validation.json": "8e4714d2f6c8cfff271be4a76496722eaec81ebca03740e6282c2ab2fd56bb8f",
+      "results/cnn_multiseed/seed_2027/summary.json": "fe7eaa871b9b86713103bc651234917a76574f937772e72243a71025c6476485",
+      "results/cnn_multiseed/seed_2027/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+      "results/cnn_multiseed/seed_2027/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+      "results/cnn_multiseed/seed_2027/quaternion/model.pt": "2ef7484bf7e3b223f417296e481368e9fa1e5b7ff14c48ca5e2652f414ad1ba1",
+      "results/cnn_multiseed/seed_2027/quaternion/metrics.json": "a1ad66bc982e57ee1cdcd516f690d9c7657a9068e58443c4e466361bb9af9f3e",
+      "results/cnn_multiseed/seed_2027/quaternion/calibration_activations.npz": "cedca27ed0d63c7a0bf0d4bd228a156c24cb669517746c4a823da3277441a603",
+      "results/cnn_compression/seed_2027/random_r00_removed08/manifest.json": "5740dd339312ca47f6de631a651d2e15fc189a8fd7c09f9bc24e3bb62cf0311a",
+      "results/cnn_compression/seed_2027/random_r00_removed08/model.pt": "217df4e99aefc15463095ff11458d3a2389fb3c1afa63ec77da156b18577f3a1",
+      "results/cnn_compression/seed_2027/random_r00_removed08/validation.json": "041c761aa00cba625e6da4a8b77751fc4e4a8b3633ecd4e3f36b19088c7f773f",
+      "results/cnn_compression/seed_2027/random_r01_removed08/manifest.json": "0e53c91241d3a298ba3935a1b704ccdaa09468d9abceeea0d19737dd912243eb",
+      "results/cnn_compression/seed_2027/random_r01_removed08/model.pt": "0bea56167b860494e3566f2e4cb90351d8f51f466c47f22f76dd5fec32bdb180",
+      "results/cnn_compression/seed_2027/random_r01_removed08/validation.json": "4312a2b5c7e2254ddae953a54d3886919bf31aef271d9196321d858be76939ed",
+      "results/cnn_compression/seed_2027/random_r02_removed08/manifest.json": "fcbea284f0b3da7a8455cd36cc6446e57ac3a27f2dd9af7fd664a8a082dce138",
+      "results/cnn_compression/seed_2027/random_r02_removed08/model.pt": "caa0cc20c6e888811c448cef57042397ea5ee27d9d31efa45e1607fcfdc024f6",
+      "results/cnn_compression/seed_2027/random_r02_removed08/validation.json": "61d4e79423aca7c9236b1ee71775e614f35d686a997f332e40f01500d7d1bd26",
+      "results/cnn_compression/seed_2027/random_r03_removed08/manifest.json": "748b4ded8fced1eb4845e2278c1098a02728195bd00dd7406edc583dfac52a34",
+      "results/cnn_compression/seed_2027/random_r03_removed08/model.pt": "2942b26ff60545c81bf2fa799589061d43aa232cb3b4cc1fadc1d97038522577",
+      "results/cnn_compression/seed_2027/random_r03_removed08/validation.json": "ed130c77125b0f2a982bce7d0eb98994053c836ae00cbce160d7efa6ae252d1b",
+      "results/cnn_compression/seed_2027/random_r04_removed08/manifest.json": "bf2fc3492393d082b3f614b29c4423f45ccd2aa8af3a5f26d7f18b69dd5289e3",
+      "results/cnn_compression/seed_2027/random_r04_removed08/model.pt": "0a3ee541bf5cf5c6a6bd1c8d81560afb5dc3be58aa94180bf3d6e3710671fa03",
+      "results/cnn_compression/seed_2027/random_r04_removed08/validation.json": "af21c565c224cc0cadefe12ae40fddcc887194c69fae791a25ecc2b1ec7ad4a1",
+      "results/cnn_compression/seed_2027/random_r05_removed08/manifest.json": "ba58b6bf504f9210e49728a3a0a8291f4d3e3c51b53dbf526feaca980b7610e8",
+      "results/cnn_compression/seed_2027/random_r05_removed08/model.pt": "49eaa40330b8fedcbb093d33d8cd0bb9e79ed76081b9d5e2f00877a20ec76a01",
+      "results/cnn_compression/seed_2027/random_r05_removed08/validation.json": "55bdbe0bbd21c7267897b91159d8424fa0d93234214fb0746e09cc9baefe949c",
+      "results/cnn_compression/seed_2027/random_r06_removed08/manifest.json": "4f901520fdaafff1f5ec998ab20c33717ebe9f3fd30833529bc08c65dbe82681",
+      "results/cnn_compression/seed_2027/random_r06_removed08/model.pt": "b83c918489f508e00a81a26979cc8632e97f3087842cbc4885846a8fc2f0e915",
+      "results/cnn_compression/seed_2027/random_r06_removed08/validation.json": "152868439e06a26b139cac68295ef48a1846d7e637129f707ae74d47fd7cbc50",
+      "results/cnn_compression/seed_2027/random_r07_removed08/manifest.json": "4c25671a434a5a7665c190efabb21be537c8be7c93b2efe51ba6619a9e4c6ccb",
+      "results/cnn_compression/seed_2027/random_r07_removed08/model.pt": "eab0daf16a71f2e2abc2fbbef35bea68f2d626bb3590ce5a554728270447fc25",
+      "results/cnn_compression/seed_2027/random_r07_removed08/validation.json": "83000be85d400ac11fd4670406850391613b03eb9e9fd08e40f8632524f50ce9",
+      "results/cnn_compression/seed_2027/random_r08_removed08/manifest.json": "fc3d988943bb9375f6cd939ede4d57aa091b17cdbb25145cd7f8adb6c68b8427",
+      "results/cnn_compression/seed_2027/random_r08_removed08/model.pt": "e2e2dba1f41ce1317fa1305cf5df49634ed233139c8f5c74dc8b1a0cf96fe05f",
+      "results/cnn_compression/seed_2027/random_r08_removed08/validation.json": "cb1aee457002639154d4052f8571445198341665447ffee3d44c2e7d3670a3ab",
+      "results/cnn_compression/seed_2027/random_r09_removed08/manifest.json": "f6787664710d733afb91f056a9a1c43ff97b6011055977f4b6ccddc77cc8443e",
+      "results/cnn_compression/seed_2027/random_r09_removed08/model.pt": "7f5b15fd46d9ccb525a6c16bb2d8fd7a1e284fcebbb18c661734df1b8ca8ad22",
+      "results/cnn_compression/seed_2027/random_r09_removed08/validation.json": "3c275c8812072e135360e7134f57f4dbaf3fee0e91d3aa8478cbf52e4d1f9970",
+      "results/cnn_multiseed/seed_2028/summary.json": "0b47f1135e73ab4536388c8be3c59ca3f093596b32d8d37d968f947c11352f0b",
+      "results/cnn_multiseed/seed_2028/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+      "results/cnn_multiseed/seed_2028/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+      "results/cnn_multiseed/seed_2028/quaternion/model.pt": "f10f19296c0096efb017a502a118b8dea3858177bac16531fae676a7ee5d8f31",
+      "results/cnn_multiseed/seed_2028/quaternion/metrics.json": "a9c9bb9432e62e5a0a1800c62101212a2831f32a9ca28637ab707436151c5eed",
+      "results/cnn_multiseed/seed_2028/quaternion/calibration_activations.npz": "b55b4eae68de01150cf1197eced0ca56409e17652a763d135639c0834def4f94",
+      "results/cnn_compression/seed_2028/random_r00_removed08/manifest.json": "8f70416beb1631f74a2776bf025ac5c3f4b5e9f9631b10dbd6bc9755e0367e6f",
+      "results/cnn_compression/seed_2028/random_r00_removed08/model.pt": "49940d28c7b4a32e6a86b2798e89d5957de84e16fa3e942b487aece4dc35ae0e",
+      "results/cnn_compression/seed_2028/random_r00_removed08/validation.json": "4320fb133847dde6db6bb7435998986ccd2e3026a59347551a1aad0ae136188a",
+      "results/cnn_compression/seed_2028/random_r01_removed08/manifest.json": "e6784f32ac3e7d906fa7c5b8d3062454d6c254392c268142a8ea465f8c2a003b",
+      "results/cnn_compression/seed_2028/random_r01_removed08/model.pt": "8190c2835c5fd1f8d15f4de44939f1c00eaeec3534847741c6f6193c8e8eef60",
+      "results/cnn_compression/seed_2028/random_r01_removed08/validation.json": "42ffe6903acd46404dd5d6a3af0135758c608bc16c7983ef2a6699d43207e4b3",
+      "results/cnn_compression/seed_2028/random_r02_removed08/manifest.json": "b24e4cc5bd0b89931136b96106894ad180636c4bef3e0706e720faef4f01716d",
+      "results/cnn_compression/seed_2028/random_r02_removed08/model.pt": "3906902020a4882cbf6eda1d6223c647c9e4fb48aa96b8b91f17ca0909f37541",
+      "results/cnn_compression/seed_2028/random_r02_removed08/validation.json": "cc99cfd010fa7b339db6139a63930a0eab3b99a03543953825ae2b51f20bc6a1",
+      "results/cnn_compression/seed_2028/random_r03_removed08/manifest.json": "d3a06c63a00e04089963b4343fdbe66659bbed22628097d1ed58368efe0142c7",
+      "results/cnn_compression/seed_2028/random_r03_removed08/model.pt": "fbba7933288f9fd1d3c45c3cd77b02a1af5114c66ff64ff876914ecbe2cd7d8a",
+      "results/cnn_compression/seed_2028/random_r03_removed08/validation.json": "6b9741f8ae8e12a769816d402c3bf01790ec31f06ba0b63fb3827ceb6e8bc4d4",
+      "results/cnn_compression/seed_2028/random_r04_removed08/manifest.json": "fbb4d068fe72bbb1e104e34acbc5e77b6463ce6f7cdb7a71dc6326af2ec1f662",
+      "results/cnn_compression/seed_2028/random_r04_removed08/model.pt": "a2d048b7b1db6b7cfdb6c19344492e52c137de15c8c0a6c774225502c3816275",
+      "results/cnn_compression/seed_2028/random_r04_removed08/validation.json": "25ba75ff2d37677c0a11c05028eb2a66171a2eee920b8e9cedba84f847827f25",
+      "results/cnn_compression/seed_2028/random_r05_removed08/manifest.json": "971b714710cc0d6678ac4718cd988b3bd31f09052afdb3c72e7deb1c4d2ee6ff",
+      "results/cnn_compression/seed_2028/random_r05_removed08/model.pt": "ecbebb5cb4fb2932bec38c3c570629bdb85de0c74f48397a16eaed5b05ea5ba4",
+      "results/cnn_compression/seed_2028/random_r05_removed08/validation.json": "81c1ffc9055c049c46ae2b3192e7d9d1e3efca8ecda8ec90230d080dc9781d40",
+      "results/cnn_compression/seed_2028/random_r06_removed08/manifest.json": "dcf1ae1b026005862dc219d865aa7eac313d84c0b9dbc4e38d95d802b5039f55",
+      "results/cnn_compression/seed_2028/random_r06_removed08/model.pt": "32baa3ac7d4c476664c0640596156c29d9d63026a27af3988a7a02042a0fffb7",
+      "results/cnn_compression/seed_2028/random_r06_removed08/validation.json": "3aeb272df1ae74a465e4ce8c6ce9a79fc6fcd2ae26dc56aacc8c1b9de23cb762",
+      "results/cnn_compression/seed_2028/random_r07_removed08/manifest.json": "2c34e46ffaca7f4fe23c03a3efc821bcae226df156241057273e691385ff463a",
+      "results/cnn_compression/seed_2028/random_r07_removed08/model.pt": "78e60062fbd4c932956f02a1b0de487cf1c3ac7750a51e77b08e45f2071e8b32",
+      "results/cnn_compression/seed_2028/random_r07_removed08/validation.json": "de8218fde3d765b25d49e1b45530aca2c35e2d1c697966721b3a1247f9b10adb",
+      "results/cnn_compression/seed_2028/random_r08_removed08/manifest.json": "33be5bc8a041cdfed84b1bc691106ba2cb369b0d1c2f55d749c0f83fd5cb58a6",
+      "results/cnn_compression/seed_2028/random_r08_removed08/model.pt": "9629f4ca0f8c11ed888b3026332cb0e86f83543b163e984e7a2ea2310900ad7d",
+      "results/cnn_compression/seed_2028/random_r08_removed08/validation.json": "77727d45ccb49f991ce81de817c813cc457c40f6de814890d50c379139434f37",
+      "results/cnn_compression/seed_2028/random_r09_removed08/manifest.json": "82b1e7129e6190319555668ad579cd5ae91a066dfcce125337122a4f66d9122c",
+      "results/cnn_compression/seed_2028/random_r09_removed08/model.pt": "6952b596c636446e07addcb7ad65b8343b0dd5d68ff47bd41cde13c813baffe7",
+      "results/cnn_compression/seed_2028/random_r09_removed08/validation.json": "f1abe6a35c5cba148fad7b40561ed001b0426fb000c53b52053b7d0021fca0e0"
+    },
+    "environment": {
+      "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "numpy": "2.2.6",
+      "torch": "2.6.0+cu124",
+      "platform": "Windows-10-10.0.26200-SP0"
+    },
+    "fit_labels_used": false,
+    "new_cnn_training_updates": 0,
+    "official_test_evaluated": false
+  },
+  "records": [
+    {
+      "seed": 2026,
+      "source": "results/cifar_cnn",
+      "selected": {
+        "quaternion_right": {
+          "pairs": [
+            {
+              "keeper": 24,
+              "victim": 7,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.4050257527537793,
+                  0.09140181324221867,
+                  0.019323270398397156,
+                  0.02004976736948503
+                ],
+                [
+                  -0.09140181324221867,
+                  0.4050257527537793,
+                  -0.02004976736948503,
+                  0.019323270398397156
+                ],
+                [
+                  -0.019323270398397156,
+                  0.02004976736948503,
+                  0.4050257527537793,
+                  -0.09140181324221867
+                ],
+                [
+                  -0.02004976736948503,
+                  -0.019323270398397156,
+                  0.09140181324221867,
+                  0.4050257527537793
+                ]
+              ],
+              "bias": [
+                0.1459292368132345,
+                0.24570839987685114,
+                0.24103532513631995,
+                0.33770110770798034
+              ],
+              "target_fit_mean": [
+                0.44738108110395114,
+                0.3809833263999644,
+                0.3552517723904748,
+                0.5201668774909549
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.06781121934721977,
+              "fit_constant_feature_mse": 0.10530902006999787,
+              "fit_feature_nmse_vs_fit_mean": 0.64392603123784,
+              "fit_centered_logit_mse": 0.01322126335615365,
+              "check_feature_mse": 0.06502662511499029,
+              "check_constant_feature_mse": 0.10833048300622505,
+              "check_feature_nmse_vs_fit_mean": 0.6002615636012038,
+              "check_centered_logit_mse": 0.012697904929846938,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 6,
+              "victim": 16,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.3713018627656426,
+                  -0.34284058359585695,
+                  -0.21131685188912555,
+                  0.2394843884093537
+                ],
+                [
+                  0.34284058359585695,
+                  0.3713018627656426,
+                  -0.2394843884093537,
+                  -0.21131685188912555
+                ],
+                [
+                  0.21131685188912555,
+                  0.2394843884093537,
+                  0.3713018627656426,
+                  0.34284058359585695
+                ],
+                [
+                  -0.2394843884093537,
+                  0.21131685188912555,
+                  -0.34284058359585695,
+                  0.3713018627656426
+                ]
+              ],
+              "bias": [
+                0.47661559941684767,
+                0.32063076927583417,
+                -0.2274768618059464,
+                0.3070467903165419
+              ],
+              "target_fit_mean": [
+                0.43664268072122514,
+                0.39868193130459895,
+                0.311776064359663,
+                0.4159744405348065
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.09045904019496394,
+              "fit_constant_feature_mse": 0.14633617985633435,
+              "fit_feature_nmse_vs_fit_mean": 0.6181590928762263,
+              "fit_centered_logit_mse": 0.015502489628898775,
+              "check_feature_mse": 0.07430747388581065,
+              "check_constant_feature_mse": 0.12573600243653416,
+              "check_feature_nmse_vs_fit_mean": 0.5909800888040615,
+              "check_centered_logit_mse": 0.012377740479729896,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 28,
+              "victim": 2,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.28481711980235946,
+                  0.05833472350419243,
+                  -0.2235315474568662,
+                  0.09647368112583396
+                ],
+                [
+                  -0.05833472350419243,
+                  0.28481711980235946,
+                  -0.09647368112583396,
+                  -0.2235315474568662
+                ],
+                [
+                  0.2235315474568662,
+                  0.09647368112583396,
+                  0.28481711980235946,
+                  -0.05833472350419243
+                ],
+                [
+                  -0.09647368112583396,
+                  0.2235315474568662,
+                  0.05833472350419243,
+                  0.28481711980235946
+                ]
+              ],
+              "bias": [
+                0.2738211023783663,
+                0.4502770856458284,
+                0.11023231835200684,
+                0.31414855183509055
+              ],
+              "target_fit_mean": [
+                0.3609598851973756,
+                0.3567842360765862,
+                0.3105835851688721,
+                0.5804233966678439
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.07659360979274185,
+              "fit_constant_feature_mse": 0.10583161008221335,
+              "fit_feature_nmse_vs_fit_mean": 0.7237309319327326,
+              "fit_centered_logit_mse": 0.01680612382410268,
+              "check_feature_mse": 0.08108423464430667,
+              "check_constant_feature_mse": 0.11309907102049482,
+              "check_feature_nmse_vs_fit_mean": 0.7169310403054796,
+              "check_centered_logit_mse": 0.017695343013642166,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 20,
+              "victim": 5,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.301955375827898,
+                  0.4243453148540431,
+                  -0.017991139931523098,
+                  0.08620146946197432
+                ],
+                [
+                  -0.4243453148540431,
+                  0.301955375827898,
+                  -0.08620146946197432,
+                  -0.017991139931523098
+                ],
+                [
+                  0.017991139931523098,
+                  0.08620146946197432,
+                  0.301955375827898,
+                  -0.4243453148540431
+                ],
+                [
+                  -0.08620146946197432,
+                  0.017991139931523098,
+                  0.4243453148540431,
+                  0.301955375827898
+                ]
+              ],
+              "bias": [
+                0.1015558188164507,
+                0.47196384649592826,
+                0.2059776882088623,
+                0.22970881932541987
+              ],
+              "target_fit_mean": [
+                0.495971956384572,
+                0.3814231045570405,
+                0.2385856284970805,
+                0.5175880671693376
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.08502328173288913,
+              "fit_constant_feature_mse": 0.12719807655345416,
+              "fit_feature_nmse_vs_fit_mean": 0.6684321338550953,
+              "fit_centered_logit_mse": 0.016905593411619728,
+              "check_feature_mse": 0.08318169230082177,
+              "check_constant_feature_mse": 0.12886554134684677,
+              "check_feature_nmse_vs_fit_mean": 0.6454921263779501,
+              "check_centered_logit_mse": 0.016660025783764115,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 3,
+              "victim": 23,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.3720666535945807,
+                  -0.10688604187484302,
+                  0.32130117717149914,
+                  0.049022329634471506
+                ],
+                [
+                  0.10688604187484302,
+                  0.3720666535945807,
+                  -0.049022329634471506,
+                  0.32130117717149914
+                ],
+                [
+                  -0.32130117717149914,
+                  0.049022329634471506,
+                  0.3720666535945807,
+                  0.10688604187484302
+                ],
+                [
+                  -0.049022329634471506,
+                  -0.32130117717149914,
+                  -0.10688604187484302,
+                  0.3720666535945807
+                ]
+              ],
+              "bias": [
+                0.07737152316570217,
+                0.1228427332892803,
+                0.21243319552883874,
+                0.44918442818392257
+              ],
+              "target_fit_mean": [
+                0.4048105007048489,
+                0.43723504409861924,
+                0.351409121674722,
+                0.43350783093893913
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.08913354789751825,
+              "fit_constant_feature_mse": 0.14341632834401244,
+              "fit_feature_nmse_vs_fit_mean": 0.6215020906386182,
+              "fit_centered_logit_mse": 0.017208854433776666,
+              "check_feature_mse": 0.08537134782430857,
+              "check_constant_feature_mse": 0.13778801739640584,
+              "check_feature_nmse_vs_fit_mean": 0.6195847029186985,
+              "check_centered_logit_mse": 0.016452641068602277,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 4,
+              "victim": 18,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.2551069064611191,
+                  -0.022785853478163254,
+                  0.3920255621727717,
+                  0.19666053671673164
+                ],
+                [
+                  0.022785853478163254,
+                  0.2551069064611191,
+                  -0.19666053671673164,
+                  0.3920255621727717
+                ],
+                [
+                  -0.3920255621727717,
+                  0.19666053671673164,
+                  0.2551069064611191,
+                  0.022785853478163254
+                ],
+                [
+                  -0.19666053671673164,
+                  -0.3920255621727717,
+                  -0.022785853478163254,
+                  0.2551069064611191
+                ]
+              ],
+              "bias": [
+                -0.09406616075470248,
+                0.07795138337055657,
+                0.35636582462854294,
+                0.7285017192346128
+              ],
+              "target_fit_mean": [
+                0.31244117381186154,
+                0.3474318556795624,
+                0.4343049985244379,
+                0.5788534781992207
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.0903561992052827,
+              "fit_constant_feature_mse": 0.13814597098516038,
+              "fit_feature_nmse_vs_fit_mean": 0.6540632242904048,
+              "fit_centered_logit_mse": 0.018029227130989884,
+              "check_feature_mse": 0.0901698002614947,
+              "check_constant_feature_mse": 0.14292856667307874,
+              "check_feature_nmse_vs_fit_mean": 0.6308731862381336,
+              "check_centered_logit_mse": 0.017358468141308418,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 17,
+              "victim": 21,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.09268801962939607,
+                  0.1501075065305531,
+                  0.11160335792061825,
+                  0.3342157290265759
+                ],
+                [
+                  -0.1501075065305531,
+                  0.09268801962939607,
+                  -0.3342157290265759,
+                  0.11160335792061825
+                ],
+                [
+                  -0.11160335792061825,
+                  0.3342157290265759,
+                  0.09268801962939607,
+                  -0.1501075065305531
+                ],
+                [
+                  -0.3342157290265759,
+                  -0.11160335792061825,
+                  0.1501075065305531,
+                  0.09268801962939607
+                ]
+              ],
+              "bias": [
+                0.057674962836953836,
+                0.5080078667236827,
+                0.3422816231421699,
+                0.46531364063242076
+              ],
+              "target_fit_mean": [
+                0.3905290560320973,
+                0.415065351036892,
+                0.4395163786449557,
+                0.33928993073326275
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.08172750565816957,
+              "fit_constant_feature_mse": 0.11871686301511081,
+              "fit_feature_nmse_vs_fit_mean": 0.6884237300624001,
+              "fit_centered_logit_mse": 0.018432698174305717,
+              "check_feature_mse": 0.0837199200223076,
+              "check_constant_feature_mse": 0.11500532354685483,
+              "check_feature_nmse_vs_fit_mean": 0.7279656057677965,
+              "check_centered_logit_mse": 0.0183439599435539,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 1,
+              "victim": 27,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.2525988768270341,
+                  -0.19079156343165515,
+                  0.41117648007744967,
+                  0.21987556916958095
+                ],
+                [
+                  0.19079156343165515,
+                  0.2525988768270341,
+                  -0.21987556916958095,
+                  0.41117648007744967
+                ],
+                [
+                  -0.41117648007744967,
+                  0.21987556916958095,
+                  0.2525988768270341,
+                  0.19079156343165515
+                ],
+                [
+                  -0.21987556916958095,
+                  -0.41117648007744967,
+                  -0.19079156343165515,
+                  0.2525988768270341
+                ]
+              ],
+              "bias": [
+                0.2635514444031873,
+                0.17558831021422144,
+                0.37042806481234003,
+                0.7332814335772391
+              ],
+              "target_fit_mean": [
+                0.6119847478284756,
+                0.3627011892960908,
+                0.4355051727528189,
+                0.42444363819740283
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.09838602882481441,
+              "fit_constant_feature_mse": 0.1465182097528837,
+              "fit_feature_nmse_vs_fit_mean": 0.6714935228238961,
+              "fit_centered_logit_mse": 0.019248845168910452,
+              "check_feature_mse": 0.09672237656787203,
+              "check_constant_feature_mse": 0.14600831203419443,
+              "check_feature_nmse_vs_fit_mean": 0.662444317178464,
+              "check_centered_logit_mse": 0.01921454318073045,
+              "nonconstant_fit_target": true
+            }
+          ],
+          "fit_aggregate_errors": {
+            "merged": 0.2766552785097382,
+            "mean_only": 0.6673801728164839,
+            "pruned": 0.7908430545791152,
+            "ratio_vs_mean_only": 0.41453925330474695,
+            "ratio_vs_pruned": 0.3498232385147183
+          },
+          "check_aggregate_errors": {
+            "merged": 0.2730645902377257,
+            "mean_only": 0.6733920845748872,
+            "pruned": 0.8082330878043432,
+            "ratio_vs_mean_only": 0.4055060884924294,
+            "ratio_vs_pruned": 0.3378537631755916
+          },
+          "signal_passes": true
+        },
+        "full_real": {
+          "pairs": [
+            {
+              "keeper": 24,
+              "victim": 7,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.5068021319581654,
+                  -0.20373066403779802,
+                  -0.18540140723207282,
+                  0.27433131519271287
+                ],
+                [
+                  -0.19531610393425933,
+                  0.4749196150036598,
+                  -0.05707064570638504,
+                  0.4508828271258209
+                ],
+                [
+                  0.07908119136881636,
+                  0.13715819293500367,
+                  0.4894759218734229,
+                  -0.041082023540372194
+                ],
+                [
+                  0.048111154052010864,
+                  -0.11094173446595601,
+                  0.05481460817810903,
+                  0.48732823014265325
+                ]
+              ],
+              "bias": [
+                0.1952973426812769,
+                0.10968862254150186,
+                0.07400021673401591,
+                0.31940839874006555
+              ],
+              "target_fit_mean": [
+                0.44738108110395114,
+                0.3809833263999644,
+                0.3552517723904748,
+                0.5201668774909549
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.05496570845432569,
+              "fit_constant_feature_mse": 0.10530902006999787,
+              "fit_feature_nmse_vs_fit_mean": 0.5219468229577156,
+              "fit_centered_logit_mse": 0.010403586853097349,
+              "check_feature_mse": 0.053301916030599195,
+              "check_constant_feature_mse": 0.10833048300622505,
+              "check_feature_nmse_vs_fit_mean": 0.49203063211244313,
+              "check_centered_logit_mse": 0.010302579087861903,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 29,
+              "victim": 5,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.21427387758972957,
+                  -0.0858455386390577,
+                  0.32253410735167853,
+                  -0.163154876711972
+                ],
+                [
+                  -0.07615982712537933,
+                  0.2806224850844955,
+                  0.5599317616740843,
+                  -0.0039521357643503285
+                ],
+                [
+                  0.15529088332773192,
+                  0.1210270061573226,
+                  -0.0628424044311091,
+                  0.18603143358566473
+                ],
+                [
+                  0.6433906236081014,
+                  0.14689932390468044,
+                  -0.17815862738239227,
+                  0.28640950809488375
+                ]
+              ],
+              "bias": [
+                0.5569096735062801,
+                0.03765856314017224,
+                0.06329301332633325,
+                0.08581498596925535
+              ],
+              "target_fit_mean": [
+                0.495971956384572,
+                0.3814231045570405,
+                0.2385856284970805,
+                0.5175880671693376
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.06525968799691194,
+              "fit_constant_feature_mse": 0.12719807655345416,
+              "fit_feature_nmse_vs_fit_mean": 0.5130556197482041,
+              "fit_centered_logit_mse": 0.012025169675638818,
+              "check_feature_mse": 0.06205556057857906,
+              "check_constant_feature_mse": 0.12886554134684677,
+              "check_feature_nmse_vs_fit_mean": 0.48155278695919207,
+              "check_centered_logit_mse": 0.011585910333518069,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 0,
+              "victim": 16,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.3630192578860182,
+                  0.749198120200345,
+                  -0.2621131195920213,
+                  0.20571238866842456
+                ],
+                [
+                  -0.0631019848781734,
+                  0.21878233817243564,
+                  -0.2706452881001113,
+                  -0.08919486768138704
+                ],
+                [
+                  -0.11539503492894648,
+                  0.05430945013561539,
+                  0.7537419925999732,
+                  0.020993668421696365
+                ],
+                [
+                  -0.11492526151075717,
+                  0.6643623162123978,
+                  0.22884807762356524,
+                  0.16108444004681932
+                ]
+              ],
+              "bias": [
+                -0.22444322386960602,
+                0.4435627928074005,
+                0.037994433746052936,
+                -0.0992582517058419
+              ],
+              "target_fit_mean": [
+                0.43664268072122514,
+                0.39868193130459895,
+                0.311776064359663,
+                0.4159744405348065
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.0681105851953173,
+              "fit_constant_feature_mse": 0.14633617985633435,
+              "fit_feature_nmse_vs_fit_mean": 0.4654391365292228,
+              "fit_centered_logit_mse": 0.01227345579979218,
+              "check_feature_mse": 0.060781375466471756,
+              "check_constant_feature_mse": 0.12573600243653416,
+              "check_feature_nmse_vs_fit_mean": 0.48340470739199337,
+              "check_centered_logit_mse": 0.010930692245513384,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 26,
+              "victim": 2,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.6786703309292201,
+                  0.06935844953857648,
+                  0.16236461687215248,
+                  0.10165914161076234
+                ],
+                [
+                  -0.02217804294755674,
+                  0.05736247295459668,
+                  0.05316655822692534,
+                  0.029447874419404496
+                ],
+                [
+                  0.0892972510538632,
+                  -0.24670231216255947,
+                  0.052148241281819774,
+                  -0.0988637126627865
+                ],
+                [
+                  0.0016560735294210076,
+                  0.5815911054209637,
+                  0.21782629526709207,
+                  0.4063466533179408
+                ]
+              ],
+              "bias": [
+                -0.03832039370867163,
+                0.30098291067461985,
+                0.40191011084734923,
+                0.043675202103275246
+              ],
+              "target_fit_mean": [
+                0.3609598851973756,
+                0.3567842360765862,
+                0.3105835851688721,
+                0.5804233966678439
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.05576549993043602,
+              "fit_constant_feature_mse": 0.10583161008221335,
+              "fit_feature_nmse_vs_fit_mean": 0.526926689361672,
+              "fit_centered_logit_mse": 0.012785146531835111,
+              "check_feature_mse": 0.06115799538458295,
+              "check_constant_feature_mse": 0.11309907102049482,
+              "check_feature_nmse_vs_fit_mean": 0.5407471063444936,
+              "check_centered_logit_mse": 0.013815134766990537,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 31,
+              "victim": 25,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.15402783141194107,
+                  0.11623121483969717,
+                  -0.13953766250989422,
+                  -0.3426140174624298
+                ],
+                [
+                  0.39258072310373454,
+                  -0.03468800921831225,
+                  0.5767470473146142,
+                  -0.19373941221582988
+                ],
+                [
+                  0.7394492550863387,
+                  -0.0777299292543232,
+                  -0.13653541094385158,
+                  0.2929395703932792
+                ],
+                [
+                  0.48195456786936314,
+                  0.2249571915008261,
+                  0.11415430253472915,
+                  -0.26804542693339534
+                ]
+              ],
+              "bias": [
+                0.5207469477319229,
+                -0.001849456898670332,
+                0.12562511629966056,
+                0.035793480452614546
+              ],
+              "target_fit_mean": [
+                0.3410388324361047,
+                0.37879706285078646,
+                0.4962234765868925,
+                0.38547234034444045
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.04522530055019725,
+              "fit_constant_feature_mse": 0.11991507522694121,
+              "fit_feature_nmse_vs_fit_mean": 0.3771444121150543,
+              "fit_centered_logit_mse": 0.012949402126091187,
+              "check_feature_mse": 0.04479023954216953,
+              "check_constant_feature_mse": 0.11913755089817425,
+              "check_feature_nmse_vs_fit_mean": 0.37595400614245733,
+              "check_centered_logit_mse": 0.013179676135883337,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 3,
+              "victim": 30,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.2616753249204911,
+                  -0.5551215716865019,
+                  -0.026023376436960843,
+                  0.39056484432226724
+                ],
+                [
+                  0.03973453820385739,
+                  -0.17953523419921774,
+                  -0.3244575746321504,
+                  -0.1422759863511178
+                ],
+                [
+                  -0.10054018194684777,
+                  0.5584101288846356,
+                  0.2872127100283416,
+                  0.18424836511233603
+                ],
+                [
+                  -0.08285240568875284,
+                  0.16089920923818024,
+                  0.8797068401020264,
+                  -0.2932428350027511
+                ]
+              ],
+              "bias": [
+                0.590323091708862,
+                0.7341728972793541,
+                0.11087523344167194,
+                0.2666246255106443
+              ],
+              "target_fit_mean": [
+                0.4503805764691424,
+                0.43355221049749887,
+                0.5239248600154679,
+                0.6378041245071318
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.07014628667299233,
+              "fit_constant_feature_mse": 0.17039524903530057,
+              "fit_feature_nmse_vs_fit_mean": 0.4116680897509074,
+              "fit_centered_logit_mse": 0.013005960576404811,
+              "check_feature_mse": 0.0759704176076185,
+              "check_constant_feature_mse": 0.17877964874098093,
+              "check_feature_nmse_vs_fit_mean": 0.42493884590681663,
+              "check_centered_logit_mse": 0.013666618919402367,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 15,
+              "victim": 6,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.03556532325070287,
+                  -0.1955082420156431,
+                  -0.16084071379298323,
+                  -0.20579651031882873
+                ],
+                [
+                  0.651825577709092,
+                  0.016519686761439896,
+                  -0.03545648871249297,
+                  -0.4201093425278235
+                ],
+                [
+                  0.3465533483505271,
+                  0.3265523258460305,
+                  0.4771605055360612,
+                  -0.014069873498918258
+                ],
+                [
+                  -0.019714562444740694,
+                  0.27653314964828146,
+                  -0.49360953301592764,
+                  0.5810611617017496
+                ]
+              ],
+              "bias": [
+                0.5677168481010346,
+                0.429972695001246,
+                -0.15927540364716802,
+                0.48491113104367894
+              ],
+              "target_fit_mean": [
+                0.27918412241754775,
+                0.5451568771031889,
+                0.42705778013009693,
+                0.5574973176837724
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.07330966185261686,
+              "fit_constant_feature_mse": 0.15633803321383055,
+              "fit_feature_nmse_vs_fit_mean": 0.46891764176377954,
+              "fit_centered_logit_mse": 0.013710591794959414,
+              "check_feature_mse": 0.07654013618038534,
+              "check_constant_feature_mse": 0.15539808699535088,
+              "check_feature_nmse_vs_fit_mean": 0.4925423321503001,
+              "check_centered_logit_mse": 0.01457855900258545,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 17,
+              "victim": 20,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.34752667728822245,
+                  -0.059309403383148745,
+                  -0.5575053197979202,
+                  0.3088371162248102
+                ],
+                [
+                  -0.20354497208878738,
+                  -0.012834449489529946,
+                  -0.290589599082893,
+                  -0.4037705169425539
+                ],
+                [
+                  0.32963004970463106,
+                  0.6108568262858007,
+                  -0.0028985431100000125,
+                  0.004451803688968969
+                ],
+                [
+                  -0.19323497163013376,
+                  -0.061883817840391986,
+                  0.16235992151728207,
+                  -0.21259690463546468
+                ]
+              ],
+              "bias": [
+                0.40203274724993865,
+                0.9406021092490215,
+                -0.03269110056494884,
+                0.5605362769268994
+              ],
+              "target_fit_mean": [
+                0.4777328885737843,
+                0.530535155520607,
+                0.47568073892036045,
+                0.3896691667699488
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.07414952449706329,
+              "fit_constant_feature_mse": 0.15116393884504897,
+              "fit_feature_nmse_vs_fit_mean": 0.49052389785285017,
+              "fit_centered_logit_mse": 0.014264975330638691,
+              "check_feature_mse": 0.07787171419474369,
+              "check_constant_feature_mse": 0.15731328162966787,
+              "check_feature_nmse_vs_fit_mean": 0.49501042371019854,
+              "check_centered_logit_mse": 0.014230313025206644,
+              "nonconstant_fit_target": true
+            }
+          ],
+          "fit_aggregate_errors": {
+            "merged": 0.1733781147451161,
+            "mean_only": 0.7835816606119064,
+            "pruned": 1.110025409141929,
+            "ratio_vs_mean_only": 0.22126361993939916,
+            "ratio_vs_pruned": 0.15619292433957951
+          },
+          "check_aggregate_errors": {
+            "merged": 0.17718718349787618,
+            "mean_only": 0.7885609662265715,
+            "pruned": 1.1040937509843967,
+            "ratio_vs_mean_only": 0.22469687327506682,
+            "ratio_vs_pruned": 0.16048200919523203
+          },
+          "signal_passes": true
+        }
+      },
+      "all_pair_summaries": {
+        "quaternion_right": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.8386528954753776,
+          "mean_check_feature_nmse": 0.8234721375460485,
+          "fitted_coefficients_per_pair": 8
+        },
+        "diagonal": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.8957436013538251,
+          "mean_check_feature_nmse": 0.8742821468714519,
+          "fitted_coefficients_per_pair": 8
+        },
+        "full_real": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.6115846153519848,
+          "mean_check_feature_nmse": 0.6089430725772045,
+          "fitted_coefficients_per_pair": 20
+        }
+      },
+      "same_full_selected_pairs_check_errors": {
+        "quaternion_right": {
+          "merged": 0.3882747093019002,
+          "mean_only": 0.7885609662265715,
+          "pruned": 1.1040937509843967,
+          "ratio_vs_mean_only": 0.4923838814389655,
+          "ratio_vs_pruned": 0.35166824280611964
+        },
+        "diagonal": {
+          "merged": 0.5438178936958328,
+          "mean_only": 0.7885609662265715,
+          "pruned": 1.1040937509843967,
+          "ratio_vs_mean_only": 0.6896332902427503,
+          "ratio_vs_pruned": 0.49254684505819485
+        },
+        "full_real": {
+          "merged": 0.17718718349787618,
+          "mean_only": 0.7885609662265715,
+          "pruned": 1.1040937509843967,
+          "ratio_vs_mean_only": 0.22469687327506682,
+          "ratio_vs_pruned": 0.16048200919523203
+        }
+      },
+      "coefficients_fitted_without_labels": true,
+      "partition_sha256": "9fcdfbafc5753461cc592b184d01bb2af08f90a85e3bf57eae28d5e0ec6addbd"
+    },
+    {
+      "seed": 2027,
+      "source": "results/cnn_multiseed/seed_2027",
+      "selected": {
+        "quaternion_right": {
+          "pairs": [
+            {
+              "keeper": 21,
+              "victim": 4,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.1161022245790243,
+                  0.07086583320181854,
+                  0.5069557486044972,
+                  0.07171593465770516
+                ],
+                [
+                  -0.07086583320181854,
+                  0.1161022245790243,
+                  -0.07171593465770516,
+                  0.5069557486044972
+                ],
+                [
+                  -0.5069557486044972,
+                  0.07171593465770516,
+                  0.1161022245790243,
+                  -0.07086583320181854
+                ],
+                [
+                  -0.07171593465770516,
+                  -0.5069557486044972,
+                  0.07086583320181854,
+                  0.1161022245790243
+                ]
+              ],
+              "bias": [
+                0.08336992367033447,
+                0.142772011563019,
+                0.8036393590848061,
+                0.4269093865871193
+              ],
+              "target_fit_mean": [
+                0.41959968029786976,
+                0.2749686570838958,
+                0.515044613935257,
+                0.22513822008641
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.061950830529776055,
+              "fit_constant_feature_mse": 0.10744533383764324,
+              "fit_feature_nmse_vs_fit_mean": 0.5765799994943263,
+              "fit_centered_logit_mse": 0.011701410269266924,
+              "check_feature_mse": 0.06585722880846859,
+              "check_constant_feature_mse": 0.11166724017960411,
+              "check_feature_nmse_vs_fit_mean": 0.5897631991490494,
+              "check_centered_logit_mse": 0.011465888074592312,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 10,
+              "victim": 20,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.2228512044061362,
+                  0.2871502896288851,
+                  -0.4072563629475283,
+                  -0.01120627194196059
+                ],
+                [
+                  -0.2871502896288851,
+                  0.2228512044061362,
+                  0.01120627194196059,
+                  -0.4072563629475283
+                ],
+                [
+                  0.4072563629475283,
+                  -0.01120627194196059,
+                  0.2228512044061362,
+                  -0.2871502896288851
+                ],
+                [
+                  0.01120627194196059,
+                  0.4072563629475283,
+                  0.2871502896288851,
+                  0.2228512044061362
+                ]
+              ],
+              "bias": [
+                0.43927982851257846,
+                0.6113876642283746,
+                0.28845215758842696,
+                -0.05860845093843592
+              ],
+              "target_fit_mean": [
+                0.40135479448361366,
+                0.45279604942973173,
+                0.4340523037675939,
+                0.31055877811904065
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.0635795975664833,
+              "fit_constant_feature_mse": 0.0945599173908069,
+              "fit_feature_nmse_vs_fit_mean": 0.6723736581083827,
+              "fit_centered_logit_mse": 0.012265716592188083,
+              "check_feature_mse": 0.06365496124554813,
+              "check_constant_feature_mse": 0.09561295553529474,
+              "check_feature_nmse_vs_fit_mean": 0.6657566528424114,
+              "check_centered_logit_mse": 0.012108228679354363,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 26,
+              "victim": 8,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.14790217993525256,
+                  0.01953399605502858,
+                  0.2528984671712795,
+                  -0.25976500719675355
+                ],
+                [
+                  -0.01953399605502858,
+                  0.14790217993525256,
+                  0.25976500719675355,
+                  0.2528984671712795
+                ],
+                [
+                  -0.2528984671712795,
+                  -0.25976500719675355,
+                  0.14790217993525256,
+                  -0.01953399605502858
+                ],
+                [
+                  0.25976500719675355,
+                  -0.2528984671712795,
+                  0.01953399605502858,
+                  0.14790217993525256
+                ]
+              ],
+              "bias": [
+                0.30050179487052414,
+                0.04981578862802,
+                0.49550614945374793,
+                0.35392695399803464
+              ],
+              "target_fit_mean": [
+                0.3533749435488162,
+                0.40938645551710034,
+                0.3637177214984658,
+                0.392937942239103
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.06330488897497215,
+              "fit_constant_feature_mse": 0.09543816682088524,
+              "fit_feature_nmse_vs_fit_mean": 0.6633078891150579,
+              "fit_centered_logit_mse": 0.015180410172189721,
+              "check_feature_mse": 0.06796399023362053,
+              "check_constant_feature_mse": 0.09810722350842455,
+              "check_feature_nmse_vs_fit_mean": 0.6927521522182758,
+              "check_centered_logit_mse": 0.016544598800650196,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 9,
+              "victim": 30,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.1743091179074141,
+                  -0.20840263895685973,
+                  -0.4007441862178776,
+                  -0.2817493630301719
+                ],
+                [
+                  0.20840263895685973,
+                  0.1743091179074141,
+                  0.2817493630301719,
+                  -0.4007441862178776
+                ],
+                [
+                  0.4007441862178776,
+                  -0.2817493630301719,
+                  0.1743091179074141,
+                  0.20840263895685973
+                ],
+                [
+                  0.2817493630301719,
+                  0.4007441862178776,
+                  -0.20840263895685973,
+                  0.1743091179074141
+                ]
+              ],
+              "bias": [
+                0.6149232132742461,
+                0.20526585748538898,
+                0.14972087862222455,
+                0.14374495316529445
+              ],
+              "target_fit_mean": [
+                0.34811814100745186,
+                0.3541919654366502,
+                0.4170084034537795,
+                0.4849484996284541
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.07983325097551403,
+              "fit_constant_feature_mse": 0.1297518792084301,
+              "fit_feature_nmse_vs_fit_mean": 0.6152762600630387,
+              "fit_centered_logit_mse": 0.015473884317302932,
+              "check_feature_mse": 0.08106167895419408,
+              "check_constant_feature_mse": 0.14277037674125972,
+              "check_feature_nmse_vs_fit_mean": 0.5677765990706934,
+              "check_centered_logit_mse": 0.015358524004652156,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 14,
+              "victim": 27,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.21813149425764383,
+                  -0.30630067233322134,
+                  0.08414787637481302,
+                  -0.11745215161537564
+                ],
+                [
+                  0.30630067233322134,
+                  0.21813149425764383,
+                  0.11745215161537564,
+                  0.08414787637481302
+                ],
+                [
+                  -0.08414787637481302,
+                  -0.11745215161537564,
+                  0.21813149425764383,
+                  0.30630067233322134
+                ],
+                [
+                  0.11745215161537564,
+                  -0.08414787637481302,
+                  -0.30630067233322134,
+                  0.21813149425764383
+                ]
+              ],
+              "bias": [
+                0.4321148690549812,
+                0.052881460423380156,
+                0.23587601138500555,
+                0.35385747890135644
+              ],
+              "target_fit_mean": [
+                0.33004139258538273,
+                0.32205706962582736,
+                0.30849137500992313,
+                0.31263098644892673
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.059083733978800596,
+              "fit_constant_feature_mse": 0.07974509670446539,
+              "fit_feature_nmse_vs_fit_mean": 0.7409074215279264,
+              "fit_centered_logit_mse": 0.015607178185045893,
+              "check_feature_mse": 0.06053595008408105,
+              "check_constant_feature_mse": 0.08284285449150411,
+              "check_feature_nmse_vs_fit_mean": 0.7307323058295785,
+              "check_centered_logit_mse": 0.016219544336582185,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 22,
+              "victim": 0,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  -0.013549375986977115,
+                  0.1304338068877686,
+                  0.35544675621934774,
+                  -0.20325067895830098
+                ],
+                [
+                  -0.1304338068877686,
+                  -0.013549375986977115,
+                  0.20325067895830098,
+                  0.35544675621934774
+                ],
+                [
+                  -0.35544675621934774,
+                  -0.20325067895830098,
+                  -0.013549375986977115,
+                  -0.1304338068877686
+                ],
+                [
+                  0.20325067895830098,
+                  -0.35544675621934774,
+                  0.1304338068877686,
+                  -0.013549375986977115
+                ]
+              ],
+              "bias": [
+                0.13494759593320604,
+                0.39598176277688996,
+                0.7300139473804317,
+                0.35249176574061986
+              ],
+              "target_fit_mean": [
+                0.23735930246437056,
+                0.59833401949369,
+                0.4089928704108206,
+                0.38062362637057706
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.0707570483105458,
+              "fit_constant_feature_mse": 0.09564531969961197,
+              "fit_feature_nmse_vs_fit_mean": 0.7397857891297619,
+              "fit_centered_logit_mse": 0.01573224349533097,
+              "check_feature_mse": 0.06379262276216349,
+              "check_constant_feature_mse": 0.08878631802465199,
+              "check_feature_nmse_vs_fit_mean": 0.7184960946848943,
+              "check_centered_logit_mse": 0.013678352593612868,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 7,
+              "victim": 12,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  -0.2816080580012217,
+                  0.21172505429732486,
+                  -0.15212757322447718,
+                  0.48043720791077216
+                ],
+                [
+                  -0.21172505429732486,
+                  -0.2816080580012217,
+                  -0.48043720791077216,
+                  -0.15212757322447718
+                ],
+                [
+                  0.15212757322447718,
+                  0.48043720791077216,
+                  -0.2816080580012217,
+                  -0.21172505429732486
+                ],
+                [
+                  -0.48043720791077216,
+                  0.15212757322447718,
+                  0.21172505429732486,
+                  -0.2816080580012217
+                ]
+              ],
+              "bias": [
+                0.2911733296322954,
+                0.9456156975257157,
+                0.4334228139451155,
+                0.4178733279668344
+              ],
+              "target_fit_mean": [
+                0.47008515543095425,
+                0.32625016154319747,
+                0.4534138728956423,
+                0.30921962694387
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.09631376155505708,
+              "fit_constant_feature_mse": 0.17526511191969887,
+              "fit_feature_nmse_vs_fit_mean": 0.549531852061836,
+              "fit_centered_logit_mse": 0.01662566747739435,
+              "check_feature_mse": 0.09879663568852018,
+              "check_constant_feature_mse": 0.17719386426943404,
+              "check_feature_nmse_vs_fit_mean": 0.5575623969591514,
+              "check_centered_logit_mse": 0.01690557331221558,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 17,
+              "victim": 29,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.3147587474239547,
+                  -0.09280939442495956,
+                  0.013088004998259503,
+                  0.31971856815694666
+                ],
+                [
+                  0.09280939442495956,
+                  0.3147587474239547,
+                  -0.31971856815694666,
+                  0.013088004998259503
+                ],
+                [
+                  -0.013088004998259503,
+                  0.31971856815694666,
+                  0.3147587474239547,
+                  0.09280939442495956
+                ],
+                [
+                  -0.31971856815694666,
+                  -0.013088004998259503,
+                  -0.09280939442495956,
+                  0.3147587474239547
+                ]
+              ],
+              "bias": [
+                0.1841997738715701,
+                0.4369534018306613,
+                -0.07649534977316169,
+                0.5337089333531697
+              ],
+              "target_fit_mean": [
+                0.43008215990449933,
+                0.4294427440428135,
+                0.2852659944845327,
+                0.4888513862262398
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.07496169386052998,
+              "fit_constant_feature_mse": 0.11262719669070245,
+              "fit_feature_nmse_vs_fit_mean": 0.6655736452927109,
+              "fit_centered_logit_mse": 0.017986100779854006,
+              "check_feature_mse": 0.0791711816047981,
+              "check_constant_feature_mse": 0.11874492785217405,
+              "check_feature_nmse_vs_fit_mean": 0.6667331652545072,
+              "check_centered_logit_mse": 0.01965207239487446,
+              "nonconstant_fit_target": true
+            }
+          ],
+          "fit_aggregate_errors": {
+            "merged": 0.25872069653693613,
+            "mean_only": 0.5531785005143341,
+            "pruned": 0.85959752925016,
+            "ratio_vs_mean_only": 0.4676983944538388,
+            "ratio_vs_pruned": 0.3009788741047478
+          },
+          "check_aggregate_errors": {
+            "merged": 0.2554086417320716,
+            "mean_only": 0.5583158045550416,
+            "pruned": 0.8346217797417969,
+            "ratio_vs_mean_only": 0.4574626755114401,
+            "ratio_vs_pruned": 0.30601722592368275
+          },
+          "signal_passes": true
+        },
+        "full_real": {
+          "pairs": [
+            {
+              "keeper": 31,
+              "victim": 10,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.12542139278920603,
+                  0.14746145096046798,
+                  -0.16732413807831747,
+                  0.535796862116866
+                ],
+                [
+                  0.11138098655917639,
+                  -0.1051171324417263,
+                  -0.4962360683867269,
+                  -0.09418112915890314
+                ],
+                [
+                  0.039667858591726016,
+                  0.44023289239990027,
+                  0.15615116216335118,
+                  0.45399707866181704
+                ],
+                [
+                  -0.01291251520123412,
+                  0.3094311424652756,
+                  0.25060185809759117,
+                  -0.17600515476685652
+                ]
+              ],
+              "bias": [
+                0.16947948399158078,
+                0.5519287869456119,
+                0.023698729384834916,
+                0.19322556793387652
+              ],
+              "target_fit_mean": [
+                0.3372060832150746,
+                0.3437809909470307,
+                0.5103018628136397,
+                0.35381492538899145
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.0541498884867979,
+              "fit_constant_feature_mse": 0.10392548621531676,
+              "fit_feature_nmse_vs_fit_mean": 0.5210453225555097,
+              "fit_centered_logit_mse": 0.009763341922438664,
+              "check_feature_mse": 0.059894016993838776,
+              "check_constant_feature_mse": 0.11122864538470867,
+              "check_feature_nmse_vs_fit_mean": 0.5384765478953931,
+              "check_centered_logit_mse": 0.011435205992683961,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 7,
+              "victim": 20,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.197709560681463,
+                  -0.08059179919798493,
+                  -0.010991089285869879,
+                  0.6386218890311403
+                ],
+                [
+                  0.2931036592735051,
+                  -0.0449632238227991,
+                  -0.2347044794659413,
+                  0.5484351789308395
+                ],
+                [
+                  -0.43511903631826365,
+                  -0.012687434030360559,
+                  0.11503502998047188,
+                  -0.06649060578838713
+                ],
+                [
+                  -0.11117802619484411,
+                  0.022272038647336474,
+                  -0.07423835342476673,
+                  -0.04227502153316923
+                ]
+              ],
+              "bias": [
+                0.03217982353175258,
+                0.2222429315531463,
+                0.560230443764671,
+                0.40900444706161376
+              ],
+              "target_fit_mean": [
+                0.40135479448361366,
+                0.45279604942973173,
+                0.4340523037675939,
+                0.31055877811904065
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.053465153885964276,
+              "fit_constant_feature_mse": 0.0945599173908069,
+              "fit_feature_nmse_vs_fit_mean": 0.5654103277713116,
+              "fit_centered_logit_mse": 0.009878648506529286,
+              "check_feature_mse": 0.05745166838392667,
+              "check_constant_feature_mse": 0.09561295553529474,
+              "check_feature_nmse_vs_fit_mean": 0.6008774445082273,
+              "check_centered_logit_mse": 0.010672256708306557,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 21,
+              "victim": 4,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.04883882077828004,
+                  0.22398412440146864,
+                  0.5219892512698072,
+                  0.22516199921494012
+                ],
+                [
+                  0.06797340079320088,
+                  0.1691945734568887,
+                  0.024588506327643478,
+                  0.6017543465556816
+                ],
+                [
+                  -0.3199966500747587,
+                  -0.18649814362462802,
+                  0.5970982936434054,
+                  -0.10170382480157487
+                ],
+                [
+                  0.03471298586647052,
+                  -0.26477918321726096,
+                  0.13531793728404626,
+                  0.23428132097734772
+                ]
+              ],
+              "bias": [
+                0.008862618963798585,
+                -0.04289965962432535,
+                0.603617328536193,
+                0.18736469484641852
+              ],
+              "target_fit_mean": [
+                0.41959968029786976,
+                0.2749686570838958,
+                0.515044613935257,
+                0.22513822008641
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.05360844657630396,
+              "fit_constant_feature_mse": 0.10744533383764324,
+              "fit_feature_nmse_vs_fit_mean": 0.49893694459835497,
+              "fit_centered_logit_mse": 0.009951676003858273,
+              "check_feature_mse": 0.05622366613229987,
+              "check_constant_feature_mse": 0.11166724017960411,
+              "check_feature_nmse_vs_fit_mean": 0.5034929316948326,
+              "check_centered_logit_mse": 0.009929965832723403,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 14,
+              "victim": 27,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.08161134700694554,
+                  -0.16933281464742647,
+                  0.2819695005031783,
+                  0.07483846976319278
+                ],
+                [
+                  0.47728409769597074,
+                  0.14890258706603288,
+                  0.2593756136871841,
+                  0.066151687571147
+                ],
+                [
+                  0.05263946889594618,
+                  -0.010229107651420044,
+                  0.13406843085350573,
+                  0.7977694610394414
+                ],
+                [
+                  0.24411180847598188,
+                  -0.012044025358498328,
+                  0.006253218447028364,
+                  0.3279750690695468
+                ]
+              ],
+              "bias": [
+                0.28233711724492716,
+                -0.0024863248224427648,
+                0.019907964445719517,
+                0.1461057237923735
+              ],
+              "target_fit_mean": [
+                0.33004139258538273,
+                0.32205706962582736,
+                0.30849137500992313,
+                0.31263098644892673
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.042932397553754414,
+              "fit_constant_feature_mse": 0.07974509670446539,
+              "fit_feature_nmse_vs_fit_mean": 0.5383703742044667,
+              "fit_centered_logit_mse": 0.010337877660383406,
+              "check_feature_mse": 0.0463150969655168,
+              "check_constant_feature_mse": 0.08284285449150411,
+              "check_feature_nmse_vs_fit_mean": 0.5590717177697759,
+              "check_centered_logit_mse": 0.011188257007278225,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 13,
+              "victim": 30,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.1875524677378722,
+                  -0.20997369651988404,
+                  -0.30147849989332376,
+                  -0.1439769035031927
+                ],
+                [
+                  0.17912068236317444,
+                  0.6245852750524938,
+                  0.03901610441484048,
+                  0.08814687708357966
+                ],
+                [
+                  0.038442950105173214,
+                  0.20815046549896965,
+                  -0.6289779077600356,
+                  -0.2122157786549248
+                ],
+                [
+                  0.9097504298445608,
+                  0.21402711712896066,
+                  0.4448492982354994,
+                  -0.3303001015676627
+                ]
+              ],
+              "bias": [
+                0.5028273442816819,
+                -0.041228347001767585,
+                0.57036468045781,
+                0.022734465163959883
+              ],
+              "target_fit_mean": [
+                0.34811814100745186,
+                0.3541919654366502,
+                0.4170084034537795,
+                0.4849484996284541
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.062515950654793,
+              "fit_constant_feature_mse": 0.1297518792084301,
+              "fit_feature_nmse_vs_fit_mean": 0.4818115239346089,
+              "fit_centered_logit_mse": 0.011699987844742911,
+              "check_feature_mse": 0.06727418222357483,
+              "check_constant_feature_mse": 0.14277037674125972,
+              "check_feature_nmse_vs_fit_mean": 0.4712054682428601,
+              "check_centered_logit_mse": 0.012401351719747662,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 23,
+              "victim": 1,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.39451400789194024,
+                  0.06946760074910513,
+                  0.03418404350602991,
+                  -0.08250811216325049
+                ],
+                [
+                  0.23424438571951564,
+                  0.5016035652139491,
+                  -0.2219590243374806,
+                  0.4110354230762728
+                ],
+                [
+                  -0.2921109658127988,
+                  0.46372823860182033,
+                  0.7317777978226045,
+                  0.38405594104719953
+                ],
+                [
+                  -0.21107070982440146,
+                  0.4888495402304426,
+                  0.08204822371101866,
+                  0.8068407989418727
+                ]
+              ],
+              "bias": [
+                0.25290757656386115,
+                0.07171554037557809,
+                -0.04179995924610602,
+                -0.023872067048686163
+              ],
+              "target_fit_mean": [
+                0.4125005385409386,
+                0.5334416742662934,
+                0.42496582241556097,
+                0.5374815011147148
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.056088369630910136,
+              "fit_constant_feature_mse": 0.24583700163724626,
+              "fit_feature_nmse_vs_fit_mean": 0.22815267537989814,
+              "fit_centered_logit_mse": 0.012699099090399152,
+              "check_feature_mse": 0.0652909065284833,
+              "check_constant_feature_mse": 0.2948481273355872,
+              "check_feature_nmse_vs_fit_mean": 0.2214391087319716,
+              "check_centered_logit_mse": 0.015188369775884723,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 8,
+              "victim": 0,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.15180803563058368,
+                  -0.31820541193134483,
+                  0.026711233088513864,
+                  -0.034492216004071596
+                ],
+                [
+                  0.6905113487982771,
+                  -0.08683395223586599,
+                  -0.4023154485602638,
+                  0.4142762835318578
+                ],
+                [
+                  0.3604466313599269,
+                  0.2418295070463175,
+                  -0.18184373007805638,
+                  0.6514290456548015
+                ],
+                [
+                  -0.17001975777354217,
+                  -0.21301690622636482,
+                  -0.21113607432362685,
+                  0.29534927586943976
+                ]
+              ],
+              "bias": [
+                0.42511139574505474,
+                0.37341764242116526,
+                -0.0072130638691017546,
+                0.48865058005838946
+              ],
+              "target_fit_mean": [
+                0.23735930246437056,
+                0.59833401949369,
+                0.4089928704108206,
+                0.38062362637057706
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.06324604107840819,
+              "fit_constant_feature_mse": 0.09564531969961197,
+              "fit_feature_nmse_vs_fit_mean": 0.661255995348665,
+              "fit_centered_logit_mse": 0.0128833202205801,
+              "check_feature_mse": 0.06308955493212683,
+              "check_constant_feature_mse": 0.08878631802465199,
+              "check_feature_nmse_vs_fit_mean": 0.7105774440900869,
+              "check_centered_logit_mse": 0.012805371245757213,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 17,
+              "victim": 29,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.4196240476862008,
+                  -0.25093127453926073,
+                  0.025222471242406425,
+                  0.31038752149186083
+                ],
+                [
+                  0.030372059418388005,
+                  0.7174191883589374,
+                  -0.022567218907263875,
+                  -0.16590584673050932
+                ],
+                [
+                  -0.14157253930610894,
+                  0.3130281046827278,
+                  -0.004196948641062015,
+                  0.15795459132621645
+                ],
+                [
+                  -0.4710407764954908,
+                  0.10627942246569998,
+                  -0.020215564341817815,
+                  0.37798246273743585
+                ]
+              ],
+              "bias": [
+                0.20687135966306314,
+                0.19663169236446845,
+                0.1365425940275673,
+                0.47191856282246164
+              ],
+              "target_fit_mean": [
+                0.43008215990449933,
+                0.4294427440428135,
+                0.2852659944845327,
+                0.4888513862262398
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.05515132848323696,
+              "fit_constant_feature_mse": 0.11262719669070245,
+              "fit_feature_nmse_vs_fit_mean": 0.48968038008345266,
+              "fit_centered_logit_mse": 0.012980269971398237,
+              "check_feature_mse": 0.055795002899208725,
+              "check_constant_feature_mse": 0.11874492785217405,
+              "check_feature_nmse_vs_fit_mean": 0.46987272558427173,
+              "check_centered_logit_mse": 0.01357863381767325,
+              "nonconstant_fit_target": true
+            }
+          ],
+          "fit_aggregate_errors": {
+            "merged": 0.16262090598847317,
+            "mean_only": 0.6470073275280055,
+            "pruned": 0.8213630917841019,
+            "ratio_vs_mean_only": 0.2513432214280976,
+            "ratio_vs_pruned": 0.19798905942466993
+          },
+          "check_aggregate_errors": {
+            "merged": 0.17434151316266072,
+            "mean_only": 0.6971214594639411,
+            "pruned": 0.8638873542206824,
+            "ratio_vs_mean_only": 0.25008771541292457,
+            "ratio_vs_pruned": 0.20181047020874054
+          },
+          "signal_passes": true
+        }
+      },
+      "all_pair_summaries": {
+        "quaternion_right": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.8338168530659956,
+          "mean_check_feature_nmse": 0.8181326567902453,
+          "fitted_coefficients_per_pair": 8
+        },
+        "diagonal": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.9061891739535524,
+          "mean_check_feature_nmse": 0.8788483422009601,
+          "fitted_coefficients_per_pair": 8
+        },
+        "full_real": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.6252030467592183,
+          "mean_check_feature_nmse": 0.6244667623740933,
+          "fitted_coefficients_per_pair": 20
+        }
+      },
+      "same_full_selected_pairs_check_errors": {
+        "quaternion_right": {
+          "merged": 0.3099372318069846,
+          "mean_only": 0.6971214594639411,
+          "pruned": 0.8638873542206824,
+          "ratio_vs_mean_only": 0.4445957409564097,
+          "ratio_vs_pruned": 0.3587704233575461
+        },
+        "diagonal": {
+          "merged": 0.4124933092226936,
+          "mean_only": 0.6971214594639411,
+          "pruned": 0.8638873542206824,
+          "ratio_vs_mean_only": 0.5917093838136681,
+          "ratio_vs_pruned": 0.4774850646989805
+        },
+        "full_real": {
+          "merged": 0.17434151316266072,
+          "mean_only": 0.6971214594639411,
+          "pruned": 0.8638873542206824,
+          "ratio_vs_mean_only": 0.25008771541292457,
+          "ratio_vs_pruned": 0.20181047020874054
+        }
+      },
+      "coefficients_fitted_without_labels": true,
+      "partition_sha256": "9fcdfbafc5753461cc592b184d01bb2af08f90a85e3bf57eae28d5e0ec6addbd"
+    },
+    {
+      "seed": 2028,
+      "source": "results/cnn_multiseed/seed_2028",
+      "selected": {
+        "quaternion_right": {
+          "pairs": [
+            {
+              "keeper": 27,
+              "victim": 9,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.3748951239594771,
+                  -0.1719858372715865,
+                  -0.21788314909051623,
+                  0.09788454587551153
+                ],
+                [
+                  0.1719858372715865,
+                  0.3748951239594771,
+                  -0.09788454587551153,
+                  -0.21788314909051623
+                ],
+                [
+                  0.21788314909051623,
+                  0.09788454587551153,
+                  0.3748951239594771,
+                  0.1719858372715865
+                ],
+                [
+                  -0.09788454587551153,
+                  0.21788314909051623,
+                  -0.1719858372715865,
+                  0.3748951239594771
+                ]
+              ],
+              "bias": [
+                0.2821350521541804,
+                0.2726391324034645,
+                -0.12645357342059377,
+                0.2501345458247369
+              ],
+              "target_fit_mean": [
+                0.2529994279565472,
+                0.41833541174082167,
+                0.3117409514095016,
+                0.40556012127697616
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.05914848613058618,
+              "fit_constant_feature_mse": 0.10924410859362704,
+              "fit_feature_nmse_vs_fit_mean": 0.5414341047040839,
+              "fit_centered_logit_mse": 0.012060241238608996,
+              "check_feature_mse": 0.05784013209033322,
+              "check_constant_feature_mse": 0.10190015449408521,
+              "check_feature_nmse_vs_fit_mean": 0.5676157448190184,
+              "check_centered_logit_mse": 0.012231607218139066,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 5,
+              "victim": 15,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.1841293263256382,
+                  -0.3750730856715663,
+                  0.04338571921688354,
+                  -0.24324255601978423
+                ],
+                [
+                  0.3750730856715663,
+                  0.1841293263256382,
+                  0.24324255601978423,
+                  0.04338571921688354
+                ],
+                [
+                  -0.04338571921688354,
+                  -0.24324255601978423,
+                  0.1841293263256382,
+                  0.3750730856715663
+                ],
+                [
+                  0.24324255601978423,
+                  -0.04338571921688354,
+                  -0.3750730856715663,
+                  0.1841293263256382
+                ]
+              ],
+              "bias": [
+                0.4865725553923034,
+                -0.04812986404979891,
+                0.3003326715981829,
+                0.33110270011718623
+              ],
+              "target_fit_mean": [
+                0.28998669463964327,
+                0.4356309025034425,
+                0.3995979135951675,
+                0.3914287780743325
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.07121999405062902,
+              "fit_constant_feature_mse": 0.12148891480042093,
+              "fit_feature_nmse_vs_fit_mean": 0.5862262756040543,
+              "fit_centered_logit_mse": 0.01382519168963058,
+              "check_feature_mse": 0.0697330082467245,
+              "check_constant_feature_mse": 0.12573141829893592,
+              "check_feature_nmse_vs_fit_mean": 0.5546187992640712,
+              "check_centered_logit_mse": 0.01327102218671779,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 6,
+              "victim": 2,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.31050214362407064,
+                  0.11889541282493676,
+                  0.11236203219470436,
+                  -0.19872564714478233
+                ],
+                [
+                  -0.11889541282493676,
+                  0.31050214362407064,
+                  0.19872564714478233,
+                  0.11236203219470436
+                ],
+                [
+                  -0.11236203219470436,
+                  -0.19872564714478233,
+                  0.31050214362407064,
+                  -0.11889541282493676
+                ],
+                [
+                  0.19872564714478233,
+                  -0.11236203219470436,
+                  0.11889541282493676,
+                  0.31050214362407064
+                ]
+              ],
+              "bias": [
+                0.15082657452602005,
+                0.31295973494442253,
+                0.5412816195349144,
+                0.11470208652001623
+              ],
+              "target_fit_mean": [
+                0.3697869327014678,
+                0.5414747930761223,
+                0.49429149001529915,
+                0.372627608860239
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.09265445086804286,
+              "fit_constant_feature_mse": 0.1316482777230163,
+              "fit_feature_nmse_vs_fit_mean": 0.703802985277064,
+              "fit_centered_logit_mse": 0.01613135859405953,
+              "check_feature_mse": 0.08739704351216582,
+              "check_constant_feature_mse": 0.12389293365686993,
+              "check_feature_nmse_vs_fit_mean": 0.7054239570613283,
+              "check_centered_logit_mse": 0.015331607965673703,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 29,
+              "victim": 4,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.1050786970954385,
+                  0.028815408289672106,
+                  -0.420177669192663,
+                  -0.10596687112229808
+                ],
+                [
+                  -0.028815408289672106,
+                  0.1050786970954385,
+                  0.10596687112229808,
+                  -0.420177669192663
+                ],
+                [
+                  0.420177669192663,
+                  -0.10596687112229808,
+                  0.1050786970954385,
+                  -0.028815408289672106
+                ],
+                [
+                  0.10596687112229808,
+                  0.420177669192663,
+                  0.028815408289672106,
+                  0.1050786970954385
+                ]
+              ],
+              "bias": [
+                0.6154794227744258,
+                0.4924447918883703,
+                0.2615268919093618,
+                0.06343226040925631
+              ],
+              "target_fit_mean": [
+                0.506941058358154,
+                0.3910775481462042,
+                0.43230695702493177,
+                0.3579014172708412
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.09095794008590553,
+              "fit_constant_feature_mse": 0.12085707387183962,
+              "fit_feature_nmse_vs_fit_mean": 0.7526074988573693,
+              "fit_centered_logit_mse": 0.016204353041349213,
+              "check_feature_mse": 0.0907687615247867,
+              "check_constant_feature_mse": 0.11366201925877563,
+              "check_feature_nmse_vs_fit_mean": 0.7985848053441001,
+              "check_centered_logit_mse": 0.015498114948453394,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 14,
+              "victim": 23,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  -0.08890193003404907,
+                  0.132128400599402,
+                  -0.3981932183898538,
+                  0.006419926326783912
+                ],
+                [
+                  -0.132128400599402,
+                  -0.08890193003404907,
+                  -0.006419926326783912,
+                  -0.3981932183898538
+                ],
+                [
+                  0.3981932183898538,
+                  0.006419926326783912,
+                  -0.08890193003404907,
+                  -0.132128400599402
+                ],
+                [
+                  -0.006419926326783912,
+                  0.3981932183898538,
+                  0.132128400599402,
+                  -0.08890193003404907
+                ]
+              ],
+              "bias": [
+                0.8074965387512527,
+                0.6108528177706509,
+                0.32902108623372406,
+                0.14279629297379554
+              ],
+              "target_fit_mean": [
+                0.6041778232701035,
+                0.307375050488914,
+                0.4118174868932401,
+                0.42948499538385476
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.08403645021017905,
+              "fit_constant_feature_mse": 0.12949393035320367,
+              "fit_feature_nmse_vs_fit_mean": 0.6489605341421317,
+              "fit_centered_logit_mse": 0.016431295488646268,
+              "check_feature_mse": 0.08584856971061192,
+              "check_constant_feature_mse": 0.13048608476288798,
+              "check_feature_nmse_vs_fit_mean": 0.6579135994969206,
+              "check_centered_logit_mse": 0.016974718829369274,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 3,
+              "victim": 10,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  -0.1271429843382369,
+                  -0.47056382404037417,
+                  -0.1868867319424068,
+                  0.16064426223351125
+                ],
+                [
+                  0.47056382404037417,
+                  -0.1271429843382369,
+                  -0.16064426223351125,
+                  -0.1868867319424068
+                ],
+                [
+                  0.1868867319424068,
+                  0.16064426223351125,
+                  -0.1271429843382369,
+                  0.47056382404037417
+                ],
+                [
+                  -0.16064426223351125,
+                  0.1868867319424068,
+                  -0.47056382404037417,
+                  -0.1271429843382369
+                ]
+              ],
+              "bias": [
+                0.6043513024725025,
+                0.38935739212819853,
+                0.2183952175073105,
+                0.8145535817658844
+              ],
+              "target_fit_mean": [
+                0.3501271650631188,
+                0.39582675226705943,
+                0.4972317910142738,
+                0.5105420111792142
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.08784143555406393,
+              "fit_constant_feature_mse": 0.12379974475973483,
+              "fit_feature_nmse_vs_fit_mean": 0.709544561053359,
+              "fit_centered_logit_mse": 0.017136213580552357,
+              "check_feature_mse": 0.08920229510037578,
+              "check_constant_feature_mse": 0.12877307521660963,
+              "check_feature_nmse_vs_fit_mean": 0.6927092092064144,
+              "check_centered_logit_mse": 0.017612360073636386,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 24,
+              "victim": 0,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  -0.06912115298730744,
+                  0.4484694713210624,
+                  -0.06366166321075169,
+                  -0.06621952191382782
+                ],
+                [
+                  -0.4484694713210624,
+                  -0.06912115298730744,
+                  0.06621952191382782,
+                  -0.06366166321075169
+                ],
+                [
+                  0.06366166321075169,
+                  -0.06621952191382782,
+                  -0.06912115298730744,
+                  -0.4484694713210624
+                ],
+                [
+                  0.06621952191382782,
+                  0.06366166321075169,
+                  0.4484694713210624,
+                  -0.06912115298730744
+                ]
+              ],
+              "bias": [
+                0.3079217730773402,
+                0.7366135863292262,
+                0.522272092547426,
+                0.12105299686366572
+              ],
+              "target_fit_mean": [
+                0.357250030347941,
+                0.48451946912342964,
+                0.31118632055883516,
+                0.35382110327847477
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.0643039371016597,
+              "fit_constant_feature_mse": 0.09954588935285572,
+              "fit_feature_nmse_vs_fit_mean": 0.6459728022894496,
+              "fit_centered_logit_mse": 0.017453393046887346,
+              "check_feature_mse": 0.06859658628419255,
+              "check_constant_feature_mse": 0.10034265007588766,
+              "check_feature_nmse_vs_fit_mean": 0.6836234266517175,
+              "check_centered_logit_mse": 0.01809027156760759,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 22,
+              "victim": 8,
+              "mode": "quaternion_right",
+              "matrix": [
+                [
+                  0.27223561362059234,
+                  0.35908771521621374,
+                  0.13018381093661524,
+                  0.10477166921237996
+                ],
+                [
+                  -0.35908771521621374,
+                  0.27223561362059234,
+                  -0.10477166921237996,
+                  0.13018381093661524
+                ],
+                [
+                  -0.13018381093661524,
+                  0.10477166921237996,
+                  0.27223561362059234,
+                  -0.35908771521621374
+                ],
+                [
+                  -0.10477166921237996,
+                  -0.13018381093661524,
+                  0.35908771521621374,
+                  0.27223561362059234
+                ]
+              ],
+              "bias": [
+                0.07616724246101814,
+                0.5250150500781399,
+                0.4442881343102919,
+                0.2585346520384839
+              ],
+              "target_fit_mean": [
+                0.4439821727955896,
+                0.48610673185496034,
+                0.37379769008465474,
+                0.4666907508373552
+              ],
+              "linear_coefficients": 4,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.09720534329899184,
+              "fit_constant_feature_mse": 0.13245861386710908,
+              "fit_feature_nmse_vs_fit_mean": 0.7338544505419212,
+              "fit_centered_logit_mse": 0.017966437601683788,
+              "check_feature_mse": 0.09546941271207507,
+              "check_constant_feature_mse": 0.13257389383233295,
+              "check_feature_nmse_vs_fit_mean": 0.7201222650427379,
+              "check_centered_logit_mse": 0.017347091644559633,
+              "nonconstant_fit_target": true
+            }
+          ],
+          "fit_aggregate_errors": {
+            "merged": 0.2871866496032556,
+            "mean_only": 0.6317412100999129,
+            "pruned": 0.8884642602886579,
+            "ratio_vs_mean_only": 0.45459540237660867,
+            "ratio_vs_pruned": 0.3232393945817809
+          },
+          "check_aggregate_errors": {
+            "merged": 0.2905354729976267,
+            "mean_only": 0.618448195657752,
+            "pruned": 0.8983909092331618,
+            "ratio_vs_mean_only": 0.46978142233663894,
+            "ratio_vs_pruned": 0.32339538391547024
+          },
+          "signal_passes": true
+        },
+        "full_real": {
+          "pairs": [
+            {
+              "keeper": 27,
+              "victim": 9,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.12865375272154295,
+                  -0.12646788875897386,
+                  -0.049931449688884626,
+                  0.19778676690512806
+                ],
+                [
+                  0.2915968949777578,
+                  0.393692960892264,
+                  -0.1911303185943577,
+                  -0.5039914997614252
+                ],
+                [
+                  0.428998692700149,
+                  0.006705736448240324,
+                  0.47075767387283274,
+                  0.21342277251466654
+                ],
+                [
+                  -0.22753173501383533,
+                  0.04961362799070668,
+                  -0.11828557203037751,
+                  0.6446188691698849
+                ]
+              ],
+              "bias": [
+                0.21773809081235068,
+                0.38958494846893593,
+                -0.2321996581782962,
+                0.25680299671830664
+              ],
+              "target_fit_mean": [
+                0.2529994279565472,
+                0.41833541174082167,
+                0.3117409514095016,
+                0.40556012127697616
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.04645898685603099,
+              "fit_constant_feature_mse": 0.10924410859362704,
+              "fit_feature_nmse_vs_fit_mean": 0.4252768177078728,
+              "fit_centered_logit_mse": 0.009685843497390137,
+              "check_feature_mse": 0.04793833078875197,
+              "check_constant_feature_mse": 0.10190015449408521,
+              "check_feature_nmse_vs_fit_mean": 0.47044414237403875,
+              "check_centered_logit_mse": 0.010439087856938789,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 5,
+              "victim": 15,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.01503644755597235,
+                  -0.04741758920229576,
+                  0.007213787557290914,
+                  -0.0675369890365484
+                ],
+                [
+                  0.6286779001501993,
+                  0.31786195589617294,
+                  0.26446197880912764,
+                  -0.026497067918160748
+                ],
+                [
+                  -0.025439342928482146,
+                  -0.24736610676080228,
+                  0.5341596024190298,
+                  0.014892371391097198
+                ],
+                [
+                  0.44635509956690594,
+                  -0.03119914866949143,
+                  -0.011662958092683189,
+                  0.04848111518551455
+                ]
+              ],
+              "bias": [
+                0.337801714971175,
+                -0.2675213036983505,
+                0.3142576043761809,
+                0.09574625985162549
+              ],
+              "target_fit_mean": [
+                0.28998669463964327,
+                0.4356309025034425,
+                0.3995979135951675,
+                0.3914287780743325
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.05175306372897853,
+              "fit_constant_feature_mse": 0.12148891480042093,
+              "fit_feature_nmse_vs_fit_mean": 0.42599000751630073,
+              "fit_centered_logit_mse": 0.009830764662383444,
+              "check_feature_mse": 0.05205088000626939,
+              "check_constant_feature_mse": 0.12573141829893592,
+              "check_feature_nmse_vs_fit_mean": 0.41398467233157665,
+              "check_centered_logit_mse": 0.009598003478793816,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 1,
+              "victim": 4,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.5432313592862382,
+                  -0.05582931371189101,
+                  -0.49833014956378985,
+                  -0.3817117523762212
+                ],
+                [
+                  0.5726326784066785,
+                  0.16745718701146128,
+                  -0.28499354036028257,
+                  0.4148429856801819
+                ],
+                [
+                  0.07404023967557793,
+                  0.8119779088656834,
+                  -0.09945141000105799,
+                  -0.029973802386608683
+                ],
+                [
+                  0.24014131250306045,
+                  0.18246597441826423,
+                  -0.045273341132739474,
+                  0.36381758118702373
+                ]
+              ],
+              "bias": [
+                0.647421312767945,
+                0.022494917559930216,
+                0.09312846467792435,
+                0.05180333372597107
+              ],
+              "target_fit_mean": [
+                0.506941058358154,
+                0.3910775481462042,
+                0.43230695702493177,
+                0.3579014172708412
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.05403942897238622,
+              "fit_constant_feature_mse": 0.12085707387183962,
+              "fit_feature_nmse_vs_fit_mean": 0.4471350103155005,
+              "fit_centered_logit_mse": 0.01023529122842551,
+              "check_feature_mse": 0.05597667747005226,
+              "check_constant_feature_mse": 0.11366201925877563,
+              "check_feature_nmse_vs_fit_mean": 0.4924835739774209,
+              "check_centered_logit_mse": 0.01026849657496078,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 14,
+              "victim": 0,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.08638959023004211,
+                  0.2825915876147057,
+                  -0.06997367538588134,
+                  -0.23567115273982417
+                ],
+                [
+                  -0.4360870381136124,
+                  -0.012409207149671322,
+                  0.10143702347637784,
+                  -0.024645674463773398
+                ],
+                [
+                  0.028308632654665516,
+                  -0.08429790511865268,
+                  -0.07271168284096934,
+                  -0.24587646347694148
+                ],
+                [
+                  0.6512581002171407,
+                  0.1361785200157331,
+                  -0.12963678583856492,
+                  0.08720893449777614
+                ]
+              ],
+              "bias": [
+                0.28857289114251505,
+                0.6525479932487674,
+                0.5059683455527808,
+                -0.006778722254078939
+              ],
+              "target_fit_mean": [
+                0.357250030347941,
+                0.48451946912342964,
+                0.31118632055883516,
+                0.35382110327847477
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.048508046577874796,
+              "fit_constant_feature_mse": 0.09954588935285572,
+              "fit_feature_nmse_vs_fit_mean": 0.48729331661230696,
+              "fit_centered_logit_mse": 0.011350878394523757,
+              "check_feature_mse": 0.04975324162627103,
+              "check_constant_feature_mse": 0.10034265007588766,
+              "check_feature_nmse_vs_fit_mean": 0.4958334425953808,
+              "check_centered_logit_mse": 0.011460796282465496,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 30,
+              "victim": 10,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  0.04928033241700745,
+                  0.41287884296333377,
+                  -0.18108514013944071,
+                  0.09431541339127233
+                ],
+                [
+                  0.1831947309668325,
+                  0.2623882177223962,
+                  0.11281451343809759,
+                  0.1054727501016654
+                ],
+                [
+                  -0.14996470093133152,
+                  0.08305432664147606,
+                  0.02016473474643831,
+                  -0.6642349152519018
+                ],
+                [
+                  -0.1232098740465931,
+                  0.08075875664903687,
+                  0.7301476740457302,
+                  -0.3904619123926845
+                ]
+              ],
+              "bias": [
+                0.23076909299266657,
+                0.10442580077851082,
+                0.806755219166025,
+                0.315315354888938
+              ],
+              "target_fit_mean": [
+                0.3501271650631188,
+                0.39582675226705943,
+                0.4972317910142738,
+                0.5105420111792142
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.06356669447028819,
+              "fit_constant_feature_mse": 0.12379974475973483,
+              "fit_feature_nmse_vs_fit_mean": 0.5134638572450668,
+              "fit_centered_logit_mse": 0.011517061652228053,
+              "check_feature_mse": 0.0643875637996983,
+              "check_constant_feature_mse": 0.12877307521660963,
+              "check_feature_nmse_vs_fit_mean": 0.500007968990348,
+              "check_centered_logit_mse": 0.011977884695058463,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 29,
+              "victim": 20,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.08792418922476201,
+                  0.20827020139027225,
+                  0.060246478783844565,
+                  0.023271827040858825
+                ],
+                [
+                  0.27090675706892414,
+                  0.5118391739628582,
+                  0.2097913547359761,
+                  -0.034573435033511346
+                ],
+                [
+                  0.03299944506389494,
+                  -0.045167781895091685,
+                  0.720067795565781,
+                  -0.12951532436466417
+                ],
+                [
+                  0.1368275748998368,
+                  -0.04187133909134377,
+                  0.12462469122876552,
+                  0.6805797750601559
+                ]
+              ],
+              "bias": [
+                0.2155746096867733,
+                -0.05374356995953938,
+                0.15404854662175316,
+                0.08039850517408886
+              ],
+              "target_fit_mean": [
+                0.29762114728658345,
+                0.36047078022358164,
+                0.31797994081021896,
+                0.43724599687851107
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.049377860029656426,
+              "fit_constant_feature_mse": 0.10445703533553426,
+              "fit_feature_nmse_vs_fit_mean": 0.4727097592904691,
+              "fit_centered_logit_mse": 0.011855678196568941,
+              "check_feature_mse": 0.04854995521932211,
+              "check_constant_feature_mse": 0.10127997201485049,
+              "check_feature_nmse_vs_fit_mean": 0.4793638293285006,
+              "check_centered_logit_mse": 0.011246626933939928,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 28,
+              "victim": 23,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.5282267400490018,
+                  -0.24496588739405087,
+                  0.2729347551187417,
+                  0.5573830002573873
+                ],
+                [
+                  0.10702975158380758,
+                  -0.30791333062702037,
+                  -0.1881466363035044,
+                  0.07168280279475295
+                ],
+                [
+                  -0.011850241232114096,
+                  0.42800922357300786,
+                  0.0785823364036535,
+                  0.45764944612261693
+                ],
+                [
+                  -0.1606239072211189,
+                  0.2306945341212689,
+                  -0.05340851738431656,
+                  0.03650729769654008
+                ]
+              ],
+              "bias": [
+                0.6407061943479782,
+                0.402206279967287,
+                -0.02131451853915517,
+                0.4327948997322171
+              ],
+              "target_fit_mean": [
+                0.6041778232701035,
+                0.307375050488914,
+                0.4118174868932401,
+                0.42948499538385476
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.060638498342034136,
+              "fit_constant_feature_mse": 0.12949393035320367,
+              "fit_feature_nmse_vs_fit_mean": 0.46827290033315405,
+              "fit_centered_logit_mse": 0.012128721275477247,
+              "check_feature_mse": 0.061292507457517374,
+              "check_constant_feature_mse": 0.13048608476288798,
+              "check_feature_nmse_vs_fit_mean": 0.46972447344783697,
+              "check_centered_logit_mse": 0.012606931582222676,
+              "nonconstant_fit_target": true
+            },
+            {
+              "keeper": 31,
+              "victim": 25,
+              "mode": "full_real",
+              "matrix": [
+                [
+                  -0.3436429878032741,
+                  -0.3948315827085346,
+                  -0.09991028104140298,
+                  0.05355433312276803
+                ],
+                [
+                  -0.008724449847210172,
+                  -0.00024828477248902206,
+                  -0.017521367881849412,
+                  -0.025692528180913932
+                ],
+                [
+                  -0.2021810563787574,
+                  -0.15888096040993838,
+                  0.09657572022566857,
+                  0.9330312672332741
+                ],
+                [
+                  0.8541072010526284,
+                  -0.16807062785270044,
+                  0.07432725253586325,
+                  -0.0925015691698974
+                ]
+              ],
+              "bias": [
+                0.9043377585468266,
+                0.2889027433833648,
+                0.1612647390469204,
+                0.24630745708229934
+              ],
+              "target_fit_mean": [
+                0.5121989603285456,
+                0.260699928042548,
+                0.6264229581684722,
+                0.5452757052366359
+              ],
+              "linear_coefficients": 16,
+              "intercept_coefficients": 4,
+              "design_rank": 4,
+              "fit_feature_mse": 0.05667231018600681,
+              "fit_constant_feature_mse": 0.17248626308726536,
+              "fit_feature_nmse_vs_fit_mean": 0.32856129625426916,
+              "fit_centered_logit_mse": 0.012256939461972595,
+              "check_feature_mse": 0.056076509379199335,
+              "check_constant_feature_mse": 0.1765871178499301,
+              "check_feature_nmse_vs_fit_mean": 0.3175571925176055,
+              "check_centered_logit_mse": 0.011789171233867492,
+              "nonconstant_fit_target": true
+            }
+          ],
+          "fit_aggregate_errors": {
+            "merged": 0.1556744963913655,
+            "mean_only": 0.6806368598639994,
+            "pruned": 0.9632257911568022,
+            "ratio_vs_mean_only": 0.22871887429439453,
+            "ratio_vs_pruned": 0.16161786553120178
+          },
+          "check_aggregate_errors": {
+            "merged": 0.1549643650369788,
+            "mean_only": 0.6880513654217845,
+            "pruned": 0.9945350818982727,
+            "ratio_vs_mean_only": 0.22522208780442377,
+            "ratio_vs_pruned": 0.15581588609342745
+          },
+          "signal_passes": true
+        }
+      },
+      "all_pair_summaries": {
+        "quaternion_right": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.8178316968796661,
+          "mean_check_feature_nmse": 0.8013372023163762,
+          "fitted_coefficients_per_pair": 8
+        },
+        "diagonal": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.8967218585262534,
+          "mean_check_feature_nmse": 0.8754625674786876,
+          "fitted_coefficients_per_pair": 8
+        },
+        "full_real": {
+          "directed_pair_count": 992,
+          "valid_check_nmse_count": 992,
+          "median_check_feature_nmse": 0.6023897196147622,
+          "mean_check_feature_nmse": 0.6021571281448036,
+          "fitted_coefficients_per_pair": 20
+        }
+      },
+      "same_full_selected_pairs_check_errors": {
+        "quaternion_right": {
+          "merged": 0.3121370327592723,
+          "mean_only": 0.6880513654217845,
+          "pruned": 0.9945350818982727,
+          "ratio_vs_mean_only": 0.4536536782656164,
+          "ratio_vs_pruned": 0.31385220937957786
+        },
+        "diagonal": {
+          "merged": 0.4552479136046284,
+          "mean_only": 0.6880513654217845,
+          "pruned": 0.9945350818982727,
+          "ratio_vs_mean_only": 0.6616481508260005,
+          "ratio_vs_pruned": 0.4577494770075834
+        },
+        "full_real": {
+          "merged": 0.1549643650369788,
+          "mean_only": 0.6880513654217845,
+          "pruned": 0.9945350818982727,
+          "ratio_vs_mean_only": 0.22522208780442377,
+          "ratio_vs_pruned": 0.15581588609342745
+        }
+      },
+      "coefficients_fitted_without_labels": true,
+      "partition_sha256": "9fcdfbafc5753461cc592b184d01bb2af08f90a85e3bf57eae28d5e0ec6addbd"
+    }
+  ],
+  "gate": {
+    "passing_seeds": {
+      "quaternion_right": 3,
+      "full_real": 3
+    },
+    "minimum_passing_seeds": 2,
+    "supports_physical_comparison": true
+  },
+  "official_test_evaluated": false,
+  "new_cnn_training_updates": 0
+}

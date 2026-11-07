@@ -1,0 +1,240 @@
+{
+  "status": "passed",
+  "encoding": "RGB",
+  "seed": 2026,
+  "parameter_budgets": {
+    "quaternion_real_parameters": 132490,
+    "real_hidden_units": 43,
+    "real_parameters": 132579,
+    "real_minus_quaternion_fraction": 0.0006717488112310363
+  },
+  "real_trainable_parameters": 132579,
+  "hidden_quaternion_units": null,
+  "hidden_scalar_features": 43,
+  "first_optimizer_step": {
+    "variables": [
+      {
+        "name": "real_hidden/kernel",
+        "shape": [
+          3072,
+          43
+        ],
+        "gradient_norm": 6.3430657386779785,
+        "max_abs_update": 0.0009999610483646393
+      },
+      {
+        "name": "real_hidden/bias",
+        "shape": [
+          43
+        ],
+        "gradient_norm": 0.1479065865278244,
+        "max_abs_update": 0.0009999307803809643
+      },
+      {
+        "name": "real_readout/kernel",
+        "shape": [
+          43,
+          10
+        ],
+        "gradient_norm": 0.9631918668746948,
+        "max_abs_update": 0.0009999871253967285
+      },
+      {
+        "name": "real_readout/bias",
+        "shape": [
+          10
+        ],
+        "gradient_norm": 0.15024439990520477,
+        "max_abs_update": 0.0009999503381550312
+      }
+    ],
+    "all_variables_updated": true
+  },
+  "best_epoch": 6,
+  "initial_train": {
+    "cross_entropy": 2.889129638671875,
+    "accuracy": 0.1014
+  },
+  "last_epoch_train": {
+    "cross_entropy": 0.6348860263824463,
+    "accuracy": 0.8058
+  },
+  "selected_train": {
+    "cross_entropy": 1.1646838188171387,
+    "accuracy": 0.6132
+  },
+  "selected_validation": {
+    "cross_entropy": 1.8745481967926025,
+    "accuracy": 0.372
+  },
+  "activations": {
+    "initial": {
+      "shape": [
+        1000,
+        43
+      ],
+      "scalar": {
+        "valid_features": 43,
+        "constant_features": 0,
+        "all_zero_features": 0,
+        "pairs": {
+          "valid_pairs": 903,
+          "mean": 0.018934023714701636,
+          "median": 0.009826363886294692,
+          "p95": 0.3499642939207242,
+          "maximum": 0.7729802465131113,
+          "fraction_ge_0_9": 0.0,
+          "fraction_abs_ge_0_9": 0.0
+        },
+        "calibration_halves_stability": {
+          "shared_valid_pairs": 903,
+          "pair_value_pearson": 0.9544818786968365,
+          "mean_absolute_pair_difference": 0.04771759861832699
+        }
+      },
+      "rank": {
+        "effective_rank": 20.725427500179226,
+        "normalized_effective_rank": 0.4819866860506797,
+        "scalar_feature_count": 43,
+        "covariance_eigenvalues": [
+          8.852609343307755,
+          3.127408416685279,
+          2.2408365469488896,
+          1.8422622962939401,
+          1.2862120183962604,
+          1.1316209366555008,
+          0.9917877203145266,
+          0.8431844275103202,
+          0.7722305811350914,
+          0.7114798619937759,
+          0.6296560813305485,
+          0.5953234573362186,
+          0.5904510148732247,
+          0.5364086419320672,
+          0.5112256978564723,
+          0.4627923327933316,
+          0.4433197113269717,
+          0.4114382239305431,
+          0.3976569331860562,
+          0.3726210382773476,
+          0.3586638512941548,
+          0.3533628639670956,
+          0.3388031152413604,
+          0.31770024572118133,
+          0.30749711999927487,
+          0.2976072422715843,
+          0.28802246105866197,
+          0.28099653611233477,
+          0.26971801170495635,
+          0.2578673676315235,
+          0.24570706652049928,
+          0.2430788715788473,
+          0.23214699581570103,
+          0.22301527284217942,
+          0.2162681795533595,
+          0.2125098576720966,
+          0.2005872075077852,
+          0.18610067072283043,
+          0.1809468651472586,
+          0.17696154023022023,
+          0.16845935171845408,
+          0.16216739088116477,
+          0.15200887465750157
+        ]
+      }
+    },
+    "trained": {
+      "shape": [
+        1000,
+        43
+      ],
+      "scalar": {
+        "valid_features": 43,
+        "constant_features": 0,
+        "all_zero_features": 0,
+        "pairs": {
+          "valid_pairs": 903,
+          "mean": 0.03746939854090086,
+          "median": 0.013873240274288667,
+          "p95": 0.41536671866713637,
+          "maximum": 0.6842187958303254,
+          "fraction_ge_0_9": 0.0,
+          "fraction_abs_ge_0_9": 0.0
+        },
+        "calibration_halves_stability": {
+          "shared_valid_pairs": 903,
+          "pair_value_pearson": 0.9627061052144014,
+          "mean_absolute_pair_difference": 0.045822819253419855
+        }
+      },
+      "rank": {
+        "effective_rank": 20.05961596882844,
+        "normalized_effective_rank": 0.4665026969494986,
+        "scalar_feature_count": 43,
+        "covariance_eigenvalues": [
+          31.38399704094337,
+          27.08024726122678,
+          20.063415011228734,
+          14.516757514578352,
+          13.254084210358226,
+          8.459958633644948,
+          7.707030525355279,
+          6.738036932641611,
+          4.592331428357614,
+          3.879455513852502,
+          3.6094980889248607,
+          3.5320104712356435,
+          3.367316775526117,
+          3.1527707312643565,
+          2.9771592492057097,
+          2.431633157507953,
+          2.372255868965789,
+          2.2235529042157296,
+          2.066887632998056,
+          1.848058211124651,
+          1.7036371449819725,
+          1.5407996753241016,
+          1.460263176454978,
+          1.3596537630574248,
+          1.3414293660166794,
+          1.2406206768906742,
+          1.1830664624153917,
+          1.1757119836861882,
+          1.114204782327204,
+          1.0600811400612835,
+          1.0198794640530047,
+          0.9338311949942047,
+          0.9061806896862503,
+          0.8231657696048194,
+          0.8194952267546943,
+          0.7761858175582647,
+          0.6692830004507538,
+          0.6365497730652914,
+          0.6004373500113618,
+          0.5629649796900026,
+          0.4969133267328631,
+          0.4704803600404871,
+          0.3884832963662843
+        ]
+      }
+    }
+  },
+  "checkpoint_bytes": 547443,
+  "checkpoint_max_abs_reload_error": 0.0,
+  "checks": {
+    "all_expected_real_parameters_tracked": true,
+    "all_variables_updated_on_actual_rgb": true,
+    "finite_selected_train_and_validation_metrics": true,
+    "checkpoint_roundtrip": true,
+    "finite_calibration_activations": true
+  },
+  "calibration_used_for_training_or_selection": false,
+  "test_evaluated": true,
+  "masked_parameters": 0,
+  "removed_units": 0,
+  "compact_architecture_savings": 0,
+  "test": {
+    "cross_entropy": 1.8774319887161255,
+    "accuracy": 0.3834
+  }
+}

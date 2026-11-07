@@ -1,0 +1,35 @@
+{
+  "output": "results/direct_consumer_replication",
+  "datasets": ["cifar", "eurosat"],
+  "seeds": [2027, 2028, 2026],
+  "fractions": [0.5, 0.25],
+  "include_existing_no_bn": true,
+  "discovery_pilot": "results/direct_consumer_pilot",
+  "reference_study": "results/structure_cost_study",
+  "ridge_alpha": 0.001,
+  "batch_size": 128,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "finetune": {
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000
+  },
+  "limits": null,
+  "scientific_results": true,
+  "hypothesis": "Direct pre-BN quaternion consumer-output regression can recover more classification quality than shared feature reconstruction followed by folding at exactly the same compact Q architecture, masks and real parameter count.",
+  "scope": "Fixed replication/follow-up chosen after the positive CIFAR BN seed2026 f=.5 pilot. BN: CIFAR and EuroSAT, three EXISTING source seeds, f=.25/.5. Secondary: existing no-BN CIFAR seed2026 only, two fractions. Fourteen groups; reuse the discovery pilot without retraining, thirteen NEW three-epoch repairs. No new baselines, alpha/architecture search, classifier refit, test evaluation or automatic extension. Five Q consumers use the unchanged float64 ridge solver centered on the same local map-fold candidate; last real readout uses map-fold only. Same 500 fit/500 check split, same previous-study victims for every group. Regression uses no labels and leaves all other parameters/BN statistics unchanged; only later repair uses labels. References from the completed structural-cost study are reused. Primary before/after epoch-three accuracy/CE paired by source seed at fixed size. Full dense reference has a different parameter budget and is diagnostic, not an equal-size competitor.",
+  "interpretation_rules": [
+    "Report CIFAR discovery seed2026 f=.5 separately from the two new-seed replications. Three-seed summaries include discovery and are not an independent confirmation. EuroSAT is new for this method but its data/test outcomes were used earlier; no fresh blind evaluation claim.",
+    "Keep all unfavorable effects and per-seed signs, means and sample SD. One-seed no-BN remains exploratory. No significance/equivalence claim from a small mean or n=3.",
+    "Objective, centered regularization and compensation parameterization differ from the old map-fold procedure together; this is not an isolated pure feasible-space effect, a new LS theorem or an irreducible Q architecture bound.",
+    "Do not tune alpha, masks or checkpoint selection on validation/check outcomes. Final third repair epoch stays the endpoint. Record successful steps for new repairs; old references have only attempted schedules audited.",
+    "Stop after these fixed jobs and assess repeatability/heterogeneity before planning another study. No automatic growth of the sweep or guaranteed novelty/acceptance."
+  ],
+  "official_test_evaluation": false
+}

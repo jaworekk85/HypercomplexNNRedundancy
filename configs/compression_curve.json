@@ -1,0 +1,70 @@
+{
+  "output": "results/compression_curve",
+  "dataset": "cifar",
+  "architectures": ["cnn6", "real_cnn6"],
+  "seeds": [2026, 2027, 2028],
+  "fractions": [0.125, 0.25, 0.5, 0.75, 0.875],
+  "ridge_alpha": 0.001,
+  "random_repetitions": 5,
+  "random_seed_offset": 800000,
+  "fit_half": "even calibration images (500)",
+  "check_half": "odd calibration images (500)",
+  "batch_size": 128,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "equivalence_tolerance": 0.001,
+  "equivalence_images": 200,
+  "limits": null,
+  "policies": {
+    "baseline": "uncompressed source model",
+    "random": "random victims at every site, pruned without compensation",
+    "random_comp": "the same random victims, each replaced by a multi-source ridge reconstruction folded into the consumer (right-Hamilton for quaternion, scalar for real)",
+    "bn_pruned": "smallest BN-folded kernel magnitude at every site, pruned without compensation (standard magnitude reference)",
+    "greedy_comp": "greedy backward elimination by reconstruction residual times outgoing energy, then compensation (main policy)",
+    "greedy_pruned": "the greedy_comp victims, pruned without compensation (isolates compensation from selection)",
+    "greedy_full_projected": "quaternion only, phase A only: the greedy_comp victims with unconstrained 4x4 maps, Hamilton-projected at convolution consumers (cost of fitting without the structure)",
+    "scratch": "the same compact architecture trained from scratch with the baseline trainer and full budget"
+  },
+  "finetune": {
+    "enabled": true,
+    "policies": ["baseline", "random", "bn_pruned", "random_comp", "greedy_comp"],
+    "random_repetitions_finetuned": 3,
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000
+  },
+  "scratch": {
+    "enabled": true,
+    "fractions": [0.25, 0.5, 0.75, 0.875],
+    "epochs": null
+  },
+  "comparisons": [
+    ["greedy_comp@before", "random@before"],
+    ["greedy_comp@before", "bn_pruned@before"],
+    ["greedy_comp@before", "greedy_pruned@before"],
+    ["random_comp@before", "random@before"],
+    ["greedy_comp@before", "random_comp@before"],
+    ["greedy_comp@before", "greedy_full_projected@before"],
+    ["greedy_comp@after", "random@after"],
+    ["greedy_comp@after", "bn_pruned@after"],
+    ["random_comp@after", "random@after"],
+    ["greedy_comp@after", "random_comp@after"],
+    ["greedy_comp@after", "scratch@scratch"],
+    ["bn_pruned@after", "scratch@scratch"],
+    ["random@after", "scratch@scratch"]
+  ],
+  "primary_outcome": "Validation accuracy versus real parameters, per policy, without fine-tuning and after the final (third) fine-tuning epoch; scratch rows use the baseline protocol (checkpoint with minimum validation cross-entropy, final-epoch value also stored).",
+  "primary_questions": [
+    "Where does accuracy start to fall for each family and policy (the knee of the curve)?",
+    "Does compensation (greedy_comp, random_comp) keep an advantage after fine-tuning at strong compression, where fine-tuning may no longer close the gap?",
+    "Is compression + 3 fine-tuning epochs better or worse than training the same compact architecture from scratch?",
+    "At equal removed fraction (near-equal real parameters), does the quaternion family degrade more gracefully than the real family?"
+  ],
+  "official_test_evaluation": false,
+  "scope": "Every convolution output (6 sites in CNN6) loses the same fraction of units, compressed sequentially shallow to deep; each site is fitted on the even calibration half of the already partly compressed model. Quaternion fractions remove whole quaternion units; real fractions remove the same fraction of scalar channels, so real-parameter counts match closely. Compensation folds into the next convolution, or into the linear readout for the last site (any 4x4 map is exact there). Exact folds are checked per site against functional substitution on check images. Hyperparameters copied from configs/multisource_compensation.json and configs/finetune_compression.json, not tuned. Prespecified before any outcome of this study, except one disclosed change: the 0.125 level was added after a pre-fine-tuning diagnostic of greedy_comp on seed 2026 (validation) showed that compounding errors over six sites leave ~59% at 0.25 and ~19% at 0.5, so the no-fine-tuning curve needs a finer low end. No policy, alpha or fine-tuning setting was changed. Unconstrained multi-source folding is prior art (GRAIL2026); not a novelty claim."
+}

@@ -1,0 +1,64 @@
+{
+  "diagnostic": {
+    "pilot": "results/learned_grouping_pilot",
+    "output": "results/routing_bn_diagnostic",
+    "boundary_epoch": 40,
+    "bn_fit_split": "train",
+    "bn_fit_samples": 48000,
+    "bn_batch_size": 256,
+    "bn_layers": [
+      "blocks.1.1",
+      "blocks.1.4",
+      "blocks.2.1",
+      "blocks.2.4"
+    ],
+    "bn_estimator": "Layer-wise full-training-set input moments; float64 accumulation, unbiased global variance. Earlier recalibrated layers run in evaluation mode. No augmentation or dropout.",
+    "conditions": [
+      "soft_original",
+      "hard_original",
+      "soft_recalibrated",
+      "hard_recalibrated"
+    ],
+    "evaluation_splits": [
+      "validation",
+      "calibration"
+    ],
+    "replay_metric_tolerance": 1e-08,
+    "official_test_evaluation": false,
+    "scope": "One-seed intervention on BN running statistics at the original soft-to-hard boundary; no optimizer updates after the boundary, no new architecture or compression experiment."
+  },
+  "source_hashes": {
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+    "scripts/learned_grouping.py": "87fe9f39a70602f3238e4bd64fbfd06c913ce5feea37ce3bb082f4111a60bad0",
+    "src/models/channel_routing.py": "c1c47305a8869b489d482d38c585b6e54c2dcd1c0643a7d4f786b8be6de2fb39",
+    "scripts/diagnose_routing_bn.py": "22c564c70e9ce11cf93440fd24c7597ca73d11919057bd03b051822cd4244e2d",
+    "src/evaluation/routing_hardening.py": "8f86443b3fac8eec6a164fea2587a10f01555881032c5555f5fcd15b814e2ebb"
+  },
+  "input_hashes": {
+    "results/routing_bn_diagnostic/replay/boundary_soft.pt": "9e9441dab4d47b3dd675ae795caa8865b3e2abfedb8b3c94d0361c882c8f17ea",
+    "results/routing_bn_diagnostic/replay/boundary_hard.pt": "fc852d4c43413821e485c279f65388ee9441fce80fb49d71fca6a635215e41ca",
+    "results/routing_bn_diagnostic/replay_protocol.json": "8f270ca92f38eef8507dfc5ab84756a8144ad3b4d133147c46b90a27e1354c22",
+    "results/routing_bn_diagnostic/replay_verification.json": "4cad507d2afb41d6c360c282bc6aa601e2bfd014008c713f1709ef1ac3d6c153",
+    "results/learned_grouping_pilot/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+    "results/learned_grouping_pilot/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3"
+  },
+  "official_test_evaluated": false,
+  "weight_updates_after_boundary": 0,
+  "seed": 2026,
+  "device": "cuda",
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "numpy": "2.2.6",
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU"
+  }
+}

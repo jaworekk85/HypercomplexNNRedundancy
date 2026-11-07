@@ -1,0 +1,201 @@
+{
+  "seed": 2027,
+  "block": 1,
+  "units": 8,
+  "scores": {
+    "grouped_centered_cosine": [
+      0.22527132986332643,
+      0.22001414482974097,
+      0.06856584314509456,
+      0.22527132986332643,
+      0.17558711044525271,
+      0.18814121396335254,
+      0.19338171407983623,
+      0.22001414482974097
+    ],
+    "scalar_pearson_mean_external_nn": [
+      0.4088827361000292,
+      0.525694887612345,
+      0.3884647457690563,
+      0.3631640437799758,
+      0.4852455216799776,
+      0.43122017097748394,
+      0.4090776587940339,
+      0.427186710184032
+    ]
+  },
+  "calibration_image_half_scores": {
+    "even_images": {
+      "grouped_centered_cosine": [
+        0.22939934958007954,
+        0.2209888677339522,
+        0.0629872042111316,
+        0.22939934958007954,
+        0.17492507191122758,
+        0.18588385582105227,
+        0.19209552597779497,
+        0.2209888677339522
+      ],
+      "scalar_pearson_mean_external_nn": [
+        0.41284606916910727,
+        0.5270312734626473,
+        0.3869702775305312,
+        0.36648398105012037,
+        0.4855423911051803,
+        0.43597572426758946,
+        0.4125336861183907,
+        0.4330334040271361
+      ]
+    },
+    "odd_images": {
+      "grouped_centered_cosine": [
+        0.2212130315236358,
+        0.21896278508293743,
+        0.0737256925863779,
+        0.2212130315236358,
+        0.17627463423367634,
+        0.1902981808517921,
+        0.19456640092346678,
+        0.21896278508293743
+      ],
+      "scalar_pearson_mean_external_nn": [
+        0.4050744959772965,
+        0.5243901577263665,
+        0.3900421107484007,
+        0.35994845901637945,
+        0.48497354449957086,
+        0.42665047825635605,
+        0.40724612841701524,
+        0.42149318476639164
+      ]
+    }
+  },
+  "calibration_image_half_score_spearman": {
+    "grouped_centered_cosine": 1.0,
+    "scalar_pearson_mean_external_nn": 0.9761904761904763
+  },
+  "target_ablations": [
+    {
+      "unit": 0,
+      "nearest_neighbor_similarity": 0.22527132986332643,
+      "incoming_weight_norm": 2.0580084323883057,
+      "validation_loss_increase": 0.04242605109433717,
+      "validation_accuracy_drop": 0.017000000000000015,
+      "validation_accuracy_after_ablation": 0.75,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 1,
+      "nearest_neighbor_similarity": 0.22001414482974097,
+      "incoming_weight_norm": 2.086461305618286,
+      "validation_loss_increase": 0.02953186517777462,
+      "validation_accuracy_drop": 0.01200000000000001,
+      "validation_accuracy_after_ablation": 0.755,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 2,
+      "nearest_neighbor_similarity": 0.06856584314509456,
+      "incoming_weight_norm": 2.0030972957611084,
+      "validation_loss_increase": 0.03703124329731644,
+      "validation_accuracy_drop": 0.019000000000000017,
+      "validation_accuracy_after_ablation": 0.748,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 3,
+      "nearest_neighbor_similarity": 0.22527132986332643,
+      "incoming_weight_norm": 2.0457630157470703,
+      "validation_loss_increase": 0.03775381584454518,
+      "validation_accuracy_drop": 0.016000000000000014,
+      "validation_accuracy_after_ablation": 0.751,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 4,
+      "nearest_neighbor_similarity": 0.17558711044525271,
+      "incoming_weight_norm": 2.075327157974243,
+      "validation_loss_increase": 0.04916744143959395,
+      "validation_accuracy_drop": 0.025000000000000022,
+      "validation_accuracy_after_ablation": 0.742,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 5,
+      "nearest_neighbor_similarity": 0.18814121396335254,
+      "incoming_weight_norm": 1.990792155265808,
+      "validation_loss_increase": 0.04447172883643524,
+      "validation_accuracy_drop": 0.007000000000000006,
+      "validation_accuracy_after_ablation": 0.76,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 6,
+      "nearest_neighbor_similarity": 0.19338171407983623,
+      "incoming_weight_norm": 2.114543914794922,
+      "validation_loss_increase": 0.05327804172985606,
+      "validation_accuracy_drop": 0.029000000000000026,
+      "validation_accuracy_after_ablation": 0.738,
+      "individual_low_impact": false
+    },
+    {
+      "unit": 7,
+      "nearest_neighbor_similarity": 0.22001414482974097,
+      "incoming_weight_norm": 2.089055061340332,
+      "validation_loss_increase": 0.05066330821538423,
+      "validation_accuracy_drop": 0.026000000000000023,
+      "validation_accuracy_after_ablation": 0.741,
+      "individual_low_impact": false
+    }
+  ],
+  "eligible_units": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "excluded_units": [],
+  "criteria": {
+    "grouped_centered_cosine": {
+      "spearman_score_vs_negative_loss_harm": 0.10844160586017297,
+      "selected_top_units": [
+        0,
+        3
+      ],
+      "top_k": 2,
+      "top_mean_individual_loss_harm": 0.040089933469441175,
+      "top_mean_individual_accuracy_drop": 0.016500000000000015,
+      "top_individual_low_impact_fraction": 0.0
+    },
+    "scalar_pearson_mean_external_nn": {
+      "spearman_score_vs_negative_loss_harm": -0.09523809523809526,
+      "selected_top_units": [
+        1,
+        4
+      ],
+      "top_k": 2,
+      "top_mean_individual_loss_harm": 0.039349653308684285,
+      "top_mean_individual_accuracy_drop": 0.018500000000000016,
+      "top_individual_low_impact_fraction": 0.0
+    }
+  },
+  "uniform_random_expected_individual_loss_harm": 0.04304043695440536,
+  "uniform_random_expected_individual_low_impact_fraction": 0.0,
+  "group_minus_scalar_spearman": 0.20367970109826822,
+  "group_minus_scalar_top_individual_loss_harm": 0.0007402801607568898,
+  "checks": {
+    "saved_grouped_matrix_matches_snapshots": true,
+    "saved_scalar_matrix_matches_snapshots": true,
+    "calibration_snapshot_shape": true,
+    "grouped_scores_match_previous_analysis": true,
+    "grouped_spearman_matches_previous_analysis": true
+  },
+  "source_artifacts": {
+    "results/cnn_compression/block_analysis/seed_2027/quaternion/block_1/calibration_similarity.npz": "dd631b1c257836f017492b2e4eb50e1c8604ae04cea6acd0e03a15d144d68758",
+    "results/cnn_compression/block_analysis/seed_2027/quaternion/block_1/calibration_activations.npz": "181b0797f84e27bd41a38f9eec2f5f970cff2cfc40798d5cce0be6094bd600e4"
+  }
+}

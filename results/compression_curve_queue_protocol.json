@@ -1,0 +1,35 @@
+{
+  "queue": {
+    "registered_utc": "2026-11-04T16:13:28.462650+00:00",
+    "main_configs": [
+      "configs/compression_curve.json",
+      "configs/compression_curve_eurosat.json"
+    ],
+    "followups": [
+      "configs/compression_curve_refinement.json",
+      "configs/compression_curve_eurosat_refinement.json"
+    ],
+    "additional_fractions": [
+      0.375,
+      0.625
+    ],
+    "order": "Finish both existing full CIFAR/EuroSAT curves first, then refine CIFAR, then EuroSAT. Every follow-up runs phases A/B/C.",
+    "official_test_evaluation": false
+  },
+  "source_hashes": {
+    "configs/compression_curve.json": "3cbe2d14ce27893a1e708d0eb1d728b729a7ae32dd2903441cf15f5fc496b4a5",
+    "configs/compression_curve_eurosat.json": "a37c7b7d6e44f306c510a842d6f1131eec686a8deb9e990039be26c722412922",
+    "configs/compression_curve_eurosat_refinement.json": "e442ec9fea0834d802039323ca48021877981319148c7a1ed9ee443fc03d48a8",
+    "configs/compression_curve_queue.json": "efbdaa8711b2e806c1cda5868f5ed300be4888d42fb0463640b7392ef0e7ef50",
+    "configs/compression_curve_refinement.json": "c622c6313905860ae9f1cc82cc169a63e11b4fa9a51c5f94fbdfc19afad7dd30",
+    "scripts/compression_curve.py": "d3a3ba3788ae6890712b341276f44bc646cc12404e3119056186ff8ae34651da",
+    "scripts/run_compression_curves.py": "af36a96c7feff31bec88ef3877ae667284a10992dc75691db515b6710d9319ad",
+    "scripts/run_curve_queue.py": "a4878ed1e190cec021c3b82ee5935026da90f5f6d3dfc6cc3ed94d4bdafa291f",
+    "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51",
+    "src/compression/multilayer.py": "623af6fd9417782e661ca01eeb30d2e7459b352afeee831156a098e807ec8c14",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+    "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+    "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74"
+  }
+}

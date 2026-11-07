@@ -1,0 +1,25 @@
+{
+  "output": "results/centered_maps_pilot",
+  "parent_protocol": "results/trainable_maps_pilot/protocol.json",
+  "pilot": "results/direct_consumer_pilot",
+  "reference_group": "results/structure_cost_study/cifar/bn/seed_2026/f_500",
+  "seed": 2026,
+  "fraction": 0.5,
+  "cases": ["mapfold", "a_only", "mu_only", "a_mu"],
+  "device": "cuda",
+  "cpu_threads": 4,
+  "batch_size": 128,
+  "ridge_alpha": 0.001,
+  "relative_eigen_cutoff": 1e-10,
+  "finetune": {
+    "epochs": 3, "batch_size": 128, "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001, "weight_decay": 0.0001,
+    "mixed_precision": true, "order_seed_offset": 80000, "augment_seed_offset": 90000
+  },
+  "hypothesis": "A calibrated quaternion center per removed channel may improve output reconstruction and recovery beyond output-refitted shared A alone, without changing deployed Q architecture.",
+  "method": "ONE late consumer, CIFAR BN2026 f=.5. Reuse direct-pilot sites0-3. Fit pre-BN current-reference output on existing cached moments for500 fit images; separate500 check, validation1000. U=U0+(A-A0)C-A*mu; A0 is old nonzero feature-ridge maps, U0 is exactly the old rounded fold. This anchors B=U0-A0*C to eliminate initialization-rounding differences. mu[v] is ONE Q per removed input, shared across all32 outputs/all9 offsets. B,C,other layers/BN/head are fixed during label-free calibration. Joint linear fit over deltaA,d is accepted only if a subsequent Q linear solve recovers mu with A*mu=d to tolerance; otherwise report failure and stop, without claiming a bilinear solution. No iterative SGD/local-stationary/global-novelty claim. Common objective SSE+lambda||U-U0||^2; lambda reused from the original direct output fit, NOT coefficient-decay ridge. Same support/masks. Final real-head maps recomputed identically per arm; then four matched supervised3ep repairs train all ordinary parameters. Reused direct-Q reference contextual, not a new repair. No sweep/new baseline/new test/automatic replication.",
+  "counts": "Calibration variables A1024, mu64, joint1088; full Q local consumer18432 coefficients before final output pruning. Joint linear-space d has64reals and recovered mu64, not both retained as separate model variables. Final six Q convolutions/19098 reals; temporary A,mu,C discarded. Labeled repair always19098 trainables.",
+  "resume": "Cached calibration solutions saved once; per-case atomic completed-epoch CE model/optimizer/scaler/scheduler/RNG checkpoint. STOP requests pause after batch; remove only explicitly resuming. A partial epoch is repeated. No best checkpoint selection.",
+  "prior_art": ["VieiraValle2022ELM", "Kim2020", "Ding2021ResRep", "Zhang2026RCP", "Singh2026"],
+  "novelty": "Not established. Targeted supplementary QNN search and earlier36-query review did not locate this exact per-victim-centered compensation; unsuccessful search and elementary linear reformulation do not establish priority or sufficient novelty. No claimed performance benefit until measured."
+}

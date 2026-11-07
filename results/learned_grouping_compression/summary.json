@@ -1,0 +1,54 @@
+{
+  "status": "not_run_gate_failed",
+  "gate": {
+    "useful_hardened_quality": false,
+    "assignment_actually_changed": true,
+    "supports_compression_followup": false
+  },
+  "protocol": {
+    "config": {
+      "source_pilot": "results/learned_grouping_pilot",
+      "baseline_compression": "results/cnn_compression",
+      "seed": 2026,
+      "modes": [
+        "identity",
+        "random",
+        "learned"
+      ],
+      "block": 3,
+      "removed_fractions": [
+        0.0,
+        0.25,
+        0.5
+      ],
+      "policies": [
+        "random",
+        "incoming_norm",
+        "activation_similarity"
+      ],
+      "random_repetitions": 10,
+      "random_seed_offset": 100000,
+      "fine_tuning_updates": 0,
+      "gate": "Execute only if selection_frozen.json supports_compression_followup is true, using its pre-test validation-only decision",
+      "protocol": "Freeze comparison choices before learned-routing outcomes. Reuse original seed-2026 identity cases. New random/learned cases use matched target real parameters and the same random removal draws, raw norm and greedy positive grouped-similarity definitions. Freeze every new validation manifest before test. No method novelty or stable gain follows from one seed."
+    },
+    "training_summary_sha256": "c1b384762c47f2db1c4f49cd01c37aabb136bbd87c68702368a474959d9f1a64",
+    "selection_freeze_sha256": "28bd13c6d0d7e70931d4e6ff124ac3ed1ad39826a61f76c5c8303743f2a81a7c",
+    "baseline_summary_sha256": "84067df327f1e917e251083aa1a6e692907a4888ab2e89878f984510cdb13182",
+    "source_hashes": {
+      "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+      "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+      "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+      "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+      "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+      "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+      "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+      "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+      "scripts/learned_grouping.py": "87fe9f39a70602f3238e4bd64fbfd06c913ce5feea37ce3bb082f4111a60bad0",
+      "src/models/channel_routing.py": "c1c47305a8869b489d482d38c585b6e54c2dcd1c0643a7d4f786b8be6de2fb39",
+      "scripts/learned_grouping_compression.py": "95bddbad2efc54c9386dcdbe9ca71da967f762801dc39c4ef707ee2a1521b60c"
+    }
+  },
+  "new_compact_models": 0,
+  "new_test_inference": false
+}

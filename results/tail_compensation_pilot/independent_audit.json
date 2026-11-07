@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "source_input_hashes_verified": true,
+  "rows": [
+    {
+      "case": "local_extra",
+      "only_target_Q_kernel_changed_before_final_fold": true,
+      "same_masks": true,
+      "same_actual_compact_architecture": true,
+      "classification_replay": {
+        "before": {
+          "validation": {
+            "cross_entropy": 1.7673331756591797,
+            "accuracy": 0.349
+          },
+          "check_calibration": {
+            "cross_entropy": 1.7592171020507812,
+            "accuracy": 0.324
+          }
+        },
+        "after": {
+          "validation": {
+            "cross_entropy": 1.212820053100586,
+            "accuracy": 0.568
+          },
+          "check_calibration": {
+            "cross_entropy": 1.2542012023925782,
+            "accuracy": 0.558
+          }
+        }
+      },
+      "calibration_full_forward_replay": {
+        "fit": {
+          "local_mse": 0.15770490805221835,
+          "logit_mse": 0.4538510520553683
+        },
+        "check_calibration": {
+          "local_mse": 0.16191351712102642,
+          "logit_mse": 0.44903169769547213
+        }
+      }
+    },
+    {
+      "case": "tail_logits",
+      "only_target_Q_kernel_changed_before_final_fold": true,
+      "same_masks": true,
+      "same_actual_compact_architecture": true,
+      "classification_replay": {
+        "before": {
+          "validation": {
+            "cross_entropy": 1.7181391906738281,
+            "accuracy": 0.368
+          },
+          "check_calibration": {
+            "cross_entropy": 1.70396923828125,
+            "accuracy": 0.348
+          }
+        },
+        "after": {
+          "validation": {
+            "cross_entropy": 1.2109927978515624,
+            "accuracy": 0.566
+          },
+          "check_calibration": {
+            "cross_entropy": 1.25048828125,
+            "accuracy": 0.562
+          }
+        }
+      },
+      "calibration_full_forward_replay": {
+        "fit": {
+          "local_mse": 0.18132433264203365,
+          "logit_mse": 0.28410143862258247
+        },
+        "check_calibration": {
+          "local_mse": 0.18538724118943042,
+          "logit_mse": 0.30660810286512713
+        }
+      }
+    }
+  ],
+  "test_evaluated": false,
+  "scope": "CPU-loaded checkpoints; full validation/check accuracy and CE replay before/after repair, full-forward fit/check calibration-MSE replay, actual structure/mask/buffer invariants. No test inference or new training."
+}

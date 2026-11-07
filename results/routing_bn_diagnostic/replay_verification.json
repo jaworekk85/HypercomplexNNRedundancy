@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": {
+    "all_boundary_metrics_match": true,
+    "all_epoch_metrics_match": true,
+    "expected_epoch_count": true,
+    "matching_is_identical": true,
+    "temperature_is_identical": true,
+    "protected_inputs_unchanged": true
+  },
+  "metric_absolute_errors": {
+    "soft_validation.accuracy": 0.0,
+    "soft_validation.cross_entropy": 0.0,
+    "immediate_hard_validation.accuracy": 0.0,
+    "immediate_hard_validation.cross_entropy": 0.0,
+    "max_abs_logit_shift": 0.0
+  },
+  "maximum_epoch_metric_absolute_error": 0.0,
+  "tolerance": 1e-08,
+  "limitation": "Original epoch-40 weights were not retained; this checks the numerical training trace and boundary metrics, not bitwise identity against an unavailable checkpoint."
+}

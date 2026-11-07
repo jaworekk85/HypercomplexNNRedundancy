@@ -1,0 +1,148 @@
+{
+  "dataset": "eurosat",
+  "architecture": "cnn6",
+  "seed": 2026,
+  "fraction": 0.5,
+  "policy": "greedy_comp",
+  "before": {
+    "validation": {
+      "cross_entropy": 2.6986341857910157,
+      "accuracy": 0.33
+    },
+    "check_calibration": {
+      "cross_entropy": 2.680089874267578,
+      "accuracy": 0.334
+    }
+  },
+  "real_parameters": 19098,
+  "initial_provenance": {
+    "checkpoint": "results/compression_curve_eurosat/compact/cnn6/seed_2026/f_500/greedy_comp.pt",
+    "sha256": "cf4e348bf91eb003144da7d72464d22648da2cf3fe6212eab1a8b3538469f354"
+  },
+  "training_images": 2048,
+  "bn_training_indices_sha256": "19ef0b2b8036d739e4d9307b8ef37605ba863b6922d85eb381697002ede4f6a5",
+  "official_test_evaluated": false,
+  "methods": {
+    "cumulative": {
+      "evaluation": {
+        "validation": {
+          "cross_entropy": 1.6237521667480468,
+          "accuracy": 0.535
+        },
+        "check_calibration": {
+          "cross_entropy": 1.540548812866211,
+          "accuracy": 0.562
+        }
+      },
+      "audit": {
+        "checks": {
+          "parameters_bitwise_unchanged": true,
+          "other_buffers_bitwise_unchanged": true,
+          "all_modules_in_evaluation_mode": true,
+          "no_parameter_gradients": true,
+          "expected_batch_counters": true,
+          "finite_statistics": true
+        },
+        "images": 2048,
+        "labels_used": false,
+        "estimator": "Cumulative mean of equal-batch BN means and unbiased within-batch variances; simultaneous train-mode BNs",
+        "full_forward_passes": 1,
+        "bn_layers": 6
+      },
+      "bn_seconds": 0.17513180011883378,
+      "checkpoint": "results/paper_a_bn/eurosat/cnn6/seed_2026/f_500/greedy_comp/cumulative.pt",
+      "sha256": "67170de090527c99c2842416fc0b8dc3cd5ca83b62cb73bd9d00d1956bd0903f"
+    },
+    "layerwise_global": {
+      "evaluation": {
+        "validation": {
+          "cross_entropy": 1.6263259468078612,
+          "accuracy": 0.534
+        },
+        "check_calibration": {
+          "cross_entropy": 1.5430672149658202,
+          "accuracy": 0.562
+        }
+      },
+      "audit": {
+        "layers": [
+          {
+            "name": "blocks.0.1",
+            "images": 2048,
+            "observations_per_channel": 8388608,
+            "batches": 16,
+            "mean_absolute_mean_change": 0.10228768736124039,
+            "mean_absolute_variance_change": 0.38208961486816406,
+            "old_mean_variance": 1.3554174900054932,
+            "new_mean_variance": 0.9733278751373291
+          },
+          {
+            "name": "blocks.0.4",
+            "images": 2048,
+            "observations_per_channel": 8388608,
+            "batches": 16,
+            "mean_absolute_mean_change": 0.08932064473628998,
+            "mean_absolute_variance_change": 0.20359596610069275,
+            "old_mean_variance": 0.7524807453155518,
+            "new_mean_variance": 0.5527372360229492
+          },
+          {
+            "name": "blocks.1.1",
+            "images": 2048,
+            "observations_per_channel": 2097152,
+            "batches": 16,
+            "mean_absolute_mean_change": 0.237015038728714,
+            "mean_absolute_variance_change": 0.6624114513397217,
+            "old_mean_variance": 1.9380590915679932,
+            "new_mean_variance": 1.275647521018982
+          },
+          {
+            "name": "blocks.1.4",
+            "images": 2048,
+            "observations_per_channel": 2097152,
+            "batches": 16,
+            "mean_absolute_mean_change": 0.31163352727890015,
+            "mean_absolute_variance_change": 0.4834688901901245,
+            "old_mean_variance": 1.441680908203125,
+            "new_mean_variance": 0.9582118988037109
+          },
+          {
+            "name": "blocks.2.1",
+            "images": 2048,
+            "observations_per_channel": 524288,
+            "batches": 16,
+            "mean_absolute_mean_change": 0.16692864894866943,
+            "mean_absolute_variance_change": 1.2609654664993286,
+            "old_mean_variance": 4.853846073150635,
+            "new_mean_variance": 3.719527244567871
+          },
+          {
+            "name": "blocks.2.4",
+            "images": 2048,
+            "observations_per_channel": 524288,
+            "batches": 16,
+            "mean_absolute_mean_change": 0.2715422511100769,
+            "mean_absolute_variance_change": 1.073819637298584,
+            "old_mean_variance": 2.5615432262420654,
+            "new_mean_variance": 1.4903783798217773
+          }
+        ],
+        "checks": {
+          "parameters_bitwise_unchanged": true,
+          "other_buffers_bitwise_unchanged": true,
+          "all_modules_in_evaluation_mode": true,
+          "no_parameter_gradients": true
+        },
+        "images": 2048,
+        "labels_used": false,
+        "estimator": "Global input mean and unbiased variance, float64 accumulation, layer-wise evaluation-mode refit",
+        "batch_counters_unchanged": true,
+        "full_forward_passes": 6
+      },
+      "bn_seconds": 0.9463024002034217,
+      "checkpoint": "results/paper_a_bn/eurosat/cnn6/seed_2026/f_500/greedy_comp/layerwise_global.pt",
+      "sha256": "8bd6f95f4fe8a08b67c8bc5cc2af36ca0c91ec083fd1475c977721a6cc7416a5"
+    }
+  },
+  "case_seconds": 1.5710264001972973
+}

@@ -1,0 +1,61 @@
+{
+  "id": "eurosat/quaternion/seed_2028/f_500/greedy_pruned_before",
+  "dataset": "eurosat",
+  "family": "quaternion",
+  "architecture": "cnn6",
+  "seed": 2028,
+  "fraction": 0.5,
+  "policy": "greedy_pruned",
+  "stage": "before",
+  "checkpoint": "results/paper_a_bn/eurosat/cnn6/seed_2028/f_500/greedy_pruned/initial.pt",
+  "config": {
+    "seed": 2028,
+    "models": [
+      "quaternion",
+      "real"
+    ],
+    "quaternion_widths": [
+      4,
+      8,
+      16
+    ],
+    "real_widths": [
+      16,
+      32,
+      64
+    ],
+    "dropout": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "epochs": 50,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "minimum_learning_rate": 1e-05,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "device": "cuda",
+    "mixed_precision": true,
+    "cpu_threads": 4,
+    "augmentation": "Per-image random crop from 4-pixel zero padding and horizontal flip, on training only (unchanged CIFAR trainer).",
+    "checkpoint_selection": "Minimum validation cross-entropy, as in the frozen CIFAR trainer.",
+    "dataset": "EuroSAT four-band (NIR,R,G,B)"
+  },
+  "expected_validation": {
+    "cross_entropy": 4.106973175048828,
+    "accuracy": 0.111
+  },
+  "test": {
+    "cross_entropy": 4.109656344872934,
+    "accuracy": 0.11166666666666666
+  },
+  "test_images": 5400,
+  "verified_validation": {
+    "cross_entropy": 4.106973175048828,
+    "accuracy": 0.111
+  },
+  "real_parameters": 19098,
+  "checkpoint_sha256": "89c7c42d639ec1b90e97bd521a3806a9f59931c98fb5cb59e1f2b1e58e1e9a91",
+  "predictions_sha256": "49652df677bba89c020348727c90d02516870b07db71b0f16c8253adef0ed170"
+}

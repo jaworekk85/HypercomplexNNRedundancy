@@ -1,0 +1,23 @@
+{
+  "output": "results/resnet_structure_catalogue",
+  "parent_protocol": "results/resnet20_baselines/protocol.json",
+  "baseline_config": "configs/resnet20_baselines.json",
+  "baseline_checkpoint": "results/resnet20_baselines/quaternion/model.pt",
+  "baseline_metrics": "results/resnet20_baselines/quaternion/metrics.json",
+  "required_completed_studies": ["results/resnet20_compression/summary.json", "results/resnet20_key_replication/summary.json"],
+  "blocks": [0, 8],
+  "seed": 2026,
+  "reference_removed_fraction": 0.5,
+  "width_scales": [0.25, 0.5, 1.0],
+  "dimensions": [2, 4, 8],
+  "ridge_alpha": 0.001,
+  "policies": ["all_q", "q_real", "fixed_phm4", "variable_n", "weight_only_selector"],
+  "device": "cuda",
+  "cpu_threads": 2,
+  "finetune": {"epochs": 3, "batch_size": 128, "learning_rate": 0.0001, "minimum_learning_rate": 0.000001,
+               "weight_decay": 0.0001, "mixed_precision": true, "order_seed_offset": 80000, "augment_seed_offset": 90000},
+  "scope": "ONE seed, TWO internal basic-block consumers. Standalone post-pruning diagnostic from the selected Q ResNet baseline, not reuse of an all-nine-sites compressed network. Remaining seven blocks fixed during fitting, all parameters train during identical3ep repair. Reference budget is actual full-model count with only these two hidden widths halved; unchanged residual outputs. Per-layer width/type selected jointly under <= that exact budget, slack reported. Controls: Q-only, Q/real-only, uniform learned PHM4, variable n and a same-catalogue weight-only-error selector. Infeasible policy recorded as skipped, never silently increases budget. All candidate fitting/selection uses500 fit images; separate500 calibration check and1000 validation do not tune choices. Same one-shot catalogue for all controls.",
+  "method": "Prespecified BN-folded producer magnitude ranks retained Q units, nested kept sets for widths. Both direct-Q and dense output reconstruction use common dense-kernel Frobenius ridge; Q coefficient ridge scaled4 to match expanded-kernel norm. PHM candidates use Kronecker SVD of the output-fitted dense oracle, then ACTUAL float32 activation-output fit MSE selects structures. SVD itself minimizes weight error only; weighted ALS not implemented. One hard type/n per layer, no soft ensemble. Basis parameters remain stored/trainable and count in deployment. rank r=n only in this first catalogue; n4 learned PHM distinct from fixed Hamilton. No new solver/theorem/novelty claim.",
+  "queue_gate": "--prepare uses CPU synthetic data only. --run refuses until both required earlier study summaries exist with status completed, as well as completed ResNet baselines and unchanged registered inputs/sources. Does not create missing core/replication workers. Current baseline GPU process is untouched. STOP pauses between fits/policies or after a repair batch; epoch resume uses existing checked helper.",
+  "prior_art": ["ZhangEtAl2021", "Grassucci2024", "VanLoanPitsianis1993", "Liebenwein2021ALDS", "Frantar2022SPDY", "Cao2026Numerion", "IbnAhad2026HypercomplexQuantization"]
+}

@@ -1,0 +1,162 @@
+{
+  "status": "completed",
+  "source_config": {
+    "pilot": "results/direct_consumer_pilot",
+    "output": "results/direct_consumer_pilot/gap_diagnostic",
+    "sites": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "relative_eigen_cutoff": 1e-10,
+    "cpu_threads": 2,
+    "scope": "Post-pilot algebraic diagnostic on the same saved input/target moments only; no new network training or inference. Fit the best shared quaternion-map perturbation around each stored folded prior for the SAME centered consumer-output ridge objective used by direct Q. Compare folded prior, numerically optimized shared-map subspace, and existing full-Q consumer solution. Teacher consumer weights are loaded from the preceding pilot checkpoint (or original source at site0). All check moments remain evaluation-only. This separates re-optimizing shared maps for the new objective from releasing their ties across outputs/spatial offsets; the first difference includes the change of objective/regularization, not a pure isolated loss effect. Numerical least-squares projection facts are background, not novelty. One existing CIFAR source/point; local regularized objectives, not a decomposition of whole-network accuracy or an architecture lower bound. No automatic wider study."
+  },
+  "operator_verification_max_error": 1.7763568394002505e-15,
+  "sites": [
+    {
+      "site": [
+        0,
+        0
+      ],
+      "shared_map_coefficients": 64,
+      "all_q_coefficients": 1152,
+      "retained_numerical_rank": 64,
+      "eigenvalue_cutoff": 0.002732509137843023,
+      "normalized_regularized_objectives": {
+        "folded": 0.6068864892154593,
+        "output_fitted_shared_maps": 0.575076126400039,
+        "direct_q": 0.39973170293030774
+      },
+      "fit_mse": {
+        "folded": 0.6068864892154593,
+        "output_fitted_shared_maps": 0.5750292105852963,
+        "direct_q": 0.3992550574702404
+      },
+      "check_mse": {
+        "folded": 0.6687673922219387,
+        "output_fitted_shared_maps": 0.6335326802330297,
+        "direct_q": 0.44648042109448854
+      },
+      "shared_map_refit_gain": 0.03181036281542027,
+      "release_shared_map_ties_gain": 0.17534442346973128,
+      "ties_share_of_total_fit_objective_gain": 0.8464415745063556
+    },
+    {
+      "site": [
+        0,
+        1
+      ],
+      "shared_map_coefficients": 64,
+      "all_q_coefficients": 2304,
+      "retained_numerical_rank": 64,
+      "eigenvalue_cutoff": 0.0005164567815814974,
+      "normalized_regularized_objectives": {
+        "folded": 0.3023803463723466,
+        "output_fitted_shared_maps": 0.29708268059140575,
+        "direct_q": 0.24601031591773145
+      },
+      "fit_mse": {
+        "folded": 0.3023803463723466,
+        "output_fitted_shared_maps": 0.2970763326004892,
+        "direct_q": 0.24591037291148177
+      },
+      "check_mse": {
+        "folded": 0.3198844923847382,
+        "output_fitted_shared_maps": 0.3140092619375064,
+        "direct_q": 0.2605304078190813
+      },
+      "shared_map_refit_gain": 0.0052976657809408745,
+      "release_shared_map_ties_gain": 0.05107236467367429,
+      "ties_share_of_total_fit_objective_gain": 0.9060198169449961
+    },
+    {
+      "site": [
+        1,
+        0
+      ],
+      "shared_map_coefficients": 256,
+      "all_q_coefficients": 4608,
+      "retained_numerical_rank": 256,
+      "eigenvalue_cutoff": 0.002442957638602423,
+      "normalized_regularized_objectives": {
+        "folded": 0.37879696731333934,
+        "output_fitted_shared_maps": 0.35003414212122747,
+        "direct_q": 0.2666910377082713
+      },
+      "fit_mse": {
+        "folded": 0.37879696731333934,
+        "output_fitted_shared_maps": 0.34999944752454715,
+        "direct_q": 0.2664664583339127
+      },
+      "check_mse": {
+        "folded": 0.4049042429293377,
+        "output_fitted_shared_maps": 0.3724008817989352,
+        "direct_q": 0.2851586647040026
+      },
+      "shared_map_refit_gain": 0.028762825192111874,
+      "release_shared_map_ties_gain": 0.08334310441295617,
+      "ties_share_of_total_fit_objective_gain": 0.7434317230726432
+    },
+    {
+      "site": [
+        1,
+        1
+      ],
+      "shared_map_coefficients": 256,
+      "all_q_coefficients": 9216,
+      "retained_numerical_rank": 256,
+      "eigenvalue_cutoff": 0.00019640179622984705,
+      "normalized_regularized_objectives": {
+        "folded": 0.19977508314439366,
+        "output_fitted_shared_maps": 0.19331333058481637,
+        "direct_q": 0.15717170530891958
+      },
+      "fit_mse": {
+        "folded": 0.19977508314439366,
+        "output_fitted_shared_maps": 0.1933055582818563,
+        "direct_q": 0.15709894973214433
+      },
+      "check_mse": {
+        "folded": 0.20331358437100722,
+        "output_fitted_shared_maps": 0.19676753525928667,
+        "direct_q": 0.16157684894536306
+      },
+      "shared_map_refit_gain": 0.0064617525595772884,
+      "release_shared_map_ties_gain": 0.03614162527589679,
+      "ties_share_of_total_fit_objective_gain": 0.8483276940027781
+    },
+    {
+      "site": [
+        2,
+        0
+      ],
+      "shared_map_coefficients": 1024,
+      "all_q_coefficients": 18432,
+      "retained_numerical_rank": 1024,
+      "eigenvalue_cutoff": 0.001099624100553505,
+      "normalized_regularized_objectives": {
+        "folded": 0.2009754107951902,
+        "output_fitted_shared_maps": 0.18472497388992254,
+        "direct_q": 0.15776409743702596
+      },
+      "fit_mse": {
+        "folded": 0.2009754107951902,
+        "output_fitted_shared_maps": 0.1847090718503181,
+        "direct_q": 0.15769570721879894
+      },
+      "check_mse": {
+        "folded": 0.20386748188988896,
+        "output_fitted_shared_maps": 0.1880240924719127,
+        "direct_q": 0.161910813282866
+      },
+      "shared_map_refit_gain": 0.016250436905267673,
+      "release_shared_map_ties_gain": 0.026960876452896576,
+      "ties_share_of_total_fit_objective_gain": 0.6239309652411351
+    }
+  ],
+  "network_training_performed": false,
+  "test_evaluated": false
+}

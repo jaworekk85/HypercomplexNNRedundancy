@@ -1,0 +1,132 @@
+{
+  "config": {
+    "output": "results/compression_curve_eurosat_refinement",
+    "dataset": "eurosat",
+    "data": ".cache/eurosat/prepared",
+    "training_output": "results/eurosat_cnn",
+    "architectures": [
+      "cnn6",
+      "real_cnn6"
+    ],
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "fractions": [
+      0.375,
+      0.625
+    ],
+    "ridge_alpha": 0.001,
+    "random_repetitions": 5,
+    "random_seed_offset": 800000,
+    "fit_half": "even calibration images (500)",
+    "check_half": "odd calibration images (500)",
+    "batch_size": 128,
+    "device": "cuda",
+    "cpu_threads": 4,
+    "equivalence_tolerance": 0.001,
+    "equivalence_images": 200,
+    "limits": null,
+    "finetune": {
+      "enabled": true,
+      "policies": [
+        "baseline",
+        "random",
+        "bn_pruned",
+        "random_comp",
+        "greedy_comp"
+      ],
+      "random_repetitions_finetuned": 3,
+      "epochs": 3,
+      "batch_size": 128,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-06,
+      "weight_decay": 0.0001,
+      "mixed_precision": true,
+      "order_seed_offset": 80000,
+      "augment_seed_offset": 90000
+    },
+    "scratch": {
+      "enabled": true,
+      "fractions": [
+        0.375,
+        0.625
+      ],
+      "epochs": null
+    },
+    "comparisons": [
+      [
+        "greedy_comp@before",
+        "random@before"
+      ],
+      [
+        "greedy_comp@before",
+        "bn_pruned@before"
+      ],
+      [
+        "greedy_comp@before",
+        "greedy_pruned@before"
+      ],
+      [
+        "random_comp@before",
+        "random@before"
+      ],
+      [
+        "greedy_comp@before",
+        "random_comp@before"
+      ],
+      [
+        "greedy_comp@before",
+        "greedy_full_projected@before"
+      ],
+      [
+        "greedy_comp@after",
+        "random@after"
+      ],
+      [
+        "greedy_comp@after",
+        "bn_pruned@after"
+      ],
+      [
+        "random_comp@after",
+        "random@after"
+      ],
+      [
+        "greedy_comp@after",
+        "random_comp@after"
+      ],
+      [
+        "greedy_comp@after",
+        "scratch@scratch"
+      ],
+      [
+        "bn_pruned@after",
+        "scratch@scratch"
+      ],
+      [
+        "random@after",
+        "scratch@scratch"
+      ]
+    ],
+    "official_test_evaluation": false,
+    "scope": "EuroSAT four-band replication of configs/compression_curve.json with identical rules (see that file for policies, outcome and questions). Run after the CIFAR curve. Official EuroSAT test split held out. Follow-up refinement at 0.375 and 0.625 only; keep all parent policies, seeds, data, fit rules, ridge alpha and training budgets. Separate outputs preserve the original run. The fraction-index random-stream convention is unchanged; repetitions across old/new fractions need not be independent.",
+    "followup": {
+      "registered_utc": "2026-11-04T16:13:28.462650+00:00",
+      "parent_config": "configs/compression_curve_eurosat.json",
+      "parent_config_sha256": "a37c7b7d6e44f306c510a842d6f1131eec686a8deb9e990039be26c722412922",
+      "parent_output": "results/compression_curve_eurosat",
+      "selection_disclosure": "These two levels were selected after inspecting the coarse-grid results. Settings are registered before any outcomes at the added levels. This is an exploratory refinement using the same trained models and splits, not independent replication."
+    }
+  },
+  "source_hashes": {
+    "scripts/compression_curve.py": "d3a3ba3788ae6890712b341276f44bc646cc12404e3119056186ff8ae34651da",
+    "src/compression/multilayer.py": "623af6fd9417782e661ca01eeb30d2e7459b352afeee831156a098e807ec8c14",
+    "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51",
+    "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654",
+    "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936"
+  },
+  "official_test_evaluated": false
+}

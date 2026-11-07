@@ -1,0 +1,240 @@
+{
+  "status": "completed",
+  "config": {
+    "source_compression": "results/cnn_compression",
+    "source_multiseed": "results/cnn_multiseed",
+    "block": 3,
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "removed_fractions": [
+      0.25,
+      0.5
+    ],
+    "policy": "bn_folded_group_l2",
+    "score": "Frobenius norm of four output rows of the BN-folded expanded real Hamilton kernel; excludes folded bias",
+    "tie_break": "Original quaternion unit index ascending",
+    "device": "cuda",
+    "batch_size": 256,
+    "fine_tuning_updates": 0,
+    "batchnorm_recalibration": false,
+    "protocol": "One new fixed weight reference. Reuse all previous random/raw-norm/activation results unchanged. Freeze all new validation cases before final test; no tuning of score, layer or fractions."
+  },
+  "rows": [
+    {
+      "seed": 2026,
+      "case": "bn_folded_group_l2_removed08",
+      "policy": "bn_folded_group_l2",
+      "removed_fraction": 0.25,
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "d97362f0ef8d112b7b2235b9eff7c12443900c588c0b714aa801d17b859d058e",
+      "manifest_sha256": "651afe6ac1e986d5b96bd5c645cbaa3431f6b7a7530276ac45938e6f2bc1e375",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6929647216796875,
+        "accuracy": 0.764
+      },
+      "validation_accuracy_drop": 0.019000000000000017,
+      "validation_cross_entropy_increase": 0.06702720642089843,
+      "test": {
+        "cross_entropy": 0.6828090547561646,
+        "accuracy": 0.7639
+      },
+      "test_evaluated_after_all_new_validation_cases_frozen": true
+    },
+    {
+      "seed": 2026,
+      "case": "bn_folded_group_l2_removed16",
+      "policy": "bn_folded_group_l2",
+      "removed_fraction": 0.5,
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "f6ad9193520be1b2142469c7c499f6a17885eb6b0181b56ffb6d4bda600da7e3",
+      "manifest_sha256": "47ed0ab887d35acbbccddfae4d9f609dec8689872d913f852b785ffdcee9da45",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8572448120117188,
+        "accuracy": 0.747
+      },
+      "validation_accuracy_drop": 0.03600000000000003,
+      "validation_cross_entropy_increase": 0.23130729675292971,
+      "test": {
+        "cross_entropy": 0.8514584965705871,
+        "accuracy": 0.7341
+      },
+      "test_evaluated_after_all_new_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "bn_folded_group_l2_removed08",
+      "policy": "bn_folded_group_l2",
+      "removed_fraction": 0.25,
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "b28f4a6fecb2f168463fa7564c7f422e1328b3d24422bf60d702b6ba1156baba",
+      "manifest_sha256": "05054c3be3f9fbbee9d7d5eb25b40b5f17008e7e705b60575d4a52232ce08987",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.7408960266113281,
+        "accuracy": 0.739
+      },
+      "validation_accuracy_drop": 0.028000000000000025,
+      "validation_cross_entropy_increase": 0.08190020751953131,
+      "test": {
+        "cross_entropy": 0.7164513689994813,
+        "accuracy": 0.7564
+      },
+      "test_evaluated_after_all_new_validation_cases_frozen": true
+    },
+    {
+      "seed": 2027,
+      "case": "bn_folded_group_l2_removed16",
+      "policy": "bn_folded_group_l2",
+      "removed_fraction": 0.5,
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "9b76c14e207ddcbb5b013b4183c5d66e5eb346c7a14a7f53d9be5bc711226ecc",
+      "manifest_sha256": "5f7501919b5b29c8960f7b3d28dd42b3a266562691f3ad6abc6488c19a1ddb1d",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.9086641235351562,
+        "accuracy": 0.71
+      },
+      "validation_accuracy_drop": 0.05700000000000005,
+      "validation_cross_entropy_increase": 0.2496683044433594,
+      "test": {
+        "cross_entropy": 0.8821934873580932,
+        "accuracy": 0.7252
+      },
+      "test_evaluated_after_all_new_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "bn_folded_group_l2_removed08",
+      "policy": "bn_folded_group_l2",
+      "removed_fraction": 0.25,
+      "removed_quaternion_units": 8,
+      "retained_quaternion_units": 24,
+      "real_trainable_parameters": 64298,
+      "nontrainable_buffer_elements": 838,
+      "checkpoint_bytes": 269712,
+      "checkpoint_sha256": "1fb7d0507309ec17e7d7068777a8a8d512b9606733f2704033493b019c3d1386",
+      "manifest_sha256": "74ba473c7ccd21d58a879d387532548751a819db4d1703c1c03a5af6cbca4153",
+      "compact_vs_masked_max_abs_logit_error": 1.9073486328125e-06,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.6975681610107421,
+        "accuracy": 0.767
+      },
+      "validation_accuracy_drop": 0.02100000000000002,
+      "validation_cross_entropy_increase": 0.06931166076660156,
+      "test": {
+        "cross_entropy": 0.6961553564071655,
+        "accuracy": 0.7628
+      },
+      "test_evaluated_after_all_new_validation_cases_frozen": true
+    },
+    {
+      "seed": 2028,
+      "case": "bn_folded_group_l2_removed16",
+      "policy": "bn_folded_group_l2",
+      "removed_fraction": 0.5,
+      "removed_quaternion_units": 16,
+      "retained_quaternion_units": 16,
+      "real_trainable_parameters": 54698,
+      "nontrainable_buffer_elements": 774,
+      "checkpoint_bytes": 231056,
+      "checkpoint_sha256": "e433d6ffb5cbf39c055d2daa0faf46dfa9b5cb13d2da8ce407c175ffb1d2f1d3",
+      "manifest_sha256": "bdcce08255fb371e672cacd607650e0eabaeac008d55c353a26e4caf05c647aa",
+      "compact_vs_masked_max_abs_logit_error": 9.5367431640625e-07,
+      "checkpoint_reload_max_abs_error": 0.0,
+      "validation": {
+        "cross_entropy": 0.8561563262939453,
+        "accuracy": 0.746
+      },
+      "validation_accuracy_drop": 0.04200000000000004,
+      "validation_cross_entropy_increase": 0.22789982604980474,
+      "test": {
+        "cross_entropy": 0.8508021117210388,
+        "accuracy": 0.7398
+      },
+      "test_evaluated_after_all_new_validation_cases_frozen": true
+    }
+  ],
+  "protocol": {
+    "config": {
+      "source_compression": "results/cnn_compression",
+      "source_multiseed": "results/cnn_multiseed",
+      "block": 3,
+      "seeds": [
+        2026,
+        2027,
+        2028
+      ],
+      "removed_fractions": [
+        0.25,
+        0.5
+      ],
+      "policy": "bn_folded_group_l2",
+      "score": "Frobenius norm of four output rows of the BN-folded expanded real Hamilton kernel; excludes folded bias",
+      "tie_break": "Original quaternion unit index ascending",
+      "device": "cuda",
+      "batch_size": 256,
+      "fine_tuning_updates": 0,
+      "batchnorm_recalibration": false,
+      "protocol": "One new fixed weight reference. Reuse all previous random/raw-norm/activation results unchanged. Freeze all new validation cases before final test; no tuning of score, layer or fractions."
+    },
+    "source_hashes": {
+      "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+      "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+      "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+      "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+      "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+      "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+      "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+      "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+      "scripts/cnn_compression.py": "c1b49c55ee20399577fb20bcf2ece8535c29a865055bd52b816c81ddf928699d",
+      "scripts/analyze_cnn_blocks.py": "abf8cf59ec4277683eb2d927c14568ef739293680ee572af35e4d8a501263d44",
+      "src/evaluation/block_ablation.py": "b3db492a534b41af02f8e963b5d7758161c36b9dbb1112fb424fdcc40905fa3f",
+      "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+      "src/evaluation/thresholds.py": "12d001390a9e69e3f49bc23964a7cfcf08a593bc4fdfca0d17c511344c95fc58",
+      "scripts/bn_compression.py": "1fc335f45d706d13fd33fba3e8964e4b96473e81cb62aa1959ad2e11213023bd",
+      "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654"
+    },
+    "original_summary_sha256": "84067df327f1e917e251083aa1a6e692907a4888ab2e89878f984510cdb13182",
+    "original_verification_sha256": "76a2e36d52ac66c0365ddf4fcb69faef8a3b5af75c32005ee260a8f5363d63ee",
+    "multiseed_summary_sha256": "3d173c9cc038198cba79d3854fe67e349bc035843510fad4a34bb9e4a80088b2"
+  },
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "torch": "2.6.0+cu124",
+    "numpy": "2.2.6",
+    "cuda_build": "12.4",
+    "cudnn": 90100,
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "deterministic_algorithms": true,
+    "score_dtype_device": "CPU float64",
+    "inference_dtype_device": "CUDA float32"
+  },
+  "fine_tuning_updates": 0,
+  "validation_freeze_sha256": "0145e561a5d9598addcb64e37c821e02fbbb694527c87279526161e2d2c47b17"
+}

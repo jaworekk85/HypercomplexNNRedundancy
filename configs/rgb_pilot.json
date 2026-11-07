@@ -1,0 +1,23 @@
+{
+  "dataset": "CIFAR-10",
+  "split_seed": 471,
+  "seeds": [2026, 2027, 2028],
+  "train_samples": 5000,
+  "validation_samples": 1000,
+  "calibration_samples": 1000,
+  "test_samples": 10000,
+  "image_shape": [32, 32, 3],
+  "classes": 10,
+  "quaternion_hidden_units": 32,
+  "activation": "relu",
+  "encodings": ["ARGB", "ABGR"],
+  "batch_size": 128,
+  "epochs": 20,
+  "learning_rate": 0.001,
+  "intra_op_threads": 2,
+  "inter_op_threads": 1,
+  "checkpoint_selection": "Minimum validation cross-entropy, including initialization; test is evaluated only after all training.",
+  "normalization": "Per-channel mean and standard deviation from selected training RGB pixels only; alpha is fixed zero after normalization.",
+  "initialization": "Hidden kernel RandomNormal with variance 2/(3*H*W), zero bias; readout GlorotUniform. Same variance for real and quaternion models.",
+  "scope": "Exploratory dense RGB pilot, not a full CIFAR-10 benchmark or a compression experiment."
+}

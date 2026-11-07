@@ -1,0 +1,714 @@
+{
+  "config": {
+    "dataset": "CIFAR-10",
+    "split_seed": 471,
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "train_samples": 5000,
+    "validation_samples": 1000,
+    "calibration_samples": 1000,
+    "test_samples": 10000,
+    "image_shape": [
+      32,
+      32,
+      3
+    ],
+    "classes": 10,
+    "quaternion_hidden_units": 32,
+    "activation": "relu",
+    "encodings": [
+      "ARGB",
+      "ABGR"
+    ],
+    "batch_size": 128,
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "intra_op_threads": 2,
+    "inter_op_threads": 1,
+    "checkpoint_selection": "Minimum validation cross-entropy, including initialization; test is evaluated only after all training.",
+    "normalization": "Per-channel mean and standard deviation from selected training RGB pixels only; alpha is fixed zero after normalization.",
+    "initialization": "Hidden kernel RandomNormal with variance 2/(3*H*W), zero bias; readout GlorotUniform. Same variance for real and quaternion models.",
+    "scope": "Exploratory dense RGB pilot, not a full CIFAR-10 benchmark or a compression experiment."
+  },
+  "models": {
+    "ARGB": {
+      "real_trainable_parameters": 132490,
+      "hidden_scalar_features": 128,
+      "test_accuracy": {
+        "mean": 0.37776666666666664,
+        "sample_std": 0.009226230721878418,
+        "values": [
+          0.3876,
+          0.3693,
+          0.3764
+        ]
+      },
+      "test_cross_entropy": {
+        "mean": 1.9169127543767293,
+        "sample_std": 0.019749194425453503,
+        "values": [
+          1.9287614822387695,
+          1.927862524986267,
+          1.8941142559051514
+        ]
+      },
+      "selected_training_accuracy": {
+        "mean": 0.6241333333333333,
+        "sample_std": 0.10343004076830549,
+        "values": [
+          0.7406,
+          0.543,
+          0.5888
+        ]
+      },
+      "selected_validation_accuracy": {
+        "mean": 0.37633333333333335,
+        "sample_std": 0.003055050463303896,
+        "values": [
+          0.377,
+          0.379,
+          0.373
+        ]
+      },
+      "best_epochs": [
+        8,
+        3,
+        4
+      ],
+      "activation_diagnostics": {
+        "initial": {
+          "effective_rank": {
+            "mean": 38.35824084775228,
+            "sample_std": 2.3387228628702177,
+            "values": [
+              37.940271431480696,
+              36.25668431959557,
+              40.877766792180566
+            ]
+          },
+          "normalized_effective_rank": {
+            "mean": 0.29967375662306467,
+            "sample_std": 0.018271272366173576,
+            "values": [
+              0.29640837055844294,
+              0.2832553462468404,
+              0.31935755306391067
+            ]
+          },
+          "constant_scalar_features": [
+            0,
+            0,
+            0
+          ],
+          "scalar_fraction_ge_0_9": {
+            "mean": 0.0,
+            "sample_std": 0.0,
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "scalar_pair_stability": [
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9637387393065041,
+              "mean_absolute_pair_difference": 0.04744683150254926
+            },
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9535131834364661,
+              "mean_absolute_pair_difference": 0.04916928709556369
+            },
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9583108548330194,
+              "mean_absolute_pair_difference": 0.04696281650784993
+            }
+          ],
+          "grouped_fraction_ge_0_9": {
+            "mean": 0.0,
+            "sample_std": 0.0,
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "grouped_maximum": [
+            0.4766852209004481,
+            0.5001374967196803,
+            0.49466118099947737
+          ],
+          "grouped_pair_stability": [
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9779681395271468,
+              "mean_absolute_pair_difference": 0.023123627964090017
+            },
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9754907497678706,
+              "mean_absolute_pair_difference": 0.024384018181672292
+            },
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9736580814457724,
+              "mean_absolute_pair_difference": 0.024727712101904834
+            }
+          ]
+        },
+        "trained": {
+          "effective_rank": {
+            "mean": 20.613961593753828,
+            "sample_std": 2.3782897232230185,
+            "values": [
+              23.355052662259233,
+              19.09823746876494,
+              19.388594650237312
+            ]
+          },
+          "normalized_effective_rank": {
+            "mean": 0.16104657495120178,
+            "sample_std": 0.01858038846267983,
+            "values": [
+              0.18246134892390026,
+              0.14920498022472609,
+              0.151473395704979
+            ]
+          },
+          "constant_scalar_features": [
+            0,
+            0,
+            0
+          ],
+          "scalar_fraction_ge_0_9": {
+            "mean": 8.202099737532808e-05,
+            "sample_std": 7.103226737077088e-05,
+            "values": [
+              0.0,
+              0.00012303149606299212,
+              0.00012303149606299212
+            ]
+          },
+          "scalar_pair_stability": [
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9774266357335726,
+              "mean_absolute_pair_difference": 0.04362938733052793
+            },
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9811817363877222,
+              "mean_absolute_pair_difference": 0.041824108240156414
+            },
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9759157941764057,
+              "mean_absolute_pair_difference": 0.0461982123392946
+            }
+          ],
+          "grouped_fraction_ge_0_9": {
+            "mean": 0.0,
+            "sample_std": 0.0,
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "grouped_maximum": [
+            0.5523992740612277,
+            0.5616267391596839,
+            0.7186238004302606
+          ],
+          "grouped_pair_stability": [
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9850446649442844,
+              "mean_absolute_pair_difference": 0.023201849881571007
+            },
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9865167747798385,
+              "mean_absolute_pair_difference": 0.022290991258846884
+            },
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9826990630165938,
+              "mean_absolute_pair_difference": 0.025688722675217032
+            }
+          ]
+        }
+      }
+    },
+    "ABGR": {
+      "real_trainable_parameters": 132490,
+      "hidden_scalar_features": 128,
+      "test_accuracy": {
+        "mean": 0.3725,
+        "sample_std": 0.01863008319895537,
+        "values": [
+          0.3851,
+          0.3813,
+          0.3511
+        ]
+      },
+      "test_cross_entropy": {
+        "mean": 1.9119164943695068,
+        "sample_std": 0.018268596795168998,
+        "values": [
+          1.8980740308761597,
+          1.9050525426864624,
+          1.9326229095458984
+        ]
+      },
+      "selected_training_accuracy": {
+        "mean": 0.6,
+        "sample_std": 0.06396780440190207,
+        "values": [
+          0.6622,
+          0.6034,
+          0.5344
+        ]
+      },
+      "selected_validation_accuracy": {
+        "mean": 0.36933333333333335,
+        "sample_std": 0.022744962812309328,
+        "values": [
+          0.376,
+          0.388,
+          0.344
+        ]
+      },
+      "best_epochs": [
+        6,
+        4,
+        3
+      ],
+      "activation_diagnostics": {
+        "initial": {
+          "effective_rank": {
+            "mean": 39.44561381796199,
+            "sample_std": 2.6285437965070884,
+            "values": [
+              39.981690389705,
+              36.59035522410025,
+              41.76479584008072
+            ]
+          },
+          "normalized_effective_rank": {
+            "mean": 0.30816885795282806,
+            "sample_std": 0.020535498410211628,
+            "values": [
+              0.3123569561695703,
+              0.2858621501882832,
+              0.32628746750063065
+            ]
+          },
+          "constant_scalar_features": [
+            0,
+            0,
+            0
+          ],
+          "scalar_fraction_ge_0_9": {
+            "mean": 0.0,
+            "sample_std": 0.0,
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "scalar_pair_stability": [
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.958578398425574,
+              "mean_absolute_pair_difference": 0.049172742800757924
+            },
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9540954801885868,
+              "mean_absolute_pair_difference": 0.049003223030494425
+            },
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9562913949369531,
+              "mean_absolute_pair_difference": 0.048528765516695674
+            }
+          ],
+          "grouped_fraction_ge_0_9": {
+            "mean": 0.0,
+            "sample_std": 0.0,
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "grouped_maximum": [
+            0.48585566714239664,
+            0.5119151491869841,
+            0.4760012503322568
+          ],
+          "grouped_pair_stability": [
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9734516800962196,
+              "mean_absolute_pair_difference": 0.02509302258283146
+            },
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9760244295101645,
+              "mean_absolute_pair_difference": 0.02409148614228637
+            },
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9722922448031628,
+              "mean_absolute_pair_difference": 0.025407535925579056
+            }
+          ]
+        },
+        "trained": {
+          "effective_rank": {
+            "mean": 20.71085130286023,
+            "sample_std": 3.4937951017050146,
+            "values": [
+              24.666731403020517,
+              19.41837728954986,
+              18.047445216010324
+            ]
+          },
+          "normalized_effective_rank": {
+            "mean": 0.16180352580359555,
+            "sample_std": 0.027295274232070427,
+            "values": [
+              0.1927088390860978,
+              0.15170607257460827,
+              0.14099566575008066
+            ]
+          },
+          "constant_scalar_features": [
+            0,
+            0,
+            0
+          ],
+          "scalar_fraction_ge_0_9": {
+            "mean": 0.00024606299212598425,
+            "sample_std": 0.00012303149606299212,
+            "values": [
+              0.00024606299212598425,
+              0.00012303149606299212,
+              0.00036909448818897637
+            ]
+          },
+          "scalar_pair_stability": [
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9720808450835621,
+              "mean_absolute_pair_difference": 0.044664977025387985
+            },
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9810871217647106,
+              "mean_absolute_pair_difference": 0.043790677428730954
+            },
+            {
+              "shared_valid_pairs": 8128,
+              "pair_value_pearson": 0.9753264260278173,
+              "mean_absolute_pair_difference": 0.04550909274591326
+            }
+          ],
+          "grouped_fraction_ge_0_9": {
+            "mean": 0.0,
+            "sample_std": 0.0,
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "grouped_maximum": [
+            0.5601623797143352,
+            0.6269465501846933,
+            0.721986435520847
+          ],
+          "grouped_pair_stability": [
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9799903857181136,
+              "mean_absolute_pair_difference": 0.024208775245250877
+            },
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.986938126846802,
+              "mean_absolute_pair_difference": 0.022912345976850084
+            },
+            {
+              "shared_valid_pairs": 496,
+              "pair_value_pearson": 0.9836682935586336,
+              "mean_absolute_pair_difference": 0.02532639013377674
+            }
+          ]
+        }
+      }
+    },
+    "RGB": {
+      "real_trainable_parameters": 132579,
+      "hidden_scalar_features": 43,
+      "test_accuracy": {
+        "mean": 0.3760666666666667,
+        "sample_std": 0.011179147254300444,
+        "values": [
+          0.3834,
+          0.3816,
+          0.3632
+        ]
+      },
+      "test_cross_entropy": {
+        "mean": 1.8721784750620525,
+        "sample_std": 0.013273778468199406,
+        "values": [
+          1.8774319887161255,
+          1.8570820093154907,
+          1.882021427154541
+        ]
+      },
+      "selected_training_accuracy": {
+        "mean": 0.5557333333333333,
+        "sample_std": 0.055604436273856174,
+        "values": [
+          0.6132,
+          0.5518,
+          0.5022
+        ]
+      },
+      "selected_validation_accuracy": {
+        "mean": 0.36966666666666664,
+        "sample_std": 0.004041451884327384,
+        "values": [
+          0.372,
+          0.372,
+          0.365
+        ]
+      },
+      "best_epochs": [
+        6,
+        4,
+        3
+      ],
+      "activation_diagnostics": {
+        "initial": {
+          "effective_rank": {
+            "mean": 22.19121323439883,
+            "sample_std": 2.648163086213223,
+            "values": [
+              20.725427500179226,
+              20.60002093370581,
+              25.24819126931145
+            ]
+          },
+          "normalized_effective_rank": {
+            "mean": 0.5160747263813682,
+            "sample_std": 0.06158518805147031,
+            "values": [
+              0.4819866860506797,
+              0.47907025427222816,
+              0.5871672388211966
+            ]
+          },
+          "constant_scalar_features": [
+            0,
+            0,
+            0
+          ],
+          "scalar_fraction_ge_0_9": {
+            "mean": 0.0,
+            "sample_std": 0.0,
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "scalar_pair_stability": [
+            {
+              "shared_valid_pairs": 903,
+              "pair_value_pearson": 0.9544818786968365,
+              "mean_absolute_pair_difference": 0.04771759861832699
+            },
+            {
+              "shared_valid_pairs": 903,
+              "pair_value_pearson": 0.9705277344959725,
+              "mean_absolute_pair_difference": 0.04448961693213362
+            },
+            {
+              "shared_valid_pairs": 903,
+              "pair_value_pearson": 0.9375609887223818,
+              "mean_absolute_pair_difference": 0.05108810521667444
+            }
+          ]
+        },
+        "trained": {
+          "effective_rank": {
+            "mean": 17.453828450142435,
+            "sample_std": 2.27093254891952,
+            "values": [
+              20.05961596882844,
+              15.896890999011417,
+              16.404978382587448
+            ]
+          },
+          "normalized_effective_rank": {
+            "mean": 0.40590298721261475,
+            "sample_std": 0.052812384858593485,
+            "values": [
+              0.4665026969494986,
+              0.3696951395118934,
+              0.38151112517645225
+            ]
+          },
+          "constant_scalar_features": [
+            0,
+            0,
+            0
+          ],
+          "scalar_fraction_ge_0_9": {
+            "mean": 0.0,
+            "sample_std": 0.0,
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "scalar_pair_stability": [
+            {
+              "shared_valid_pairs": 903,
+              "pair_value_pearson": 0.9627061052144014,
+              "mean_absolute_pair_difference": 0.045822819253419855
+            },
+            {
+              "shared_valid_pairs": 903,
+              "pair_value_pearson": 0.9787598345466865,
+              "mean_absolute_pair_difference": 0.040655204273758655
+            },
+            {
+              "shared_valid_pairs": 903,
+              "pair_value_pearson": 0.9729790497484165,
+              "mean_absolute_pair_difference": 0.04488409139155088
+            }
+          ]
+        }
+      }
+    }
+  },
+  "paired_accuracy_differences": {
+    "ARGB_minus_RGB": {
+      "mean": 0.0016999999999999977,
+      "sample_std": 0.012932517156377544,
+      "values": [
+        0.0041999999999999815,
+        -0.012299999999999978,
+        0.01319999999999999
+      ]
+    },
+    "ABGR_minus_RGB": {
+      "mean": -0.003566666666666681,
+      "sample_std": 0.007457434768962659,
+      "values": [
+        0.0016999999999999793,
+        -0.00030000000000002247,
+        -0.0121
+      ]
+    },
+    "ABGR_minus_ARGB": {
+      "mean": -0.005266666666666679,
+      "sample_std": 0.018803279855741453,
+      "values": [
+        -0.0025000000000000022,
+        0.011999999999999955,
+        -0.02529999999999999
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "versions": {
+      "tensorflow": "2.20.0",
+      "keras": "3.11.3",
+      "numpy": "2.2.6",
+      "matplotlib": "3.10.7",
+      "pytest": "8.4.2",
+      "HypercomplexKeras": "1.0.2"
+    },
+    "seed": [
+      2026,
+      2027,
+      2028
+    ],
+    "devices": [
+      {
+        "name": "/physical_device:CPU:0",
+        "type": "CPU"
+      }
+    ],
+    "tensorflow_build": {
+      "is_cuda_build": false,
+      "is_rocm_build": false,
+      "is_tensorrt_build": false,
+      "msvcp_dll_names": "msvcp140.dll,msvcp140_1.dll"
+    },
+    "settings": {
+      "KERAS_BACKEND": "tensorflow",
+      "CUDA_VISIBLE_DEVICES": "-1",
+      "TF_DETERMINISTIC_OPS": "1",
+      "TF_ENABLE_ONEDNN_OPTS": "0"
+    },
+    "tensorflow_threads": {
+      "intra_op": 2,
+      "inter_op": 1
+    }
+  },
+  "source_hashes": {
+    "scripts/rgb_pilot.py": {
+      "sha256": "93ac2901d6f1bdd983c8aad147ab1b9cac3c019570532284230fe8731c451d0a",
+      "git_blob_sha1": "5e095856951281e42e68b6d73e4a05885e4b1c48"
+    },
+    "scripts/runtime.py": {
+      "sha256": "5022345e031874ddd1df62257b4bdefcd949e1e8269c78860378e95dc109c181",
+      "git_blob_sha1": "40eb57840e25711be308f73bf55cf284b8e5d06e"
+    },
+    "src/data/rgb.py": {
+      "sha256": "d520868cabff19365fb473eca565ce516cceba361f9bf8918165ff14ed52bb78",
+      "git_blob_sha1": "57b401f1bd1340ece850f999b3c973c897928e6c"
+    },
+    "src/models/rgb_baselines.py": {
+      "sha256": "c0135866e54a47deffd0f407ef8a5cfaa36bbfee47596526dae89a0eb81ca75f",
+      "git_blob_sha1": "dbfc75d1d2244aac7a36ca2ed0d585ed3e4f9c3b"
+    },
+    "src/models/quaternion_dense.py": {
+      "sha256": "45b94c4f3209f346cbc563f8cb6b86a0bbbae4995752bcaa0327167d992b230b",
+      "git_blob_sha1": "f134cfcf049b1297a16f50012f6210b360521978"
+    },
+    "src/activations/similarity.py": {
+      "sha256": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+      "git_blob_sha1": "ee477ed646b21690810a840198940763fe6315b0"
+    },
+    "src/activations/diagnostics.py": {
+      "sha256": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+      "git_blob_sha1": "659174cb409c467c806f242ccaa06cb03c3e10ef"
+    },
+    "src/evaluation/rgb_report.py": {
+      "sha256": "2aee4a53f876d05b6dc8fffb9a2bafc4a72017b6fd735692b2e02a20ece3f14b",
+      "git_blob_sha1": "0bd524cb8188f97c44c4e9606a72aa29ef1f0505"
+    }
+  },
+  "split_indices_sha256": "fe0dfa0cc47a12e4bcac4c8fb771a6de27dbd5ad5669010b96c208979f341e6c",
+  "status": "passed"
+}

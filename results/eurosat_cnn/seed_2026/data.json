@@ -1,0 +1,100 @@
+{
+  "source": "https://zenodo.org/records/7711810 (EuroSAT_MS.zip, v2)",
+  "license": "MIT (dataset); Copernicus Sentinel data terms apply",
+  "archive_md5": "091174add3c8e680a49244acf185b9f0",
+  "archive_sha256": "eb0cf47380b0ff0dba68726bcb9184f8b261efcbb818d3d2b00b557ab0835b33",
+  "classes": [
+    "AnnualCrop",
+    "Forest",
+    "HerbaceousVegetation",
+    "Highway",
+    "Industrial",
+    "Pasture",
+    "PermanentCrop",
+    "Residential",
+    "River",
+    "SeaLake"
+  ],
+  "band_order": [
+    "B08",
+    "B04",
+    "B03",
+    "B02"
+  ],
+  "quaternion_encoding": "q = B08(NIR) + B04(R) i + B03(G) j + B02(B) k",
+  "split_seed": 20261104,
+  "split_sizes": {
+    "train": 19600,
+    "validation": 1000,
+    "calibration": 1000,
+    "test": 5400
+  },
+  "class_counts": {
+    "train": {
+      "AnnualCrop": 2178,
+      "Forest": 2178,
+      "HerbaceousVegetation": 2178,
+      "Highway": 1814,
+      "Industrial": 1814,
+      "Pasture": 1452,
+      "PermanentCrop": 1814,
+      "Residential": 2178,
+      "River": 1814,
+      "SeaLake": 2180
+    },
+    "validation": {
+      "AnnualCrop": 111,
+      "Forest": 111,
+      "HerbaceousVegetation": 111,
+      "Highway": 93,
+      "Industrial": 93,
+      "Pasture": 74,
+      "PermanentCrop": 93,
+      "Residential": 111,
+      "River": 93,
+      "SeaLake": 110
+    },
+    "calibration": {
+      "AnnualCrop": 111,
+      "Forest": 111,
+      "HerbaceousVegetation": 111,
+      "Highway": 93,
+      "Industrial": 93,
+      "Pasture": 74,
+      "PermanentCrop": 93,
+      "Residential": 111,
+      "River": 93,
+      "SeaLake": 110
+    },
+    "test": {
+      "AnnualCrop": 600,
+      "Forest": 600,
+      "HerbaceousVegetation": 600,
+      "Highway": 500,
+      "Industrial": 500,
+      "Pasture": 400,
+      "PermanentCrop": 500,
+      "Residential": 600,
+      "River": 500,
+      "SeaLake": 600
+    }
+  },
+  "statistics": {
+    "mean": [
+      9.014588672138728,
+      3.7164955903259864,
+      4.089470594096982,
+      4.386005290543942
+    ],
+    "std": [
+      4.385434566796889,
+      2.3331469344295606,
+      1.5503913117982173,
+      1.30942915130767
+    ]
+  },
+  "statistics_units": "uint16 value / 255, training split only",
+  "arrays_sha256": "0ad6d39736147192df5261a71ad8fe3e94d7e0392f2a52d6b22bedff8d1a0065",
+  "split_sha256": "a440c981bc3985edf913d40b9b9eeac8c7ce026150ae95997b2e04b7adb99c1f",
+  "test_policy": "Test split held out; not used for any selection."
+}

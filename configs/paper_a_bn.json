@@ -1,0 +1,17 @@
+{
+  "output": "results/paper_a_bn",
+  "curve_configs": ["configs/compression_curve.json", "configs/compression_curve_eurosat.json"],
+  "architectures": ["cnn6"],
+  "seeds": [2026, 2027, 2028],
+  "fractions": [0.25, 0.5],
+  "policies": ["greedy_comp", "greedy_pruned", "bn_pruned"],
+  "include_full_baseline": true,
+  "training_images": 2048,
+  "order_seed_offset": 141000,
+  "batch_size": 128,
+  "methods": ["cumulative", "layerwise_global"],
+  "device": "cuda",
+  "cpu_threads": 4,
+  "official_test_evaluation": false,
+  "scope": "Fixed post-literature control, not a new method. Each method starts from the same original compact state. Unaugmented training images, no labels for recalibration, no gradients or affine updates. Cumulative resets all BN running statistics, uses momentum=None and one pass with only BNs in training mode. Layerwise_global uses six full passes with all modules in eval mode and sequential global unbiased moments. Report both, do not select the winner. Same-victim pruning reconstructed from frozen phase-A victims, never reselected. New calibration resource (2048 training images) disclosed separately from the 500 compression-fit images. Existing three-epoch fine-tuning is a different resource budget, not a matched-cost comparison. No additional training."
+}

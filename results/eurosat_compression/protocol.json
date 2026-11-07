@@ -1,0 +1,55 @@
+{
+  "config": {
+    "output": "results/eurosat_compression",
+    "training_config": "configs/eurosat_cnn.json",
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "block": 1,
+    "quaternion_removed_units": [
+      4,
+      8
+    ],
+    "real_removed_channels": [
+      8,
+      16
+    ],
+    "ridge_alpha": 0.001,
+    "random_repetitions": 10,
+    "quaternion_random_seed_offset": 600000,
+    "real_random_seed_offset": 700000,
+    "fit_half": "even calibration images (500)",
+    "check_half": "odd calibration images (500)",
+    "batch_size": 128,
+    "device": "cuda",
+    "cpu_threads": 4,
+    "equivalence_tolerance": 0.0001,
+    "finetune": {
+      "epochs": 3,
+      "batch_size": 128,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-06,
+      "weight_decay": 0.0001,
+      "mixed_precision": true,
+      "order_seed_offset": 80000,
+      "augment_seed_offset": 90000,
+      "random_repetitions_finetuned": 3
+    },
+    "official_test_evaluation": false,
+    "scope": "Second-dataset replication of the CIFAR multi-source and fine-tuning studies on four-band EuroSAT CNN6 baselines, with every rule fixed before any EuroSAT compression outcome: same policies, removal levels, ridge alpha, random-set RNG formula, fit/check halves and fine-tuning budget as configs/multisource_compensation.json and configs/finetune_compression.json. Quaternion victims: nested fit-only pairwise selection (full-map residual times outgoing kernel energy), as in the CIFAR internal study. No official-test inference; no novelty claim."
+  },
+  "source_hashes": {
+    "scripts/eurosat_compression.py": "bd1084b82d019b88d419211cd634bb4fc9b8dadb1ebbb95d49cd56a068a74e9c",
+    "scripts/eurosat_cnn.py": "4e4b1f8a71714f044219fc82231df926c405e7cb648a5bed638c84a3c29eb8f8",
+    "src/models/eurosat_cnn.py": "9bf8b1a8f4302c4d11d3d5f17e9b14bd2676f8cec2e2e02b22ca9470520a84d3",
+    "scripts/multisource_compensation.py": "84f5915d76dfaecd9c25e8addeaf0cc74b547b11a33dddcb98abdb86951faca5",
+    "scripts/finetune_compression.py": "bb5eed8abf262370f667a5809d806abb9786d70b9cd8bc724d08d3e4db791daf",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+    "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51"
+  },
+  "baselines_summary_sha256": "3e99e4dff2ff6e8f07ab8888364809c508a65058158991f1f957c7bd20b63f74",
+  "official_test_evaluated": false
+}

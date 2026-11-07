@@ -1,0 +1,92 @@
+{
+  "diagnostic": {
+    "pilot": "results/learned_grouping_pilot",
+    "output": "results/routing_bn_diagnostic",
+    "boundary_epoch": 40,
+    "bn_fit_split": "train",
+    "bn_fit_samples": 48000,
+    "bn_batch_size": 256,
+    "bn_layers": [
+      "blocks.1.1",
+      "blocks.1.4",
+      "blocks.2.1",
+      "blocks.2.4"
+    ],
+    "bn_estimator": "Layer-wise full-training-set input moments; float64 accumulation, unbiased global variance. Earlier recalibrated layers run in evaluation mode. No augmentation or dropout.",
+    "conditions": [
+      "soft_original",
+      "hard_original",
+      "soft_recalibrated",
+      "hard_recalibrated"
+    ],
+    "evaluation_splits": [
+      "validation",
+      "calibration"
+    ],
+    "replay_metric_tolerance": 1e-08,
+    "official_test_evaluation": false,
+    "scope": "One-seed intervention on BN running statistics at the original soft-to-hard boundary; no optimizer updates after the boundary, no new architecture or compression experiment."
+  },
+  "pilot_protocol": {
+    "config": {
+      "seed": 2026,
+      "baseline_source": "results/cifar_cnn",
+      "new_modes": [
+        "random",
+        "learned"
+      ],
+      "quaternion_widths": [
+        8,
+        16,
+        32
+      ],
+      "dropout": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "epochs": 50,
+      "soft_epochs": 40,
+      "batch_size": 128,
+      "learning_rate": 0.001,
+      "router_learning_rate": 0.01,
+      "minimum_learning_rate": 1e-05,
+      "weight_decay": 0.0001,
+      "initial_strength": 4.0,
+      "temperature_start": 1.0,
+      "temperature_end": 0.25,
+      "sinkhorn_iterations": 30,
+      "cpu_threads": 4,
+      "device": "cuda",
+      "mixed_precision": true,
+      "maximum_validation_accuracy_deficit_for_compression_gate": 0.005,
+      "archive": ".cache/keras/datasets/cifar-10-batches-py-target_archive",
+      "checkpoint_selection": "Minimum validation CE among hard-model checkpoints at epochs 40 through 50; evaluate both new test models only after all choices and the validation gate are frozen",
+      "scope": "One-seed feasibility/quality pilot, not a novel-method claim. Reuse equivalent seed-2026 identity baseline; new fixed-random and learned assignments share the same initial permutation and backbone initialization."
+    },
+    "source_hashes": {
+      "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+      "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+      "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+      "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+      "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+      "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+      "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+      "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+      "scripts/learned_grouping.py": "87fe9f39a70602f3238e4bd64fbfd06c913ce5feea37ce3bb082f4111a60bad0",
+      "src/models/channel_routing.py": "c1c47305a8869b489d482d38c585b6e54c2dcd1c0643a7d4f786b8be6de2fb39"
+    },
+    "original_summary_sha256": "7746423e40c6481a56e28dbebc3ddf5d6705c993d776ee257067b521b51958b5"
+  },
+  "replay_script_sha256": "8cc37e5131b8a4c30bb2d1e1f2d8b8d63fafe7b80b73c0b6c04988aa784c395e",
+  "protected_inputs": {
+    "results/learned_grouping_pilot/protocol.json": "aecb5618f4da67d6cd8ce57f1271f01a9e5a7f8710b25fb403f468aa030c3111",
+    "results/learned_grouping_pilot/learned/last.pt": "49766a63062132ae7809e4e945fc4157ff4601eda05af0be7f4f4809580569e9",
+    "results/learned_grouping_pilot/learned/model.pt": "5dfff65cfe22d2a88d7b509c03490a1b3b0223f0037054ff55adf21d66700824",
+    "results/learned_grouping_pilot/learned/hardening.json": "ef2873a93586ef78153ad898b467d295511fbb45dc8b3d1078583983c477849f",
+    "results/learned_grouping_pilot/learned/training.csv": "5c26418af56e9cd80cc7e72db8edb8407657314f1fc9d6930ad67cb16b97931d",
+    "results/learned_grouping_pilot/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+    "results/learned_grouping_pilot/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3"
+  },
+  "test_evaluated": false
+}

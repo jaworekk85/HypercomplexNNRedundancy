@@ -1,0 +1,246 @@
+{
+  "history": [
+    {
+      "step": 0,
+      "optimizer_updates": 0,
+      "pseudo_accepted": 0,
+      "pseudo_seen": 0,
+      "validation": {
+        "cross_entropy": 3.6566270141601565,
+        "accuracy": 0.207
+      },
+      "check_calibration": {
+        "cross_entropy": 3.6487232666015625,
+        "accuracy": 0.212
+      },
+      "pseudo_diagnostic_on_check_only": {
+        "coverage": 0.0020000000949949026,
+        "accepted": 1,
+        "examples": 500,
+        "accepted_accuracy": 1.0,
+        "accepted_predicted_class_counts": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "step": 200,
+      "optimizer_updates": 200,
+      "pseudo_accepted": 992,
+      "pseudo_seen": 25600,
+      "validation": {
+        "cross_entropy": 1.147206314086914,
+        "accuracy": 0.593
+      },
+      "check_calibration": {
+        "cross_entropy": 1.1621419067382812,
+        "accuracy": 0.598
+      },
+      "pseudo_diagnostic_on_check_only": {
+        "coverage": 0.07599999755620956,
+        "accepted": 38,
+        "examples": 500,
+        "accepted_accuracy": 0.9210526347160339,
+        "accepted_predicted_class_counts": [
+          0,
+          2,
+          3,
+          0,
+          2,
+          1,
+          5,
+          9,
+          12,
+          4
+        ]
+      }
+    },
+    {
+      "step": 1000,
+      "optimizer_updates": 1000,
+      "pseudo_accepted": 32366,
+      "pseudo_seen": 128000,
+      "validation": {
+        "cross_entropy": 2.8286534423828127,
+        "accuracy": 0.473
+      },
+      "check_calibration": {
+        "cross_entropy": 2.791636962890625,
+        "accuracy": 0.498
+      },
+      "pseudo_diagnostic_on_check_only": {
+        "coverage": 0.4099999964237213,
+        "accepted": 205,
+        "examples": 500,
+        "accepted_accuracy": 0.5707316994667053,
+        "accepted_predicted_class_counts": [
+          3,
+          5,
+          14,
+          1,
+          3,
+          37,
+          82,
+          12,
+          18,
+          30
+        ]
+      }
+    }
+  ],
+  "optimizer_updates": 1000,
+  "attempted_steps": 1000,
+  "pseudo_accepted": 32366,
+  "pseudo_seen": 128000,
+  "first_update": {
+    "parameters": {
+      "blocks.0.0.kernel": {
+        "present": true,
+        "finite": true,
+        "norm": 6.330585956573486,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.0.1.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 1.0139498710632324,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.0.1.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 2.386352300643921,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.0.3.kernel": {
+        "present": true,
+        "finite": true,
+        "norm": 9.603026390075684,
+        "maximum_update": 0.00010000169277191162
+      },
+      "blocks.0.4.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 2.152984857559204,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.0.4.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 1.9334467649459839,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.1.0.kernel": {
+        "present": true,
+        "finite": true,
+        "norm": 11.355842590332031,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.1.1.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 2.037034034729004,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.1.1.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 2.8293731212615967,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.1.3.kernel": {
+        "present": true,
+        "finite": true,
+        "norm": 8.580742835998535,
+        "maximum_update": 0.00010000169277191162
+      },
+      "blocks.1.4.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 2.7096784114837646,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.1.4.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 1.9490346908569336,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.2.0.kernel": {
+        "present": true,
+        "finite": true,
+        "norm": 15.904947280883789,
+        "maximum_update": 0.00010000169277191162
+      },
+      "blocks.2.1.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 3.5553507804870605,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.2.1.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 3.7670443058013916,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.2.3.kernel": {
+        "present": true,
+        "finite": true,
+        "norm": 3.871215343475342,
+        "maximum_update": 0.00010000169277191162
+      },
+      "blocks.2.4.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 1.042938470840454,
+        "maximum_update": 0.00010001659393310547
+      },
+      "blocks.2.4.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.8186412453651428,
+        "maximum_update": 0.00010001659393310547
+      },
+      "readout.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 2.4874486923217773,
+        "maximum_update": 0.00010001659393310547
+      },
+      "readout.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.4340331256389618,
+        "maximum_update": 0.00010000169277191162
+      }
+    }
+  },
+  "elapsed_seconds_this_invocation": 37.24375550006516,
+  "official_test_evaluated": false,
+  "context": {
+    "seed": 2028,
+    "initialization": "greedy_pruned",
+    "repair_labels_per_class": 5,
+    "partition_sha256": "4bd12a1cde0f5abc2438e62a586dd804ca1a49253e3707305b86994fbab23214",
+    "protocol_sha256": "9a0892e4c589f22ee10dfdac4a3c4a4327940c08a5c6a1fe8e78f1f2b4bf2d37",
+    "teacher_cache_sha256": "d8955020b05049d5c32c011177d8dfd9c5f6c971eb57f4703e3e59fe6b582649"
+  },
+  "method": "self_pseudo",
+  "seed": 2028,
+  "initialization": "greedy_pruned",
+  "repair_labels_per_class": 5,
+  "human_labels_exposed_to_repair": 50,
+  "real_trainable_parameters": 42034,
+  "bn_buffers_fixed": true,
+  "final_model_sha256": "3dfeff9fae473cec3e816cc2a963aba3d6dc7cbc8f8a4b8c7a289c766fdb2ae5"
+}

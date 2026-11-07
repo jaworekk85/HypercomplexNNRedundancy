@@ -1,0 +1,234 @@
+{
+  "status": "passed",
+  "source_count": 134,
+  "input_count": 299,
+  "classification_split_replays": 16,
+  "local_fit_check_replays": 8,
+  "rows": [
+    {
+      "case": "mapfold",
+      "local_mse_replay": {
+        "fit": 0.20097543041506688,
+        "check": 0.20386750447739632
+      },
+      "classification_replay": {
+        "before": {
+          "validation": {
+            "cross_entropy": 1.7945191650390624,
+            "accuracy": 0.332
+          },
+          "check_calibration": {
+            "cross_entropy": 1.8090936279296874,
+            "accuracy": 0.294
+          }
+        },
+        "after": {
+          "validation": {
+            "cross_entropy": 1.220283676147461,
+            "accuracy": 0.567
+          },
+          "check_calibration": {
+            "cross_entropy": 1.2699203796386718,
+            "accuracy": 0.556
+          }
+        }
+      },
+      "architecture": {
+        "real_parameters": 19098,
+        "quaternion_convolutions": 6,
+        "dense_real_convolutions": 0,
+        "output_group_widths": [
+          4,
+          4,
+          8,
+          8,
+          16,
+          16
+        ],
+        "bn_layers": 6
+      },
+      "factor_kernel_shape": [
+        4,
+        32,
+        16,
+        3,
+        3
+      ],
+      "A_mu_recovery_checked": true,
+      "same_masks_head_fold_checked": true,
+      "counts": {
+        "successful": 1124,
+        "attempted": 1125
+      }
+    },
+    {
+      "case": "a_only",
+      "local_mse_replay": {
+        "fit": 0.1847090893670853,
+        "check": 0.1880241128923226
+      },
+      "classification_replay": {
+        "before": {
+          "validation": {
+            "cross_entropy": 1.769988510131836,
+            "accuracy": 0.342
+          },
+          "check_calibration": {
+            "cross_entropy": 1.771433074951172,
+            "accuracy": 0.306
+          }
+        },
+        "after": {
+          "validation": {
+            "cross_entropy": 1.222440399169922,
+            "accuracy": 0.563
+          },
+          "check_calibration": {
+            "cross_entropy": 1.2681970520019532,
+            "accuracy": 0.55
+          }
+        }
+      },
+      "architecture": {
+        "real_parameters": 19098,
+        "quaternion_convolutions": 6,
+        "dense_real_convolutions": 0,
+        "output_group_widths": [
+          4,
+          4,
+          8,
+          8,
+          16,
+          16
+        ],
+        "bn_layers": 6
+      },
+      "factor_kernel_shape": [
+        4,
+        32,
+        16,
+        3,
+        3
+      ],
+      "A_mu_recovery_checked": true,
+      "same_masks_head_fold_checked": true,
+      "counts": {
+        "successful": 1124,
+        "attempted": 1125
+      }
+    },
+    {
+      "case": "mu_only",
+      "local_mse_replay": {
+        "fit": 0.19942221107500602,
+        "check": 0.20252194557956768
+      },
+      "classification_replay": {
+        "before": {
+          "validation": {
+            "cross_entropy": 1.794086135864258,
+            "accuracy": 0.328
+          },
+          "check_calibration": {
+            "cross_entropy": 1.8098818969726562,
+            "accuracy": 0.294
+          }
+        },
+        "after": {
+          "validation": {
+            "cross_entropy": 1.2222689361572265,
+            "accuracy": 0.566
+          },
+          "check_calibration": {
+            "cross_entropy": 1.2715193481445313,
+            "accuracy": 0.564
+          }
+        }
+      },
+      "architecture": {
+        "real_parameters": 19098,
+        "quaternion_convolutions": 6,
+        "dense_real_convolutions": 0,
+        "output_group_widths": [
+          4,
+          4,
+          8,
+          8,
+          16,
+          16
+        ],
+        "bn_layers": 6
+      },
+      "factor_kernel_shape": [
+        4,
+        32,
+        16,
+        3,
+        3
+      ],
+      "A_mu_recovery_checked": true,
+      "same_masks_head_fold_checked": true,
+      "counts": {
+        "successful": 1124,
+        "attempted": 1125
+      }
+    },
+    {
+      "case": "a_mu",
+      "local_mse_replay": {
+        "fit": 0.18428407806342165,
+        "check": 0.18760791796329784
+      },
+      "classification_replay": {
+        "before": {
+          "validation": {
+            "cross_entropy": 1.7704607696533203,
+            "accuracy": 0.345
+          },
+          "check_calibration": {
+            "cross_entropy": 1.7723286437988282,
+            "accuracy": 0.306
+          }
+        },
+        "after": {
+          "validation": {
+            "cross_entropy": 1.222781005859375,
+            "accuracy": 0.563
+          },
+          "check_calibration": {
+            "cross_entropy": 1.2686615905761718,
+            "accuracy": 0.554
+          }
+        }
+      },
+      "architecture": {
+        "real_parameters": 19098,
+        "quaternion_convolutions": 6,
+        "dense_real_convolutions": 0,
+        "output_group_widths": [
+          4,
+          4,
+          8,
+          8,
+          16,
+          16
+        ],
+        "bn_layers": 6
+      },
+      "factor_kernel_shape": [
+        4,
+        32,
+        16,
+        3,
+        3
+      ],
+      "A_mu_recovery_checked": true,
+      "same_masks_head_fold_checked": true,
+      "counts": {
+        "successful": 1124,
+        "attempted": 1125
+      }
+    }
+  ],
+  "test_evaluated": false
+}

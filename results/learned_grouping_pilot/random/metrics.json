@@ -1,0 +1,356 @@
+{
+  "mode": "random",
+  "seed": 2026,
+  "best_epoch": 49,
+  "selected_validation": {
+    "cross_entropy": 0.6226945037841797,
+    "accuracy": 0.78
+  },
+  "selected_train": {
+    "cross_entropy": 0.5747344745000204,
+    "accuracy": 0.7999791666666667
+  },
+  "training_real_parameters": 73898,
+  "exported_real_parameters": 73898,
+  "exported_buffer_elements": 934,
+  "checkpoint_bytes": 310155,
+  "optimizer_updates_attempted": 18750,
+  "routing": {
+    "matching": [
+      18,
+      30,
+      1,
+      17,
+      4,
+      3,
+      25,
+      27,
+      9,
+      13,
+      14,
+      0,
+      2,
+      11,
+      21,
+      31,
+      24,
+      10,
+      7,
+      19,
+      22,
+      26,
+      8,
+      29,
+      23,
+      28,
+      15,
+      5,
+      16,
+      6,
+      20,
+      12
+    ]
+  },
+  "hardening": null,
+  "first_update": {
+    "parameters": [
+      {
+        "name": "blocks.0.0.kernel",
+        "shape": [
+          4,
+          8,
+          1,
+          3,
+          3
+        ],
+        "gradient_norm": 0.8563632965087891,
+        "max_abs_update": 0.001000046730041504
+      },
+      {
+        "name": "blocks.0.1.weight",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.11885056644678116,
+        "max_abs_update": 0.0010001063346862793
+      },
+      {
+        "name": "blocks.0.1.bias",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.08413603901863098,
+        "max_abs_update": 0.000999999581836164
+      },
+      {
+        "name": "blocks.0.3.kernel",
+        "shape": [
+          4,
+          8,
+          8,
+          3,
+          3
+        ],
+        "gradient_norm": 1.1542232036590576,
+        "max_abs_update": 0.00100003182888031
+      },
+      {
+        "name": "blocks.0.4.weight",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.06771712005138397,
+        "max_abs_update": 0.0010001063346862793
+      },
+      {
+        "name": "blocks.0.4.bias",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.04836282134056091,
+        "max_abs_update": 0.0009999993490055203
+      },
+      {
+        "name": "blocks.1.0.kernel",
+        "shape": [
+          4,
+          16,
+          8,
+          3,
+          3
+        ],
+        "gradient_norm": 0.980213463306427,
+        "max_abs_update": 0.00100003182888031
+      },
+      {
+        "name": "blocks.1.1.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.06105702742934227,
+        "max_abs_update": 0.0010001063346862793
+      },
+      {
+        "name": "blocks.1.1.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.052360471338033676,
+        "max_abs_update": 0.0009999992325901985
+      },
+      {
+        "name": "blocks.1.3.kernel",
+        "shape": [
+          4,
+          16,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 1.1757179498672485,
+        "max_abs_update": 0.00100003182888031
+      },
+      {
+        "name": "blocks.1.4.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.09119848906993866,
+        "max_abs_update": 0.0010001063346862793
+      },
+      {
+        "name": "blocks.1.4.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.07345706969499588,
+        "max_abs_update": 0.000999999581836164
+      },
+      {
+        "name": "blocks.2.0.kernel",
+        "shape": [
+          4,
+          32,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 1.3886712789535522,
+        "max_abs_update": 0.00100003182888031
+      },
+      {
+        "name": "blocks.2.1.weight",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.06739289313554764,
+        "max_abs_update": 0.0010001063346862793
+      },
+      {
+        "name": "blocks.2.1.bias",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.056028708815574646,
+        "max_abs_update": 0.0009999993490055203
+      },
+      {
+        "name": "blocks.2.3.kernel",
+        "shape": [
+          4,
+          32,
+          32,
+          3,
+          3
+        ],
+        "gradient_norm": 1.9329789876937866,
+        "max_abs_update": 0.0010000169277191162
+      },
+      {
+        "name": "blocks.2.4.weight",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.533595860004425,
+        "max_abs_update": 0.0010001063346862793
+      },
+      {
+        "name": "blocks.2.4.bias",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.49289295077323914,
+        "max_abs_update": 0.0009999999310821295
+      },
+      {
+        "name": "readout.weight",
+        "shape": [
+          10,
+          128
+        ],
+        "gradient_norm": 4.401079177856445,
+        "max_abs_update": 0.00100003182888031
+      },
+      {
+        "name": "readout.bias",
+        "shape": [
+          10
+        ],
+        "gradient_norm": 0.42893457412719727,
+        "max_abs_update": 0.0009999998146668077
+      }
+    ],
+    "quaternion_layers": {
+      "blocks.0.0": {
+        "component_gradient_norms": [
+          0.5071781277656555,
+          0.3977753221988678,
+          0.3338024616241455,
+          0.45439988374710083
+        ],
+        "component_update_norms": [
+          0.008485224097967148,
+          0.008485272526741028,
+          0.008485286496579647,
+          0.008485228754580021
+        ]
+      },
+      "blocks.0.3": {
+        "component_gradient_norms": [
+          0.5145882964134216,
+          0.5764497518539429,
+          0.68117356300354,
+          0.5207095146179199
+        ],
+        "component_update_norms": [
+          0.023999962955713272,
+          0.023999955505132675,
+          0.02399994432926178,
+          0.02399980090558529
+        ]
+      },
+      "blocks.1.0": {
+        "component_gradient_norms": [
+          0.49108195304870605,
+          0.4571513831615448,
+          0.5148143768310547,
+          0.49561643600463867
+        ],
+        "component_update_norms": [
+          0.03394092619419098,
+          0.03394003212451935,
+          0.03394022956490517,
+          0.03394101560115814
+        ]
+      },
+      "blocks.1.3": {
+        "component_gradient_norms": [
+          0.5614925026893616,
+          0.5873469710350037,
+          0.6124985218048096,
+          0.5889890789985657
+        ],
+        "component_update_norms": [
+          0.047999635338783264,
+          0.04799973964691162,
+          0.0479985810816288,
+          0.047999732196331024
+        ]
+      },
+      "blocks.2.0": {
+        "component_gradient_norms": [
+          0.6974852681159973,
+          0.6892727017402649,
+          0.6963172554969788,
+          0.6942389011383057
+        ],
+        "component_update_norms": [
+          0.06788184493780136,
+          0.0678817629814148,
+          0.06788161396980286,
+          0.06788173317909241
+        ]
+      },
+      "blocks.2.3": {
+        "component_gradient_norms": [
+          0.9758952856063843,
+          0.9559699296951294,
+          0.9298471212387085,
+          1.0027670860290527
+        ],
+        "component_update_norms": [
+          0.0959990844130516,
+          0.09599882364273071,
+          0.09599921107292175,
+          0.09599926322698593
+        ]
+      }
+    },
+    "checks": {
+      "all_variables_updated": true,
+      "all_quaternion_components_have_gradients_and_updates": true
+    },
+    "loss_before": 3.615736722946167,
+    "correct_before": 11
+  },
+  "hard_export_max_abs_error": 0.0,
+  "reload_max_abs_error": 0.0,
+  "source_hashes": {
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+    "scripts/learned_grouping.py": "87fe9f39a70602f3238e4bd64fbfd06c913ce5feea37ce3bb082f4111a60bad0",
+    "src/models/channel_routing.py": "c1c47305a8869b489d482d38c585b6e54c2dcd1c0643a7d4f786b8be6de2fb39"
+  },
+  "test_evaluated": true,
+  "compact_channel_savings": 0,
+  "test": {
+    "cross_entropy": 0.6347101011753082,
+    "accuracy": 0.7814
+  }
+}

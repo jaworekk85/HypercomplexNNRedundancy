@@ -1,0 +1,73 @@
+{
+  "condition": "soft_recalibrated",
+  "evaluation": {
+    "validation": {
+      "cross_entropy": 0.6090014190673828,
+      "accuracy": 0.79
+    },
+    "calibration": {
+      "cross_entropy": 0.5980844879150391,
+      "accuracy": 0.803
+    }
+  },
+  "refit": {
+    "layers": [
+      {
+        "name": "blocks.1.1",
+        "images": 48000,
+        "observations_per_channel": 12288000,
+        "batches": 188,
+        "mean_absolute_mean_change": 0.11942744255065918,
+        "mean_absolute_variance_change": 0.3042181730270386,
+        "old_mean_variance": 0.8093352317810059,
+        "new_mean_variance": 0.5051171183586121
+      },
+      {
+        "name": "blocks.1.4",
+        "images": 48000,
+        "observations_per_channel": 12288000,
+        "batches": 188,
+        "mean_absolute_mean_change": 0.07075391709804535,
+        "mean_absolute_variance_change": 0.2303675413131714,
+        "old_mean_variance": 1.8457152843475342,
+        "new_mean_variance": 1.9748960733413696
+      },
+      {
+        "name": "blocks.2.1",
+        "images": 48000,
+        "observations_per_channel": 3072000,
+        "batches": 188,
+        "mean_absolute_mean_change": 0.03859565407037735,
+        "mean_absolute_variance_change": 0.20794105529785156,
+        "old_mean_variance": 2.855890989303589,
+        "new_mean_variance": 2.705296039581299
+      },
+      {
+        "name": "blocks.2.4",
+        "images": 48000,
+        "observations_per_channel": 3072000,
+        "batches": 188,
+        "mean_absolute_mean_change": 0.020234372466802597,
+        "mean_absolute_variance_change": 0.24420519173145294,
+        "old_mean_variance": 1.9672951698303223,
+        "new_mean_variance": 2.211242198944092
+      }
+    ],
+    "checks": {
+      "parameters_bitwise_unchanged": true,
+      "other_buffers_bitwise_unchanged": true,
+      "all_modules_in_evaluation_mode": true,
+      "no_parameter_gradients": true
+    },
+    "images": 48000,
+    "labels_used": false,
+    "estimator": "Global input mean and unbiased variance, float64 accumulation, layer-wise evaluation-mode refit",
+    "batch_counters_unchanged": true
+  },
+  "retained_real_parameter_elements": 74922,
+  "routing_is_hard": false,
+  "weight_updates_after_boundary": 0,
+  "official_test_evaluated": false,
+  "checkpoint_sha256": "239727011ac7947b0596a2e7f65d1f0ad70bcf1be8dc03ad98e9c38f7728906c",
+  "predictions_sha256": "b988a2e9ffdffdaffe5224813750bfdf0f714b5bd82cd0ae4b092cfd98f89c75"
+}

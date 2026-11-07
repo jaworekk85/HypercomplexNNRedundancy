@@ -1,0 +1,146 @@
+{
+  "cases": {
+    "mapfold": {
+      "fit_mse": 0.2009754107951902,
+      "check_mse": 0.20386748188988896,
+      "normalized_common_objective": 0.2009754107951902,
+      "full_forward_fit_mse": 0.20097540952412776,
+      "full_forward_check_mse": 0.20386748096806698,
+      "factor_fold_max_abs_error": 0.0,
+      "A_components": [
+        1.0766040473842855,
+        0.9175068198636808,
+        0.8970635308428264,
+        0.851121486264278
+      ],
+      "mu_components": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solver": {}
+    },
+    "a_only": {
+      "fit_mse": 0.1847090719147393,
+      "check_mse": 0.18802409247278729,
+      "normalized_common_objective": 0.18472497388992254,
+      "full_forward_fit_mse": 0.1847090719147924,
+      "full_forward_check_mse": 0.1880240926652552,
+      "factor_fold_max_abs_error": 5.551115123125783e-17,
+      "A_components": [
+        1.1725629001162374,
+        1.0444208011340752,
+        1.0392717193016685,
+        0.9965033703365965
+      ],
+      "mu_components": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "solver": {
+        "rank": 1024,
+        "variables": 1024,
+        "eigen_cutoff": 0.0010996241005535048,
+        "relative_normal_residual": 8.597044555766627e-15
+      }
+    },
+    "mu_only": {
+      "fit_mse": 0.199422190957775,
+      "check_mse": 0.20252192256652937,
+      "normalized_common_objective": 0.19942367099482788,
+      "full_forward_fit_mse": 0.19942219028387678,
+      "full_forward_check_mse": 0.20252192251030204,
+      "factor_fold_max_abs_error": 5.551115123125783e-17,
+      "A_components": [
+        1.0766040473842855,
+        0.9175068198636808,
+        0.8970635308428264,
+        0.851121486264278
+      ],
+      "mu_components": [
+        0.2605827536638918,
+        0.26267195833813745,
+        0.36664440403471393,
+        0.29774545477311787
+      ],
+      "solver": {
+        "rank": 64,
+        "variables": 64,
+        "eigen_cutoff": 0.006721083443638921,
+        "relative_normal_residual": 9.109280862963878e-14
+      }
+    },
+    "a_mu": {
+      "fit_mse": 0.18428406053398214,
+      "check_mse": 0.18760789746668377,
+      "normalized_common_objective": 0.18430032094418425,
+      "full_forward_fit_mse": 0.18428406061187502,
+      "full_forward_check_mse": 0.18760789767638042,
+      "factor_fold_max_abs_error": 5.551115123125783e-17,
+      "A_components": [
+        1.1587687633176926,
+        1.0526542827092622,
+        1.0433538816702557,
+        0.9863609375211885
+      ],
+      "mu_components": [
+        0.22897663584549313,
+        0.19458371133738034,
+        0.1669906213855598,
+        0.178329305308939
+      ],
+      "solver": {
+        "rank": 1088,
+        "variables": 1088,
+        "eigen_cutoff": 0.012920398988729292,
+        "relative_normal_residual": 2.9813919159799764e-14,
+        "mu_recovery_max_abs_error": 8.023096076392733e-17,
+        "recovery_rank": 64,
+        "recovery_condition": 94.41898122287411
+      }
+    }
+  },
+  "lambda": 10.911632591814698,
+  "joint_system_seconds": 1.8572638998739421,
+  "cached_prior_max_abs_error": 0.0,
+  "rounding_anchor_max_abs_error": 9.349564733529547e-08,
+  "actual_discarded_update": {
+    "gradient_component_norms": {
+      "a": [
+        0.14235396683216095,
+        0.12293031066656113,
+        0.1184791550040245,
+        0.12737032771110535
+      ],
+      "mu": [
+        0.1293559968471527,
+        0.05272494629025459,
+        0.08188270777463913,
+        0.0803561806678772
+      ]
+    },
+    "update_component_norms": {
+      "a": [
+        0.015999820083379745,
+        0.015999916940927505,
+        0.0159994438290596,
+        0.01599987782537937
+      ],
+      "mu": [
+        0.003999995533376932,
+        0.003999992739409208,
+        0.003999990876764059,
+        0.00399998901411891
+      ]
+    }
+  },
+  "direct_Q_reused_local_objective": 0.15776409743702596,
+  "fit_images": 500,
+  "check_images": 500,
+  "calibration_labels_used": false,
+  "all_other_parameters_buffers_frozen": true,
+  "checkpoint_sha256": "80b374fa7a5cadf883b32ec6dcb521e321f3370d5bbb881a22a6414724460d79"
+}

@@ -1,0 +1,14 @@
+{
+  "source_pilot": "results/learned_grouping_pilot",
+  "baseline_compression": "results/cnn_compression",
+  "seed": 2026,
+  "modes": ["identity", "random", "learned"],
+  "block": 3,
+  "removed_fractions": [0.0, 0.25, 0.5],
+  "policies": ["random", "incoming_norm", "activation_similarity"],
+  "random_repetitions": 10,
+  "random_seed_offset": 100000,
+  "fine_tuning_updates": 0,
+  "gate": "Execute only if selection_frozen.json supports_compression_followup is true, using its pre-test validation-only decision",
+  "protocol": "Freeze comparison choices before learned-routing outcomes. Reuse original seed-2026 identity cases. New random/learned cases use matched target real parameters and the same random removal draws, raw norm and greedy positive grouped-similarity definitions. Freeze every new validation manifest before test. No method novelty or stable gain follows from one seed."
+}

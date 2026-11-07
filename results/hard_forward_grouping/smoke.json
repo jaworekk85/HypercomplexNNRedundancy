@@ -1,0 +1,308 @@
+{
+  "status": "passed",
+  "checks": {
+    "paired_backbone_initialization": true,
+    "paired_initial_permutation": true,
+    "initial_control_forward_equivalence": true,
+    "all_tracked_variables_and_quaternion_components_updated": true,
+    "surrogate_gradient_and_logit_update": true,
+    "freeze_and_export_do_not_change_forward": true,
+    "training_parameter_count": true,
+    "export_parameter_count": true
+  },
+  "initial_forward_errors": {
+    "fp32": 0.0,
+    "amp": 0.0
+  },
+  "first_update": {
+    "parameters": [
+      {
+        "name": "blocks.0.0.kernel",
+        "shape": [
+          4,
+          8,
+          1,
+          3,
+          3
+        ],
+        "gradient_norm": 1.4378727674484253,
+        "max_abs_update": 0.0010068416595458984
+      },
+      {
+        "name": "blocks.0.1.weight",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.268987238407135,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.0.1.bias",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.20740722119808197,
+        "max_abs_update": 0.0009999999310821295
+      },
+      {
+        "name": "blocks.0.3.kernel",
+        "shape": [
+          4,
+          8,
+          8,
+          3,
+          3
+        ],
+        "gradient_norm": 3.2124314308166504,
+        "max_abs_update": 0.001002475619316101
+      },
+      {
+        "name": "blocks.0.4.weight",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.2957037389278412,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.0.4.bias",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.21724742650985718,
+        "max_abs_update": 0.0009999998146668077
+      },
+      {
+        "name": "blocks.1.0.kernel",
+        "shape": [
+          4,
+          16,
+          8,
+          3,
+          3
+        ],
+        "gradient_norm": 3.3272202014923096,
+        "max_abs_update": 0.0010031461715698242
+      },
+      {
+        "name": "blocks.1.1.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.24644432961940765,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.1.1.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.22313611209392548,
+        "max_abs_update": 0.0009999999310821295
+      },
+      {
+        "name": "blocks.1.3.kernel",
+        "shape": [
+          4,
+          16,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 3.9834229946136475,
+        "max_abs_update": 0.0010025054216384888
+      },
+      {
+        "name": "blocks.1.4.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.2715801000595093,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.1.4.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.18599484860897064,
+        "max_abs_update": 0.0009999998146668077
+      },
+      {
+        "name": "blocks.2.0.kernel",
+        "shape": [
+          4,
+          32,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 5.018154144287109,
+        "max_abs_update": 0.0010024309158325195
+      },
+      {
+        "name": "blocks.2.1.weight",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.2863098382949829,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.2.1.bias",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.22471602261066437,
+        "max_abs_update": 0.0009999998146668077
+      },
+      {
+        "name": "blocks.2.3.kernel",
+        "shape": [
+          4,
+          32,
+          32,
+          3,
+          3
+        ],
+        "gradient_norm": 6.364569187164307,
+        "max_abs_update": 0.0010016858577728271
+      },
+      {
+        "name": "blocks.2.4.weight",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.5630136132240295,
+        "max_abs_update": 0.0010100007057189941
+      },
+      {
+        "name": "blocks.2.4.bias",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.49350255727767944,
+        "max_abs_update": 0.0009999999310821295
+      },
+      {
+        "name": "readout.weight",
+        "shape": [
+          10,
+          128
+        ],
+        "gradient_norm": 5.037311553955078,
+        "max_abs_update": 0.001002088189125061
+      },
+      {
+        "name": "readout.bias",
+        "shape": [
+          10
+        ],
+        "gradient_norm": 0.39523276686668396,
+        "max_abs_update": 0.0009999999310821295
+      },
+      {
+        "name": "router.logits",
+        "shape": [
+          32,
+          32
+        ],
+        "gradient_norm": 0.0450371690094471,
+        "max_abs_update": 0.0010399818420410156
+      }
+    ],
+    "quaternion_layers": {
+      "blocks.0.0": {
+        "component_gradient_norms": [
+          0.7024357318878174,
+          0.7685942649841309,
+          0.7642890810966492,
+          0.631812572479248
+        ],
+        "component_update_norms": [
+          0.008486120961606503,
+          0.008486644364893436,
+          0.008485162630677223,
+          0.008484184741973877
+        ]
+      },
+      "blocks.0.3": {
+        "component_gradient_norms": [
+          1.6286295652389526,
+          1.5082519054412842,
+          1.6270105838775635,
+          1.6568926572799683
+        ],
+        "component_update_norms": [
+          0.024000486359000206,
+          0.023999961093068123,
+          0.023999497294425964,
+          0.02400030754506588
+        ]
+      },
+      "blocks.1.0": {
+        "component_gradient_norms": [
+          1.6067451238632202,
+          1.6602282524108887,
+          1.7481615543365479,
+          1.6359516382217407
+        ],
+        "component_update_norms": [
+          0.03394167125225067,
+          0.033940389752388,
+          0.03394082188606262,
+          0.0339418463408947
+        ]
+      },
+      "blocks.1.3": {
+        "component_gradient_norms": [
+          2.011935234069824,
+          1.9765586853027344,
+          1.9778679609298706,
+          2.0002572536468506
+        ],
+        "component_update_norms": [
+          0.047999706119298935,
+          0.048000045120716095,
+          0.0479997955262661,
+          0.048000697046518326
+        ]
+      },
+      "blocks.2.0": {
+        "component_gradient_norms": [
+          2.517824649810791,
+          2.5627663135528564,
+          2.5417330265045166,
+          2.4112753868103027
+        ],
+        "component_update_norms": [
+          0.06788262724876404,
+          0.06788206845521927,
+          0.06788154691457748,
+          0.0678817629814148
+        ]
+      },
+      "blocks.2.3": {
+        "component_gradient_norms": [
+          3.195363998413086,
+          3.091512441635132,
+          3.2233614921569824,
+          3.217122793197632
+        ],
+        "component_update_norms": [
+          0.09599964320659637,
+          0.09599942713975906,
+          0.09599877148866653,
+          0.0960003212094307
+        ]
+      }
+    },
+    "checks": {
+      "all_variables_updated": true,
+      "all_quaternion_components_have_gradients_and_updates": true
+    },
+    "loss_before": 2.783067464828491,
+    "correct_before": 1
+  },
+  "scope": "Synthetic GPU integrity check, not CIFAR quality"
+}

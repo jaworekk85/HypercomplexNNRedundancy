@@ -1,0 +1,85 @@
+{
+  "status": "failed",
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "versions": {
+      "tensorflow": "2.20.0",
+      "keras": "3.11.3",
+      "numpy": "2.2.6",
+      "matplotlib": "3.10.7",
+      "pytest": "8.4.2",
+      "HypercomplexKeras": "1.0.2"
+    },
+    "seed": 2026,
+    "devices": [
+      {
+        "name": "/physical_device:CPU:0",
+        "type": "CPU"
+      }
+    ],
+    "tensorflow_build": {
+      "is_cuda_build": false,
+      "is_rocm_build": false,
+      "is_tensorrt_build": false,
+      "msvcp_dll_names": "msvcp140.dll,msvcp140_1.dll"
+    },
+    "settings": {
+      "KERAS_BACKEND": "tensorflow",
+      "CUDA_VISIBLE_DEVICES": "-1",
+      "TF_DETERMINISTIC_OPS": "1",
+      "TF_ENABLE_ONEDNN_OPTS": "0"
+    }
+  },
+  "upstream": {
+    "repository": "https://github.com/rkycia/HypercomplexKeras",
+    "commit": "566f887a7039637860089863b5abfa13b1948267",
+    "hyperdense_git_blob_sha1": "d076199079add76fd69badcd64feb96ef3f6c316",
+    "khnn_repository": "https://github.com/rkycia/KHNN",
+    "khnn_commit": "d2c532dbca8fe6c18355dbbc1f5749e7e0e4af32",
+    "softwarex_repository": "https://github.com/ElsevierSoftwareX/SOFTX-D-25-00004",
+    "softwarex_commit": "d2c532dbca8fe6c18355dbbc1f5749e7e0e4af32",
+    "license": "Apache-2.0",
+    "citation_key": "NiemczynowiczKycia2025"
+  },
+  "installed_hyperdense_hashes": {
+    "sha256": "b2316090ce3fd51d2bb3ce738915dd935f384f44ab4d793db4b1c935024702d3",
+    "git_blob_sha1": "d076199079add76fd69badcd64feb96ef3f6c316"
+  },
+  "declared_runtime_dependencies": null,
+  "input_shape": [
+    16,
+    8
+  ],
+  "output_shape": [
+    16,
+    12
+  ],
+  "expected_real_trainable_parameters": 36,
+  "reported_real_trainable_parameters": 12,
+  "trainable_variables": [
+    {
+      "name": "HyperBias",
+      "shape": [
+        12
+      ]
+    }
+  ],
+  "loss_before_step": 2.736074447631836,
+  "kernel_gradient_norm": 1.6065946817398071,
+  "kernel_max_abs_update": 0.0,
+  "bias_max_abs_update": 0.0011455100029706955,
+  "default_kernel_components_identical": true,
+  "checks": {
+    "output_shape": true,
+    "all_expected_parameters_tracked": false,
+    "kernel_is_tracked": false,
+    "kernel_has_finite_gradient": true,
+    "tracked_variables_have_finite_gradients": true,
+    "kernel_changed_after_standard_optimizer_step": false,
+    "bias_changed_after_standard_optimizer_step": true,
+    "installed_source_matches_inspected_commit": true
+  },
+  "scope": "Unmodified HypercomplexKeras 1.0.2 on this environment only; no claim about all TensorFlow versions."
+}

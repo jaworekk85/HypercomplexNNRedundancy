@@ -1,0 +1,100 @@
+{
+  "config": {
+    "output": "results/ssl_compression_pilot",
+    "sibling_root": "../FewshotLearning",
+    "archive": ".cache/keras/datasets/cifar-10-batches-py-target_archive",
+    "source_ssl_config": "configs/cifar10_pilot_ssl.json",
+    "model_config": "configs/cifar_cnn.json",
+    "families": [
+      "quaternion",
+      "circulant"
+    ],
+    "seeds": [
+      0
+    ],
+    "labels_per_class": 50,
+    "validation_per_class": 100,
+    "calibration_fit_images": 500,
+    "calibration_check_images": 500,
+    "baseline_epochs": 20,
+    "steps_per_epoch": 383,
+    "batch_size": 128,
+    "fraction": 0.25,
+    "ridge_alpha": 0.001,
+    "equivalence_tolerance": 0.001,
+    "equivalence_images": 100,
+    "initializations": [
+      "uncompressed",
+      "greedy_comp",
+      "greedy_pruned"
+    ],
+    "repair_methods": [
+      "soft_ssl",
+      "ce_u_control"
+    ],
+    "repair_steps": 1000,
+    "repair_snapshots": [
+      0,
+      100,
+      500,
+      1000
+    ],
+    "repair_learning_rate": 0.003,
+    "cpu_threads": 4,
+    "device": "cuda",
+    "scope": "Exploratory single-seed pilot, not a replicated finding. Two fresh low-label SSL baselines (20x383 steps), then 12 fixed-step continuations: 3 starts x 2 losses x 2 structures. All training starts with only 50 labels/class; no fully supervised teacher/pretraining. Reuse sibling's exact weak/strong views and epoch-lagged soft pseudo-target loss, not a full FixMatch/SoftMatch reproduction. Reserve 1000 previously unlabeled images for compression fit/check, never weight training: U=47500 rather than sibling's 48500. No test inference. Repair optimizers and sampler streams restart equally; soft SSL inherits parent confidence statistics. CE control sees identical L/U views and joint train-mode BN with no pseudo-label loss, so it is not a pure labeled-only baseline. No additional contrastive/triplet/EMA objectives. Decide the paper's scope/title only after inspecting all pilot outcomes; no communication to Marcus is sent."
+  },
+  "hashes": {
+    "../FewshotLearning/configs/cifar10_pilot_ssl.json": "d41f22ad2c66356574c044bfbf3515f6c6a4260ed5dcd8a77fcc6e361a495acc",
+    "../FewshotLearning/fewshot_metric/__init__.py": "1b61879c36d533a1bc505b2eb0656a0cddf4b0cf13bdbfaffe1ade4450ac92fd",
+    "../FewshotLearning/fewshot_metric/active.py": "9ba9f5793223450535a319fdfd4af5640642c116f3048666c2a0586bb74acc88",
+    "../FewshotLearning/fewshot_metric/active_selection.py": "7a1673cad678678d96e4c58cc3e7f8632a7eff1649b3eb401f4a20f5a1787357",
+    "../FewshotLearning/fewshot_metric/comparison.py": "3a4eb1a24f943c1b094b43f8bc56038d854538dcb88bce52ff994984242c45cc",
+    "../FewshotLearning/fewshot_metric/config.py": "b4dccd805f2e87101156cbb8ac6a01126e51a79830a74c21d1b8cb11174e787d",
+    "../FewshotLearning/fewshot_metric/data.py": "d1ef0322d24367dd4c3dd4663b935d8af3c0acc2f1f96b91f55e40f251a82bb9",
+    "../FewshotLearning/fewshot_metric/ema_teacher.py": "355648219d5f4c9dc83dae7981a3b2285243536376c005b6a2c5b16232c7043b",
+    "../FewshotLearning/fewshot_metric/fixed_splits.py": "a91d4a5a353ca4a9bb77a39a5c891e651e0de036ac03754bdd16864884cde585",
+    "../FewshotLearning/fewshot_metric/losses.py": "54de2c48d1e5452a736974b3009b832a4eacbb8d8d72d925f3f9bc2d8d1a5326",
+    "../FewshotLearning/fewshot_metric/mined_triplets.py": "ee48dfaae552746f586391ebd3bdee2cc3f4205a4a0163069cd27c0e451de640",
+    "../FewshotLearning/fewshot_metric/mixed_contrastive.py": "78b2c29c6f0e9caa3177976ada3651e800d97adfdd186102e2015cfdc3fdcd07",
+    "../FewshotLearning/fewshot_metric/models.py": "add74684ab69c55c9de7cba460f0f4a8b61d07f3d629f4b66348868bac913b3e",
+    "../FewshotLearning/fewshot_metric/neighbor_reliability.py": "0245991bc12adb1b45a861975081552dec019645829f77b85363bd1852f83a89",
+    "../FewshotLearning/fewshot_metric/pilot.py": "97b11dd208099066f1c78e2bf858d121fcba969a22c1ef5a0c1fc7de5bbfc8a1",
+    "../FewshotLearning/fewshot_metric/reconstruction.py": "493eb9a268d6fa13d40083b2a2e303d5fc5503f965081b0aa12a1cbce21102a4",
+    "../FewshotLearning/fewshot_metric/reliability.py": "5379096b68aa6bea7a6fa3b0c17d87a62fd68b6ab393621c4e0ad0047c08c102",
+    "../FewshotLearning/fewshot_metric/representations.py": "d23566308328cadb344b54903159c592d18949eabefa659b38891dff17da0e3a",
+    "../FewshotLearning/fewshot_metric/supervised.py": "1b83dee4fce57d1b62b64ec3da07cd90eba7a7bb33f6db17a8882732050dbab5",
+    "../FewshotLearning/fewshot_metric/train.py": "2334db727a51a1e8b8b0689cf8796cbf536fb66148a8a44b6a7f6e442287f388",
+    "../FewshotLearning/fewshot_metric/transforms.py": "a41972e517dd8fac605dfad93f4ed63d44c55f730a1920183d44aaf97c93004d",
+    ".cache/keras/datasets/cifar-10-batches-py-target_archive": "6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce",
+    "configs/cifar_cnn.json": "abffe3cb4f6981ecf5f89716a012a1eed314d4a095f9d6d3e0f448cd6e28bfa7",
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "scripts/compression_curve.py": "d3a3ba3788ae6890712b341276f44bc646cc12404e3119056186ff8ae34651da",
+    "scripts/ssl_compression_pilot.py": "f7d9955bcf1e1fea49b2df4021dcf8c32d5fd04beb1d7795b9758ae228c237d2",
+    "scripts/structure_control.py": "b0a4cde09503b27f0130134e33561e34e1c8fd1a40b294194319b0da3dfb7594",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51",
+    "src/compression/multilayer.py": "623af6fd9417782e661ca01eeb30d2e7459b352afeee831156a098e807ec8c14",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+    "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+    "src/compression/quaternion_merging.py": "4c1d1f118072b6976c5266502401aff413da9e09e1d1820ae39fb5877ae6abf3",
+    "src/compression/structured_blocks.py": "fb09d1535a12ac8e1fba38499a4e67300a126ce1cec24839070ad701bff6ce15",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/models/circulant_cnn.py": "a64e09adbc2ecbb70740517bb3f3e8c6fa382817736dddfdb8173fecb541542b",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+    "src/ssl_bridge.py": "90324d229f588124b8483d50ed6b9a0b467ba5d27e6747b86590ccc1a0315c7c",
+    "configs/ssl_compression_pilot.json": "9b8aec0bb5a14cd7a9930f5012dcc6bbb6964149dbbe0fb9034aaad9cd5f3acb"
+  },
+  "environment": {
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "numpy": "2.2.6",
+    "Pillow": "12.3.0"
+  },
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "official_test_evaluated": false
+}

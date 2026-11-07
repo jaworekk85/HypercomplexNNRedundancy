@@ -1,0 +1,222 @@
+{
+  "config": {
+    "output": "results/compression_curve_eurosat",
+    "dataset": "eurosat",
+    "data": ".cache/eurosat/prepared",
+    "training_output": "results/eurosat_cnn",
+    "architectures": [
+      "cnn6",
+      "real_cnn6"
+    ],
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "fractions": [
+      0.125,
+      0.25,
+      0.5,
+      0.75,
+      0.875
+    ],
+    "ridge_alpha": 0.001,
+    "random_repetitions": 5,
+    "random_seed_offset": 800000,
+    "fit_half": "even calibration images (500)",
+    "check_half": "odd calibration images (500)",
+    "batch_size": 128,
+    "device": "cuda",
+    "cpu_threads": 4,
+    "equivalence_tolerance": 0.001,
+    "equivalence_images": 200,
+    "limits": null,
+    "finetune": {
+      "enabled": true,
+      "policies": [
+        "baseline",
+        "random",
+        "bn_pruned",
+        "random_comp",
+        "greedy_comp"
+      ],
+      "random_repetitions_finetuned": 3,
+      "epochs": 3,
+      "batch_size": 128,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-06,
+      "weight_decay": 0.0001,
+      "mixed_precision": true,
+      "order_seed_offset": 80000,
+      "augment_seed_offset": 90000
+    },
+    "scratch": {
+      "enabled": true,
+      "fractions": [
+        0.25,
+        0.5,
+        0.75,
+        0.875
+      ],
+      "epochs": null
+    },
+    "comparisons": [
+      [
+        "greedy_comp@before",
+        "random@before"
+      ],
+      [
+        "greedy_comp@before",
+        "bn_pruned@before"
+      ],
+      [
+        "greedy_comp@before",
+        "greedy_pruned@before"
+      ],
+      [
+        "random_comp@before",
+        "random@before"
+      ],
+      [
+        "greedy_comp@before",
+        "random_comp@before"
+      ],
+      [
+        "greedy_comp@before",
+        "greedy_full_projected@before"
+      ],
+      [
+        "greedy_comp@after",
+        "random@after"
+      ],
+      [
+        "greedy_comp@after",
+        "bn_pruned@after"
+      ],
+      [
+        "random_comp@after",
+        "random@after"
+      ],
+      [
+        "greedy_comp@after",
+        "random_comp@after"
+      ],
+      [
+        "greedy_comp@after",
+        "scratch@scratch"
+      ],
+      [
+        "bn_pruned@after",
+        "scratch@scratch"
+      ],
+      [
+        "random@after",
+        "scratch@scratch"
+      ]
+    ],
+    "official_test_evaluation": false,
+    "scope": "EuroSAT four-band replication of configs/compression_curve.json with identical rules (see that file for policies, outcome and questions). Run after the CIFAR curve. Official EuroSAT test split held out."
+  },
+  "hashes": {
+    ".cache/eurosat/prepared/data.json": "73d06f9e784bd9d371723101899954305789e2dee38b53e388d3dc0d8bd9c254",
+    ".cache/eurosat/prepared/eurosat_nrgb.npz": "0ad6d39736147192df5261a71ad8fe3e94d7e0392f2a52d6b22bedff8d1a0065",
+    ".cache/eurosat/prepared/split_indices.npz": "a440c981bc3985edf913d40b9b9eeac8c7ce026150ae95997b2e04b7adb99c1f",
+    "configs/compression_curve_eurosat.json": "a37c7b7d6e44f306c510a842d6f1131eec686a8deb9e990039be26c722412922",
+    "results/eurosat_cnn/protocol.json": "97d7173299966f3150e85d986f453b0b927208c93308362c47c4f01074857c6e",
+    "results/eurosat_cnn/seed_2026/data.json": "73d06f9e784bd9d371723101899954305789e2dee38b53e388d3dc0d8bd9c254",
+    "results/eurosat_cnn/seed_2026/quaternion/metrics.json": "ed3fe1aa41f240a76e9e5e66fbbaaef97805f712bf9ab5e726d9267dac7198d3",
+    "results/eurosat_cnn/seed_2026/quaternion/model.pt": "357b8ba4d8634e19bef124ee58628cd77d95739e452a16e23a3f263b2a71692c",
+    "results/eurosat_cnn/seed_2026/real/metrics.json": "0119fbbdba502ea949961d26e6e1a8f246d67297692369dc17fcd62f8b87d9be",
+    "results/eurosat_cnn/seed_2026/real/model.pt": "2c577d8f8a8554ec04b70fe8dabeaa045ee67437d4979d47cc528117e41366fa",
+    "results/eurosat_cnn/seed_2026/split_indices.npz": "a440c981bc3985edf913d40b9b9eeac8c7ce026150ae95997b2e04b7adb99c1f",
+    "results/eurosat_cnn/seed_2026/summary.json": "68b199174830a5dc7deefdf77f6a17200bbfedf4b66f135d11306218aa70eecb",
+    "results/eurosat_cnn/seed_2027/data.json": "73d06f9e784bd9d371723101899954305789e2dee38b53e388d3dc0d8bd9c254",
+    "results/eurosat_cnn/seed_2027/quaternion/metrics.json": "fbdc89de5900a508fcddaab729eca25701f1421305ad3407f7603739ebd124a6",
+    "results/eurosat_cnn/seed_2027/quaternion/model.pt": "1324b140bfbf6b4a21f556b148b4c17b20b24629bb447e9dc5ebd3a989e8ed3f",
+    "results/eurosat_cnn/seed_2027/real/metrics.json": "74694d78b693550654319efc36d431461a95ee665ade0c135a414f8bd10f5b59",
+    "results/eurosat_cnn/seed_2027/real/model.pt": "e171ce9d649c5a81c6cf57fd41b6b69b7be82c220f034de2094da0b0256bc795",
+    "results/eurosat_cnn/seed_2027/split_indices.npz": "a440c981bc3985edf913d40b9b9eeac8c7ce026150ae95997b2e04b7adb99c1f",
+    "results/eurosat_cnn/seed_2027/summary.json": "a975f5ab0f4fe7407d545bb4102bb645a2d6e9ac8541cd3ba745c777493a8dd2",
+    "results/eurosat_cnn/seed_2028/data.json": "73d06f9e784bd9d371723101899954305789e2dee38b53e388d3dc0d8bd9c254",
+    "results/eurosat_cnn/seed_2028/quaternion/metrics.json": "deab0f9d68fdac6995b0e52a9b7bc511790e73b0150a953553c5ea6b528107b8",
+    "results/eurosat_cnn/seed_2028/quaternion/model.pt": "f496296ee440cf844c728a9316a3b065643cbf2719e3aeba884edcc1188c7ec0",
+    "results/eurosat_cnn/seed_2028/real/metrics.json": "ad883693b8779767d2b27145e8a7f91ac3fc924459b5c306fcd140d473df533d",
+    "results/eurosat_cnn/seed_2028/real/model.pt": "4a57817d8e90aaf2809f8185d7ac79e1fef372eed313044c621de4b2a83e481a",
+    "results/eurosat_cnn/seed_2028/split_indices.npz": "a440c981bc3985edf913d40b9b9eeac8c7ce026150ae95997b2e04b7adb99c1f",
+    "results/eurosat_cnn/seed_2028/summary.json": "1fab0714599201b06b5fc60fa94c8503e5c538571e40250d24853fb939558922",
+    "results/eurosat_cnn/summary.json": "3e99e4dff2ff6e8f07ab8888364809c508a65058158991f1f957c7bd20b63f74",
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "scripts/compression_curve.py": "d3a3ba3788ae6890712b341276f44bc646cc12404e3119056186ff8ae34651da",
+    "scripts/eurosat_cnn.py": "4e4b1f8a71714f044219fc82231df926c405e7cb648a5bed638c84a3c29eb8f8",
+    "scripts/finetune_compression.py": "bb5eed8abf262370f667a5809d806abb9786d70b9cd8bc724d08d3e4db791daf",
+    "scripts/multisource_compensation.py": "84f5915d76dfaecd9c25e8addeaf0cc74b547b11a33dddcb98abdb86951faca5",
+    "scripts/run_compression_curves.py": "af36a96c7feff31bec88ef3877ae667284a10992dc75691db515b6710d9319ad",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51",
+    "src/compression/multilayer.py": "623af6fd9417782e661ca01eeb30d2e7459b352afeee831156a098e807ec8c14",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+    "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/models/cifar_fourblock.py": "9f6792bbd24e2a30dc48028e46d7ba89318a07109b815577dc7b6d1ad97cede6",
+    "src/models/eurosat_cnn.py": "9bf8b1a8f4302c4d11d3d5f17e9b14bd2676f8cec2e2e02b22ca9470520a84d3",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b"
+  },
+  "baselines": [
+    {
+      "architecture": "cnn6",
+      "seed": 2026,
+      "path": "results/eurosat_cnn/seed_2026",
+      "baseline_first_update_passed": true,
+      "historical_baseline_test_use": false
+    },
+    {
+      "architecture": "real_cnn6",
+      "seed": 2026,
+      "path": "results/eurosat_cnn/seed_2026",
+      "baseline_first_update_passed": true,
+      "historical_baseline_test_use": false
+    },
+    {
+      "architecture": "cnn6",
+      "seed": 2027,
+      "path": "results/eurosat_cnn/seed_2027",
+      "baseline_first_update_passed": true,
+      "historical_baseline_test_use": false
+    },
+    {
+      "architecture": "real_cnn6",
+      "seed": 2027,
+      "path": "results/eurosat_cnn/seed_2027",
+      "baseline_first_update_passed": true,
+      "historical_baseline_test_use": false
+    },
+    {
+      "architecture": "cnn6",
+      "seed": 2028,
+      "path": "results/eurosat_cnn/seed_2028",
+      "baseline_first_update_passed": true,
+      "historical_baseline_test_use": false
+    },
+    {
+      "architecture": "real_cnn6",
+      "seed": 2028,
+      "path": "results/eurosat_cnn/seed_2028",
+      "baseline_first_update_passed": true,
+      "historical_baseline_test_use": false
+    }
+  ],
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "torch": "2.6.0+cu124",
+    "numpy": "2.2.6",
+    "cuda_build": "12.4",
+    "platform": "Windows-10-10.0.26200-SP0"
+  },
+  "official_test_evaluated_by_runner": false
+}

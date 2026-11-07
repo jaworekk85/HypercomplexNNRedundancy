@@ -1,0 +1,64 @@
+{
+  "config": {
+    "source_multiseed": "results/cnn_multiseed",
+    "source_random_compression": "results/cnn_compression",
+    "output": "results/quaternion_merging",
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "block": 3,
+    "removed_units": 8,
+    "fit_calibration_positions": "even",
+    "check_calibration_positions": "odd",
+    "fit_images": 500,
+    "check_images": 500,
+    "activation_target": "Global-average-pooled last-block units, not individual spatial feature positions",
+    "diagnostic_maps": [
+      "quaternion_right",
+      "diagonal",
+      "full_real"
+    ],
+    "compression_maps": [
+      "quaternion_right",
+      "full_real"
+    ],
+    "intercept": true,
+    "fitting": "Float64 unregularized least squares on fit half only; right-Hamilton affine map 4+4, diagonal affine 4+4, unrestricted affine 16+4 coefficients",
+    "pair_selection": "Greedy lowest fit-half class-centered single-pair logit residual MSE; disjoint keeper/victim endpoints; deterministic index ties; own pairs for each map",
+    "gate_maximum_check_mse_ratio_vs_mean_only": 0.9,
+    "gate_maximum_check_mse_ratio_vs_pruning": 0.75,
+    "gate_minimum_passing_seeds": 2,
+    "gate": "If either compression map meets both aggregate held-out logit-MSE ratios in at least 2/3 seeds, physically evaluate both maps and all controls in all seeds. Otherwise preserve diagnostics and skip physical compression.",
+    "controls": [
+      "same_victims_pruned",
+      "same_victims_mean_only",
+      "random_pruning_10_reused_selections"
+    ],
+    "random_repetitions": 10,
+    "physical_evaluation_splits": [
+      "check_calibration",
+      "validation"
+    ],
+    "device": "cuda",
+    "cpu_threads": 4,
+    "batch_size": 256,
+    "equivalence_tolerance": 0.0001,
+    "optimizer_updates": 0,
+    "bn_recalibration": false,
+    "official_test_evaluation": false,
+    "scope": "A bounded activation/merging pilot on three existing CNNs. No new CNN training, algebra search, novel-method claim or blind-test claim. Coefficients fitted to calibration are folded into the existing readout and are not additional inference parameters."
+  },
+  "diagnostic_protocol_sha256": "890a5f733ab86e173e2f63fe770add87ec55e971d590d1f6c88acdcf3679656d",
+  "gate_frozen_sha256": "6c0900bc7e619386adc2427276f3dc8488aaee208c7831c5a1837398f4c31627",
+  "physical_script_sha256": "ca43aefdcb5ee6a74e4c20acae0fdd982a52d9ddc3a6896dcb4eb09678196004",
+  "additional_protected_inputs": {
+    "results/cnn_compression/seed_2026/baseline_r00_removed00/model.pt": "c48d9aeb786e6705dbd3838a47c778f79238968d5c7e00d1f9643931c9597209",
+    "results/cnn_compression/seed_2027/baseline_r00_removed00/model.pt": "47ba3720c8142816b1c56b1afa73a72b7b8433946420f2fc859af40b7eecb23a",
+    "results/cnn_compression/seed_2028/baseline_r00_removed00/model.pt": "a5878b3530c9b5f108f8f3494d55cfea5ff2a166b9dc3c8bf22ac8d14a2a913d"
+  },
+  "optimizer_updates": 0,
+  "bn_recalibration": false,
+  "official_test_evaluated": false
+}

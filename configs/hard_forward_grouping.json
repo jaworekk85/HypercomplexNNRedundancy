@@ -1,0 +1,20 @@
+{
+  "pilot_reference": "results/learned_grouping_pilot",
+  "output": "results/hard_forward_grouping",
+  "training_config": "configs/learned_grouping.json",
+  "new_training_modes": ["learned_hard_forward"],
+  "reused_control": "random",
+  "forward_assignment": "Exact maximum-weight one-to-one matching of routing logits at every adaptive forward; no feature mixing",
+  "surrogate_backward": "H + (Sinkhorn(logits, temperature) - stop_gradient(Sinkhorn(logits, temperature))); biased straight-through gradient",
+  "selection": "Minimum original-BN validation CE at epochs 40 through 50, identically to the reused random control",
+  "evaluation_splits": ["validation", "calibration"],
+  "official_test_evaluation": false,
+  "bn_layers": ["blocks.1.1", "blocks.1.4", "blocks.2.1", "blocks.2.4"],
+  "bn_batch_size": 256,
+  "bn_refit": "Identical frozen layer-wise training-only population estimator for both selected models; no weight updates",
+  "primary_comparison": "Learned minus fixed-random held-out calibration accuracy after the same BN refit",
+  "minimum_calibration_gain_for_replication": 0.005,
+  "maximum_validation_deficit_for_replication": 0.005,
+  "replication_requires_new_unordered_groups": true,
+  "scope": "One-seed controlled feasibility pilot; no sweep, compression or official-test inference. Extra training variables/compute are reported. A positive gate is only motivation for replication, not evidence of a general gain or novelty."
+}

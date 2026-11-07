@@ -1,0 +1,33 @@
+{
+  "output": "results/tail_compensation_pilot",
+  "pilot": "results/direct_consumer_pilot",
+  "parent_protocol": "results/direct_consumer_replication/protocol.json",
+  "reference_group": "results/structure_cost_study/cifar/bn/seed_2026/f_500",
+  "seed": 2026,
+  "fraction": 0.5,
+  "site_index": 4,
+  "site": [2, 0],
+  "cases": ["local_extra", "tail_logits"],
+  "steps": 200,
+  "batch_size": 32,
+  "learning_rate": 0.0001,
+  "relative_ridge": 0.001,
+  "order_seed": 982026,
+  "ridge_alpha": 0.001,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "scientific_results": true,
+  "limits": null,
+  "finetune": {
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000
+  },
+  "hypothesis": "At one prespecified late Q consumer, logit-sensitive unlabeled refinement may improve final compact accuracy relative to equal-step local reconstruction refinement and the reused direct-Q solution, while retaining Hamilton weights and physical parameter count.",
+  "scope": "One CIFAR BN seed2026 f=.5 discovery source. Reuse direct-Q checkpoints through site4. Teacher is the current pre-site4 reference (site3 checkpoint), not an untouched full teacher. Both new cases start from identical site4 direct-Q weights and modify ONLY the last Q convolution kernel: 200 Adam FP32 steps on 500 unlabeled fit images, same batches, no augmentation, eval-mode BN/dropout. local_extra reconstructs pre-BN consumer outputs; tail_logits reconstructs ten logits through the frozen tail. Both use mean squared target error plus .001 times relative squared kernel displacement from their identical starting kernel. Final step endpoint, no tuning/check selection. Then apply the SAME frozen final-site victims with original map-fold real head and perform matched three-epoch supervised repair. Existing map-fold and direct-Q outcomes are reused; only local_extra is an equal-additional-step comparator. This tests ONE late consumer, not a new full-network method. No new baseline, seed sweep, test inference, novelty claim or automatic expansion. KD for pruned QNNs is already prior art (Singh2026 IX-B); Lookahead is ordinary CNN prior art. Cached inputs avoid repeating the frozen stem. Incomplete 200-step refinement or 3-epoch repair may restart from its saved input, without best-checkpoint selection."
+}

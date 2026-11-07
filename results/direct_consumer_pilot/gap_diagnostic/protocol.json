@@ -1,0 +1,40 @@
+{
+  "config": {
+    "pilot": "results/direct_consumer_pilot",
+    "output": "results/direct_consumer_pilot/gap_diagnostic",
+    "sites": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "relative_eigen_cutoff": 1e-10,
+    "cpu_threads": 2,
+    "scope": "Post-pilot algebraic diagnostic on the same saved input/target moments only; no new network training or inference. Fit the best shared quaternion-map perturbation around each stored folded prior for the SAME centered consumer-output ridge objective used by direct Q. Compare folded prior, numerically optimized shared-map subspace, and existing full-Q consumer solution. Teacher consumer weights are loaded from the preceding pilot checkpoint (or original source at site0). All check moments remain evaluation-only. This separates re-optimizing shared maps for the new objective from releasing their ties across outputs/spatial offsets; the first difference includes the change of objective/regularization, not a pure isolated loss effect. Numerical least-squares projection facts are background, not novelty. One existing CIFAR source/point; local regularized objectives, not a decomposition of whole-network accuracy or an architecture lower bound. No automatic wider study."
+  },
+  "source_hashes": {
+    "configs/direct_consumer_gap_diagnostic.json": "b3add7d64243d74e76867345c923112eff2416004a96d94d7f6e40c9e3dcadd2",
+    "scripts/direct_consumer_gap_diagnostic.py": "209e5c7d68778a4c940d9601608521da798f034b79dbc229fc1b6ed60eb42c1d",
+    "src/compression/direct_consumer.py": "50a1b42a2996d1ab1a34cd5730533a72aa25e39ca0560ebeadea4dbaea7ea106",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51"
+  },
+  "input_hashes": {
+    "results/direct_consumer_pilot/summary.json": "74faddf776e5cd4b4966a0fa3a6d9c3748e185dc04a280184a3e71901a7f8b10",
+    "results/direct_consumer_pilot/sites/site_00/moments.npz": "e26246b6cad0c7fce08c1e8fdd52f056bf3460a137a91cda6768072c58fa3df1",
+    "results/direct_consumer_pilot/sites/site_00/metrics.json": "34b006bd9c4a96e17afd426c854cb44c21b6b6f0ba875f9c4a134ba4b48bf60e",
+    "results/cifar_cnn/quaternion/model.pt": "30d00aa6cf7b8a627bd8e99aa51e885cdfa555815ff7911d6048f88d70115101",
+    "results/direct_consumer_pilot/sites/site_01/moments.npz": "b39cdf78210f2065c53247d950fd1ef569f398ceb02ad15b7638d9a4d2ebaf03",
+    "results/direct_consumer_pilot/sites/site_01/metrics.json": "367e30a80fbc81b4337415aec98c57f0acaeadcc579f6027c7045be52f4eb915",
+    "results/direct_consumer_pilot/sites/site_00/model.pt": "7bef111343bb03a28a7f8b7060f5e65668a176f4aca9331726b1533c34ba5bbe",
+    "results/direct_consumer_pilot/sites/site_02/moments.npz": "5565e7afbce5b10b9b4cc7cef9da95fbb5fb9e9959e6d590c260effa5530973d",
+    "results/direct_consumer_pilot/sites/site_02/metrics.json": "ed81ce118edc5cdb3cd81017b4ca2114bb0139e125a25af5bb5f892f5cc632f2",
+    "results/direct_consumer_pilot/sites/site_01/model.pt": "c63c55789f2267cb37aa8d2786387c6389bb72d843155f0371bddd5785a5bfd0",
+    "results/direct_consumer_pilot/sites/site_03/moments.npz": "9db780a41e469031ec403b5e892e56c0bcec47129f3acabf5ce71feaff23d7db",
+    "results/direct_consumer_pilot/sites/site_03/metrics.json": "d8f8f4fcf5b669ad9e8c1ae89134063e51c786d7553c6e244b4814075485a728",
+    "results/direct_consumer_pilot/sites/site_02/model.pt": "c67698e726cc37ecbd8cea1458a13bea857f60e09c4eef50f138297d35b8ce60",
+    "results/direct_consumer_pilot/sites/site_04/moments.npz": "c05a86a4b7d4af8d28568f8c11457f1932aa74524a2b1a2c3aa4cc2ac1faeb88",
+    "results/direct_consumer_pilot/sites/site_04/metrics.json": "7ae51c3b802b02484462e751fe45302091dc3005662a6845bd52fec7be066b7d",
+    "results/direct_consumer_pilot/sites/site_03/model.pt": "5e9fc97f7146997407439edd2fc5d65492ad76d78b20d2c6524c7392200f4e51"
+  }
+}

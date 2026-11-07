@@ -1,0 +1,545 @@
+{
+  "source": {
+    "architecture": "cnn6",
+    "seed": 2026,
+    "path": "results/cifar_cnn",
+    "config": {
+      "seed": 2026,
+      "models": [
+        "quaternion",
+        "real"
+      ],
+      "quaternion_widths": [
+        8,
+        16,
+        32
+      ],
+      "real_widths": [
+        16,
+        32,
+        64
+      ],
+      "dropout": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "epochs": 50,
+      "batch_size": 128,
+      "learning_rate": 0.001,
+      "minimum_learning_rate": 1e-05,
+      "weight_decay": 0.0001,
+      "optimizer": "AdamW",
+      "target_accuracy": 0.8,
+      "device": "cuda",
+      "mixed_precision": true,
+      "cpu_threads": 4,
+      "augmentation": "Per-image random crop from 4-pixel zero padding and horizontal flip, on training only.",
+      "split_source": "results/rgb_pilot/split_indices.npz",
+      "archive": ".cache/keras/datasets/cifar-10-batches-py-target_archive",
+      "checkpoint_selection": "Minimum validation cross-entropy; test only after both model trainings finish.",
+      "scope": "One-seed CNN quality gate. 80 percent is a target until measured, not an architecture guarantee."
+    },
+    "cache_path": "results/block_analysis/quaternion/block_2/calibration_activations.npz",
+    "family": "quaternion",
+    "normalization": "bn",
+    "dataset": "cifar",
+    "curve_output": "results/compression_curve"
+  },
+  "fraction": 0.25,
+  "frozen_victims": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      9,
+      12,
+      14,
+      15
+    ],
+    [
+      0,
+      2,
+      8,
+      12
+    ],
+    [
+      4,
+      5,
+      6,
+      7,
+      11,
+      17,
+      27,
+      30
+    ],
+    [
+      2,
+      6,
+      16,
+      18,
+      23,
+      26,
+      29,
+      31
+    ]
+  ],
+  "q_site_records": [
+    {
+      "site": [
+        0,
+        0
+      ],
+      "victims": [
+        1,
+        2
+      ],
+      "kept": 6,
+      "projection_discarded_energy_fraction": 8.063726769507803e-33,
+      "fold_error": 4.76837158203125e-06
+    },
+    {
+      "site": [
+        0,
+        1
+      ],
+      "victims": [
+        3,
+        4
+      ],
+      "kept": 6,
+      "projection_discarded_energy_fraction": 7.948665983781081e-33,
+      "fold_error": 3.814697265625e-06
+    },
+    {
+      "site": [
+        1,
+        0
+      ],
+      "victims": [
+        9,
+        12,
+        14,
+        15
+      ],
+      "kept": 12,
+      "projection_discarded_energy_fraction": 7.906125177584947e-33,
+      "fold_error": 3.814697265625e-06
+    },
+    {
+      "site": [
+        1,
+        1
+      ],
+      "victims": [
+        0,
+        2,
+        8,
+        12
+      ],
+      "kept": 12,
+      "projection_discarded_energy_fraction": 8.083507969499767e-33,
+      "fold_error": 2.86102294921875e-06
+    },
+    {
+      "site": [
+        2,
+        0
+      ],
+      "victims": [
+        4,
+        5,
+        6,
+        7,
+        11,
+        17,
+        27,
+        30
+      ],
+      "kept": 24,
+      "projection_discarded_energy_fraction": 7.985534603668376e-33,
+      "fold_error": 2.1457672119140625e-06
+    },
+    {
+      "site": [
+        2,
+        1
+      ],
+      "victims": [
+        2,
+        6,
+        16,
+        18,
+        23,
+        26,
+        29,
+        31
+      ],
+      "kept": 24,
+      "projection_discarded_energy_fraction": 0.0,
+      "fold_error": 9.5367431640625e-07
+    }
+  ],
+  "full_site_records": [
+    {
+      "site": [
+        0,
+        0
+      ],
+      "victims": [
+        1,
+        2
+      ],
+      "fold_max_abs_error": 2.86102294921875e-06,
+      "local_reconstruction": [
+        {
+          "victim": 1,
+          "fit_full_mse": 0.04027829163390226,
+          "check_full_mse": 0.04370112573357881,
+          "fit_q_mse": 0.1298529524104311,
+          "check_q_mse": 0.13889045759744836
+        },
+        {
+          "victim": 2,
+          "fit_full_mse": 0.07135743527826412,
+          "check_full_mse": 0.07648183967512125,
+          "fit_q_mse": 0.1491388335557743,
+          "check_q_mse": 0.15678307183139806
+        }
+      ]
+    },
+    {
+      "site": [
+        0,
+        1
+      ],
+      "victims": [
+        3,
+        4
+      ],
+      "fold_max_abs_error": 2.86102294921875e-06,
+      "local_reconstruction": [
+        {
+          "victim": 3,
+          "fit_full_mse": 0.08044068647035921,
+          "check_full_mse": 0.0842549033020078,
+          "fit_q_mse": 0.12210208397909966,
+          "check_q_mse": 0.1276050431365596
+        },
+        {
+          "victim": 4,
+          "fit_full_mse": 0.07770369765873811,
+          "check_full_mse": 0.08144796694633531,
+          "fit_q_mse": 0.10889777759354258,
+          "check_q_mse": 0.11300551509599026
+        }
+      ]
+    },
+    {
+      "site": [
+        1,
+        0
+      ],
+      "victims": [
+        9,
+        12,
+        14,
+        15
+      ],
+      "fold_max_abs_error": 1.9073486328125e-06,
+      "local_reconstruction": [
+        {
+          "victim": 9,
+          "fit_full_mse": 0.06632672799243972,
+          "check_full_mse": 0.07066974789851173,
+          "fit_q_mse": 0.08313490234366733,
+          "check_q_mse": 0.08819526959709602
+        },
+        {
+          "victim": 12,
+          "fit_full_mse": 0.08658956695008167,
+          "check_full_mse": 0.08882565203416525,
+          "fit_q_mse": 0.10750254376139785,
+          "check_q_mse": 0.10906663127637806
+        },
+        {
+          "victim": 14,
+          "fit_full_mse": 0.0503527285491566,
+          "check_full_mse": 0.05494076247375371,
+          "fit_q_mse": 0.07215228019653253,
+          "check_q_mse": 0.07877459136731044
+        },
+        {
+          "victim": 15,
+          "fit_full_mse": 0.06001012769942846,
+          "check_full_mse": 0.06358644402116653,
+          "fit_q_mse": 0.08651050913779179,
+          "check_q_mse": 0.09089413327346199
+        }
+      ]
+    },
+    {
+      "site": [
+        1,
+        1
+      ],
+      "victims": [
+        0,
+        2,
+        8,
+        12
+      ],
+      "fold_max_abs_error": 1.9073486328125e-06,
+      "local_reconstruction": [
+        {
+          "victim": 0,
+          "fit_full_mse": 0.038758740555371346,
+          "check_full_mse": 0.04028779298977328,
+          "fit_q_mse": 0.046410707874057024,
+          "check_q_mse": 0.047946097616996836
+        },
+        {
+          "victim": 2,
+          "fit_full_mse": 0.0387711873899164,
+          "check_full_mse": 0.038897557079347035,
+          "fit_q_mse": 0.051293007687058564,
+          "check_q_mse": 0.05143246069285199
+        },
+        {
+          "victim": 8,
+          "fit_full_mse": 0.04650041480356813,
+          "check_full_mse": 0.048441070599904205,
+          "fit_q_mse": 0.05954337778490887,
+          "check_q_mse": 0.06208335726584811
+        },
+        {
+          "victim": 12,
+          "fit_full_mse": 0.040071771541278826,
+          "check_full_mse": 0.040624932607952684,
+          "fit_q_mse": 0.05005753223161963,
+          "check_q_mse": 0.0508562346658673
+        }
+      ]
+    },
+    {
+      "site": [
+        2,
+        0
+      ],
+      "victims": [
+        4,
+        5,
+        6,
+        7,
+        11,
+        17,
+        27,
+        30
+      ],
+      "fold_max_abs_error": 1.9073486328125e-06,
+      "local_reconstruction": [
+        {
+          "victim": 4,
+          "fit_full_mse": 0.03154781740876496,
+          "check_full_mse": 0.03316563726372762,
+          "fit_q_mse": 0.043464646325884315,
+          "check_q_mse": 0.045905338012405004
+        },
+        {
+          "victim": 5,
+          "fit_full_mse": 0.028898903440317782,
+          "check_full_mse": 0.030439934744079467,
+          "fit_q_mse": 0.04275190085105281,
+          "check_q_mse": 0.043321834412390514
+        },
+        {
+          "victim": 6,
+          "fit_full_mse": 0.03891936256346261,
+          "check_full_mse": 0.03978408797437993,
+          "fit_q_mse": 0.048749153888198185,
+          "check_q_mse": 0.04986037304147473
+        },
+        {
+          "victim": 7,
+          "fit_full_mse": 0.03474208240706983,
+          "check_full_mse": 0.03647832035531701,
+          "fit_q_mse": 0.048612033571513835,
+          "check_q_mse": 0.05047283842599569
+        },
+        {
+          "victim": 11,
+          "fit_full_mse": 0.03263670725733706,
+          "check_full_mse": 0.03289464544939183,
+          "fit_q_mse": 0.04609765274520665,
+          "check_q_mse": 0.04640763818384089
+        },
+        {
+          "victim": 17,
+          "fit_full_mse": 0.024621907644134525,
+          "check_full_mse": 0.024963110366614947,
+          "fit_q_mse": 0.03697599740959019,
+          "check_q_mse": 0.03662643074432982
+        },
+        {
+          "victim": 27,
+          "fit_full_mse": 0.036117704737176355,
+          "check_full_mse": 0.03825932076558117,
+          "fit_q_mse": 0.05214177432714089,
+          "check_q_mse": 0.05274946570486746
+        },
+        {
+          "victim": 30,
+          "fit_full_mse": 0.0353750460268336,
+          "check_full_mse": 0.035146209874796594,
+          "fit_q_mse": 0.04502617685291187,
+          "check_q_mse": 0.04480770650226627
+        }
+      ]
+    },
+    {
+      "site": [
+        2,
+        1
+      ],
+      "victims": [
+        2,
+        6,
+        16,
+        18,
+        23,
+        26,
+        29,
+        31
+      ],
+      "fold_max_abs_error": 9.5367431640625e-07,
+      "local_reconstruction": [
+        {
+          "victim": 2,
+          "fit_full_mse": 0.07780203375748815,
+          "check_full_mse": 0.0833516472327426,
+          "fit_q_mse": 0.10499986694143297,
+          "check_q_mse": 0.1098046364196159
+        },
+        {
+          "victim": 6,
+          "fit_full_mse": 0.07232588832795728,
+          "check_full_mse": 0.07910733599967858,
+          "fit_q_mse": 0.10855479594484507,
+          "check_q_mse": 0.11479597649983697
+        },
+        {
+          "victim": 16,
+          "fit_full_mse": 0.07279451970090509,
+          "check_full_mse": 0.07518899611443829,
+          "fit_q_mse": 0.1101054146179491,
+          "check_q_mse": 0.10761431146199132
+        },
+        {
+          "victim": 18,
+          "fit_full_mse": 0.07935972362172544,
+          "check_full_mse": 0.08446136189913465,
+          "fit_q_mse": 0.11042723841129555,
+          "check_q_mse": 0.11426049046225967
+        },
+        {
+          "victim": 23,
+          "fit_full_mse": 0.06630865327305059,
+          "check_full_mse": 0.06956768986695676,
+          "fit_q_mse": 0.09609960739686273,
+          "check_q_mse": 0.09728353867522896
+        },
+        {
+          "victim": 26,
+          "fit_full_mse": 0.08355314660186781,
+          "check_full_mse": 0.0859697768144959,
+          "fit_q_mse": 0.11884999649021007,
+          "check_q_mse": 0.11888652790538935
+        },
+        {
+          "victim": 29,
+          "fit_full_mse": 0.07338466911262549,
+          "check_full_mse": 0.07504527425986132,
+          "fit_q_mse": 0.10215213974490575,
+          "check_q_mse": 0.10080198437771076
+        },
+        {
+          "victim": 31,
+          "fit_full_mse": 0.07615732516533637,
+          "check_full_mse": 0.07907455288836872,
+          "fit_q_mse": 0.10666531402466808,
+          "check_q_mse": 0.10764293513016412
+        }
+      ]
+    }
+  ],
+  "free_q_embedding_max_error": 0.0,
+  "architectures": {
+    "q_pruned": {
+      "real_parameters": 42034,
+      "quaternion_convolutions": 6,
+      "dense_real_convolutions": 0,
+      "output_group_widths": [
+        6,
+        6,
+        12,
+        12,
+        24,
+        24
+      ],
+      "bn_layers": 6
+    },
+    "q_comp": {
+      "real_parameters": 42034,
+      "quaternion_convolutions": 6,
+      "dense_real_convolutions": 0,
+      "output_group_widths": [
+        6,
+        6,
+        12,
+        12,
+        24,
+        24
+      ],
+      "bn_layers": 6
+    },
+    "free_q_init": {
+      "real_parameters": 162562,
+      "quaternion_convolutions": 1,
+      "dense_real_convolutions": 5,
+      "output_group_widths": [
+        6,
+        6,
+        12,
+        12,
+        24,
+        24
+      ],
+      "bn_layers": 6
+    },
+    "free_full_fit": {
+      "real_parameters": 162562,
+      "quaternion_convolutions": 1,
+      "dense_real_convolutions": 5,
+      "output_group_widths": [
+        6,
+        6,
+        12,
+        12,
+        24,
+        24
+      ],
+      "bn_layers": 6
+    }
+  },
+  "checkpoint_hashes": {
+    "q_pruned": "d58bdbe9466da08e73aa23591239f2239e07fddbfd152ff27fcbbcef966b362b",
+    "q_comp": "eb2dd9c1eeffed5f27fe3d6385592a631f2822d3004002541e175e5a2a84ffa0",
+    "free_q_init": "2a009cc30b7d5f70089ad0634239499da1e4d12511ff2a8f2283a627c7d13311",
+    "free_full_fit": "b2f5f0be4f2e0af86cb0669d81e02830cc826761419e3dab9b9ad3cf2b03c08f"
+  }
+}

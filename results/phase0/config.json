@@ -1,0 +1,17 @@
+{
+  "seed": 2026,
+  "input_quaternion_units": 2,
+  "hidden_quaternion_units": 6,
+  "classes": 3,
+  "train_samples": 256,
+  "calibration_samples": 128,
+  "test_samples": 128,
+  "optimizer": "Adam",
+  "learning_rate": 0.01,
+  "steps": 240,
+  "activation": "tanh",
+  "kernel_initializer": "glorot_uniform",
+  "data": "Independent Gaussian inputs; labels are argmax of a fixed random linear teacher.",
+  "encoding": "Eight real scalars grouped consecutively into two (real, i, j, k) quaternions; no padding.",
+  "similarity": "Cosine of unit activation vectors after centering each component over calibration samples."
+}

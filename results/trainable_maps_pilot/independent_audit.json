@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "frozen_sources": 130,
+  "frozen_inputs": 296,
+  "full_cpu_split_evaluations": 6,
+  "results": [
+    {
+      "case": "frozen_maps",
+      "before": {
+        "validation": {
+          "cross_entropy": 1.769648895263672,
+          "accuracy": 0.348
+        },
+        "check_calibration": {
+          "cross_entropy": 1.7612645568847656,
+          "accuracy": 0.326
+        }
+      },
+      "after": {
+        "validation": {
+          "cross_entropy": 1.2127349853515625,
+          "accuracy": 0.567
+        },
+        "check_calibration": {
+          "cross_entropy": 1.2539668884277344,
+          "accuracy": 0.558
+        }
+      },
+      "map_component_norms": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frozen_C_equal": true,
+      "cpu_fold_error": 0.0,
+      "architecture": {
+        "real_parameters": 19098,
+        "quaternion_convolutions": 6,
+        "dense_real_convolutions": 0,
+        "output_group_widths": [
+          4,
+          4,
+          8,
+          8,
+          16,
+          16
+        ],
+        "bn_layers": 6
+      },
+      "counts": {
+        "successful": 1124,
+        "attempted": 1125
+      }
+    },
+    {
+      "case": "learned_maps",
+      "before": {
+        "validation": {
+          "cross_entropy": 1.769648895263672,
+          "accuracy": 0.348
+        },
+        "check_calibration": {
+          "cross_entropy": 1.7612645568847656,
+          "accuracy": 0.326
+        }
+      },
+      "after": {
+        "validation": {
+          "cross_entropy": 1.2127391967773438,
+          "accuracy": 0.569
+        },
+        "check_calibration": {
+          "cross_entropy": 1.2522645263671874,
+          "accuracy": 0.564
+        }
+      },
+      "map_component_norms": [
+        0.14056912064552307,
+        0.13276414573192596,
+        0.12276910245418549,
+        0.11614248156547546
+      ],
+      "frozen_C_equal": true,
+      "cpu_fold_error": 0.0,
+      "architecture": {
+        "real_parameters": 19098,
+        "quaternion_convolutions": 6,
+        "dense_real_convolutions": 0,
+        "output_group_widths": [
+          4,
+          4,
+          8,
+          8,
+          16,
+          16
+        ],
+        "bn_layers": 6
+      },
+      "counts": {
+        "successful": 1124,
+        "attempted": 1125
+      }
+    }
+  ],
+  "test_evaluated": false
+}

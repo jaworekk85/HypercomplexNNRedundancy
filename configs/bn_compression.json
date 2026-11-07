@@ -1,0 +1,15 @@
+{
+  "source_compression": "results/cnn_compression",
+  "source_multiseed": "results/cnn_multiseed",
+  "block": 3,
+  "seeds": [2026, 2027, 2028],
+  "removed_fractions": [0.25, 0.5],
+  "policy": "bn_folded_group_l2",
+  "score": "Frobenius norm of four output rows of the BN-folded expanded real Hamilton kernel; excludes folded bias",
+  "tie_break": "Original quaternion unit index ascending",
+  "device": "cuda",
+  "batch_size": 256,
+  "fine_tuning_updates": 0,
+  "batchnorm_recalibration": false,
+  "protocol": "One new fixed weight reference. Reuse all previous random/raw-norm/activation results unchanged. Freeze all new validation cases before final test; no tuning of score, layer or fractions."
+}

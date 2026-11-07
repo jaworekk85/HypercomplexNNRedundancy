@@ -1,0 +1,16 @@
+{
+  "source_multiseed": "results/cnn_multiseed",
+  "source_block_analysis": "results/block_analysis",
+  "block": 3,
+  "seeds": [2026, 2027, 2028],
+  "removed_fractions": [0.0, 0.25, 0.5],
+  "policies": ["random", "incoming_norm", "activation_similarity"],
+  "random_repetitions": 10,
+  "random_seed_offset": 100000,
+  "maximum_validation_accuracy_drop_for_useful_compression": 0.02,
+  "minimum_real_parameter_fraction_saved": 0.1,
+  "device": "cuda",
+  "batch_size": 256,
+  "fine_tuning_updates": 0,
+  "protocol": "Freeze block 3 from seed-2026 calibration/validation gate. Scores use calibration only, no label-based unit selection. Finish all size/policy manifests and validation evaluations before final test. Report all policies, fractions, training seeds and random repetitions."
+}

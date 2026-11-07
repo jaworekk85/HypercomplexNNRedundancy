@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "site": [
+        0,
+        0
+      ],
+      "independent_solve_max_error": 1.3516965324811281e-14,
+      "check_error_decreased": true
+    },
+    {
+      "site": [
+        0,
+        1
+      ],
+      "independent_solve_max_error": 8.382183835919932e-15,
+      "check_error_decreased": true
+    },
+    {
+      "site": [
+        1,
+        0
+      ],
+      "independent_solve_max_error": 3.9496184101039944e-14,
+      "check_error_decreased": true
+    },
+    {
+      "site": [
+        1,
+        1
+      ],
+      "independent_solve_max_error": 8.604228440844963e-15,
+      "check_error_decreased": true
+    },
+    {
+      "site": [
+        2,
+        0
+      ],
+      "independent_solve_max_error": 3.127359482490988e-14,
+      "check_error_decreased": true
+    }
+  ],
+  "scope": "Hashes, independent Torch-vs-NumPy solve, MSE replay and independent CPU prediction replay on validation/check for before/after checkpoints",
+  "test_evaluated": false,
+  "reloaded_cpu_prediction_replay": [
+    {
+      "stage": "before",
+      "split": "validation",
+      "cross_entropy": 1.769648895263672,
+      "accuracy": 0.348
+    },
+    {
+      "stage": "before",
+      "split": "check_calibration",
+      "cross_entropy": 1.7612645568847656,
+      "accuracy": 0.326
+    },
+    {
+      "stage": "after",
+      "split": "validation",
+      "cross_entropy": 1.2127349853515625,
+      "accuracy": 0.567
+    },
+    {
+      "stage": "after",
+      "split": "check_calibration",
+      "cross_entropy": 1.2539668884277344,
+      "accuracy": 0.558
+    }
+  ]
+}

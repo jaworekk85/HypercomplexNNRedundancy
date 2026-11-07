@@ -1,0 +1,134 @@
+{
+  "config": {
+    "output": "results/activation_sensitivity/split_leaky_relu/compression_curve",
+    "dataset": "cifar",
+    "architectures": [
+      "cnn6"
+    ],
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "fractions": [
+      0.25,
+      0.5
+    ],
+    "ridge_alpha": 0.001,
+    "random_repetitions": 5,
+    "random_seed_offset": 800000,
+    "fit_half": "even calibration images (500)",
+    "check_half": "odd calibration images (500)",
+    "batch_size": 128,
+    "device": "cuda",
+    "cpu_threads": 4,
+    "equivalence_tolerance": 0.001,
+    "equivalence_images": 200,
+    "limits": null,
+    "policies": {
+      "baseline": "uncompressed source model",
+      "random": "random victims at every site, pruned without compensation",
+      "random_comp": "the same random victims, each replaced by a multi-source ridge reconstruction folded into the consumer (right-Hamilton for quaternion, scalar for real)",
+      "bn_pruned": "smallest BN-folded kernel magnitude at every site, pruned without compensation (standard magnitude reference)",
+      "greedy_comp": "greedy backward elimination by reconstruction residual times outgoing energy, then compensation (main policy)",
+      "greedy_pruned": "the greedy_comp victims, pruned without compensation (isolates compensation from selection)",
+      "greedy_full_projected": "quaternion only, phase A only: the greedy_comp victims with unconstrained 4x4 maps, Hamilton-projected at convolution consumers (cost of fitting without the structure)",
+      "scratch": "the same compact architecture trained from scratch with the baseline trainer and full budget"
+    },
+    "finetune": {
+      "enabled": true,
+      "policies": [
+        "baseline",
+        "random",
+        "bn_pruned",
+        "random_comp",
+        "greedy_comp"
+      ],
+      "random_repetitions_finetuned": 3,
+      "epochs": 3,
+      "batch_size": 128,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-06,
+      "weight_decay": 0.0001,
+      "mixed_precision": true,
+      "order_seed_offset": 80000,
+      "augment_seed_offset": 90000
+    },
+    "scratch": {
+      "enabled": false,
+      "fractions": [],
+      "epochs": null
+    },
+    "comparisons": [
+      [
+        "greedy_comp@before",
+        "random@before"
+      ],
+      [
+        "greedy_comp@before",
+        "bn_pruned@before"
+      ],
+      [
+        "greedy_comp@before",
+        "greedy_pruned@before"
+      ],
+      [
+        "random_comp@before",
+        "random@before"
+      ],
+      [
+        "greedy_comp@before",
+        "random_comp@before"
+      ],
+      [
+        "greedy_comp@before",
+        "greedy_full_projected@before"
+      ],
+      [
+        "greedy_comp@after",
+        "random@after"
+      ],
+      [
+        "greedy_comp@after",
+        "bn_pruned@after"
+      ],
+      [
+        "random_comp@after",
+        "random@after"
+      ],
+      [
+        "greedy_comp@after",
+        "random_comp@after"
+      ]
+    ],
+    "primary_outcome": "Absolute validation/check accuracy and CE plus change relative to each activation own uncompressed baseline, before/after equal three-epoch fine-tuning.",
+    "primary_questions": [
+      "Are within-Q compression conclusions sensitive to activation choice?"
+    ],
+    "official_test_evaluation": false,
+    "scope": "Bounded CIFAR quaternion CNN6 activation-sensitivity pilot, three seeds, two fractions. Fresh 50-epoch baselines; identical fit/fold and three-epoch fine-tuning policies. Reuse original ReLU results; random fraction indices explicitly aligned to the parent. No activation-specific scratch, real/coupled control, EuroSAT replication or test inference. MagnitudeTanh is published prior art (PoppelbaumSchwung2024Activations Eq.21).",
+    "activation": "split_leaky_relu"
+  },
+  "source_hashes": {
+    "scripts/activation_sensitivity.py": "f5cd9407c8aedec800aa96a1a92d9cab5eb856e532d70cda3efaae557e78a88d",
+    "src/models/activation_cnn.py": "064b98a3866bb1ab884705b7afad98362c554e256b3e92c5bb33ad12051bc75e",
+    "scripts/compression_curve.py": "d3a3ba3788ae6890712b341276f44bc646cc12404e3119056186ff8ae34651da",
+    "src/compression/multilayer.py": "623af6fd9417782e661ca01eeb30d2e7459b352afeee831156a098e807ec8c14",
+    "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51",
+    "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654",
+    "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+    "configs/activation_sensitivity.json": "b8ba03641822902ce09561c6d341b1ffc5e58b7104d8359e654abc2be9f4a9d5",
+    "configs/activation_curve_split_leaky_relu.json": "f4a95010833408002c0acfd4ad7fa0a961d5f49077364d043b13ebc6a4a41b77"
+  },
+  "official_test_evaluated": false
+}

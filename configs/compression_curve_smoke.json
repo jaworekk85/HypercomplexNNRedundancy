@@ -1,0 +1,38 @@
+{
+  "output": ".cache/smoke/compression_curve_review_20261104",
+  "dataset": "cifar",
+  "architectures": ["cnn6", "real_cnn6"],
+  "seeds": [2026],
+  "fractions": [0.5, 0.875],
+  "ridge_alpha": 0.001,
+  "random_repetitions": 2,
+  "random_seed_offset": 800000,
+  "batch_size": 128,
+  "device": "cpu",
+  "cpu_threads": 2,
+  "equivalence_tolerance": 0.001,
+  "equivalence_images": 32,
+  "limits": {"train": 512, "validation": 256, "fit": 64, "check_calibration": 64, "calibration": 128},
+  "finetune": {
+    "enabled": true,
+    "policies": ["baseline", "random", "bn_pruned", "random_comp", "greedy_comp"],
+    "random_repetitions_finetuned": 1,
+    "epochs": 1,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": false,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000
+  },
+  "scratch": {"enabled": true, "fractions": [0.875], "epochs": 1},
+  "comparisons": [
+    ["greedy_comp@before", "random@before"],
+    ["greedy_comp@before", "greedy_full_projected@before"],
+    ["greedy_comp@after", "random@after"],
+    ["greedy_comp@after", "scratch@scratch"]
+  ],
+  "official_test_evaluation": false,
+  "scope": "Pipeline smoke test only (tiny subsets, CPU, one epoch). Not a result; delete .cache/smoke freely."
+}

@@ -1,0 +1,28 @@
+{
+  "output": "results/trainable_maps_pilot",
+  "parent_protocol": "results/tail_compensation_pilot/protocol.json",
+  "pilot": "results/direct_consumer_pilot",
+  "reference_group": "results/structure_cost_study/cifar/bn/seed_2026/f_500",
+  "seed": 2026,
+  "fraction": 0.5,
+  "cases": ["frozen_maps", "learned_maps"],
+  "target_layer": "blocks.2.3",
+  "device": "cuda",
+  "cpu_threads": 4,
+  "finetune": {
+    "epochs": 3,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "mixed_precision": true,
+    "order_seed_offset": 80000,
+    "augment_seed_offset": 90000
+  },
+  "hypothesis": "Joint supervised fine-tuning of a compact Q model and temporary Q reconstruction-map corrections may alter optimization and recovered accuracy at an unchanged deployed compact architecture.",
+  "initialization": "Both cases load the identical direct-Q CIFAR BN seed2026 f=.5 compact-before checkpoint (19098 reals). Effective last Q kernel is B + sum_v delta_a[k,v] * C[o,v,offset], with delta_a initialized to ZERO. This trains corrections to a map contribution already absorbed into B, rather than decay-regularizing the old absolute ridge coefficients. Frozen C is taken from the direct-pilot pre-site4 consumer (site3 checkpoint), with removed INPUT indices from frozen site4 victims and retained OUTPUT indices from frozen site5 victims. No C is trained. No new channels/masks, labels in initialization or reconstruction fit are selected.",
+  "scope": "One discovery source and ONE late Q consumer only. Two NEW three-epoch supervised CE repairs; all ordinary compact parameters and BN behave as in the existing recipe. frozen_maps keeps delta_a as a zero buffer; learned_maps makes its 1024 real components trainable. Same initialization, order/augmentation stream, schedule and labeled train data. No distillation/calibration stage, alpha or learning-rate search, new baseline training, new test evaluation or automatic extension. Joint training has 20122 trainable reals versus 19098 in control and 9216 frozen C coefficients plus a 64-real product-basis buffer; deploy both exactly to standard 6-Q-convolution/19098-real architecture. Temporary map storage is 1024 reals even in the frozen buffer control. Same attempted schedules; count successful AMP steps. Additional variables are NOT additional inference capacity. AdamW on centered corrections is a specified optimization choice, not equivalence to plain-SGD preconditioning. Report failures/negative outcomes.",
+  "resume": "No scientific training on prepare. Explicit --run required after the user returns. Atomic epoch-boundary model/optimizer/scaler/RNG checkpoints; interrupted or stopped partial epoch restarts from its beginning. STOP file under the output folder is checked after batches; remove it when explicitly resuming. Final epoch only, no best validation selection.",
+  "prior_art": ["Ding2021ResRep", "Zhang2026RCP", "Mahabadi2021Compacter", "Ding2023RepOptimizers", "Vecchi2020", "Singh2026"],
+  "priority_status": "Exact post-Q-pruning Hamilton-map fine-tuning predecessor not located in targeted review; firstness NOT confirmed. Learned compensators and structural/gradient reparameterization are established broadly. This pilot is an optimization hypothesis, not a novelty claim."
+}

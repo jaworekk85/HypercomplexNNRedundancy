@@ -1,0 +1,64 @@
+{
+  "config": {
+    "output": "results/activation_sensitivity",
+    "registered_utc": "2026-11-04T17:50:37.618012+00:00",
+    "dataset": "cifar",
+    "baseline_source": "results/cifar_cnn",
+    "relu_reference": "results/compression_curve",
+    "activations": [
+      "split_leaky_relu",
+      "magnitude_tanh"
+    ],
+    "negative_slope": 0.1,
+    "activation_epsilon": 1e-06,
+    "training_epochs": 50,
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "fractions": [
+      0.25,
+      0.5
+    ],
+    "parent_random_fraction_indices": [
+      1,
+      2
+    ],
+    "curve_configs": {
+      "split_leaky_relu": "configs/activation_curve_split_leaky_relu.json",
+      "magnitude_tanh": "configs/activation_curve_magnitude_tanh.json"
+    },
+    "device": "cuda",
+    "cpu_threads": 4,
+    "official_test_evaluation": false,
+    "queue_after": "all existing CIFAR/EuroSAT coarse and 37.5/62.5 refinement curves",
+    "scope": "Exploratory sensitivity study registered after inspecting ReLU results. Six new baseline trainings, then per-activation compression and matched fine-tuning. No novel activation, superiority or isolated component-coupling claim. MagnitudeTanh also changes boundedness/saturation; no split-Tanh or matched real coupled control in this initial study."
+  },
+  "hashes": {
+    "configs/activation_curve_magnitude_tanh.json": "6b564284c2a1d895c72dab22834f7f705621c3d353aa9dbe12f43edfc954192f",
+    "configs/activation_curve_split_leaky_relu.json": "f4a95010833408002c0acfd4ad7fa0a961d5f49077364d043b13ebc6a4a41b77",
+    "configs/activation_sensitivity.json": "b8ba03641822902ce09561c6d341b1ffc5e58b7104d8359e654abc2be9f4a9d5",
+    "configs/compression_curve_queue.json": "efbdaa8711b2e806c1cda5868f5ed300be4888d42fb0463640b7392ef0e7ef50",
+    "scripts/activation_sensitivity.py": "f5cd9407c8aedec800aa96a1a92d9cab5eb856e532d70cda3efaae557e78a88d",
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "scripts/compression_curve.py": "d3a3ba3788ae6890712b341276f44bc646cc12404e3119056186ff8ae34651da",
+    "scripts/run_activation_queue.py": "bfad3f52a81082a319be03837d20d735961f52c81ea9c9cbe097ed359e846566",
+    "scripts/run_compression_curves.py": "af36a96c7feff31bec88ef3877ae667284a10992dc75691db515b6710d9319ad",
+    "scripts/run_curve_queue.py": "a4878ed1e190cec021c3b82ee5935026da90f5f6d3dfc6cc3ed94d4bdafa291f",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51",
+    "src/compression/multilayer.py": "623af6fd9417782e661ca01eeb30d2e7459b352afeee831156a098e807ec8c14",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+    "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74",
+    "src/models/activation_cnn.py": "064b98a3866bb1ab884705b7afad98362c554e256b3e92c5bb33ad12051bc75e",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b"
+  }
+}

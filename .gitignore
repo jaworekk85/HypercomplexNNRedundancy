@@ -1,0 +1,33 @@
+.venv/
+.venv-cuda/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.cache/
+results/**/model.keras
+results/**/model.pt
+results/**/last.pt
+
+# Large generated datasets, intermediate arrays and training checkpoints.
+*.npz
+*.npy
+*.pt
+*.pth
+*.keras
+*.ckpt
+*.safetensors
+*.tmp
+*.log
+*.jsonl
+
+# Keep the two compact selected ResNet baselines and reproducible split indices.
+!results/resnet20_baselines/real/model.pt
+!results/resnet20_baselines/quaternion/model.pt
+!results/**/split_indices.npz
+
+# Local credentials and editor settings.
+.env
+.env.*
+*.pem
+*.key
+.vscode/

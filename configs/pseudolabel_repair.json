@@ -1,0 +1,34 @@
+{
+  "output": "results/pseudolabel_repair",
+  "dataset": "cifar",
+  "architecture": "cnn6",
+  "activation": "split_relu",
+  "parent_curve": "results/compression_curve",
+  "sources": {
+    "2026": "results/cifar_cnn",
+    "2027": "results/cnn_multiseed/seed_2027",
+    "2028": "results/cnn_multiseed/seed_2028"
+  },
+  "seeds": [2026, 2027, 2028],
+  "fraction": 0.25,
+  "initializations": ["greedy_pruned", "greedy_comp"],
+  "methods": ["supervised", "self_pseudo", "teacher_pseudo"],
+  "repair_labels_per_class": [0, 5, 20],
+  "primary_budgets": [5, 20],
+  "unlabeled_pool_size": 4096,
+  "repair": {
+    "steps": 1000,
+    "snapshots": [0, 200, 1000],
+    "checkpoint_every": 100,
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 0.000001,
+    "weight_decay": 0.0001,
+    "confidence_threshold": 0.95,
+    "unlabeled_loss_weight": 1.0
+  },
+  "device": "cuda",
+  "cpu_threads": 4,
+  "queue_after": "all curve refinements and activation sensitivity",
+  "scope": "Exploratory post-compression repair ONLY. The original model was trained with full supervision, selected on labeled validation data, and supplies inherited normalization/BN statistics. 0/5/20 labels per class constrain only labels exposed to repair weight updates; validation/check labels remain available for fixed diagnostics. Primary budgets 5/20; zero is a boundary control, not end-to-end unsupervised learning. No domain shift or few-shot generalization claim. No FixMatch reproduction or novel method claim. BN statistics and dropout stay fixed. Same victims with/without compensation. Frozen teacher is an additional-resource control; online pseudo-labels use the current compact model."
+}

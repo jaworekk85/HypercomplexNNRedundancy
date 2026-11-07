@@ -1,0 +1,11 @@
+{
+  "output": "results/no_bn_pilot",
+  "baseline_source": "results/cifar_cnn",
+  "seed": 2026,
+  "kind": "quaternion",
+  "epochs": 50,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "official_test_evaluation": false,
+  "scope": "One-seed validation-only feasibility ablation selected after the completed BN compression experiments. Train from scratch after replacing the original six BatchNorm2d modules with Identity. Keep all remaining initialization, widths, bias-free convolutions, ReLU, dropout, AdamW, LR, weight decay, batches, augmentations and train/validation/calibration splits unchanged. Removing BN also removes 896 learned affine parameters (73898 to 73002 real parameters); not an exactly parameter-matched comparison and not a reproduction of NFNets/Fixup. No hyperparameter search or new compression sweep. If accuracy is poor, it does not establish that training without BN is impossible or inferior under optimized settings. Do not access the test for this new study."
+}

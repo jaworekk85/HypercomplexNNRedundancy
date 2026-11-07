@@ -1,0 +1,15 @@
+{
+  "pilot": "results/learned_grouping_pilot",
+  "output": "results/routing_bn_diagnostic",
+  "boundary_epoch": 40,
+  "bn_fit_split": "train",
+  "bn_fit_samples": 48000,
+  "bn_batch_size": 256,
+  "bn_layers": ["blocks.1.1", "blocks.1.4", "blocks.2.1", "blocks.2.4"],
+  "bn_estimator": "Layer-wise full-training-set input moments; float64 accumulation, unbiased global variance. Earlier recalibrated layers run in evaluation mode. No augmentation or dropout.",
+  "conditions": ["soft_original", "hard_original", "soft_recalibrated", "hard_recalibrated"],
+  "evaluation_splits": ["validation", "calibration"],
+  "replay_metric_tolerance": 0.00000001,
+  "official_test_evaluation": false,
+  "scope": "One-seed intervention on BN running statistics at the original soft-to-hard boundary; no optimizer updates after the boundary, no new architecture or compression experiment."
+}

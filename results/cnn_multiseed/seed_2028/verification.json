@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "checks": {
+    "completed": true,
+    "train_validation_calibration_disjoint": true,
+    "all_48000_training_examples": true,
+    "official_10000_test_indices": true,
+    "validation_preserved": true,
+    "calibration_preserved": true,
+    "sources_match": true,
+    "quaternion/actual_checkpoint_parameters": true,
+    "quaternion/actual_checkpoint_buffers": true,
+    "quaternion/gradient_and_update_audit": true,
+    "quaternion/checkpoint_reload_equivalent": true,
+    "quaternion/correct_training_length": true,
+    "quaternion/epochs_contiguous_after_resume": true,
+    "quaternion/update_attempts_preserved_after_resume": true,
+    "quaternion/validation_minimum_selected": true,
+    "quaternion/selected_epoch_matches_checkpoint": true,
+    "quaternion/correct_test_dimensions": true,
+    "quaternion/recomputed_test_accuracy": true,
+    "quaternion/recomputed_test_loss": true,
+    "quaternion/honest_target_status": true,
+    "quaternion/calibration_shape_and_finite": true,
+    "real/actual_checkpoint_parameters": true,
+    "real/actual_checkpoint_buffers": true,
+    "real/gradient_and_update_audit": true,
+    "real/checkpoint_reload_equivalent": true,
+    "real/correct_training_length": true,
+    "real/epochs_contiguous_after_resume": true,
+    "real/update_attempts_preserved_after_resume": true,
+    "real/validation_minimum_selected": true,
+    "real/selected_epoch_matches_checkpoint": true,
+    "real/correct_test_dimensions": true,
+    "real/recomputed_test_accuracy": true,
+    "real/recomputed_test_loss": true,
+    "real/honest_target_status": true,
+    "real/calibration_shape_and_finite": true
+  },
+  "models": [
+    {
+      "kind": "quaternion",
+      "actual_checkpoint_parameters": 73898,
+      "recomputed_test_accuracy": 0.792,
+      "recomputed_test_cross_entropy": 0.6121872159272264
+    },
+    {
+      "kind": "real",
+      "actual_checkpoint_parameters": 72954,
+      "recomputed_test_accuracy": 0.7576,
+      "recomputed_test_cross_entropy": 0.6737582987677262
+    }
+  ],
+  "verifier_sha256": "652f3107f7a46f25782d54b0583587c650c2d2378b6fd45584280c4ce3e524ac",
+  "scope": "No retraining or model inference; inspect saved weights and recompute metrics from saved logits."
+}
