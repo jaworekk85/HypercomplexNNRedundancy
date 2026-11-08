@@ -1,0 +1,147 @@
+{
+  "status": "passed",
+  "frozen_source_count": 145,
+  "catalogue_sizes": [
+    14,
+    15
+  ],
+  "exhaustive": {
+    "total_combinations": 210,
+    "feasible_combinations": 159,
+    "best_choices": [
+      "q_n4_k4",
+      "q_n4_k16"
+    ],
+    "best_error": 0.3743296338929756,
+    "best_cost": 39328,
+    "runner_up": {
+      "choices": [
+        "real_n1_k4",
+        "q_n4_k8"
+      ],
+      "error": 0.5345100588739111
+    }
+  },
+  "policies": {
+    "all_q": {
+      "total_combinations": 9,
+      "feasible_combinations": 9,
+      "best_choices": [
+        "q_n4_k4",
+        "q_n4_k16"
+      ],
+      "best_error": 0.3743296338929756,
+      "best_cost": 39328,
+      "runner_up": {
+        "choices": [
+          "q_n4_k4",
+          "q_n4_k8"
+        ],
+        "error": 0.6010341340478866
+      }
+    },
+    "q_real": {
+      "total_combinations": 36,
+      "feasible_combinations": 22,
+      "best_choices": [
+        "q_n4_k4",
+        "q_n4_k16"
+      ],
+      "best_error": 0.3743296338929756,
+      "best_cost": 39328,
+      "runner_up": {
+        "choices": [
+          "real_n1_k4",
+          "q_n4_k8"
+        ],
+        "error": 0.5345100588739111
+      }
+    },
+    "fixed_phm4": {
+      "total_combinations": 9,
+      "feasible_combinations": 8,
+      "best_choices": [
+        "phm_n4_k4",
+        "phm_n4_k8"
+      ],
+      "best_error": 1.0470883641120783,
+      "best_cost": 20960,
+      "runner_up": {
+        "choices": [
+          "phm_n4_k2",
+          "phm_n4_k16"
+        ],
+        "error": 1.0698872626460636
+      }
+    },
+    "variable_n": {
+      "total_combinations": 210,
+      "feasible_combinations": 159,
+      "best_choices": [
+        "q_n4_k4",
+        "q_n4_k16"
+      ],
+      "best_error": 0.3743296338929756,
+      "best_cost": 39328,
+      "runner_up": {
+        "choices": [
+          "real_n1_k4",
+          "q_n4_k8"
+        ],
+        "error": 0.5345100588739111
+      }
+    },
+    "weight_only_selector": {
+      "total_combinations": 210,
+      "feasible_combinations": 159,
+      "best_choices": [
+        "real_n1_k2",
+        "real_n1_k4"
+      ],
+      "best_error": 1.2491237369252898e-15,
+      "best_cost": 25968,
+      "runner_up": {
+        "choices": [
+          "real_n1_k4",
+          "real_n1_k4"
+        ],
+        "error": 1.2628959086551937e-15
+      }
+    }
+  },
+  "local_replays": [
+    {
+      "block": 0,
+      "selected": "q_n4_k4",
+      "q_fit_mse": 0.7240156380502213,
+      "svd_dense_to_phm4_fit_mse": 1.6358780411564284,
+      "q_to_phm4_relative_kernel_error": 1.0529588158498677e-15,
+      "q_to_phm4_max_output_error_16_check_images": 2.86102294921875e-06,
+      "q_mse_16_check_images": 0.7391249828520202,
+      "q_to_phm4_mse_16_check_images": 0.7391249798906925,
+      "phm4_basis_extra_parameters": 64
+    },
+    {
+      "block": 8,
+      "selected": "q_n4_k16",
+      "q_fit_mse": 0.18135587095938888,
+      "svd_dense_to_phm4_fit_mse": 0.3037893862048794,
+      "q_to_phm4_relative_kernel_error": 3.879112040387879e-15,
+      "q_to_phm4_max_output_error_16_check_images": 1.430511474609375e-06,
+      "q_mse_16_check_images": 0.20229678932009887,
+      "q_to_phm4_mse_16_check_images": 0.2022967890674624,
+      "phm4_basis_extra_parameters": 64
+    }
+  ],
+  "actual_checkpoint_parameter_counts": {
+    "all_q": 232266,
+    "q_real": 232266,
+    "fixed_phm4": 213898,
+    "variable_n": 232266,
+    "weight_only_selector": 218906
+  },
+  "same_width_phm4_extra_parameters": 128,
+  "warning": "PHM4 contains the Q kernel, but dense-oracle Frobenius SVD is not activation-weighted fitting. A tight budget and coarse widths exclude the same-width learned-PHM4 pair (128 extra basis parameters). A Q-parent and this surrogate search do not establish quaternion superiority.",
+  "official_test_evaluated": false,
+  "scientific_training": false
+}

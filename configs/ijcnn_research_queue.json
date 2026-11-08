@@ -1,7 +1,7 @@
 {
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "authorization": "User: add all discussed stages to the queue, including layerwise quaternion/real hybrids; conserve weekly tokens",
-  "execution": "Live waiting processes chain independent-seed baselines -> focused 50% compression replication -> ONE combined Q/real and variable-n PHM pilot. Each waits for successful predecessors and a free GPU lock. Queue states: results/resnet20_replication_queue/state.json and results/resnet_structure_catalogue_queue/state.json. Restart waiting processes after shutdown; later weighted/all-layer stages are not automatic.",
+  "execution": "Historical replication/hybrid/initialization studies completed. Current Q-input/stem plus learned-PHM4 from-scratch baseline paused after45epochs at12:50Europe/Warsaw on2026-11-08 for user classes. Resume only on renewed authorization. Later PHM compression and discrete-n selection are not automatically scheduled.",
   "stages": [
     {
       "id": "resnet_baselines",
@@ -24,7 +24,7 @@
     },
     {
       "id": "resnet_key_replication",
-      "status": "queued_waiting_for_baselines",
+      "status": "completed",
       "depends_on": [
         "resnet_core_compression"
       ],
@@ -37,7 +37,7 @@
     },
     {
       "id": "hybrid_quaternion_real",
-      "status": "queued_waiting_for_replication",
+      "status": "completed",
       "depends_on": [
         "resnet_key_replication"
       ],
@@ -54,7 +54,7 @@
     },
     {
       "id": "phm_local_diagnostic",
-      "status": "queued_waiting_for_replication",
+      "status": "completed",
       "depends_on": [
         "hybrid_quaternion_real"
       ],
@@ -100,6 +100,44 @@
       ],
       "runner": null,
       "scope": "After a validated stronger-backbone compression protocol and compute review, use CIFAR100 for task generalization of the principal real/Q comparison. Do not require PHM/hybrid success, combine all branches or target90percent on CIFAR100. Separate registered split/baselines, no download/training now."
+    },
+    {
+      "id": "phm_initialization_diagnostic",
+      "status": "completed",
+      "depends_on": [
+        "phm_local_diagnostic"
+      ],
+      "runner": "python -B -u -m scripts.phm_initialization_pilot --run",
+      "config": "configs/phm_initialization_pilot.json",
+      "report": "results/phm_initialization_pilot/REPORT.md",
+      "scope": "Two layers at the selected Q widths; Q control and PHM4 initialized from Q/SVD/three random seeds; all300 identical full-batch Adam steps,500fit/500check. Local reconstruction only; PHM stores64additional coefficients per layer. All12cases complete with independent metric/checkpoint audit. No classification or matched-global-budget claim."
+    },
+    {
+      "id": "qstem_learned_phm_baseline",
+      "status": "paused_by_user",
+      "depends_on": [],
+      "runner": "python -B -u -m scripts.resnet20_qstem_phm4_baseline --run",
+      "config": "configs/resnet20_qstem_phm4_baseline.json",
+      "scope": "User explicitly retains quaternion input/stem and permits learned deeper structures. One random-initialized seed2026,18PHM4 residual convolutions,200epochs. Fixed n4, independently learned bases, no Q-teacher conversion.272746actual real parameters, not exact equality with271594Q baseline. Two CPU tests and GPU preflight passed.",
+      "completed_epochs": 45
+    },
+    {
+      "id": "learned_phm_compression",
+      "status": "awaiting_baseline_and_implementation",
+      "depends_on": [
+        "qstem_learned_phm_baseline"
+      ],
+      "runner": null,
+      "scope": "After quality review, separately register pruning and compensation of the trained PHM parent, comparing preserved bases versus readapted bases under controlled physical parameter budgets. No new training scheduled automatically."
+    },
+    {
+      "id": "learned_phm_per_layer_dimensions",
+      "status": "conditional_awaiting_implementation",
+      "depends_on": [
+        "qstem_learned_phm_baseline"
+      ],
+      "runner": null,
+      "scope": "Possible explicit per-layer n selection extension. Distinguish learning continuous PHM bases at fixed n from choosing discrete n and widths. The current fixed-n baseline does not implement that search; agree bounded scope and budget before outcomes."
     }
   ],
   "excluded": [

@@ -1,6 +1,6 @@
 # CIFAR ResNet20 baseline quality gate
 
-Status: running. One seed2027 per family; sequential200ep SGD.
+Status: completed. One seed2027 per family; sequential200ep SGD.
 
 ## Hypothesis
 
@@ -11,8 +11,7 @@ A stronger residual backbone may reach approximately90percent validation accurac
 | Family | Real parameters | Selected epoch | Selected validation (%) | Final validation (%) |
 |---|---:|---:|---:|---:|
 | real | 269722 | 102 | 91.50 | 91.40 |
-
-Current family quaternion, completed epoch 54/200, current validation 84.10%; current epoch seconds 60.1.
+| quaternion | 271594 | 101 | 91.40 | 92.40 |
 
 ## Interpretation and limits
 

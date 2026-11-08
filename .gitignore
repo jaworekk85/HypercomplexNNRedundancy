@@ -20,6 +20,9 @@ results/**/last.pt
 *.log
 *.jsonl
 
+# Local pause flags must not pause training in a fresh clone.
+results/**/STOP
+
 # Keep the two compact selected ResNet baselines and reproducible split indices.
 !results/resnet20_baselines/real/model.pt
 !results/resnet20_baselines/quaternion/model.pt

@@ -1,0 +1,69 @@
+{
+  "output": "results/resnet20_qstem_phm4_baseline",
+  "parent_protocol": "results/resnet_structure_catalogue/protocol.json",
+  "models": [
+    "qstem_phm4"
+  ],
+  "seed": 2026,
+  "real_widths": [
+    16,
+    32,
+    64
+  ],
+  "quaternion_widths": [
+    8,
+    16,
+    32
+  ],
+  "classes": 10,
+  "epochs": 200,
+  "batch_size": 128,
+  "learning_rate": 0.1,
+  "warmup_epochs": 5,
+  "warmup_start_lr": 0.01,
+  "milestones": [
+    100,
+    150
+  ],
+  "gamma": 0.1,
+  "momentum": 0.9,
+  "weight_decay": 0.0001,
+  "mixed_precision": true,
+  "device": "cuda",
+  "cpu_threads": 4,
+  "order_seed_offset": 40000,
+  "augment_seed_offset": 50000,
+  "split_source": "results/cifar_cnn/split_indices.npz",
+  "data_statistics": "results/cifar_cnn/data.json",
+  "archive": ".cache/keras/datasets/cifar-10-batches-py-target_archive",
+  "target_validation_accuracy": 0.9,
+  "checkpoint_selection": "Minimum validation cross-entropy over the fixed200 epochs; selected and final validation both reported. No test inference.",
+  "recipe": "From-scratch random initialization. RGB is encoded as (0,R,G,B); stem uses fixed Hamilton Q multiplication. All18 residual convolutions are PHM with n=rank=4 and independent learned basis/core factors, no copied pretrained Q weights or fixed Hamilton bases. Scalar widths32/64/128, ordinary BN/ReLU, existing option-A shortcut layout and real10class readout. Random cores rescaled by sqrt(n) for expected effective-kernel He variance. Same200ep SGD recipe/split/augmentation/checkpoint selection as the existing baselines.272746 real trainables vs Q271594; not exact parameter equality.",
+  "scope": "First ONE seed2026 baseline only. User keeps quaternion input/stem and permits learned PHM structure deeper. Fixed n4 is a bounded first step; this does not learn discrete n or guarantee algebra axioms. No test, hyperparameter sweep, automatic compression or fixed-vs-relearned-basis followup yet. Report failures and actual updates. Q and real prior baselines are controls, not initialization sources.",
+  "resume": "Existing verified full-epoch model/SGD/scaler/best/RNG checkpoint. STOP in output pauses after a batch; incomplete epoch is repeated. Restart the same command after removing STOP.",
+  "prior_art": [
+    "He2016ResNet",
+    "ZhangEtAl2021",
+    "Grassucci2024"
+  ],
+  "phm_dimensions": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "status": "completed",
+  "config": {
+    "output": "results/phm_initialization_pilot",
+    "parent": "results/resnet_structure_catalogue",
+    "blocks": [
+      0,
+      8
+    ],
+    "selected_policy": "all_q",
+    "initializations": [
+      {
+        "name": "q_control",
+        "seed": 2026
+      },
+      {
+        "name": "from_q",
+        "seed": 2026
+      },
+      {
+        "name": "from_svd",
+        "seed": 2026
+      },
+      {
+        "name": "random",
+        "seed": 31
+      },
+      {
+        "name": "random",
+        "seed": 32
+      },
+      {
+        "name": "random",
+        "seed": 33
+      }
+    ],
+    "steps": 300,
+    "learning_rate": 0.01,
+    "checkpoint_interval": 25,
+    "cpu_threads": 2,
+    "objective": "Full-batch normalized pre-BN output MSE on the same 500 fit calibration images, no labels, no ridge and no weight decay. This differs from the original ridge solution; a Q-only Adam control uses the same steps/objective.",
+    "selection": "Lowest FIT objective including initialization, recorded independently per run; report final and best-fit losses. Evaluate the selected artifact on 500 separate check images only after optimization. No initialization or checkpoint selection on check/validation/test; all random starts reported.",
+    "scope": "One discovery Q parent, two layers at the frozen all-Q-selected widths. Compare PHM4 init from exact Q embedding, saved dense-oracle SVD and three random seeds. All PHM starts have identical real parameter counts; each has 64 additional basis parameters over Q. This is a local optimizer/initialization diagnostic, not a matched-original-budget quality gain or full-network fine-tuning. No new n search, test or classification evaluation.",
+    "prior_art": [
+      "ZhangEtAl2021",
+      "Grassucci2024",
+      "VanLoanPitsianis1993",
+      "VieiraValle2022ELM"
+    ]
+  },
+  "results": [
+    {
+      "block": 0,
+      "initialization": "q_control",
+      "seed": 2026,
+      "initial_fit_normalized_mse": 0.16254621681183082,
+      "best_fit_normalized_mse": 0.16253694477543412,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.16253694477543412,
+      "steps": 300,
+      "current_attempt_seconds": 0.45064310007728636,
+      "initial_fit_mse": 0.7240155577225523,
+      "artifact_fit_mse": 0.7239742580922566,
+      "artifact_check_mse": 0.7567501661248353,
+      "real_parameters": 1152,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "kernel": true
+        },
+        "updated": {
+          "kernel": true
+        }
+      },
+      "checkpoint_sha256": "f6f3e53ae4ce8287f5f3fbfdfb6d489d08c9b9694ebf318dd561a07ba72e948f",
+      "test_evaluated": false
+    },
+    {
+      "block": 0,
+      "initialization": "from_q",
+      "seed": 2026,
+      "initial_fit_normalized_mse": 0.1625462168118307,
+      "best_fit_normalized_mse": 0.15132055273879394,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.15132055273879394,
+      "steps": 300,
+      "current_attempt_seconds": 0.5026666999328882,
+      "initial_fit_mse": 0.7240155577225523,
+      "artifact_fit_mse": 0.6740140531794404,
+      "artifact_check_mse": 0.7074394347653333,
+      "real_parameters": 1216,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "dad8b30af726b2971e454f34cb89f73abd1cddf772e55e3e182126a40905a32b",
+      "test_evaluated": false
+    },
+    {
+      "block": 0,
+      "initialization": "from_svd",
+      "seed": 2026,
+      "initial_fit_normalized_mse": 0.3672652867463478,
+      "best_fit_normalized_mse": 0.15136974335456235,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.15136974335456235,
+      "steps": 300,
+      "current_attempt_seconds": 0.5102509001735598,
+      "initial_fit_mse": 1.6358780083058608,
+      "artifact_fit_mse": 0.6742331576629135,
+      "artifact_check_mse": 0.7075891025371766,
+      "real_parameters": 1216,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "df6b69e97f54e11120194c10d09f88233db6568088b71a269198d6a960f9a14c",
+      "test_evaluated": false
+    },
+    {
+      "block": 0,
+      "initialization": "random",
+      "seed": 31,
+      "initial_fit_normalized_mse": 1.0279698573607743,
+      "best_fit_normalized_mse": 0.15172098164631825,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.15172098164631825,
+      "steps": 300,
+      "current_attempt_seconds": 0.4938543001189828,
+      "initial_fit_mse": 4.578797244236224,
+      "artifact_fit_mse": 0.6757976471992884,
+      "artifact_check_mse": 0.709384674478778,
+      "real_parameters": 1216,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "6300489aff047657fe8b646941b8dd4524bc799d3a69ae097cd86e6dd3e7e57b",
+      "test_evaluated": false
+    },
+    {
+      "block": 0,
+      "initialization": "random",
+      "seed": 32,
+      "initial_fit_normalized_mse": 1.0258283727857063,
+      "best_fit_normalized_mse": 0.18351277827239307,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.18351277827239307,
+      "steps": 300,
+      "current_attempt_seconds": 0.5313993999734521,
+      "initial_fit_mse": 4.569258614673612,
+      "artifact_fit_mse": 0.817405096468226,
+      "artifact_check_mse": 0.8575000692588205,
+      "real_parameters": 1216,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "b8dbf0fe492b65c96850314464e5316c6fc91a37141cfc219439f1d0a559ae9e",
+      "test_evaluated": false
+    },
+    {
+      "block": 0,
+      "initialization": "random",
+      "seed": 33,
+      "initial_fit_normalized_mse": 1.0299726279394232,
+      "best_fit_normalized_mse": 0.1516636905886101,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.1516636905886101,
+      "steps": 300,
+      "current_attempt_seconds": 0.4536281998734921,
+      "initial_fit_mse": 4.587718012039573,
+      "artifact_fit_mse": 0.6755424640074202,
+      "artifact_check_mse": 0.7087627865794657,
+      "real_parameters": 1216,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "9a9ba8d60928f91fc26e960c09be81514402180f89005767cd5211fc585a7865",
+      "test_evaluated": false
+    },
+    {
+      "block": 8,
+      "initialization": "q_control",
+      "seed": 2026,
+      "initial_fit_normalized_mse": 0.21178341016989188,
+      "best_fit_normalized_mse": 0.21178335823815383,
+      "best_step": 138,
+      "final_fit_normalized_mse": 0.21179663363727128,
+      "steps": 300,
+      "current_attempt_seconds": 2.6286335999611765,
+      "initial_fit_mse": 0.18135587682941456,
+      "artifact_fit_mse": 0.18135583235887623,
+      "artifact_check_mse": 0.18603810504608986,
+      "real_parameters": 18432,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "kernel": true
+        },
+        "updated": {
+          "kernel": true
+        }
+      },
+      "checkpoint_sha256": "4e742cb9d96a69763d65f1ad9d6ecdeda0469863c6e9ed604f5f922509f0d219",
+      "test_evaluated": false
+    },
+    {
+      "block": 8,
+      "initialization": "from_q",
+      "seed": 2026,
+      "initial_fit_normalized_mse": 0.21178341016989136,
+      "best_fit_normalized_mse": 0.21027792543268028,
+      "best_step": 147,
+      "final_fit_normalized_mse": 0.21031016909359698,
+      "steps": 300,
+      "current_attempt_seconds": 2.4556817000266165,
+      "initial_fit_mse": 0.18135587682941445,
+      "artifact_fit_mse": 0.18006668946950788,
+      "artifact_check_mse": 0.18502055534159956,
+      "real_parameters": 18496,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "dfc7259777793252228f0e2ed044bcae351445472f96a6cc1adafd0d53cc9fd5",
+      "test_evaluated": false
+    },
+    {
+      "block": 8,
+      "initialization": "from_svd",
+      "seed": 2026,
+      "initial_fit_normalized_mse": 0.3547585947279289,
+      "best_fit_normalized_mse": 0.21027791885830344,
+      "best_step": 248,
+      "final_fit_normalized_mse": 0.2102851362076699,
+      "steps": 300,
+      "current_attempt_seconds": 2.4613542000297457,
+      "initial_fit_mse": 0.30378940426940504,
+      "artifact_fit_mse": 0.18006668368448517,
+      "artifact_check_mse": 0.185020778513001,
+      "real_parameters": 18496,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "ddf06c3960003e385af3e6ada25675fe4c6b9d6de71535b856720de7efa1a684",
+      "test_evaluated": false
+    },
+    {
+      "block": 8,
+      "initialization": "random",
+      "seed": 31,
+      "initial_fit_normalized_mse": 1.0331982577903238,
+      "best_fit_normalized_mse": 0.21027801657938372,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.21027801657938372,
+      "steps": 300,
+      "current_attempt_seconds": 2.3532928999047726,
+      "initial_fit_mse": 0.8847556842619307,
+      "artifact_fit_mse": 0.1800667674531047,
+      "artifact_check_mse": 0.1850207319234014,
+      "real_parameters": 18496,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "1fafc4ca8a33f2b4ad89c533b4d537c041c4e8380f0754a7619a82446bbe2a6f",
+      "test_evaluated": false
+    },
+    {
+      "block": 8,
+      "initialization": "random",
+      "seed": 32,
+      "initial_fit_normalized_mse": 1.0371707810817763,
+      "best_fit_normalized_mse": 0.210277987684429,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.210277987684429,
+      "steps": 300,
+      "current_attempt_seconds": 2.3751119000371546,
+      "initial_fit_mse": 0.888157463675005,
+      "artifact_fit_mse": 0.18006674267167308,
+      "artifact_check_mse": 0.18502076066597123,
+      "real_parameters": 18496,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "c2c859afc02e8f0eb00f9be0f0d49c498f5d152db910e953f8067baddfc33eae",
+      "test_evaluated": false
+    },
+    {
+      "block": 8,
+      "initialization": "random",
+      "seed": 33,
+      "initial_fit_normalized_mse": 1.0426923869417901,
+      "best_fit_normalized_mse": 0.21027809437276057,
+      "best_step": 300,
+      "final_fit_normalized_mse": 0.21027809437276057,
+      "steps": 300,
+      "current_attempt_seconds": 2.6120593000669032,
+      "initial_fit_mse": 0.8928857644963297,
+      "artifact_fit_mse": 0.1800668340199419,
+      "artifact_check_mse": 0.18502071556867486,
+      "real_parameters": 18496,
+      "factor_update_audit": {
+        "finite_nonzero_gradients": {
+          "basis": true,
+          "cores": true
+        },
+        "updated": {
+          "basis": true,
+          "cores": true
+        }
+      },
+      "checkpoint_sha256": "cb21ca7a015572f2b5afe8af9be03476b2aa60efeef670d2ebe51d5bd58905ee",
+      "test_evaluated": false
+    }
+  ],
+  "test_evaluated": false
+}

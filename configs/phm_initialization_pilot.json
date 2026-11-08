@@ -1,0 +1,22 @@
+{
+  "output": "results/phm_initialization_pilot",
+  "parent": "results/resnet_structure_catalogue",
+  "blocks": [0, 8],
+  "selected_policy": "all_q",
+  "initializations": [
+    {"name": "q_control", "seed": 2026},
+    {"name": "from_q", "seed": 2026},
+    {"name": "from_svd", "seed": 2026},
+    {"name": "random", "seed": 31},
+    {"name": "random", "seed": 32},
+    {"name": "random", "seed": 33}
+  ],
+  "steps": 300,
+  "learning_rate": 0.01,
+  "checkpoint_interval": 25,
+  "cpu_threads": 2,
+  "objective": "Full-batch normalized pre-BN output MSE on the same 500 fit calibration images, no labels, no ridge and no weight decay. This differs from the original ridge solution; a Q-only Adam control uses the same steps/objective.",
+  "selection": "Lowest FIT objective including initialization, recorded independently per run; report final and best-fit losses. Evaluate the selected artifact on 500 separate check images only after optimization. No initialization or checkpoint selection on check/validation/test; all random starts reported.",
+  "scope": "One discovery Q parent, two layers at the frozen all-Q-selected widths. Compare PHM4 init from exact Q embedding, saved dense-oracle SVD and three random seeds. All PHM starts have identical real parameter counts; each has 64 additional basis parameters over Q. This is a local optimizer/initialization diagnostic, not a matched-original-budget quality gain or full-network fine-tuning. No new n search, test or classification evaluation.",
+  "prior_art": ["ZhangEtAl2021", "Grassucci2024", "VanLoanPitsianis1993", "VieiraValle2022ELM"]
+}
