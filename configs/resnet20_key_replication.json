@@ -1,0 +1,15 @@
+{
+  "base_compression_config": "configs/resnet20_compression.json",
+  "baseline_config": "configs/resnet20_baselines.json",
+  "seeds": [2027, 2028],
+  "discovery_seed": 2026,
+  "fractions": [0.5],
+  "families": ["real", "quaternion"],
+  "policies": ["mapfold", "pruned", "direct"],
+  "baseline_output_template": "results/resnet20_replication_baselines/seed_{seed}",
+  "output_template": "results/resnet20_key_replication/seed_{seed}",
+  "output": "results/resnet20_key_replication",
+  "scope": "Prespecified focused replication at 50% removal: both real and quaternion families, mapfold/pruned/direct policies, seeds 2027 and 2028, same fit/check/validation split and recipe as discovery. Report 2026 separately as discovery and both new seeds individually. This is not an independent data-split or dataset replication. No official-test evaluation, no post-outcome selection or hyperparameter sweep.",
+  "rationale": "50% is the stronger compression setting and showed the larger discovery-seed post-repair direct-vs-mapfold difference for both families; this is a discovery-informed choice, not independent confirmation. The 25% discovery results remain reported but are not part of this focused replication.",
+  "prior_art": ["He2016ResNet", "He2017ChannelPruning", "Kim2020", "VieiraValle2022ELM", "Singh2026"]
+}

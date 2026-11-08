@@ -1,7 +1,7 @@
 {
   "updated": "2026-11-07",
   "authorization": "User: add all discussed stages to the queue, including layerwise quaternion/real hybrids; conserve weekly tokens",
-  "execution": "Research agenda with dependencies, NOT a functioning automatic multi-stage worker. Baselines and core ResNet compression are completed. The bounded combined hybrid/PHM catalogue has a checked runner. Key replication remains unimplemented and later stages do not automatically start. No GPU job is currently running.",
+  "execution": "Live waiting processes chain independent-seed baselines -> focused 50% compression replication -> ONE combined Q/real and variable-n PHM pilot. Each waits for successful predecessors and a free GPU lock. Queue states: results/resnet20_replication_queue/state.json and results/resnet_structure_catalogue_queue/state.json. Restart waiting processes after shutdown; later weighted/all-layer stages are not automatic.",
   "stages": [
     {
       "id": "resnet_baselines",
@@ -14,7 +14,9 @@
     {
       "id": "resnet_core_compression",
       "status": "completed",
-      "depends_on": ["resnet_baselines"],
+      "depends_on": [
+        "resnet_baselines"
+      ],
       "runner": "python -B -u -m scripts.resnet20_compression --run",
       "config": "configs/resnet20_compression.json",
       "readiness": "results/resnet20_compression/readiness.json",
@@ -22,55 +24,101 @@
     },
     {
       "id": "resnet_key_replication",
-      "status": "conditional_awaiting_implementation",
-      "depends_on": ["resnet_core_compression"],
-      "runner": null,
-      "scope": "Register a focused replication of the important comparisons BEFORE new outcomes, using seeds2027/2028 plus discovery2026. Preserve required pruning/mapfold/direct controls and all effects; distinguish discovery from new seeds. Up to4additional200ep baselines and24repairs only if the full core grid is justified; prefer the smallest prespecified question. No automatic baseline/architecture sweep."
+      "status": "queued_waiting_for_baselines",
+      "depends_on": [
+        "resnet_core_compression"
+      ],
+      "runner": "python -B -u -m scripts.run_resnet20_key_replication --run",
+      "scope": "Prespecified focused 50% removal, real/Q, mapfold/pruned/direct, seeds 2027/2028; 2026 reported separately as discovery. Both new seeds share the original data split, so this is seed replication, not dataset replication. Two-seed per-seed baselines must complete first. Six cases per seed; same-victim controls and three repair epochs. CPU tests and synthetic full-pipeline smoke passed; no scientific replication results yet.",
+      "config": "configs/resnet20_key_replication.json",
+      "preregistration": "results/resnet20_key_replication/protocol.json",
+      "queue_runner": "python -B -u -m scripts.queue_resnet20_replication",
+      "queue_state": "results/resnet20_replication_queue/state.json"
     },
     {
       "id": "hybrid_quaternion_real",
-      "status": "bounded_catalogue_implemented_waiting_predecessors",
-      "depends_on": ["resnet_key_replication"],
+      "status": "queued_waiting_for_replication",
+      "depends_on": [
+        "resnet_key_replication"
+      ],
       "runner": "python -B -u -m scripts.resnet_structure_catalogue --run",
       "implementation_config": "configs/resnet_structure_catalogue.json",
       "readiness": "results/resnet_structure_catalogue/readiness.json",
-      "implementation_scope": "Ready combined TWO-block catalogue from a trained Q baseline: all-Q, Q/real, fixed learned PHM4, variable-n PHM and same-catalogue weight-only selector. Actual physical widths/type counts <= common full-model reference budget, exact slack reported. This is a local two-block post-pruning diagnostic, not the all-nine-sites core experiment. Source-only/catalogue stage fits are CPU, scientific forwards/repairs use one exclusively locked GPU. --prepare synthetic CPU only; --run refuses absent/completed predecessor summaries. Weighted ALS, full-nine-layer allocation and key replication remain later work.",
+      "implementation_scope": "Ready combined TWO-block catalogue from a trained Q baseline: all-Q, Q/real, fixed learned PHM4, variable-n PHM and same-catalogue weight-only selector. Actual physical widths/type counts <= common full-model reference budget, exact slack reported. This is a local two-block post-pruning diagnostic, not the all-nine-sites core experiment. Source-only/catalogue stage fits are CPU, scientific forwards/repairs use one exclusively locked GPU. --prepare synthetic CPU only; --run refuses absent or incomplete predecessor summaries. Key replication is implemented but has not run; weighted ALS and full-nine-layer allocation remain later work.",
       "scope": "First TWO candidate conv2 consumers in basic blocks, ONE seed2026, fraction.5; decide fixed-Hamilton Q versus unrestricted real kernels after pruning/output compensation. Ordinary weights, scalar BN/ReLU and residual outer dimensions follow the baseline conventions. A mixed Q/dense layer family is not an all-real network. ONE predefined global parameter budget referenced to the actual all-Q compact model; all-Q control, sensitivity-selected hybrid and a simple fixed-assignment hybrid control. No exhaustive2^9 model sweep.",
       "budget": "For identical scalar I/O/kernel shape, a full dense consumer stores FOUR times the Hamilton coefficients. Fixed-width release is an unequal-budget diagnostic ONLY. For the matched-budget comparison, choose narrower internal widths jointly with the type, physically resize producer/BN/consumer, and require actual total stored/model coefficients <= the prespecified common budget. Keep residual output widths fixed. Record all rounding/slack, Q/dense layer types, widths and counts; no equality claim when discreteness prevents it.",
       "selection": "Use fit-only direct output reconstruction of Q and real candidates at their actual allocated widths/costs. A prespecified normalized local error can be a selection proxy, not a proven global classification objective. Compare under a global budget, then check on separate held-out calibration images and validation without retuning on them. Selection code/normalization/candidates frozen before outcomes; equal final repair budget. Prior62-91percent shared-map diagnostic is NOT the Q-to-real selection score.",
-      "extension_gate": "Only if the bounded matched-budget hybrid has a useful signal, extend type/width allocation across the nine conv2 consumers and independently replicate. Otherwise record failure/negative and stop this branch. No claim that hybrid selection or budgeted layer capacity is broadly novel."
+      "extension_gate": "Only if the bounded matched-budget hybrid has a useful signal, extend type/width allocation across the nine conv2 consumers and independently replicate. Otherwise record failure/negative and stop this branch. No claim that hybrid selection or budgeted layer capacity is broadly novel.",
+      "queue_runner": "python -B -u -m scripts.queue_resnet_structure_catalogue",
+      "queue_state": "results/resnet_structure_catalogue_queue/state.json"
     },
     {
       "id": "phm_local_diagnostic",
-      "status": "bounded_catalogue_implemented_waiting_predecessors",
-      "depends_on": ["hybrid_quaternion_real"],
+      "status": "queued_waiting_for_replication",
+      "depends_on": [
+        "hybrid_quaternion_real"
+      ],
       "runner": "python -B -u -m scripts.resnet_structure_catalogue --run",
       "execution_owner": "hybrid_quaternion_real",
       "implementation_config": "configs/resnet_structure_catalogue.json",
       "execution_note": "Same combined catalogue run as preceding hybrid stage; do not launch a second copy. Preserves Q/real-only versus variable-n/fixed-n ablations in one prespecified pilot.",
       "config": "configs/phm_postcompression_diagnostic_plan.json",
-      "scope": "TWO consumers, ONE seed, ONE fraction.5, compatible n2/4/8 with rank r recorded separately. Fixed-Q versus learned PHM fits to a local dense output-refit reference, not SVD of already-Q kernels. Frobenius/rearrangement identity first, held-out output error versus ACTUAL size. No n3/6-driven backbone redesign, new baseline or unbounded algebra search. This diagnostic can still execute after a negative Q/real-hybrid result: distinguish that branch's outcome from the independent PHM question."
+      "scope": "TWO consumers, ONE seed, ONE fraction.5, compatible n2/4/8 with rank r recorded separately. Fixed-Q versus learned PHM fits to a local dense output-refit reference, not SVD of already-Q kernels. Frobenius/rearrangement identity first, held-out output error versus ACTUAL size. No n3/6-driven backbone redesign, new baseline or unbounded algebra search. This diagnostic can still execute after a negative Q/real-hybrid result: distinguish that branch's outcome from the independent PHM question.",
+      "queue_runner": "python -B -u -m scripts.queue_resnet_structure_catalogue",
+      "queue_state": "results/resnet_structure_catalogue_queue/state.json"
     },
     {
       "id": "weighted_phm_and_structure_allocation",
       "status": "conditional_awaiting_signal_and_implementation",
-      "implemented_components": ["PHM convolution and Frobenius Kronecker SVD", "Fit-only direct-Q/dense-output catalogue with actual physical internal widths", "Hard per-layer type/n selection under a common actual parameter budget", "Mixed-model manifest reload and identical epoch-resumable repair"],
-      "remaining_components": ["Activation-weighted alternating PHM fitting if justified", "Allocation across all nine consumers and its replication"],
+      "implemented_components": [
+        "PHM convolution and Frobenius Kronecker SVD",
+        "Fit-only direct-Q/dense-output catalogue with actual physical internal widths",
+        "Hard per-layer type/n selection under a common actual parameter budget",
+        "Mixed-model manifest reload and identical epoch-resumable repair"
+      ],
+      "remaining_components": [
+        "Activation-weighted alternating PHM fitting if justified",
+        "Allocation across all nine consumers and its replication"
+      ],
       "novelty_review": "2026-11-07 targeted20-query audit in LITERATURE.md: exact combined post-pruning Q/dense/variable-n PHM hard-allocation predecessor not located; priority/sufficient novelty UNCONFIRMED. ALDS already selects per-layer grouping/rank under a budget, SPDY supplies general constrained-profile DP, Numerion learns soft fusion over dimensions1/2/4/8/16, and Beyond Real Weights converts pretrained layers to selectively sized PHM. This stage EXTENDS the Q/real hybrid; no first-auto-n/adaptive-algebra/post-hoc-PHM/DP claim.",
-      "required_controls": ["Q/real-only hybrid under the same actual global budget", "Fixed-n learned PHM under the same actual global budget", "Simple prespecified selector on the SAME candidate catalogue/errors/costs; cite ALDS/SPDY principles"],
-      "depends_on": ["phm_local_diagnostic"],
+      "required_controls": [
+        "Q/real-only hybrid under the same actual global budget",
+        "Fixed-n learned PHM under the same actual global budget",
+        "Simple prespecified selector on the SAME candidate catalogue/errors/costs; cite ALDS/SPDY principles"
+      ],
+      "depends_on": [
+        "phm_local_diagnostic"
+      ],
       "runner": null,
       "scope": "ONLY with useful held-out output/quality-size evidence, register activation-weighted fitting (e.g. ALS) and a bounded global-budget choice among Q/dense/PHM candidates. No generic SVD optimum for weighted loss, no general ALS global-optimum guarantee, no mathematical algebra axioms guaranteed by learned factors. Separate n, rank r and channel assignments; no new grouping search. Compare equal repair/data/actual size, retain all negatives. Exact priority/novelty remains unverified."
     },
     {
       "id": "cifar100_extension",
       "status": "conditional_deferred",
-      "depends_on": ["resnet_key_replication"],
+      "depends_on": [
+        "resnet_key_replication"
+      ],
       "runner": null,
       "scope": "After a validated stronger-backbone compression protocol and compute review, use CIFAR100 for task generalization of the principal real/Q comparison. Do not require PHM/hybrid success, combine all branches or target90percent on CIFAR100. Separate registered split/baselines, no download/training now."
     }
   ],
-  "excluded": ["Repeating unsuccessful tail-logit/a-mu/redundant-map pilots without new evidence", "Hamilton-versus-random algebras", "Train-from-scratch learned-algebra architecture search", "Changing ongoing ResNet widths to fit n3/6", "Claims of firstness/performance/equal parameter budgets without evidence"],
-  "prior_art": ["He2016ResNet", "ZhangEtAl2021", "Grassucci2024", "IbnAhad2026HypercomplexQuantization", "VanLoanPitsianis1993", "Liebenwein2021ALDS", "Frantar2022SPDY", "Cao2026Numerion", "Sfikas2023SharedOperation"],
+  "excluded": [
+    "Repeating unsuccessful tail-logit/a-mu/redundant-map pilots without new evidence",
+    "Hamilton-versus-random algebras",
+    "Train-from-scratch learned-algebra architecture search",
+    "Changing ongoing ResNet widths to fit n3/6",
+    "Claims of firstness/performance/equal parameter budgets without evidence"
+  ],
+  "prior_art": [
+    "He2016ResNet",
+    "ZhangEtAl2021",
+    "Grassucci2024",
+    "IbnAhad2026HypercomplexQuantization",
+    "VanLoanPitsianis1993",
+    "Liebenwein2021ALDS",
+    "Frantar2022SPDY",
+    "Cao2026Numerion",
+    "Sfikas2023SharedOperation"
+  ],
   "reporting": "Brief status using live state/log tail. No repetitive wide source reads/searches. Each stage keeps hypotheses, measured outcomes and interpretations distinct, versions/seeds/splits recorded and frozen sources untouched."
 }

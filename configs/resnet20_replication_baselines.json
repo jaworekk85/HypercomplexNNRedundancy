@@ -1,0 +1,7 @@
+{
+  "base_config": "configs/resnet20_baselines.json",
+  "seeds": [2027, 2028],
+  "output_template": "results/resnet20_replication_baselines/seed_{seed}",
+  "scope": "Independent initialization and data-order/augmentation seeds for both real and quaternion CIFAR-10 ResNet-20 baselines, using the discovery-stage recipe and fixed split. Two seeds supplement discovery seed 2026; no test inference or hyperparameter selection on replication outcomes. These are baseline models, not yet a compression replication. The subsequent compression protocol must be registered before examining its outcomes.",
+  "pause": "Create STOP in the active seed output to pause after a batch; resume with the same command after removing it. Completion is checkpointed each epoch."
+}

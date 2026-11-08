@@ -1,0 +1,51 @@
+{
+  "config": {
+    "base_compression_config": "configs/resnet20_compression.json",
+    "baseline_config": "configs/resnet20_baselines.json",
+    "seeds": [
+      2027,
+      2028
+    ],
+    "discovery_seed": 2026,
+    "fractions": [
+      0.5
+    ],
+    "families": [
+      "real",
+      "quaternion"
+    ],
+    "policies": [
+      "mapfold",
+      "pruned",
+      "direct"
+    ],
+    "baseline_output_template": "results/resnet20_replication_baselines/seed_{seed}",
+    "output_template": "results/resnet20_key_replication/seed_{seed}",
+    "output": "results/resnet20_key_replication",
+    "scope": "Prespecified focused replication at 50% removal: both real and quaternion families, mapfold/pruned/direct policies, seeds 2027 and 2028, same fit/check/validation split and recipe as discovery. Report 2026 separately as discovery and both new seeds individually. This is not an independent data-split or dataset replication. No official-test evaluation, no post-outcome selection or hyperparameter sweep.",
+    "rationale": "50% is the stronger compression setting and showed the larger discovery-seed post-repair direct-vs-mapfold difference for both families; this is a discovery-informed choice, not independent confirmation. The 25% discovery results remain reported but are not part of this focused replication.",
+    "prior_art": [
+      "He2016ResNet",
+      "He2017ChannelPruning",
+      "Kim2020",
+      "VieiraValle2022ELM",
+      "Singh2026"
+    ]
+  },
+  "source_hashes": {
+    "configs/resnet20_compression.json": "c78a7106d8772143596a9af33b8f71ca1291eb467ccb77e7bc8d61be6dda2b7d",
+    "configs/resnet20_key_replication.json": "38c12e91e3df202197da8bf4c12a5481f63a444eda122631ac7863ed27f930a2",
+    "scripts/resnet20_compression.py": "2395187f7de7c605debc0763be323d8f914afae8b96e63f14af63f38798206b8",
+    "scripts/resnet20_key_replication.py": "0c9c4ee22b597d7e26402ea7262d615338ffc3e5825f3ee3863308fe3ed9a6c1",
+    "scripts/run_resnet20_key_replication.py": "b171d8d0c124d89f48712add3faf70e82ad8ab3e321c259a0e17a065d46bd594",
+    "scripts/smoke_resnet20_key_replication.py": "e397fa8a7901f3a099f5ae8feb25074231c349ed700e6018bd5856d668a47ae8",
+    "src/compression/resnet_core.py": "2b12da8d6e2ec44216aa137dcc6fd6253033a6304f14361d4f14bc13112ee005",
+    "src/compression/structure_catalogue.py": "1014aec9289da0bff0f7f89985cf0b9d7be2a45aff90d65f6eb4707843c72e32",
+    "src/models/phm_conv.py": "dec7917a81632f58b4d2c3cfdce81a231030c954e3b3a3db7e4b75b10e854012",
+    "tests_torch/test_resnet20_key_replication.py": "5e3773a1738260b452cc860ae9f0948cd97f27427f7a5f665845cf0cf970a40e",
+    "tests_torch/test_resnet_core.py": "b8bb0273bb386c27175e99bfb2e61feddc40f12b034dcccc1ed16bde3cabc3eb"
+  },
+  "baseline_protocol_template": "results/resnet20_replication_baselines/seed_{seed}/protocol.json",
+  "discovery_summary_sha256": "0aa6a04daa8fba1323b4bad5c82bb064b3d0e1fe779d66051f7e780ea06bffaf",
+  "test_evaluated": false
+}

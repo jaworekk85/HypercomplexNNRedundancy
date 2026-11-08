@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "C:\Users\jawor\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\jawor\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\jawor\Desktop\Desktop\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\scripts\resnet20_replication_baselines.py", line 60, in <module>
+    main()
+  File "C:\Users\jawor\Desktop\Desktop\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\scripts\resnet20_replication_baselines.py", line 48, in main
+    baseline.run(study)
+  File "C:\Users\jawor\Desktop\Desktop\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\scripts\resnet20_baselines.py", line 148, in run
+    model, details, done = train(model, tensors, targets, mean, std, study, folder/"last.pt", output/"STOP", epoch_done)
+  File "C:\Users\jawor\Desktop\Desktop\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\src\resnet_training.py", line 69, in train
+    scaler.scale(loss).backward()
+  File "C:\Users\jawor\Desktop\Desktop\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\.venv-cuda\lib\site-packages\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "C:\Users\jawor\Desktop\Desktop\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\.venv-cuda\lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\jawor\Desktop\Desktop\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\.venv-cuda\lib\site-packages\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
