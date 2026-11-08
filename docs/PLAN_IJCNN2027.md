@@ -11,3 +11,7 @@ The current snapshot and links to measured results are in [CURRENT.md](CURRENT.m
 Do not repeat unsuccessful tail/logit, learned-map or centered-map pilots without a new reason. Preserve negative results and distinguish actual compact sizes from masks. Novelty remains unverified; see [LITERATURE.md](../LITERATURE.md) and its archived audit.
 
 The tentative contribution for Marcos is an unsent [draft](MARCOS_DRAFT_2026-11-07.md); authors remain to be agreed. The full previous plan, including historical and superseded stages, is preserved byte for byte in [the archive](archive/PLAN_IJCNN2027_2026-11-07.md); resolve its original relative paths from `docs/`.
+
+## Planned paper citations
+
+- Cite `NiemczynowiczKycia2025` (KHNN, SoftwareX 30, 2025, article 102163; DOI: [10.1016/j.softx.2025.102163](https://doi.org/10.1016/j.softx.2025.102163)) in the hypercomplex-framework background/related work and implementation provenance. Use the existing entry in [references.bib](../references.bib). Describe the initial KHNN/HypercomplexKeras evaluation separately from the local PyTorch implementation used for current experiments; see the [literature index](../LITERATURE.md#hypercomplex-frameworks-and-implementation-provenance) and [Phase 0 report](../results/phase0/FEASIBILITY.md).

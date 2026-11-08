@@ -2,6 +2,11 @@
 
 Citation keys and bibliographic metadata are canonical in [references.bib](references.bib). This index is a starting point, not a systematic review or proof of priority. Read the relevant primary sources before making detailed claims. The full previous annotated review and its targeted novelty audits are preserved in [docs/archive/LITERATURE_2026-11-07.md](docs/archive/LITERATURE_2026-11-07.md); its local relative links were written relative to the repository root.
 
+## Hypercomplex frameworks and implementation provenance
+
+- `NiemczynowiczKycia2025`: Agnieszka Niemczynowicz and Radosław A. Kycia, *KHNN: Hypercomplex-valued neural networks computations via Keras using TensorFlow and PyTorch*, SoftwareX 30 (2025), 102163, [DOI](https://doi.org/10.1016/j.softx.2025.102163). Include this work in the future paper's background/related work on hypercomplex software and in the implementation provenance discussion. The canonical BibTeX entry already exists in [references.bib](references.bib).
+- KHNN/HypercomplexKeras was the initial implementation candidate; the tested HypercomplexKeras 1.0.2 configuration failed the Keras 3 parameter-tracking check, as documented in [Phase 0](results/phase0/FEASIBILITY.md). Current experiments use local PyTorch layers. Credit the framework while accurately describing the implementation used; the recorded compatibility failure concerns the tested versions and does not establish a general limitation of KHNN.
+
 ## Quaternion compression and reconstruction
 
 - `Vecchi2020`, `IqbalMishra2023`, `Chaudhary2024`, `Singh2026`: existing QNN pruning and retraining; `Singh2026` also discusses distillation of pruned QNNs.
