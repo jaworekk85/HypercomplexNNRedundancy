@@ -1,0 +1,320 @@
+{
+  "status": "completed",
+  "config": {
+    "output": "results/component_reassembly_diagnostic",
+    "seed": 74026,
+    "fit_examples": 128,
+    "check_examples": 1024,
+    "input_quaternion_units": 1,
+    "source_quaternion_units": 2,
+    "retained_quaternion_units": 1,
+    "output_quaternion_units": 1,
+    "ridge_alpha": 1e-08,
+    "cpu_threads": 2,
+    "cases": [
+      {
+        "name": "aligned_complementary",
+        "producer_relation": "nearby",
+        "producer_noise": 0.05
+      },
+      {
+        "name": "unrelated_complementary",
+        "producer_relation": "independent",
+        "producer_noise": 1.0
+      }
+    ],
+    "bn_positive_bias": 0.5,
+    "bn_negative_bias": -4.0,
+    "hypothesis": "Selecting individual scalar components and assigning them to new quaternion roles may give useful compact initializations when the selected producer rows are jointly Hamilton-realizable. A consumer-only criterion can overestimate this benefit by assuming access to full-teacher features.",
+    "scope": "Technical CPU diagnostic only. Two deliberately constructed synthetic teachers with complementary BN/ReLU activation patterns; no CIFAR, pretrained scientific checkpoint, classification labels, test predictions, fine-tuning or GPU training. Exhaust all8P4=1680ordered selections of4distinct scalar channels from8. One new producer and consumer quaternion unit; both old producer units are physically replaced, with no gather or full teacher in the deployed student.",
+    "construction": "Private seeded generators. Teacher producer kernels are nearby in one case and independent in the other. Consumer coefficients are identical across the two teacher hidden units. BN biases alternate by component: unit0 positive at r/j and negative at i/k, unit1 the opposite. This is a favorable mechanism demonstration plus a less compatible control, not representative performance evidence. Fit/check input draws are separate; all assignment selection is fit-only.",
+    "producer_fit": "Select/order four pre-BN effective producer rows; orthogonally project onto the four-parameter Hamilton kernel space in Frobenius norm. Copy their BN affine/running values by role. The four pulled-back row coefficient vectors must agree for exact representability; their mean minimizes squared error, equivalently one quarter of the sum of pairwise squared distances. This is elementary projection algebra, not a novel theorem. Projection is not an optimum for post-ReLU or activation-weighted loss.",
+    "consumer_fit": "Fit the compact Hamilton consumer by real-embedded ridge regression on synthetic fit outputs only. Compare ideal selected teacher activations versus actual activations of the compiled small producer. The latter decides the realizability-aware candidate. Preserve both errors and all negative comparisons. Same physical student counts for every deployed control.",
+    "controls": [
+      "best_whole_unit",
+      "scalar_energy",
+      "consumer_only_selection",
+      "realizable_selection"
+    ],
+    "selection": "Best whole-unit chooses the lower fit-error original quartet. Scalar-energy retains the4largest fit activation second moments and assigns sorted scalar indices to roles. Consumer-only minimizes fit reconstruction using selected full-teacher features, then deploys the projected producer and refits its consumer. Realizable-selection minimizes actual compact-pair fit error over all1680ordered candidates. Ties lexicographic. Held-out synthetic check does not select candidates.",
+    "interpretation": "After routing is compiled out, all students share the same small Hamilton architecture. Reassembly changes source-guided initialization/selection, not the final architecture family or guaranteed optimum after unlimited training. No claim of methodological novelty, classification gain or IJCNN readiness; compare nearest learned-shuffle/compression work before any scientific extension. No automatic follow-up.",
+    "prior_art": [
+      "Zhang2021StructuredShuffle",
+      "Wang2019FLGC",
+      "Vecchi2020",
+      "VieiraValle2022ELM",
+      "He2017ChannelPruning",
+      "GRAIL2026"
+    ]
+  },
+  "results": [
+    {
+      "case": "aligned_complementary",
+      "method": "best_whole_unit",
+      "quartet": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "producer_kernel_squared_error": 0.0,
+      "indices": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "ideal_fit_mse": 0.37848718347614974,
+      "realizable_fit_mse": 0.37848718347614974,
+      "feature_fit_mse": 0.0,
+      "mixed_original_units": false,
+      "counts": {
+        "real_parameters": 16,
+        "buffer_elements": 9,
+        "producer_quaternion_units": 1,
+        "consumer_quaternion_inputs": 1
+      },
+      "check_mse": 0.42519411019380415,
+      "ideal_check_mse": 0.42519411019380415,
+      "checkpoint_sha256": "78e25076e6cd3803f8ff875479427a9af0278098a649803fc11e701cd8c47074",
+      "checkpoint_bytes": 3036,
+      "reload_exact": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "aligned_complementary",
+      "method": "scalar_energy",
+      "quartet": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "producer_kernel_squared_error": 0.005783387536904506,
+      "indices": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "ideal_fit_mse": 9.809781118782397e-17,
+      "realizable_fit_mse": 0.0010154057704305675,
+      "feature_fit_mse": 0.0010167561973609652,
+      "mixed_original_units": true,
+      "counts": {
+        "real_parameters": 16,
+        "buffer_elements": 9,
+        "producer_quaternion_units": 1,
+        "consumer_quaternion_inputs": 1
+      },
+      "check_mse": 0.0010132681617247253,
+      "ideal_check_mse": 1.0570576385148768e-16,
+      "checkpoint_sha256": "bf14e460a9df2c3580070de724ffb982e1c8c03021953bde5e7ad38601b8d8e0",
+      "checkpoint_bytes": 3014,
+      "reload_exact": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "aligned_complementary",
+      "method": "consumer_only_selection",
+      "quartet": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "producer_kernel_squared_error": 0.005783387536904506,
+      "indices": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "ideal_fit_mse": 9.809781118782397e-17,
+      "realizable_fit_mse": 0.0010154057704305675,
+      "feature_fit_mse": 0.0010167561973609652,
+      "mixed_original_units": true,
+      "counts": {
+        "real_parameters": 16,
+        "buffer_elements": 9,
+        "producer_quaternion_units": 1,
+        "consumer_quaternion_inputs": 1
+      },
+      "check_mse": 0.0010132681617247253,
+      "ideal_check_mse": 1.0570576385148768e-16,
+      "checkpoint_sha256": "cbf6e669daf7145925f29a0f6c02d0f43eaab0e75f8bd4f9a554ad0baaf6f5bc",
+      "checkpoint_bytes": 3188,
+      "reload_exact": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "aligned_complementary",
+      "method": "realizable_selection",
+      "quartet": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "producer_kernel_squared_error": 0.005783387536904506,
+      "indices": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "ideal_fit_mse": 9.809781118782397e-17,
+      "realizable_fit_mse": 0.0010154057704305675,
+      "feature_fit_mse": 0.0010167561973609652,
+      "mixed_original_units": true,
+      "counts": {
+        "real_parameters": 16,
+        "buffer_elements": 9,
+        "producer_quaternion_units": 1,
+        "consumer_quaternion_inputs": 1
+      },
+      "check_mse": 0.0010132681617247253,
+      "ideal_check_mse": 1.0570576385148768e-16,
+      "checkpoint_sha256": "69adce86f05237085ad3a2e2e7979edfce2ba71051a66a3a59f293b64313565d",
+      "checkpoint_bytes": 3091,
+      "reload_exact": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "unrelated_complementary",
+      "method": "best_whole_unit",
+      "quartet": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "producer_kernel_squared_error": 0.0,
+      "indices": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "ideal_fit_mse": 0.48531375751289596,
+      "realizable_fit_mse": 0.48531375751289596,
+      "feature_fit_mse": 0.0,
+      "mixed_original_units": false,
+      "counts": {
+        "real_parameters": 16,
+        "buffer_elements": 9,
+        "producer_quaternion_units": 1,
+        "consumer_quaternion_inputs": 1
+      },
+      "check_mse": 0.5218650066818253,
+      "ideal_check_mse": 0.5218650066818253,
+      "checkpoint_sha256": "fea07fdeec4bff55ec7e3f1f6bd9a38fa43664ba5a8d2b0460acfe382544e28e",
+      "checkpoint_bytes": 3036,
+      "reload_exact": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "unrelated_complementary",
+      "method": "scalar_energy",
+      "quartet": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "producer_kernel_squared_error": 1.797527316602856,
+      "indices": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "ideal_fit_mse": 1.0011513492651066e-16,
+      "realizable_fit_mse": 0.24013859026807607,
+      "feature_fit_mse": 0.24258943201420768,
+      "mixed_original_units": true,
+      "counts": {
+        "real_parameters": 16,
+        "buffer_elements": 9,
+        "producer_quaternion_units": 1,
+        "consumer_quaternion_inputs": 1
+      },
+      "check_mse": 0.2865260525110693,
+      "ideal_check_mse": 1.0449844059364466e-16,
+      "checkpoint_sha256": "1a6148732448c528e8c1c2fc5979fe3f36144f8f5393f350d8a15dd3388ca363",
+      "checkpoint_bytes": 3014,
+      "reload_exact": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "unrelated_complementary",
+      "method": "consumer_only_selection",
+      "quartet": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "producer_kernel_squared_error": 1.797527316602856,
+      "indices": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "ideal_fit_mse": 1.0011513492651066e-16,
+      "realizable_fit_mse": 0.24013859026807607,
+      "feature_fit_mse": 0.24258943201420768,
+      "mixed_original_units": true,
+      "counts": {
+        "real_parameters": 16,
+        "buffer_elements": 9,
+        "producer_quaternion_units": 1,
+        "consumer_quaternion_inputs": 1
+      },
+      "check_mse": 0.2865260525110693,
+      "ideal_check_mse": 1.0449844059364466e-16,
+      "checkpoint_sha256": "f899a0419dc05f5669e31124d6dd273aa8e19bb5fbc93612fc6df7b219ee5537",
+      "checkpoint_bytes": 3188,
+      "reload_exact": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "unrelated_complementary",
+      "method": "realizable_selection",
+      "quartet": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "producer_kernel_squared_error": 1.797527316602856,
+      "indices": [
+        0,
+        3,
+        4,
+        7
+      ],
+      "ideal_fit_mse": 1.0011513492651066e-16,
+      "realizable_fit_mse": 0.24013859026807607,
+      "feature_fit_mse": 0.24258943201420768,
+      "mixed_original_units": true,
+      "counts": {
+        "real_parameters": 16,
+        "buffer_elements": 9,
+        "producer_quaternion_units": 1,
+        "consumer_quaternion_inputs": 1
+      },
+      "check_mse": 0.2865260525110693,
+      "ideal_check_mse": 1.0449844059364466e-16,
+      "checkpoint_sha256": "426dbbbb54e0a931ba45aeb520ca43ecbbea00c59d21893e888db1ec64f37c3f",
+      "checkpoint_bytes": 3091,
+      "reload_exact": true,
+      "synthetic_only": true
+    }
+  ],
+  "synthetic_only": true,
+  "test_evaluated": false,
+  "automatic_followup": false,
+  "updated_utc": "2026-11-25T20:17:58.994301+00:00"
+}

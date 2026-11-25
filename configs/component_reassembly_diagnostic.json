@@ -1,0 +1,27 @@
+{
+  "output": "results/component_reassembly_diagnostic",
+  "seed": 74026,
+  "fit_examples": 128,
+  "check_examples": 1024,
+  "input_quaternion_units": 1,
+  "source_quaternion_units": 2,
+  "retained_quaternion_units": 1,
+  "output_quaternion_units": 1,
+  "ridge_alpha": 1e-8,
+  "cpu_threads": 2,
+  "cases": [
+    {"name": "aligned_complementary", "producer_relation": "nearby", "producer_noise": 0.05},
+    {"name": "unrelated_complementary", "producer_relation": "independent", "producer_noise": 1.0}
+  ],
+  "bn_positive_bias": 0.5,
+  "bn_negative_bias": -4.0,
+  "hypothesis": "Selecting individual scalar components and assigning them to new quaternion roles may give useful compact initializations when the selected producer rows are jointly Hamilton-realizable. A consumer-only criterion can overestimate this benefit by assuming access to full-teacher features.",
+  "scope": "Technical CPU diagnostic only. Two deliberately constructed synthetic teachers with complementary BN/ReLU activation patterns; no CIFAR, pretrained scientific checkpoint, classification labels, test predictions, fine-tuning or GPU training. Exhaust all8P4=1680ordered selections of4distinct scalar channels from8. One new producer and consumer quaternion unit; both old producer units are physically replaced, with no gather or full teacher in the deployed student.",
+  "construction": "Private seeded generators. Teacher producer kernels are nearby in one case and independent in the other. Consumer coefficients are identical across the two teacher hidden units. BN biases alternate by component: unit0 positive at r/j and negative at i/k, unit1 the opposite. This is a favorable mechanism demonstration plus a less compatible control, not representative performance evidence. Fit/check input draws are separate; all assignment selection is fit-only.",
+  "producer_fit": "Select/order four pre-BN effective producer rows; orthogonally project onto the four-parameter Hamilton kernel space in Frobenius norm. Copy their BN affine/running values by role. The four pulled-back row coefficient vectors must agree for exact representability; their mean minimizes squared error, equivalently one quarter of the sum of pairwise squared distances. This is elementary projection algebra, not a novel theorem. Projection is not an optimum for post-ReLU or activation-weighted loss.",
+  "consumer_fit": "Fit the compact Hamilton consumer by real-embedded ridge regression on synthetic fit outputs only. Compare ideal selected teacher activations versus actual activations of the compiled small producer. The latter decides the realizability-aware candidate. Preserve both errors and all negative comparisons. Same physical student counts for every deployed control.",
+  "controls": ["best_whole_unit", "scalar_energy", "consumer_only_selection", "realizable_selection"],
+  "selection": "Best whole-unit chooses the lower fit-error original quartet. Scalar-energy retains the4largest fit activation second moments and assigns sorted scalar indices to roles. Consumer-only minimizes fit reconstruction using selected full-teacher features, then deploys the projected producer and refits its consumer. Realizable-selection minimizes actual compact-pair fit error over all1680ordered candidates. Ties lexicographic. Held-out synthetic check does not select candidates.",
+  "interpretation": "After routing is compiled out, all students share the same small Hamilton architecture. Reassembly changes source-guided initialization/selection, not the final architecture family or guaranteed optimum after unlimited training. No claim of methodological novelty, classification gain or IJCNN readiness; compare nearest learned-shuffle/compression work before any scientific extension. No automatic follow-up.",
+  "prior_art": ["Zhang2021StructuredShuffle", "Wang2019FLGC", "Vecchi2020", "VieiraValle2022ELM", "He2017ChannelPruning", "GRAIL2026"]
+}
