@@ -1,0 +1,39 @@
+# Fixed-feature grouping mechanism study
+
+## Hypotheses
+
+H1: original grouping helps a Hamilton consumer even with identical exact retained features.
+H2: physical producer projection contributes additional error distinct from consumer grouping.
+H3: equal repair can reduce grouping damage; no equivalence or gain is assumed.
+
+## Scope
+
+Three existing Q parents, seeds2026/2027/2028; two internal sites only. All conditions within a seed/site retain exactly the SAME scalar feature set. Whole-unit masks ranked by summed fit activation second moment, descending with index tie-break, then kept indices sorted. This transparent mask differs from previous joint-selector masks; original is a fresh matched control, not relabelled historical90.4percent. Every deployed network remains a smaller standard Hamilton ResNet20 with232266real trainables versus271594parent. No Hamilton-vs-random algebra experiment, architecture search, scratch training or official-test inference.
+
+## Groups
+
+Original plus role-preserving and role-free random assignments at100percent mixed quartets,10independent deterministic draws each. Additionally one50percent draw for each policy. Total23local cases per site/seed,138local cases overall. The50percent affected subset is the first half of a private random permutation; every affected target quartet must contain multiple original source units. Role policy fixes r/i/j/k membership and deranges the second role relative to the first. Free policy rejection-samples a uniform scalar permutation conditional on all affected quartets being mixed and at least one role change. No catalogue, completion reserve, selection by compatibility or best-draw selection. Source feature set, target output roles and coefficient budget held fixed. Quaternion-unit reorder control must preserve the fitted objective; a dense-weight inverse-permutation check is numerical only, not a matched-budget competitor.
+
+## Ideal
+
+All500even-calibration fit images/ALLspatial positions; separate500odd-calibration check. Compute exact retained teacher-feature raw moments once then permute channel/patch moments per grouping. Fit Hamilton consumers in float64 with ZERO-centered ridge to avoid grouping-dependent projected priors. Lambda fixed per seed/site as alpha times mean diagonal of ORIGINAL grouped Q Gram and reused for all ideal/projected/datafit conditions. Same zero-centered objective for every condition. Record fit/check data MSE and regularized fit objective, solve residual and condition-independent counts. Ideal gathered activations are diagnostic only, not compact inference savings.
+
+## Physical
+
+For every local case compile actual producer/BN/consumer with frozen component-reassembly compiler, then fit consumer using ALLfit spatial positions and same lambda/zero prior as ideal. Record producer feature MSE relative to exact selected teacher features, consumer fit/check MSE, projection SSE and physical checkpoint/reload. The difference from ideal need not be nonnegative; it measures this compiler's effect, not a universal lower bound. For the FIRST100percent draw of each policy additionally optimize ONLY producer Q kernel for100Adam steps on fit selected-feature MSE; BN running/affine state fixed. Final step, no best-check selection. Audit four kernel components for finite gradients and updates. Refit consumer afterwards, same ridge. These data-aware local variants are diagnostic and are not substituted into full model cases.
+
+## Full
+
+Five matched compact models per seed,15total, built from the physically projected local artifacts (draw0 predetermined, NEVER chosen by check/validation). Fit producer variants stay local. Measure validation/check accuracy and CE before and after final epoch3 equal repair; save per-example logits for paired comparisons, standard reload replay, parameters/bytes and attempted/successful updates. Training order/augmentation paired within seed using existing frozen repair. Previously explored1000validation split is exploratory; these results cannot be promoted to fresh blind confirmation.
+
+## Interpretation
+
+Report all random draws and seed/site distributions, grouping degree, role changes and projection effects; no pooled pseudo-replication across images/draws/seeds. Three parent seeds are a first repeatability check, not adequate power by assumption. No practical-equivalence margin/test or significance/gain/novelty claim is registered here. No threshold is chosen after outcomes. Earlier reassembly pilot's failed gate remains failed. No automatic study beyond this explicit bounded authorization.
+
+## Resume
+
+Atomic hash-checked moment/activation/block/model artifacts; completed cases reused. STOP between cases/data batches, producer steps and repair batches. Interrupted producer fit repeats at most100steps; repair resumes completed epochs with optimizer/scaler/RNG. Freeze sources/config/parent checkpoints before scientific fitting. Add new modules if a frozen-source fix is needed.
+
+Prior art: He2016ResNet, He2017ChannelPruning, VieiraValle2022ELM, Zhang2021StructuredShuffle, Wang2019FLGC, Vecchi2020, Frantar2022OBC; canonical references.bib.
+
+Numerical settings, fixed seeds and exact hashes: protocol.json.
