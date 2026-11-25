@@ -1,0 +1,44 @@
+{
+  "scientific_fitting_before_protocol": false,
+  "initial_cpu_tests": {
+    "passed": 9,
+    "failed": 1,
+    "failure": "Two identical pivoted least-squares calls differed by up to1.11e-16 in the seeded random-span initialization; exact reproducibility check failed.",
+    "correction": "Use the mathematically equivalent direct orthonormal projection (basis @ arranged kernel), avoiding pivoted-solver roundoff."
+  },
+  "corrected_cpu_tests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "initial_synthetic_smoke": {
+    "status": "failed",
+    "output": ".cache/phm_basis_smoke_20261125T153612995002",
+    "failure": "Scratch trainer details used counts for optimizer counters and overwrote the physical parameter-count field; final report raised KeyError: stored_real_parameters.",
+    "correction": "Keep architecture counts separate from optimizer_counts; publish failed-state metadata before rendering a failure report."
+  },
+  "corrected_synthetic_smoke": {
+    "status": "passed",
+    "output": ".cache/phm_basis_smoke_20261125T153713911405",
+    "scientific_results": false
+  },
+  "gpu_preflight": {
+    "gradient_and_freeze_checks": "passed for all three compact policies",
+    "amp_updates": {
+      "preserve": {
+        "attempted": 3,
+        "successful": 2,
+        "skipped": 1
+      },
+      "adapt": {
+        "attempted": 3,
+        "successful": 2,
+        "skipped": 1
+      },
+      "reinitialize": {
+        "attempted": 3,
+        "successful": 2,
+        "skipped": 1
+      }
+    }
+  }
+}
