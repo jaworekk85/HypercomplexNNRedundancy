@@ -17,7 +17,43 @@ The real/Q ResNet-20 baselines, discovery compression, two-seed replication,
 bounded structure catalogue, initialization diagnostic and from-scratch PHM4
 baseline are complete. Do not restart their finished queues.
 
-## Current candidate: component selection and reassembly
+## Paper positioning after targeted literature review
+
+The [2026-11-25 review](literature/GROUPING_AND_TRANSFER_2026-11-25.md) finds
+published precedents for substantive real-to-QNN adaptation and empirical
+analysis. Candidate contribution: measure when original channel groups must
+survive compression, separating retained information, producer realization and
+repair. This is conditional on final evidence, not a declared novel method.
+Component-vs-whole pooling already has prior art; shared-weight/grouping and
+post-repair accuracy must not be overinterpreted. Keep the prior failed gate.
+The official session explicitly includes hypercomplex generalizations of
+real-valued architectures/algorithms. The current call lists six pages and
+31January2027 regular-paper submission; recheck instructions before submission.
+Verified citations/inspection limits and potential paper structure are in the
+review; no additional numerical experiment is authorized by this literature work.
+
+## Completed: fixed-feature grouping mechanisms
+
+The user authorized all three proposed follow-up experiments on2026-11-25.
+The [registered grouping study](../results/grouping_mechanism_study/PROTOCOL.md)
+separates exact-feature consumer grouping, physical producer error, and equal
+repair. Same retained scalars within a seed/site; three existing parents and
+two sites.138local cases (including repeated predetermined random assignments),
+12additional producer-only fits,15matched3epoch repaired compact models.
+Completed2026-11-25 at23:07Europe/Warsaw. Every mixed full-model condition
+scored below its matched original control across the three source seeds.
+See [CURRENT](CURRENT.md) and the [report](../results/grouping_mechanism_study/REPORT.md)
+for measurements. Next action: analyze exact-feature versus compiled-producer
+errors and repair effects before proposing more computation. No novel-method, significance or
+equivalence claim; original pilot's gate remains failed. No extra study queued.
+
+The earlier selector imposed a reserve of untouched original units to ensure
+completion, and its compiler represented original groups exactly but mixed
+groups approximately. Thus18/20intact groups is not a controlled measure of
+the inherent value of quaternion grouping. This follow-up avoids the reserve
+and holds the retained scalar set fixed. It does not test random algebras.
+
+## Completed candidate pilot: component selection and reassembly
 
 A [technical diagnostic](../results/component_reassembly_diagnostic/REPORT.md)
 and its [frozen configuration](../configs/component_reassembly_diagnostic.json)

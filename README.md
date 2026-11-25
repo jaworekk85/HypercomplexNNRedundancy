@@ -21,7 +21,15 @@ complete: five matched compact models, two blocks and three repair epochs each.
 The [registered plan](results/resnet_component_reassembly_pilot/PROTOCOL.md)
 compares whole-unit selection, scalar energy and scalar regrouping. Free-role
 reassembly reached90.8% versus90.4% for whole-unit selection; the registered
-0.5pp continuation gate failed. No follow-up is queued.
+0.5pp continuation gate failed; it triggered no automatic replication.
+
+A separately authorized [grouping mechanism study](results/grouping_mechanism_study/PROTOCOL.md)
+completed on three existing Q parents. It holds the retained scalar set
+fixed and separates consumer grouping, physical producer error and repair.
+It contains138local comparisons and15matched compact models. Every mixed
+full-model condition scored below its original-group control within each seed;
+see the [measured report](results/grouping_mechanism_study/REPORT.md) for scope
+and limits. No further computation is queued.
 
 ## Windows CUDA environment
 

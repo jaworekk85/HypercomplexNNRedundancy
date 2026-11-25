@@ -12,6 +12,7 @@ verification and limitations; a listed study is not a novelty or gain claim.
 
 | Study | Documents |
 |---|---|
+| grouping_mechanism_study (completed) | [REPORT](../results/grouping_mechanism_study/REPORT.md), [protocol](../results/grouping_mechanism_study/protocol.json), [audit](../results/grouping_mechanism_study/completion_audit.json) |
 | resnet_component_reassembly_pilot (completed; continuation gate failed) | [REPORT](../results/resnet_component_reassembly_pilot/REPORT.md), [Plan](../results/resnet_component_reassembly_pilot/PROTOCOL.md), [completion audit](../results/resnet_component_reassembly_pilot/completion_audit.json) |
 | phm_basis_compression_pilot (completed; continuation gate failed) | [Protocol](../results/phm_basis_compression_pilot/protocol.json), [REPORT](../results/phm_basis_compression_pilot/REPORT.md) |
 | phm_initialization_pilot | [INTERPRETATION](../results/phm_initialization_pilot/INTERPRETATION.md), [REPORT](../results/phm_initialization_pilot/REPORT.md) |

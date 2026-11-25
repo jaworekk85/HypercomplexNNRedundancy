@@ -3,6 +3,79 @@
 Updated: 2026-11-25. Read the relevant `state.json`, recent log tail and process
 state before reporting activity. This page is a handoff, not a process monitor.
 
+The user requested a concise literature review during the grouping study.
+The [2026-11-25 adaptation/grouping review](literature/GROUPING_AND_TRANSFER_2026-11-25.md)
+is complete:10new canonical entries, one verified journal-status upgrade for
+Valle, three existing compression citations rechecked,14raw BibTeX exports.
+[Verification](literature/exports/2026-11-25/verification.json) discloses the
+manually checked REPAIR entry and failed export requests. The official IJCNN2027
+session includes generalization of real-valued methods to hypercomplex networks;
+this supports topic fit, not guaranteed acceptance. Numerical protocols unchanged.
+
+## Latest completed study: fixed-feature grouping mechanisms
+
+Completed2026-11-25 at23:07:01Europe/Warsaw:138local cases,12additional
+producer-only fits and15full models, each3repair epochs. Final artifact audit
+passed180hashes; all models logged1125successful/1125attempted updates, no stderr.
+[Measured report](../results/grouping_mechanism_study/REPORT.md),
+[artifact audit](../results/grouping_mechanism_study/completion_audit.json).
+
+Validation accuracy after repair, seeds2026/2027/2028:
+
+| Condition | 2026 | 2027 | 2028 |
+|---|---:|---:|---:|
+| Original groups | 89.8% | 91.0% | 89.6% |
+| Role-preserving50% mixed | 89.1% | 89.7% | 89.0% |
+| Free-role50% mixed | 88.7% | 90.1% | 88.8% |
+| Role-preserving100% mixed | 88.2% | 88.5% | 89.1% |
+| Free-role100% mixed | 87.4% | 88.3% | 87.9% |
+
+All mixed full-model conditions scored below original grouping within each
+seed. This is an observation for the registered masks, random draws, compiler,
+two sites and3epoch repair; it does not isolate a universal algebraic necessity.
+The new activation-energy masks differ from the earlier joint-selector masks.
+Interpret exact-feature and physical local comparisons separately using the
+complete report. No additional computation is queued.
+
+Authorized2026-11-25 after the user asked to distinguish original-quartet value,
+producer compilation error and repair. The user asked for concise updates.
+Prepared and launched around22:45Europe/Warsaw; read live
+[state](../results/grouping_mechanism_study/state.json) and
+[launch metadata](../results/grouping_mechanism_study/launch.json) before reporting.
+[Registered plan](../results/grouping_mechanism_study/PROTOCOL.md),
+[protocol](../results/grouping_mechanism_study/protocol.json),
+[readiness](../results/grouping_mechanism_study/readiness.json).
+
+Three existing Q parents (2026/2027/2028), blocks0/8. Within each seed/site ALL
+conditions retain exactly the same scalar channels: the half of whole units
+ranked highest by summed fit activation energy. This differs from the old joint
+mask; original is a new matched control, not the historical90.4percent result.
+Original grouping, role-preserving mixing, role-free mixing. Mixing at100percent
+has10predetermined random draws per policy;50percent has one draw. Total138local
+cases. No catalogue or original-unit completion reserve biases these draws.
+
+1. Fit Hamilton consumers to exact retained teacher features: ALL500fit images,
+   separate500check, zero-centered ridge and one fixed lambda per seed/site.
+2. Compare physically projected producers on those same groups. Also fit ONLY
+   producer kernels to selected-feature targets for100steps on the first fully
+   mixed draw of each policy; fixed BN, then identical consumer fit. These extra
+   producer fits are local diagnostics, never substituted into full models.
+3. Five projected compact models per seed (original/role50/free50/role100/free100,
+   draw0 fixed beforehand),15models total, each232266actual real trainables and
+   equal3epoch repair. Before/after accuracy, CE and paired logits retained.
+
+Twenty-seven tests, ten-local/five-model CPU end-to-end smoke with artifact
+replay/completed resume, discarded-copy GPU full-model updates and producer-only
+gradient/update checks passed before source registration. Check/validation never
+select grouping draws or endpoints. No official-test inference; explored
+validation is not fresh confirmation. No equivalence/significance/novelty claim.
+
+The runner's STOP and completed-epoch resume paths remain available for
+interrupted studies. Reinvocation verifies/reuses this completed run and does
+not launch a further experiment.
+Earlier pilot's failed continuation gate stays failed; this study asks a new,
+explicitly exploratory mechanism question rather than lowering that gate.
+
 ## Latest completed pilot: component reassembly
 
 Completed2026-11-25 at22:01:35 Europe/Warsaw:10local cases,5models, all3repair
