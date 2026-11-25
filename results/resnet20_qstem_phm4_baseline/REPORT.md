@@ -1,6 +1,6 @@
 # Quaternion input/stem with learned PHM ResNet-20
 
-Status: paused.
+Status: completed.
 
 ## Hypothesis
 
@@ -10,6 +10,7 @@ A from-scratch learned-PHM backbone can support a later compression study compar
 
 | Model | Real parameters | Selected epoch | Selected validation (%) | Final validation (%) |
 |---|---:|---:|---:|---:|
+| qstem_phm4 | 272746 | 101 | 91.50 | 92.30 |
 
 ## Interpretation and limits
 
