@@ -1,54 +1,228 @@
-# Current research handoff
+# Current research state
 
-Snapshot: 2026-11-08. This is a navigation aid, not a live process monitor. Read the relevant `state.json` and recent log tail, and check the process before reporting current activity or ETA.
+Updated: 2026-11-25. Read the relevant `state.json`, recent log tail and process
+state before reporting activity. This page is a handoff, not a process monitor.
 
-The PHM baseline is PAUSED after45completed epochs. The timed pause worked at12:50Europe/Warsaw on2026-11-08 so the GPU is free for the user's13:00-19:00classes. Timer state: `results/qstem_phm4_timed_pause/state.json` (training_stopped). No automatic restart after19:00. On renewed authorization remove the local `results/resnet20_qstem_phm4_baseline/STOP` and resume the original baseline command; its last completed epoch/optimizer/RNG are checkpointed, and a partial epoch repeats. Best CE-selected checkpoint so far: epoch33,validation86.6%; latest epoch45validation82.3%. These are intermediate results.
+## Latest completed pilot: component reassembly
 
-Current authorized direction: quaternion RGB encoding and Hamilton stem, independently learned PHM structures in deeper layers, trained FROM SCRATCH rather than converted from a Q teacher. First bounded model: `configs/resnet20_qstem_phm4_baseline.json`, `scripts/resnet20_qstem_phm4_baseline.py`, `src/models/cifar_phm_resnet.py`. One seed2026, fixed n4 in18residual convolutions,200epochs with the previous split/recipe. GPU preflight and2CPU tests passed;272746real trainables (Q baseline271594). Scientific baseline training has been started; live state/log/STOP: `results/resnet20_qstem_phm4_baseline/`. Resume command: `python -B -u -m scripts.resnet20_qstem_phm4_baseline --run`. This model learns PHM bases, not discrete n. No copied pretrained Q weights. Future compression should compare preserving versus readapting these learned bases; per-layer n selection is a separate unimplemented extension. No automatic follow-up is attached to this training.
+Completed2026-11-25 at22:01:35 Europe/Warsaw:10local cases,5models, all3repair
+epochs each. Worker exited, GPU idle and stderr empty. All452 registered
+source/input/final-artifact hashes passed the
+[completion audit](../results/resnet_component_reassembly_pilot/completion_audit.json).
+Each model made1125successful optimizer updates out of1125attempts.
 
-Latest: all independent-seed baselines, the focused 50% compression replication (12 new cases) and the combined five-policy hybrid/variable-n pilot are COMPLETE. The queues finished; no later stage was launched by them. Replication results: `results/resnet20_key_replication/summary.json`. Pilot: `results/resnet_structure_catalogue/summary.json`.
+Final validation accuracy: legacy89.8%, whole_joint90.4%, scalar_energy88.6%,
+role_fixed90.4%, free_roles90.8%. CE for whole/free:0.297067/0.295178. The
+registered continuation gate FAILED: free improved accuracy by0.4pp rather
+than0.5pp, although CE improved. No replication is queued.
+[Full measured report](../results/resnet_component_reassembly_pilot/REPORT.md).
 
-The pilot selected the same Q/Q model for all-Q, Q/real and variable-n policies (89.3% validation). CPU audit: `results/structure_catalogue_audit/REPORT.md` and `audit.json`, runnable as `python -B -u -m scripts.audit_structure_catalogue`. Independent enumeration reproduced the optimum across 159 feasible pairs out of 210, checkpoint/count/forward checks passed and 145 frozen source hashes matched. PHM4 exactly contains the chosen Q kernels, but the original dense-oracle SVD initializer has worse activation error; its extra 128 basis coefficients and the coarse width grid also handicap the same-width alternative. Do not interpret this pilot as proof of quaternion superiority.
+Free-role selection made two mixed quartets with two changed scalar roles in
+block0; block8 retained intact quartets. Its block0 local held-out MSE was worse
+than whole-unit selection (0.408960 versus0.395997). Role-fixed selection chose
+only intact quartets at both sites. Thus the classification difference is an
+exploratory single-seed observation; no local-error advantage, significance,
+novelty or reliable general gain is established. Reassess before more compute.
 
-The preregistered initialization diagnostic is also COMPLETE: `configs/phm_initialization_pilot.json`, `scripts/phm_initialization_pilot.py`, `results/phm_initialization_pilot/REPORT.md`. Two blocks, Q control plus PHM4 from Q/SVD/three random seeds, 300 full-batch Adam steps each on 500 fit images, 500 separate check images. No classification/test inference. PHM from Q and SVD reach nearly identical held-out MSE: block0 ~0.7074 versus Q-control 0.75675 (~6.5% lower), block8 ~0.18502 versus Q-control 0.18604 (~0.55% lower). Two of three random starts work well in block0 and all three in block8; one block0 random start is worse than Q. All PHM variants store 64 extra basis coefficients per layer. Twelve cases and 24 artifact metric replays passed an independent hash/count/moment audit. Original PHM deficit was partly a fitting-procedure limitation. These local errors do not establish equal-budget accuracy gains. Next possible work is finer-width/budget-matched structure selection using activation-fitted candidates; not launched.
+Registered and launched 2026-11-25 at 21:53 Europe/Warsaw. Worker PID at
+launch: 21244 (launcher 15784). Check the live
+[state](../results/resnet_component_reassembly_pilot/state.json) before reporting
+progress. Logs: `results/resnet_component_reassembly_pilot/runner_20261125_215328.log`
+and `.err`. [Plan](../results/resnet_component_reassembly_pilot/PROTOCOL.md),
+[frozen protocol](../results/resnet_component_reassembly_pilot/protocol.json),
+[readiness](../results/resnet_component_reassembly_pilot/readiness.json).
 
-The resume and queue-launch notes below describe the completed execution history.
+One selected Q parent (seed2026), blocks0/8, five equal-sized compact models:
+legacy direct reconstruction, joint whole-unit selection, scalar-energy
+selection, role-fixed reassembly, free-role reassembly. Each has232266 actual
+real trainables versus parent271594 (about14.5% full-model savings). Selection
+uses actual projected-producer BN/ReLU features on500fit images; separate500
+check images and1000validation. All five receive exactly3repair epochs, with
+AMP attempted/successful updates reported. No official test inference.
 
-Resume update 2026-11-08: the seed-2027 Q baseline stopped on CUDA out-of-memory on 2026-11-07 and was left stopped at the user's request. On renewed authorization, baseline training resumed from the verified complete epoch-41 checkpoint (optimizer/scaler/RNG present). Both waiting processes were restarted in dependency order. Current logs in all three runner directories are `runner_20261108.log` / `runner_20261108.err`; original logs preserve the failure. Check live state before reporting progress. The GPU had only 27 MiB occupied before restart; external notebook jobs do not honor this project's GPU lock.
+Sixteen tests, a ten-local/five-model synthetic smoke including completed-case
+resume, and discarded-copy FP32/AMP GPU checks passed before registration.
+GPU AMP preflight:2successful updates of3attempts. Initial development tests
+exposed a replacement-BN train/eval-state bug; it was fixed before registration
+and identity/reload tests now pass. Development evidence is retained.
 
-Update 2026-11-07 evening: independent-seed **baseline training** for seeds 2027/2028 has been started with `python -B -u -m scripts.resnet20_replication_baselines --run`. Configuration: `configs/resnet20_replication_baselines.json`. The runner trains real then Q for each seed, with per-epoch checkpoints and per-seed `state.json` under `results/resnet20_replication_baselines/seed_<seed>/`; logs are in its parent directory. To pause, create `STOP` in the active seed directory; resume by removing it and rerunning the same command. Four original CPU tests and both-seed real/Q GPU discarded-copy preflights passed.
+Primary comparison: free-role versus whole-unit selection. Continue only if
+free-role validation accuracy beats the best legacy/whole/energy control by at
+least0.5pp, with CE no worse than the lowest control CE. This is a practical
+single-seed gate, not significance or novelty evidence. No automatic next study.
 
-The focused 50% compression replication is implemented and preregistered in `results/resnet20_key_replication/protocol.json`: real/Q, mapfold/pruned/direct, both seeds; 2026 is explicitly discovery. Three CPU tests and six-case synthetic end-to-end smoke passed. A waiting process (`python -B -u -m scripts.queue_resnet20_replication`) now starts replication after both baseline seeds complete and the GPU lock is free. Live queue status/log: `results/resnet20_replication_queue/`; create its `STOP` to stop the waiting process before launch. Replication checkpoints per site and repair epoch; place `STOP` in the active `results/resnet20_key_replication/seed_<seed>/` to pause it.
+The runner reuses hash-checked completed artifacts when invoked again; it does
+not queue further experiments. Its STOP/completed-epoch resume path remains
+available for interrupted runs.
 
-The combined Q/real hybrid and variable-n PHM pilot is also queued: `python -B -u -m scripts.queue_resnet_structure_catalogue` waits for the replication queue and both scientific predecessor summaries to complete, then for the GPU lock to be free. Queue status/log: `results/resnet_structure_catalogue_queue/`; its `STOP` cancels waiting before launch. Once the pilot is running, use `results/resnet_structure_catalogue/STOP` to pause it. This is ONE combined five-policy pilot, not two jobs. Queue gates passed tests, and all 145 frozen pilot source hashes matched readiness. Neither waiting process automatically restarts after computer shutdown; restart both after resuming baselines. No scientific replication or hybrid results yet.
+## Latest completed experiment
 
-## Research question and measured state
+Component reassembly direction, 2026-11-25: the user proposes selecting individual
+scalar components and assigning new quaternion roles, followed by fitting truly
+smaller Hamilton producer/consumer layers. A bounded CPU technical diagnostic is
+complete: [report](../results/component_reassembly_diagnostic/REPORT.md),
+[protocol](../results/component_reassembly_diagnostic/protocol.json),
+[config](../configs/component_reassembly_diagnostic.json). Seven tests passed;
+3360 ordered candidate quartets were enumerated over two deliberately constructed
+synthetic teachers, with 128 fit and 1024 separate check inputs. All eight selected
+artifacts reload exactly. Each student contains only a smaller Q producer,
+BN/ReLU and smaller Q consumer: 16 real parameters versus 32 for the toy teacher.
+There is no full teacher, gather/router or dense adapter in the student forward.
 
-We study structured post-training compression of quaternion CNNs, including how compensation and structure affect quality and actual parameter count, with real CNN controls. Phase 0 and many earlier studies are complete. The current paper focus is compression; the separate SSL/few-shot project is not part of this queue.
+Derived compatibility cost: pull the four selected producer rows back through
+their assigned Hamilton roles. The common coefficient vector minimizing
+Frobenius error is their mean; the residual is their summed squared deviation,
+equivalently one quarter of all pairwise squared distances. This is elementary
+projection, not a new theorem. Original intact quartets have zero cost; arbitrary
+reassembly generally requires approximation. The final small architecture family
+is unchanged; this direction concerns source-guided compression initialization.
 
-ResNet-20 CIFAR-10 baselines and all 12 core compression cases are complete for **one discovery seed (2026)**. Selected validation accuracy was 90.9% for real and 91.0% for Q. Within each family and compression fraction, pruning-only, shared-map folding and direct consumer reconstruction use the same removed channels and three epochs of repair.
+Synthetic held-out MSE for best-whole versus reassembled: 0.425194/0.001013 in
+the aligned-producer example and 0.521865/0.286526 in the unrelated-producer
+example. Ideal full-teacher selected-feature error is near zero in both; actual
+compiled producer error differs substantially. Scalar-energy, consumer-only and
+realizability-aware selectors choose the SAME winning quartet in both cases;
+no selector superiority has been established. These are mechanism checks on
+constructed data, not CIFAR accuracy or evidence of novelty. The real-data pilot
+above now tests this mechanism with whole-unit/scalar-energy controls and
+matched actual parameter budgets. Its measured results are summarized above.
 
-| Removed internal channels | Real: map fold / direct after repair | Q: map fold / direct after repair |
-| --- | --- | --- |
-| 25% | 89.2% / 89.1% | 88.6% / 88.3% |
-| 50% | 82.9% / 84.9% | 81.8% / 82.9% |
+The older PHM basis-adaptation pilot below remains closed with its failed gate.
 
-These are validation results for one seed, not evidence of statistical significance or equivalence. The real and Q models have similar but not identical actual parameter counts. The independent structural/hash audit passed but did not independently replay full validation predictions; the scientific runner did replay validation for final checkpoints. No new test evaluation in this stage. See [core report](../results/resnet20_compression/REPORT.md), [state](../results/resnet20_compression/state.json), [audit](../results/resnet20_compression/independent_audit.json) and [baseline report](../results/resnet20_baselines/REPORT.md).
+The learned-basis compression pilot finished on 2026-11-25 at 18:06:23
+Europe/Warsaw: six local fits and six models completed, no stderr output,
+worker exited, GPU idle. All 12 final local/full model hashes passed a
+[post-completion artifact check](../results/phm_basis_compression_pilot/completion_audit.json).
+Model metric reload replays are recorded in individual result files.
 
-Earlier three-seed compact CNN results and negative pilot findings are in the relevant study reports and [generated research status](RESEARCH_STATUS.md). Do not infer that quaternion structure itself explains earlier shared-map results; see [literature index](../LITERATURE.md).
+| Compact model (233418 stored reals) | Validation accuracy | Validation CE |
+|---|---:|---:|
+| Preserve bases, 3-epoch repair | 90.2% | 0.303050 |
+| Adapt bases, 3-epoch repair | 90.5% | 0.303820 |
+| Reinitialize bases, 3-epoch repair | 90.0% | 0.304644 |
+| Scratch, 200 epochs, CE-selected epoch 100 | 90.4% | 0.294454 |
 
-## Next authorized work
+Scratch final epoch: 90.6%, CE 0.416760; the CE-selected checkpoint remains
+epoch 100. Scratch uses a full training budget, not the repair update budget.
+Adaptation reduced local held-out MSE by 4.78%/1.81% (mean 3.30%), but the
+registered continuation gate FAILED: accuracy gain was 0.3pp rather than 0.5pp,
+CE was slightly worse and the compression-specific CE criterion did not pass.
+Uncompressed preserve/adapt controls both reached 91.6% after repair. One
+parent seed/two sites/one split; no equivalence, significance, novelty or gain
+claim follows. No further study is queued. [Full report](../results/phm_basis_compression_pilot/REPORT.md).
 
-The [queue](../configs/ijcnn_research_queue.json) describes the agenda and may contain historical execution statuses. The baseline, replication and bounded catalogue stages are now complete. Treat 2026 as discovery and retain all negative outcomes. Seeds use the same held-out data split, so do not describe them as independent datasets. Check trainability, splits, actual physical compactness, source hashes, checkpoint resume and parameter counts before future scientific runs.
+The learned-basis compression pilot was registered and launched on 2026-11-25
+at 16:38 Europe/Warsaw. Check its [state](../results/phm_basis_compression_pilot/state.json)
+and recent log tail before reporting progress. Logs:
+`results/phm_basis_compression_pilot/runner_20261125_163810.log` and `.err`.
+Worker PID at launch: 7552 (Windows launcher PID 11824).
 
-The bounded catalogue is complete and audited; see the latest update above. Do not repeat it under its two queue labels. Weighted PHM fitting and full nine-block allocation remain conditional. Details: [catalogue report](../results/resnet_structure_catalogue/REPORT.md), [audit](../results/structure_catalogue_audit/REPORT.md), [plan](PLAN_IJCNN2027.md).
+Scope: independent 50% internal-group removal in blocks 0 and 8, six local
+300-step reconstruction fits (preserve/adapt/reinitialize), three matched
+3-epoch compressed repairs, two 3-epoch uncompressed controls, and one 200-epoch
+compact scratch reference. The stored compact count is **233418** versus 272746
+for the parent (about 14.4% full-model savings, not 50%). Preserve trains 232266
+reals; adapt/reinitialize train 232394. Only the two target consumer bases can
+adapt during repair; all other PHM bases are frozen. Scratch learns all bases
+from random initialization and uses a larger training budget than repair.
 
-The draft response to Marcos is [here](MARCOS_DRAFT_2026-11-07.md); it has not been sent and the author list remains open. Do not assert firstness or superiority based on current evidence.
+Ten CPU checks, a six-model synthetic end-to-end smoke and discarded-copy GPU
+checks passed before scientific fitting. GPU AMP preflight recorded 2 successful
+updates out of 3 attempts for each policy; skips and earlier development-check
+failures remain in [the check record](../results/phm_basis_compression_pilot/development_checks.json).
+Registered [protocol](../results/phm_basis_compression_pilot/protocol.json),
+[configuration](../configs/phm_basis_compression_pilot.json),
+[readiness](../results/phm_basis_compression_pilot/readiness.json).
 
-## Working efficiently and safely
+Create `results/phm_basis_compression_pilot/STOP` to pause, then remove it and
+resume with `python -B -u -m scripts.phm_basis_compression_pilot --run`.
+Local Adam state is checkpointed every 25 steps; repair and scratch preserve
+completed-epoch optimizer/scaler/RNG state. No later study is automatically queued.
 
-- Follow [AGENTS.md](../AGENTS.md); before writing code read [PROJECT.md](../PROJECT.md) and [LITERATURE.md](../LITERATURE.md). `PROJECT.md` is the original project brief: where early-stage plans conflict with measured progress, consult this handoff and the queue for current status.
-- Read only the relevant report, configuration or source. Use scoped `rg` and short log tails; do not read all results, archives or the full citation database on every task.
-- Sources/configs registered in existing protocols are hash-frozen. Add new numerical files instead of editing those files. Do not move datasets, checkpoints, protocol files or result paths. Preserve negative results, seeds, versions and held-out splits.
-- Git excludes datasets and many intermediate checkpoints; a clone is insufficient to resume or audit all past studies without local artifacts.
-- [Historical handoff](archive/HANDOFF_2026-11-07.md), [historical plan](archive/PLAN_IJCNN2027_2026-11-07.md), [full literature audit](archive/LITERATURE_2026-11-07.md) and [previous README](archive/README_2026-11-07.md) are byte-for-byte snapshots. Their local relative links were written for their original locations. Read them selectively; historical status and next-step instructions can be superseded.
+## Completed parent baseline
+
+The Q-stem/PHM4 ResNet-20 baseline completed **200/200 epochs** on 2026-11-25 at
+16:19:55 Europe/Warsaw. The worker exited and no follow-up was launched.
+
+- Selected by minimum validation CE: epoch 101, accuracy **91.5%**, CE 0.2691867676.
+- Final epoch: accuracy **92.3%**, CE 0.3627398891. It does not replace the CE-selected model.
+- Actual real trainables: **272746**, versus 271594 for the earlier Q baseline.
+- Selected-model reload/validation replay and checkpoint hash checks passed.
+- Seed 2026 only; no official test inference or demonstrated superiority.
+- Optimizer: 75000 attempted, 74971 successful updates; 29 AMP-skipped updates are retained in the record.
+
+[Report](../results/resnet20_qstem_phm4_baseline/REPORT.md),
+[state](../results/resnet20_qstem_phm4_baseline/state.json),
+[metrics](../results/resnet20_qstem_phm4_baseline/qstem_phm4/metrics.json).
+The selected model is `results/resnet20_qstem_phm4_baseline/qstem_phm4/model.pt`;
+the final resumable checkpoint is `last.pt` in the same directory.
+
+The model was trained from scratch with RGB `(0,R,G,B)`, one Hamilton stem and
+18 independently learned PHM residual convolutions at fixed n=rank=4. It does
+not learn discrete n, inherit a pretrained Q model, or enforce algebra axioms.
+Definitions: [config](../configs/resnet20_qstem_phm4_baseline.json),
+[runner](../scripts/resnet20_qstem_phm4_baseline.py),
+[model](../src/models/cifar_phm_resnet.py).
+
+## Next action
+
+Review the completed negative pilot above and retain every case, including failures.
+Its prespecified continuation gate requires local held-out improvement, at least
+0.5 percentage-point validation accuracy gain for adapt over preserve, lower CE,
+and a CE gain at least as large as in the uncompressed further-training control.
+These are practical pilot thresholds, not significance tests or proof of novelty.
+The gate failed, so do not automatically extend this branch to more seeds or
+datasets. Reassess the scientific question and prior-art distinction before
+registering a new experiment; the scratch reference is now complete.
+
+See the [research plan](PLAN_IJCNN2027.md). Variable-n selection and full-network
+structure allocation remain conditional extensions. CIFAR-100 is a later
+generalization branch. The separate SSL/few-shot project is outside this agenda.
+
+## Completed evidence
+
+| Study | Measured state and limits | Record |
+|---|---|---|
+| ResNet-20 baselines and core compression | Real/Q, discovery seed 2026; 12 compression cases at 25%/50% internal-channel removal | [Baseline](../results/resnet20_baselines/REPORT.md), [compression](../results/resnet20_compression/REPORT.md) |
+| Focused 50% replication | Seeds 2027/2028; real/Q, pruning/mapfold/direct, equal 3-epoch repair; same data split | [2027](../results/resnet20_key_replication/seed_2027/REPORT.md), [2028](../results/resnet20_key_replication/seed_2028/REPORT.md) |
+| Two-block structure catalogue | Q/Q selected by all-Q, Q/real and variable-n policies: 89.3% validation; no demonstrated hybrid benefit | [Report](../results/resnet_structure_catalogue/REPORT.md), [audit](../results/structure_catalogue_audit/REPORT.md) |
+| PHM initialization diagnostic | Activation fitting improved local held-out MSE; one random start failed and PHM stores extra basis coefficients | [Report](../results/phm_initialization_pilot/REPORT.md), [interpretation](../results/phm_initialization_pilot/INTERPRETATION.md) |
+
+The catalogue audit reproduced the optimum over 159 feasible pairs and checked
+145 frozen source hashes. Its original PHM SVD fitting and coarse width grid
+limit interpretation: it does not establish quaternion superiority. The later
+local PHM diagnostic does not establish equal-budget classification gains.
+Earlier studies, failed checks and negative pilots are indexed in
+[RESEARCH_STATUS.md](RESEARCH_STATUS.md); full records remain under `results/`.
+
+## Environment and operational records
+
+The relocated Windows venv was repaired on 2026-11-25 without changing registered
+Python/PyTorch/NumPy versions or the scientific recipe. Six CPU tests, all 430
+registered source/input hashes, two checkpoint metric replays and 15/15 synthetic
+GPU AMP updates passed. Cross-machine bitwise equality is not claimed.
+[Migration and resume report](../results/phm_resume_20261125/REPORT.md).
+
+Logs: `results/resnet20_qstem_phm4_baseline/runner_20261125_151729.log` and `.err`.
+The epoch-45 checkpoint backup is in `results/phm_resume_20261125/`.
+The November 8 timed-pause state is historical; no timed pause is scheduled.
+The [JSON agenda](../configs/ijcnn_research_queue.json) and old queue-launch notes
+can contain obsolete execution statuses; they do not authorize duplicate runs.
+
+## Working rules and background
+
+Follow [AGENTS.md](../AGENTS.md); before numerical work read [PROJECT.md](../PROJECT.md)
+and [LITERATURE.md](../LITERATURE.md). Citation keys are canonical in
+[references.bib](../references.bib). Frozen numerical sources/configs, datasets,
+checkpoints, split indices and result paths must remain intact.
+
+Keep hypotheses, measurements and interpretations separate; preserve failed
+checks and negative results. Distinguish quaternion units, real trainables,
+stored coefficients, masked sparsity and physical architecture savings. Seed
+replication on the same split is not dataset replication. Do not assert novelty,
+significance or acceptance from the current evidence.
+
+The [draft for Marcos](MARCOS_DRAFT_2026-11-07.md) has not been sent; authors are
+unconfirmed. The [full literature audit](archive/LITERATURE_2026-11-07.md) retains
+prior-art checks. Its relative paths were written for the repository root.
+Superseded narrative handoffs/plans are available through Git history.

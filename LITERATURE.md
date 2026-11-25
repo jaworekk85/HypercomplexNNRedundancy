@@ -23,6 +23,20 @@ Citation keys and bibliographic metadata are canonical in [references.bib](refer
 
 ## Claims and interpretation
 
+For a possible next direction involving masks selected by the attainable
+consumer reconstruction error, consider `He2017ChannelPruning`, `Frantar2022OBC`
+and `Jeong2022QCQP`. Reconstruction-aware pruning, OBS compensation and coupled
+resource-constrained channel selection have prior art. The 2026-11-25 OBC/QCQP
+checks cover official metadata/abstracts, not full-method equivalence. A new
+Hamilton/PHM implementation alone does not establish methodological novelty.
+The earlier reconstruction comparisons fixed masks across fitting methods.
+The completed [component-reassembly pilot](results/resnet_component_reassembly_pilot/REPORT.md)
+now includes bounded joint selection using actual projected-producer features
+and a Hamilton consumer ridge objective. Its single-seed free-role result
+missed the registered continuation gate; it establishes neither a general
+performance gain nor novelty relative to these methods and learned grouping
+work (`Zhang2021StructuredShuffle`, `Wang2019FLGC`).
+
 Quaternion pruning, real-network activation pruning, neuron merging, next-layer reconstruction, hypercomplex least squares and learned PHM structures already exist. A targeted review did not locate an exact predecessor for the investigated combined post-pruning procedure; this does **not** establish firstness or sufficient novelty. The proposed contribution is conditional on careful controls and measured results.
 
 The reported 62.4–90.6% local-objective improvement concerns releasing extra shared-map restrictions **within** quaternion consumers; it does not measure the cost of quaternion versus real architectures. Compare actual parameter budgets and separately report hypotheses, results and interpretation. For an earlier redundancy-focused reading map and detailed source-by-source qualifications, consult the archived review.
