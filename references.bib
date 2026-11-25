@@ -1,4 +1,5 @@
-% Research bibliography for PROJECT.md; verified metadata / publisher links (2026-11-02).
+% Research bibliography for PROJECT.md; initial verification 2026-11-02.
+% Targeted grouping/transfer review and publisher-export audit: 2026-11-25.
 % Citation keys match LITERATURE.md. Entries with no DOI intentionally have a stable proceedings/arXiv URL.
 
 @article{NiemczynowiczKycia2025,
@@ -325,16 +326,20 @@
   note = {Publication metadata verified against official PMLR proceedings on 2026-11-05. Method and BN REPAIR comparison inspected in arXiv:2602.23795v2; published PDF could not be parsed by the browsing tool, so version identity is not assumed. No reproduction claim},
 }
 
-@misc{Valle2024VNets,
-  title = {Understanding Vector-Valued Neural Networks and Their Relationship with Real and Hypercomplex-Valued Neural Networks},
+@article{Valle2024VNets,
+  title = {Understanding Vector-Valued Neural Networks and Their Relationship With Real and Hypercomplex-Valued Neural Networks: Incorporating intercorrelation between features into neural networks},
   author = {Marcos Eduardo Valle},
   year = {2024},
   eprint = {2309.07716},
   archivePrefix = {arXiv},
   primaryClass = {cs.LG},
-  doi = {10.48550/arXiv.2309.07716},
-  url = {https://arxiv.org/abs/2309.07716},
-  note = {arXiv v2 (1 Aug 2024); comment states accepted in IEEE Signal Processing Magazine. Final journal DOI not verified. Abstract and method passages inspected 2026-11-04},
+  journal = {IEEE Signal Processing Magazine},
+  volume = {41},
+  number = {3},
+  pages = {49--58},
+  doi = {10.1109/MSP.2024.3401621},
+  url = {https://doi.org/10.1109/MSP.2024.3401621},
+  note = {Journal metadata and Crossref BibTeX verified 2026-11-25; replaces the earlier preprint-only citation, preserving its key and arXiv identifier. Abstract and preprint method passages inspected; no claim of final-version text identity},
 }
 
 @misc{VieiraNetoValle2025VEfficientNets,
@@ -666,4 +671,131 @@
   year = {2022},
   url = {https://proceedings.mlr.press/v151/jeong22a.html},
   note = {Official proceedings metadata/abstract checked 2026-11-25. Prior art for coupled channel selection and explicit resource constraints; not evidence that the proposed exact PHM/Hamilton reconstruction-mask objective is novel. Full-method comparison remains necessary},
+}
+
+@inproceedings{GaudetMaida2018DeepQuaternion,
+  title = {Deep Quaternion Networks},
+  author = {Gaudet, Chase J. and Maida, Anthony S.},
+  booktitle = {2018 International Joint Conference on Neural Networks (IJCNN)},
+  publisher = {IEEE},
+  pages = {1--8},
+  year = {2018},
+  doi = {10.1109/IJCNN.2018.8489651},
+  url = {https://doi.org/10.1109/IJCNN.2018.8489651},
+  note = {Publisher-deposited Crossref metadata and BibTeX downloaded 2026-11-25; author arXiv:1712.04604v3 identifies IJCNN2018. Conference year2018 differs from initial preprint2017. Abstract inspected; not a claim of quaternion equivariance or compression novelty},
+}
+
+@article{BillCox2024LossSurfaces,
+  title = {Exploring Quaternion Neural Network Loss Surfaces},
+  author = {Bill, Jeremiah and Cox, Bruce},
+  journal = {Advances in Applied Clifford Algebras},
+  volume = {34},
+  number = {3},
+  pages = {19},
+  year = {2024},
+  doi = {10.1007/s00006-024-01313-2},
+  url = {https://doi.org/10.1007/s00006-024-01313-2},
+  note = {Crossref BibTeX/metadata and publisher full-text sections1/3.3 inspected 2026-11-25. Article19 is an article number, omitted from raw Crossref BibTeX but present in registry/publisher metadata. Empirical transfer of loss-surface analysis to QMLPs;30surface projections do not mean30independently trained networks},
+}
+
+@article{PoppelbaumSchwung2025TimeCompression,
+  title = {Time series compression using quaternion valued neural networks and quaternion backpropagation},
+  author = {P{\"o}ppelbaum, Johannes and Schwung, Andreas},
+  journal = {Neural Networks},
+  volume = {188},
+  pages = {107465},
+  year = {2025},
+  doi = {10.1016/j.neunet.2025.107465},
+  url = {https://doi.org/10.1016/j.neunet.2025.107465},
+  eprint = {2403.11722},
+  archivePrefix = {arXiv},
+  note = {Journal metadata/Crossref BibTeX verified 2026-11-25; publisher abstract and author preprintv2 sectionsVI-B3/VII inspected. Component versus magnitude max-pooling compares temporal pooling, not hidden-channel pruning/reassembly. Compression here concerns input time-series length; article107465, not page range. Journal2025 replaces neither preprint2024 nor proves version identity},
+}
+
+@inproceedings{Tay2019QuaternionNLP,
+  title = {Lightweight and Efficient Neural Natural Language Processing with Quaternion Networks},
+  author = {Tay, Yi and Zhang, Aston and Luu, Anh Tuan and Rao, Jinfeng and Zhang, Shuai and Wang, Shuohang and Fu, Jie and Hui, Siu Cheung},
+  booktitle = {Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics},
+  publisher = {Association for Computational Linguistics},
+  pages = {1494--1503},
+  year = {2019},
+  doi = {10.18653/v1/P19-1145},
+  url = {https://aclanthology.org/P19-1145/},
+  note = {Official ACL BibTeX, PDF title page and independent publisher-deposited Crossref metadata checked 2026-11-25; eight authors in ACL order. Abstract-level evidence for quaternion attention/Transformer adaptations; not evidence of post-training grouping or universal75percent whole-model savings},
+}
+
+@article{Comminiello2024InductiveBiases,
+  title = {Demystifying the Hypercomplex: Inductive biases in hypercomplex deep learning},
+  author = {Comminiello, Danilo and Grassucci, Eleonora and Mandic, Danilo P. and Uncini, Aurelio},
+  journal = {IEEE Signal Processing Magazine},
+  volume = {41},
+  number = {3},
+  pages = {59--71},
+  year = {2024},
+  doi = {10.1109/MSP.2024.3401622},
+  url = {https://doi.org/10.1109/MSP.2024.3401622},
+  eprint = {2405.07024},
+  archivePrefix = {arXiv},
+  note = {Publisher-deposited Crossref BibTeX/metadata checked 2026-11-25; author preprint sections3/4 inspected. Separates dimensionality, algebraic, geometric and regularization biases. This is conceptual context, not proof that our split-ReLU/scalar-BN CIFAR architecture has rotation equivariance},
+}
+
+@article{ShahadatMaida2024CrossChannel,
+  title = {Cross channel weight sharing for image classification},
+  author = {Shahadat, Nazmul and Maida, Anthony S.},
+  journal = {Image and Vision Computing},
+  volume = {141},
+  pages = {104872},
+  year = {2024},
+  doi = {10.1016/j.imavis.2023.104872},
+  url = {https://doi.org/10.1016/j.imavis.2023.104872},
+  note = {Crossref journal export and publisher/author-preprint abstracts checked 2026-11-25. Journal issueJanuary2024 despite2023 DOI/online/preprint dates; do not substitute the SSRN DOI10.2139/ssrn.4374175. Full methods not inspected in this review; cross-channel sharing and fully hypercomplex architecture analysis, not evidence that arbitrary hidden-feature grouping is harmless},
+}
+
+@inproceedings{Bansal2021ModelStitching,
+  title = {Revisiting Model Stitching to Compare Neural Representations},
+  author = {Bansal, Yamini and Nakkiran, Preetum and Barak, Boaz},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume = {34},
+  pages = {225--236},
+  publisher = {Curran Associates, Inc.},
+  year = {2021},
+  url = {https://proceedings.neurips.cc/paper/2021/hash/01ded4259d101feb739b06c399e9cd9c-Abstract.html},
+  note = {Official proceedings BibTeX downloaded and abstract inspected 2026-11-25. Functional representation comparison using frozen networks and a learned stitch. Not a matched-parameter Q pruning baseline},
+}
+
+@inproceedings{Smith2025FunctionalAlignment,
+  title = {Functional Alignment Can Mislead: Examining Model Stitching},
+  author = {Smith, Damian and Mannering, Harvey and Marcu, Antonia},
+  booktitle = {Proceedings of the 42nd International Conference on Machine Learning},
+  series = {Proceedings of Machine Learning Research},
+  volume = {267},
+  pages = {55972--55998},
+  publisher = {PMLR},
+  year = {2025},
+  url = {https://proceedings.mlr.press/v267/smith25a.html},
+  note = {Official embedded PMLR BibTeX extracted2026-11-25 from the same code block used by the publisher download button; title/authors/year/pages checked. Abstract inspected; warns against inferring informational similarity from functional alignment. Does not directly study Hamilton group reassembly},
+}
+
+@inproceedings{Jordan2023REPAIR,
+  title = {{REPAIR}: {REnormalizing Permuted Activations for Interpolation Repair}},
+  author = {Jordan, Keller and Sedghi, Hanie and Saukh, Olga and Entezari, Rahim and Neyshabur, Behnam},
+  booktitle = {The Eleventh International Conference on Learning Representations},
+  year = {2023},
+  url = {https://openreview.net/forum?id=gU5sJ6ZggcX},
+  eprint = {2211.08403},
+  archivePrefix = {arXiv},
+  note = {Manually normalized from indexed accepted-paper title page, author arXiv record and author repository2026-11-25. Official OpenReview BibTeX/API requests failed404/403; arXiv direct export failedTLS verification. No raw publisher BibTeX claimed. Abstract/introduction only inspected; activation rescaling for interpolated model merging, distinct from our generic supervised fine-tuning function named repair},
+}
+
+@article{Lakens2017Equivalence,
+  title = {Equivalence Tests: A Practical Primer for {t} Tests, Correlations, and Meta-Analyses},
+  author = {Lakens, Dani{\"e}l},
+  journal = {Social Psychological and Personality Science},
+  volume = {8},
+  number = {4},
+  pages = {355--362},
+  year = {2017},
+  doi = {10.1177/1948550617697177},
+  url = {https://doi.org/10.1177/1948550617697177},
+  note = {Publisher-deposited Crossref BibTeX/metadata and publisher abstract checked2026-11-25. Raw BibTeX title contains HTML italic tags around t; normalized to TeX. Registry JSON truncates title to Equivalence Tests, so full subtitle checked against publisher/BibTeX. TOST is background for future prospectively justified equivalence margins, not an analysis claimed by our current three-seed study},
 }

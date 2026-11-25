@@ -2,6 +2,34 @@
 
 Citation keys and bibliographic metadata are canonical in [references.bib](references.bib). This index is a starting point, not a systematic review or proof of priority. Read the relevant primary sources before making detailed claims. The full previous annotated review and its targeted novelty audits are preserved in [docs/archive/LITERATURE_2026-11-07.md](docs/archive/LITERATURE_2026-11-07.md); its local relative links were written relative to the repository root.
 
+## Grouping and substantive adaptation to QNNs: 2026-11-25 review
+
+The [targeted review](docs/literature/GROUPING_AND_TRANSFER_2026-11-25.md)
+reframes the contribution around what quaternion structure changes, rather
+than requiring an entirely new optimizer/algebra. Published examples include
+`Vecchi2020` (targeted quaternion regularization), `BillCox2024LossSurfaces`
+(empirical loss-surface analysis), `GaudetMaida2018DeepQuaternion` (IJCNN2018),
+and `Tay2019QuaternionNLP` (quaternion attention/Transformer adaptations).
+
+Closest conceptual sources: `PoppelbaumSchwung2025TimeCompression` compares
+component versus whole-quaternion magnitude pooling across temporal positions;
+this is not hidden-channel reassembly. `Comminiello2024InductiveBiases`,
+`ShahadatMaida2024CrossChannel` and the now journal-verified `Valle2024VNets`
+provide context on sharing and inter-feature relations. Successful repair does
+not establish informational equivalence: see `Bansal2021ModelStitching`,
+`Smith2025FunctionalAlignment` and the distinct interpolation method
+`Jordan2023REPAIR`. `Lakens2017Equivalence` supports planning small-effect tests,
+not a claim that our current study has demonstrated equivalence.
+
+Ten new entries and one publication-status upgrade have
+[raw exports and verification records](docs/literature/exports/2026-11-25/sources.json).
+OpenReview export failures and the manually verified REPAIR entry are disclosed.
+The review records inspected sections/abstract-only limits and potential paper
+uses. It does not establish firstness or guarantee acceptance. The official
+[IJCNN2027 session description](https://ijcnn.org/2027/authors/special-sessions)
+explicitly includes generalizing real-valued architectures/training algorithms
+to hypercomplex networks; topical fit is separate from contribution quality.
+
 ## Hypercomplex frameworks and implementation provenance
 
 - `NiemczynowiczKycia2025`: Agnieszka Niemczynowicz and Radosław A. Kycia, *KHNN: Hypercomplex-valued neural networks computations via Keras using TensorFlow and PyTorch*, SoftwareX 30 (2025), 102163, [DOI](https://doi.org/10.1016/j.softx.2025.102163). Include this work in the future paper's background/related work on hypercomplex software and in the implementation provenance discussion. The canonical BibTeX entry already exists in [references.bib](references.bib).
@@ -36,6 +64,17 @@ and a Hamilton consumer ridge objective. Its single-seed free-role result
 missed the registered continuation gate; it establishes neither a general
 performance gain nor novelty relative to these methods and learned grouping
 work (`Zhang2021StructuredShuffle`, `Wang2019FLGC`).
+
+The separately authorized [grouping-mechanism study](results/grouping_mechanism_study/PROTOCOL.md)
+holds retained scalar features fixed, compares role-preserving/free assignments
+on exact features, separates physical producer projection/data-aware producer
+fitting, then measures equal repair. Primary abstract pages for
+`Zhang2021StructuredShuffle` and `Wang2019FLGC` were rechecked2026-11-25:
+learned grouping and channel shuffle are established. This bounded check is not
+a systematic search or evidence of firstness for the proposed diagnostic.
+Neither the control design nor standard ridge/projection alone establishes a
+novel method. The study has completed; its measured report must be interpreted
+within its registered scope. The previous pilot gate stays failed.
 
 Quaternion pruning, real-network activation pruning, neuron merging, next-layer reconstruction, hypercomplex least squares and learned PHM structures already exist. A targeted review did not locate an exact predecessor for the investigated combined post-pruning procedure; this does **not** establish firstness or sufficient novelty. The proposed contribution is conditional on careful controls and measured results.
 
