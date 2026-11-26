@@ -14,6 +14,13 @@ conditional extensions. The draft now has a shorter abstract, contribution list,
 conceptual grouping diagram and already measured uncompressed-parent accuracy.
 No additional model was trained or test split evaluated.
 
+Subsequent user authorization: commit/push the draft first, then execute the
+matched repair study. The initial commits are pushed; new source/config/tests
+and[protocol](../results/grouping_repair_curve/PROTOCOL.md)are now prepared/frozen.
+Read[CURRENT.md](CURRENT.md)and the live state before reporting execution.
+All18initial-model replays and both compact CUDA update audits passed. Only this
+repair study is next; no automatic execution of every suggestion in the reviews.
+
 Highest-priority numerical proposal:18matched compact-model trajectories
 (two settings, three source seeds, three assignments), a single30epoch repair
 schedule from pre-repair initializations, snapshots0/1/3/10/30. Existing3epoch

@@ -3,6 +3,29 @@
 Updated: 2026-11-26. Read the relevant `state.json`, recent log tail and process
 state before reporting activity. This page is a handoff, not a process monitor.
 
+## Authorized next study: matched repair trajectories
+
+The user explicitly authorized the repair experiment after requesting commits/push
+on2026-11-26. Manuscript/review commits7293f53and8da0a8bwere pushed first.
+New independent source/config: [protocol](../results/grouping_repair_curve/PROTOCOL.md),
+[readiness](../results/grouping_repair_curve/readiness.json),
+[state](../results/grouping_repair_curve/state.json),
+[development checks](../results/grouping_repair_curve/DEVELOPMENT.md).
+Preparation passed5CPU tests, a full synthetic trajectory/completed resume,
+all18bitwise initial-model/logit replays, and discarded CUDA tracked-variable/
+all-four-component gradient/update audits in both settings. New sources are frozen;
+no predecessor was edited. Ready to launch; no new scientific repair SGD yet.
+
+Scope:18trajectories(two settings, three existing parent seeds, three frozen
+assignments), snapshots0/1/3/10/30, same pre-repair compact weights/masks/counts.
+One30epoch cosine schedule per trajectory; historical3epoch scheduling is a
+different recipe. Primary final epoch30paired validation gaps/CE, with reversals
+retained and no best-epoch selection. Actual attempted/successful AMP counts and
+per-example validation/reconstruction-check logits are stored. Test not evaluated.
+No scratch, new masks/draws, compression ratios or parent/algebra grid is queued.
+STOP:`results/grouping_repair_curve/STOP`; resume after removing STOP with
+`.venv-cuda/Scripts/python.exe -B -u -m scripts.grouping_repair_curve --run`.
+
 ## Manuscript draft: first complete LaTeX version
 
 The user authorized drafting on2026-11-26. [Manuscript source](../paper/main.tex),
@@ -33,11 +56,9 @@ repository; validation-only status and failed scientific comparisons remain expl
 Unchanged IEEEtran class/style were obtained from CTAN after direct IEEE ZIP
 requests returned empty payloads; vendor/tool provenance is recorded in`paper/vendor`.
 Numerical protocols/sources were not edited and no new model was evaluated.
-Next numerical proposal:common30epoch repair trajectories from the saved pre-repair
-initializations, report0/1/3/10/30,18runs across the two settings. The old3epoch cosine
-schedule cannot simply be extended as an unchanged trajectory. This is a proposal,
-not a registered/launched run; no new training or test inference is active. Final
-procedure/reporting lock and prior-split-access audit precede test evaluation.
+The previously proposed repair study is now separately authorized and prepared
+above. Final procedure/reporting lock and prior-split-access audit precede test
+evaluation. The current article's three-epoch results remain unchanged.
 
 The user requested a concise literature review during the grouping study.
 The [2026-11-25 adaptation/grouping review](literature/GROUPING_AND_TRANSFER_2026-11-25.md)

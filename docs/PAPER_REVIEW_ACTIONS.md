@@ -29,7 +29,14 @@ Relevant records: [evidence map](PAPER_EVIDENCE_MAP.md),
 [EuroSAT parent replays](../results/eurosat_grouping_fp32_replication/parent_replays.json),
 [PHM scratch](../results/phm_basis_compression_pilot/REPORT.md).
 
-## Proposed next numerical study — not launched or registered
+## Next numerical study — subsequently authorized and prepared
+
+The user explicitly authorized this next study after requesting manuscript
+commits/push. Those commits were pushed first; the separately frozen
+[repair protocol](../results/grouping_repair_curve/PROTOCOL.md)now instantiates
+the design below. Five CPU tests, a full synthetic completed-resume check,
+18bitwise initial-logit replays and compact CUDA update audits passed.
+Read[CURRENT.md](CURRENT.md)and the result state for actual launch/progress.
 
 Question: under a common repair schedule, does original grouping maintain a
 classification advantage after a larger optimization budget, or mostly recover
