@@ -2,6 +2,14 @@
 
 Citation keys and bibliographic metadata are canonical in [references.bib](references.bib). This index is a starting point, not a systematic review or proof of priority. Read the relevant primary sources before making detailed claims. The full previous annotated review and its targeted novelty audits are preserved in [docs/archive/LITERATURE_2026-11-07.md](docs/archive/LITERATURE_2026-11-07.md); its local relative links were written relative to the repository root.
 
+The manuscript now cites six additional previously indexed sources:
+`Chaudhary2024`, `ShahadatMaida2024CrossChannel`,
+`PoppelbaumSchwung2025TimeCompression`, `Ayinde2019`, `Kim2020`, and
+`Lakens2017Equivalence`. [Manuscript source verification](paper/literature_verification.json)
+records the primary-source scope and preserved/new BibTeX exports. Kim2020now
+includes official pages585--595and publisher. This expands the paper bibliography,
+not the literature's novelty claims; no new numerical work or equivalence test.
+
 ## Contribution versus completed evidence: 2026-11-26 audit
 
 The [contribution audit](docs/literature/PAPER_CONTRIBUTION_AUDIT_2026-11-26.md)

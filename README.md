@@ -7,6 +7,7 @@ compression gains must be established by evidence.
 - [Current state and next action](docs/CURRENT.md)
 - [Research plan](docs/PLAN_IJCNN2027.md)
 - [Working title and paper evidence map](docs/PAPER_EVIDENCE_MAP.md)
+- [Initial manuscript draft (PDF)](paper/draft.pdf), [LaTeX and build/review notes](paper/README.md)
 - [Contribution audit against the literature](docs/literature/PAPER_CONTRIBUTION_AUDIT_2026-11-26.md)
 - [Index of experiment reports](docs/RESEARCH_STATUS.md)
 - [Scientific scope](PROJECT.md), [literature](LITERATURE.md), and [canonical bibliography](references.bib)

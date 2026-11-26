@@ -1,0 +1,158 @@
+{
+  "status": "exploratory manuscript draft; human review and final test evaluation pending",
+  "sources_sha256": {
+    "results/eurosat_grouping_fp32_replication/cross_dataset_summary.json": "444089575cddb0475e0386bac9185142ee12334433a9a62bd4782ff71e2019bd",
+    "results/grouping_mechanism_study/summary.json": "aacc32062f5df84271a5f44bf72cd8c8ea5e8e27e27122551e50b6e762c1b6a3",
+    "results/eurosat_grouping_fp32_replication/summary.json": "4b36a232fe643c5d8485f289f1a766860f8343e00ca280d0489f7d644926215c",
+    "results/grouping_statistics_control/INTERPRETATION.md": "a07a7e25f65d3ab5cfd65d89e861035a721653baec911da415b8c40e52d31f0d",
+    "results/component_reassembly_diagnostic/summary.json": "dca36cfc6c8be823080491244ca32b77c494eade65fde41c54e277d03cb6a147",
+    "results/grouping_mechanism_study/parent_validation_replays.json": "767a7c1a4819147a13b762b4e2dc53900f863aa341358f41d9dccd42c7acbd51",
+    "results/eurosat_grouping_fp32_replication/parent_replays.json": "1cd3dde68970747a6aa8468264c445181c95359df77e15ece032ed257a44171e",
+    "references.bib": "5e2f0bef95baeb8b0c7baefb7bcd88e61558ec6a13e7055c8a563ef1711b118a"
+  },
+  "citation_keys": [
+    "Ayinde2019",
+    "Bansal2021ModelStitching",
+    "Chaudhary2024",
+    "Comminiello2024InductiveBiases",
+    "GaudetMaida2018DeepQuaternion",
+    "He2016ResNet",
+    "He2017ChannelPruning",
+    "Helber2019EuroSAT",
+    "Jordan2023REPAIR",
+    "Kang2026QuaternionCovarianceEEG",
+    "Kim2020",
+    "Krizhevsky2009",
+    "Lakens2017Equivalence",
+    "Martinez2021PermuteQuantizeFineTune",
+    "NiemczynowiczKycia2025",
+    "OpenAI2026Codex",
+    "PoppelbaumSchwung2025TimeCompression",
+    "ShahadatMaida2024CrossChannel",
+    "Singh2026",
+    "Vecchi2020",
+    "VieiraValle2022ELM",
+    "Wang2019FLGC",
+    "Zhang2021StructuredShuffle"
+  ],
+  "canonical_entry_count": 76,
+  "means_recomputed_from_seed_results": {
+    "CIFAR-10": {
+      "original": {
+        "before_percent": 87.83333333333333,
+        "after_percent": 90.13333333333334,
+        "final_ce": 0.29838576062520344
+      },
+      "role_100_0": {
+        "before_percent": 79.63333333333334,
+        "after_percent": 88.60000000000001,
+        "final_ce": 0.3458375161488851
+      },
+      "free_100_0": {
+        "before_percent": 77.93333333333334,
+        "after_percent": 87.86666666666667,
+        "final_ce": 0.3513341668446859
+      }
+    },
+    "EuroSAT": {
+      "original": {
+        "before_percent": 79.73333333333333,
+        "after_percent": 93.33333333333333,
+        "final_ce": 0.18668834968904655
+      },
+      "role_100_0": {
+        "before_percent": 58.43333333333333,
+        "after_percent": 86.56666666666666,
+        "final_ce": 0.38502770175039763
+      },
+      "free_100_0": {
+        "before_percent": 50.4,
+        "after_percent": 83.83333333333333,
+        "final_ce": 0.4701361043552557
+      }
+    }
+  },
+  "parent_accuracy_means_from_saved_replays": {
+    "CIFAR-10": 91.03333333333332,
+    "EuroSAT": 96.66666666666667
+  },
+  "producer_feature_improvements": 12,
+  "consumer_output_worsenings": 4,
+  "local_reconstruction_means": [
+    {
+      "block": 0,
+      "case": "original",
+      "paired_source_seeds": 3,
+      "draws_per_seed": 1,
+      "exact_check_mse": 0.5344448128750167,
+      "physical_check_mse": 0.5344448128750167
+    },
+    {
+      "block": 0,
+      "case": "role_100_0",
+      "paired_source_seeds": 3,
+      "draws_per_seed": 10,
+      "exact_check_mse": 1.3065634564173918,
+      "physical_check_mse": 1.123532819313734
+    },
+    {
+      "block": 0,
+      "case": "free_100_0",
+      "paired_source_seeds": 3,
+      "draws_per_seed": 10,
+      "exact_check_mse": 1.4674514143201796,
+      "physical_check_mse": 1.044303628415656
+    },
+    {
+      "block": 8,
+      "case": "original",
+      "paired_source_seeds": 3,
+      "draws_per_seed": 1,
+      "exact_check_mse": 0.17073403001454665,
+      "physical_check_mse": 0.17073403001454665
+    },
+    {
+      "block": 8,
+      "case": "role_100_0",
+      "paired_source_seeds": 3,
+      "draws_per_seed": 10,
+      "exact_check_mse": 0.39670853721745164,
+      "physical_check_mse": 0.40279435636838007
+    },
+    {
+      "block": 8,
+      "case": "free_100_0",
+      "paired_source_seeds": 3,
+      "draws_per_seed": 10,
+      "exact_check_mse": 0.41066153608809775,
+      "physical_check_mse": 0.44232440516791155
+    }
+  ],
+  "constructed_synthetic_checks": [
+    {
+      "case": "aligned_complementary",
+      "whole_check_mse": 0.42519411019380415,
+      "reassembled_ideal_check_mse": 1.0570576385148768e-16,
+      "reassembled_physical_check_mse": 0.0010132681617247253,
+      "reassembled_producer_projection_sse": 0.005783387536904506,
+      "all_scalar_selectors_choose_same_quartet": true
+    },
+    {
+      "case": "unrelated_complementary",
+      "whole_check_mse": 0.5218650066818253,
+      "reassembled_ideal_check_mse": 1.0449844059364466e-16,
+      "reassembled_physical_check_mse": 0.2865260525110693,
+      "reassembled_producer_projection_sse": 1.797527316602856,
+      "all_scalar_selectors_choose_same_quartet": true
+    }
+  ],
+  "generated_sha256": {
+    "tables/accuracy.tex": "f6d52a43758d9701330982d33ba4503d961570d54d2f1335845280c758566d08",
+    "tables/budgets.tex": "9cac400007f2fde7785c3ea5083a7a49250d4ad5ca666dc16b6bfa581e728f17",
+    "tables/local_reconstruction.tex": "37dc2f8db77a8a447cfdcb1f66ec176558cd4221423e35b1b897889cedd4b226",
+    "tables/seeds.tex": "e87ed29a8aae97a5371b01f1eb44c3006ca8494efa0a06c42ed0425b995f3922",
+    "tables/statistics.tex": "872ebc808e4491c988f11b66960bad4bb3f61f06045a66b25c5ca98afb63ba36",
+    "tables/synthetic.tex": "16031d807de61f5071ddac5ddc190728d22fae6dc871ff4a70f4dc9bd4d15678",
+    "references.bib": "53a4f011b63e1669abd25bcf78be0ef00d40db0d09c1db78accbfef6c130dc51"
+  }
+}
