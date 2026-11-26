@@ -1,0 +1,48 @@
+{
+  "seed": 2028,
+  "case": "role_100_0",
+  "native": {
+    "validation": {
+      "cross_entropy": 0.6527067680358887,
+      "accuracy": 0.788
+    },
+    "check_calibration": {
+      "cross_entropy": 0.6483061141967773,
+      "accuracy": 0.778
+    }
+  },
+  "bn_only": {
+    "validation": {
+      "cross_entropy": 0.6283520812988281,
+      "accuracy": 0.794
+    },
+    "check_calibration": {
+      "cross_entropy": 0.6630263290405274,
+      "accuracy": 0.79
+    }
+  },
+  "historical_repair": {
+    "validation": {
+      "cross_entropy": 0.33864387893676756,
+      "accuracy": 0.891
+    },
+    "check_calibration": {
+      "cross_entropy": 0.37339056396484377,
+      "accuracy": 0.884
+    }
+  },
+  "real_trainable_parameters": 232266,
+  "trainable_parameters_unchanged": true,
+  "non_bn_buffers_unchanged": true,
+  "native_predecessor_metrics_replayed": true,
+  "native_predecessor_logits_replayed": true,
+  "calibrated_state_logit_replay_passed": true,
+  "artifacts": {
+    "native.pt": "440df4c42f5512456b6689ed3413acfc16ccc95d5325d7cff739c7c3776c3334",
+    "bn.pt": "49e269765c323bbaffbb332859751a8e386155665689f8098270fec88d2d5a7d",
+    "logits.pt": "4eee798479db9206bdeba5e6e354bf4cd8fc40c4b348eca259265bee5cafc767",
+    "bn_audit.json": "d5fa8a5076ac971a13903599031cc9e8bdfd7ba7089ec0c3dac720815f1cb530"
+  },
+  "elapsed_seconds": 3.7754296000057366,
+  "official_test_evaluated": false
+}

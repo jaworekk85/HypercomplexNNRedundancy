@@ -1,0 +1,39 @@
+{
+  "seed": 2027,
+  "case": "parent",
+  "native": {
+    "validation": {
+      "cross_entropy": 0.2676534309387207,
+      "accuracy": 0.914
+    },
+    "check_calibration": {
+      "cross_entropy": 0.27727187728881836,
+      "accuracy": 0.92
+    }
+  },
+  "bn_only": {
+    "validation": {
+      "cross_entropy": 0.3562622146606445,
+      "accuracy": 0.887
+    },
+    "check_calibration": {
+      "cross_entropy": 0.33539682006835936,
+      "accuracy": 0.898
+    }
+  },
+  "historical_repair": null,
+  "real_trainable_parameters": 271594,
+  "trainable_parameters_unchanged": true,
+  "non_bn_buffers_unchanged": true,
+  "native_predecessor_metrics_replayed": true,
+  "native_predecessor_logits_replayed": false,
+  "calibrated_state_logit_replay_passed": true,
+  "artifacts": {
+    "native.pt": "fa928dacb5c27bbda7647e40e3c544e7ac4e8149a1968838d83589fde7bbf5ab",
+    "bn.pt": "d452e492f8d0dd1e7a186f013ab16818aad6087c75a72736ed1342422864e665",
+    "logits.pt": "4777d4e77f3cce75592d4545cdf1dd858d41c1655b668193cfb7d3f146a28e8f",
+    "bn_audit.json": "019566b9bf6d2523a823a836253a03694df77e867277a81517fbf2268f2a816e"
+  },
+  "elapsed_seconds": 3.974021400004858,
+  "official_test_evaluated": false
+}
