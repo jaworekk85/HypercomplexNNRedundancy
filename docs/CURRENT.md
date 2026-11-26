@@ -1,16 +1,285 @@
 # Current research state
 
-Updated: 2026-11-25. Read the relevant `state.json`, recent log tail and process
+Updated: 2026-11-26. Read the relevant `state.json`, recent log tail and process
 state before reporting activity. This page is a handoff, not a process monitor.
 
 The user requested a concise literature review during the grouping study.
 The [2026-11-25 adaptation/grouping review](literature/GROUPING_AND_TRANSFER_2026-11-25.md)
-is complete:10new canonical entries, one verified journal-status upgrade for
-Valle, three existing compression citations rechecked,14raw BibTeX exports.
+is complete:10new canonical entries, verified journal/conference-status upgrades
+for Valle/V-EfficientNets, three existing compression citations rechecked,
+15raw BibTeX exports including the2026-11-26 algebra follow-up.
 [Verification](literature/exports/2026-11-25/verification.json) discloses the
 manually checked REPAIR entry and failed export requests. The official IJCNN2027
 session includes generalization of real-valued methods to hypercomplex networks;
 this supports topic fit, not guaranteed acceptance. Numerical protocols unchanged.
+
+## Latest completed: EuroSAT full-network grouping replication
+
+Completed2026-11-26 at03:32:03Europe/Warsaw:9models,18physical pairs and18fresh
+FP32reference fits. Audit passed84output and729source/input hashes.
+[Interpretation](../results/eurosat_grouping_fp32_replication/INTERPRETATION.md),
+[report](../results/eurosat_grouping_fp32_replication/REPORT.md),
+[cross-dataset table](../results/eurosat_grouping_fp32_replication/CROSS_DATASET.md),
+[figure](../results/eurosat_grouping_fp32_replication/figures/grouping_replications.png).
+Final validation means93.33%original,86.57%role,83.83%free; original wins6/6pairs.
+Mean role/free gaps shrink21.30/29.33ppto6.77/9.50pp.44794vs73898real parameters,
+39.38%savings. AMP4141successful/4158attempts,17skips,459--461successful/model.
+This repeats the practical direction in a second dataset/architecture, not an
+isolated dataset effect, learned-semantics or novel-method claim. No run active.
+
+Explicitly authorized2026-11-26. Corrected FP32 version launched at03:22:19
+Europe/Warsaw after new checks/source freeze.
+[State](../results/eurosat_grouping_fp32_replication/state.json),
+[launch](../results/eurosat_grouping_fp32_replication/launch.json),
+[protocol](../results/eurosat_grouping_fp32_replication/PROTOCOL.md).
+The first version stopped before SGD at03:16: archived late EuroSAT features
+replay only with cuDNN TF32 enabled in the tested batch, while the baseline
+uses TF32 disabled. [Failed record](../results/eurosat_grouping_replication/state.json),
+[precision diagnostic](../results/eurosat_grouping_replication/precision_diagnostic.json).
+No frozen source/tolerance changed. New version regenerates native features,
+targets/ridge scales and18exact-feature fits in deterministic FP32, keeping all
+inherited scalar masks and fixed draw0assignments unchanged.
+Nine actual compact CNN6 models: original, role-preserving100%mixed, free100%mixed,
+three existing source seeds. Frozen scalar sets/draw0from the local EuroSAT
+diagnostic; halve hidden widths inside pairs0/2 only.44794real trainables versus
+73898parents (about39.4%whole-model saving, not CIFAR's14.5%). All500FIT examples
+fit each physical consumer; separate CHECK/validation report outcomes. Equal
+three-epoch repair within seed,462attempted updates per model. No official test,
+new parent/algebra/dimension/search or automatic further study. Reversals retained.
+
+Eight corrected-version CPU checks, six-pair/three-model synthetic end-to-end
+with completed resume, and discarded compact CUDA gradient/update audit passed.
+Initial legacy-metadata and first scientific replay failures are retained, with
+the correction documented in DEVELOPMENT.md. STOP:
+`results/eurosat_grouping_fp32_replication/STOP`; remove and resume with
+`.venv-cuda/Scripts/python.exe -B -u -m scripts.eurosat_grouping_fp32_replication --run`.
+
+## Paper direction and remaining work
+
+The latest discussion is recorded in [PAPER_EVIDENCE_MAP.md](PAPER_EVIDENCE_MAP.md):
+working title **Quaternion Channel Grouping under Structural Compression:
+Reconstruction, Realizability, and Repair**, the role of earlier experiments,
+and the distinction between measured findings and candidate contribution.
+The working direction is an empirical paper, not a demonstrated better method.
+
+The previously recommended numerical study is now completed above: full-network EuroSAT grouping replication,
+original/role-preserving100%mixed/free-role100%mixed, three existing parents,
+nine actual compact models with fixed retained sets and equal size/repair within
+seed. Local and physical grouping evidence now both exist. Shared cross-dataset
+tables/figures are saved above. Next consolidate the paper argument and lock the final procedure
+before test evaluation, accurately recording prior split access. No new algebra,
+dimension, parent, normalization grid or optimizer search currently queued.
+
+## Latest completed: bounded fixed-set grouping exchange experiment
+
+Completed2026-11-26 at02:39:37Europe/Warsaw; final audit passed538source/input
+hashes and27output artifacts. [Interpretation](../results/grouping_exchange_pilot/INTERPRETATION.md),
+[report](../results/grouping_exchange_pilot/REPORT.md),
+[descriptive evidence](../results/grouping_exchange_pilot/descriptive_summary.json).
+298unique local fits,12whole-network finalist combinations; all3seeds selected
+original groups at both sites. Mixed starts improved their selection MSE by
+6.59--26.68%, but did not win the network selection. Original starts stayed put.
+All final initializations bitwise equal to original; verified historical repairs
+were reused,0new SGD runs. Accuracy89.8/91.0/89.6%,gain0pp,CEdelta0; the new
+prospective+0.5pp screen failed. This is checkpoint reuse, not independent
+replication or equivalence evidence. Bounded search does not prove global
+optimality or rule out other grouping algorithms. Pilot closed; no further run
+queued and no dimension/algebra extension started.
+
+User explicitly authorized the literature check and experiment2026-11-26.
+Prepared/frozen after seven tests, full synthetic search/refit/repair/resume and
+discarded-copy compact CUDA gradient/update audit. Launched at02:36Europe/Warsaw.
+[State](../results/grouping_exchange_pilot/state.json),
+[launch](../results/grouping_exchange_pilot/launch.json),
+[protocol](../results/grouping_exchange_pilot/PROTOCOL.md).
+Three existing CIFAR parents, sites0/8, SAME retained scalar sets and232266
+real trainables. Two warm starts, at most2rounds of16swap proposals/site/start;
+inner64FIT images, disjoint outer64FIT images. Actual block-output scores then
+teacher-KL whole-network selection. Final full500FIT consumer refits match the
+intact control and must bitwise replay it. At most3new three-epoch repairs;
+bitwise-identical original initializations reuse their verified existing repair.
+No dimension/algebra/parent grid or test evaluation. All outcomes reported.
+Practical screen: mean paired accuracy gain>=0.5ppand mean CE not increased;
+no significance/novelty claim or automatic continuation, prior failed gate kept.
+STOP `results/grouping_exchange_pilot/STOP`; remove and resume with
+`.venv-cuda/Scripts/python.exe -B -u -m scripts.grouping_exchange_pilot --run`.
+
+[Specific literature check](literature/GROUPING_EXCHANGE_PRIOR_ART_2026-11-26.md)
+adds PQF's published two-entry permutation search and preserves the distinction
+between known search ingredients and the specific Hamilton compression test.
+Author-provided BibTeX extracted/checked; direct download/access failures disclosed.
+
+## Earlier contribution audit, completed before the exchange pilot
+
+The user authorized a literature-versus-results assessment, completed2026-11-26.
+[Contribution audit](literature/PAPER_CONTRIBUTION_AUDIT_2026-11-26.md) maps
+the closest sources to measured claims and reviewer objections. Candidate:
+an empirical study separating fixed retained information, Hamilton consumer
+constraints, physical producer realization and bounded repair. No demonstrated
+better compression method, learned semantics, priority or paper readiness.
+
+The audit's strongest unresolved objection was random mixing as the sole practical
+alternative. Its proposed highest-priority comparison was data-chosen regrouping with
+the SAME retained scalar set and actual compact architecture, original groups
+allowed, FIT-only search and matched repair/refitting opportunities. The earlier
+biased/failed single-seed pilot did not settle it. The separately authorized
+bounded experiment above now evaluates that comparison without finding a gain;
+broader search/utility remains unproven. No automatic normalization/algebra queue.
+The audit also adds a clearly labelled official EEG-grouping conference abstract
+to references.bib; metadata manually checked, no publisher BibTeX download claimed.
+
+User follow-up on smarter grouping and2/3/8components is recorded in the
+[grouping/dimension note](literature/GROUP_SELECTION_AND_DIMENSION_2026-11-26.md).
+The note proposed fixed-set exchanges from the intact assignment, scored on the
+actual compiled block/network; separate later dimension choice at equal actual
+storage. Arbitrary-n PHM/adaptive dimensions have prior art and earlier negative
+PHM results remain negative. Its d4exchange follow-up above completed; no other
+dimension was launched.
+
+## Latest completed: BN-only full-network accuracy control
+
+Completed2026-11-26 at01:43:51Europe/Warsaw. All18models,72output artifact
+hashes and565source/input hashes passed; native compact metrics/logits and BN
+saved-state/logits replayed exactly, all weights/BN affine/non-BN buffers fixed.
+[Interpretation](../results/grouping_bn_accuracy_control/INTERPRETATION.md),
+[measured report](../results/grouping_bn_accuracy_control/REPORT.md),
+[figure](../results/grouping_bn_accuracy_control/figures/validation_accuracy.png).
+
+BN-only calibration did NOT recover accuracy: the original-minus-mixed gap
+closed in3/12pairs and widened in9/12, with a larger mean gap for all4mixed
+cases. Free100% mean gap: native9.90pp, BN-only11.80pp, historical repair2.27pp.
+Parent controls also degraded on average1.0pp, so this is not specific to mixed
+models. This particular BN-only recovery recipe failed; do not infer that BN
+never matters, that historical repair is weights-only, or learned Q semantics.
+No further computation queued. This bounded control is closed; any new method
+or algebra extension requires a separate falsifiable question/protocol.
+
+Separately authorized2026-11-26 and launched at01:42:33Europe/Warsaw.
+[State](../results/grouping_bn_accuracy_control/state.json),
+[launch](../results/grouping_bn_accuracy_control/launch.json),
+[protocol](../results/grouping_bn_accuracy_control/PROTOCOL.md).
+Reconstruct the15saved compact grouping-study models and3uncompressed parents.
+Recalibrate only BN running statistics on the same fixed1024TRAIN images;
+measure validation/CHECK accuracy and CE. No feature standardization or SGD.
+Native assembled models must replay historical metrics/logits, and every
+trainable parameter/BN affine and non-BN buffer must remain bitwise unchanged.
+Primary: original-minus-mixed validation-accuracy gap before/after BN, all12
+paired seed/case contrasts; positive gap reduction means BN reduces the penalty.
+Historical3epoch repair is a comparator, not training from the new BN state.
+The already inspected validation/CHECK splits make this exploratory, not blind
+confirmation. No test or extra dataset/algebra/repair run.
+
+Ten CPU checks, two-model synthetic end-to-end with completed resume, and a
+discarded-copy compact-GPU full gradient/update audit passed before source
+freeze. Initial reconstruction test failed from an incorrect helper signature;
+fixed before freeze, failure retained in development_checks.json.
+STOP: `results/grouping_bn_accuracy_control/STOP`. Resume after removing STOP:
+`.venv-cuda/Scripts/python.exe -B -u -m scripts.grouping_bn_accuracy_control --run`.
+No automatic continuation after these completed18models.
+
+## Completed: BN/marginal statistics and EuroSAT replication
+
+Completed2026-11-26 at00:19:51Europe/Warsaw: all1512rows,1260new fits;
+completion audit passed. Postprocessing verified676source/input hashes,
+72coefficient banks and12BN model hashes; all BN trainable parameters unchanged.
+[Interpretation](../results/grouping_statistics_control/INTERPRETATION.md),
+[measured report](../results/grouping_statistics_control/REPORT.md),
+[figure](../results/grouping_statistics_control/figures/training_increment.png).
+
+The earlier universal training-amplification interpretation does NOT survive
+the statistics controls. With centered-energy normalization, positive training
+increments go from12/12native to6/12standardized on CIFAR, and11/12to4/12on
+EuroSAT. Original grouping still beats mean mixed grouping in all24primary
+seed/site/policy comparisons at both initialization and trained states.
+That advantage alone is compatible with an architectural baseline; learned
+quaternion semantics are not established. These are reconstruction diagnostics,
+not accuracy gains. BN recalibration changes intermediate behavior and the
+standardized condition recomputes teacher targets; it is not a pure causal
+isolation of BN. The separately authorized full-network follow-up above tests
+actual accuracy after a BN-only intervention, rather than this modified teacher.
+
+Authorized after the initialization control, prepared before source freeze and
+launched2026-11-26 at00:07Europe/Warsaw. Check live
+[state](../results/grouping_statistics_control/state.json),
+[launch](../results/grouping_statistics_control/launch.json),
+[plan](../results/grouping_statistics_control/PROTOCOL.md),
+[protocol](../results/grouping_statistics_control/protocol.json).
+
+CIFAR10 Q ResNet20 and existing EuroSAT four-band Q CNN6 parents, three seeds
+each, early/late consumers. Same retained scalar sets and assignments within
+dataset/seed/site. Native, sequential-BN-recalibrated and recalibrated-plus-FIT
+marginal-standardized features; initial/trained weights.1512reported rows:
+252CIFAR native predecessor rows reused,1260new ridge fits. No supervised
+training, architecture/algebra change, classification or test/validation inference.
+
+BN population moments use1024unlabelled TRAIN images disjoint from500FIT/500CHECK;
+trainable parameters including BN affine must remain bitwise unchanged. Feature
+standardization uses only FIT means/scales. Its targets are recomputed using
+the unchanged full consumer: this is a modified diagnostic teacher, not a
+function-preserving compact network. Primary endpoint is standardized-condition
+mixed-minus-original error normalized by target energy centered using FIT means.
+Raw-energy and native/BN-only results remain reported. Covariance, sparsity and
+higher moments are not matched; no pure semantic inference or significance claim.
+
+Seven CPU tests,36fit end-to-end smoke with completed-case resume and discarded
+four-band GPU gradient/update audit passed before registration. Initial smoke
+resume exposed tuple-vs-JSON-list assignment comparison; normalized before freeze,
+failed attempt retained in development_checks.json. STOP/resume:
+`results/grouping_statistics_control/STOP`, then remove and rerun
+`.venv-cuda/Scripts/python.exe -B -u -m scripts.grouping_statistics_control --run`.
+No study beyond this completed bounded authorization queued.
+
+The user also asked about other4D algebras. Verified primary author preprint
+`VieiraNetoValle2025VEfficientNets` compares quaternions, coquaternions,
+tessarines and hyperbolic quaternions. Publisher-deposited conference DOI/BibTeX
+now verified; same canonical key upgraded. A later named-algebra comparison
+would need separately trained parents and correct multiplication/solver audits.
+It has not been launched; no Hamilton-vs-random-algebra return.
+
+## Latest completed initialization control
+
+Completed2026-11-25 at23:25:09Europe/Warsaw:504ridge fits, all126predecessor
+rows replayed,24coefficient banks reloaded exactly. Worker exited and stderr
+empty. [Interpretation](../results/grouping_initialization_control/INTERPRETATION.md),
+[report](../results/grouping_initialization_control/REPORT.md),
+[descriptive audit](../results/grouping_initialization_control/descriptive_summary.json).
+
+Original-group advantage exists at initialization in all12seed/site/policy
+means; it grows after training in all12. Mean free-role normalized excess MSE:
+block0initial0.064235/trained0.164739; block8initial0.017048/trained0.284265.
+These are reconstruction deltas, NOT accuracy percentages. In the late block,
+crossed controls associate most increase with feature-state changes, not trained
+consumer coefficients alone. Unadapted versus trained BN/means/covariances
+remain confounds; no learned semantic entities, novelty or significance proved.
+The labelled post-hoc target-statistics check adds context, not a new endpoint.
+No further computation is queued.
+
+Authorized2026-11-25 after the user questioned whether random mixing creates
+a straw-man comparison. Prepared and launched around23:22Europe/Warsaw.
+[State](../results/grouping_initialization_control/state.json),
+[launch](../results/grouping_initialization_control/launch.json),
+[plan](../results/grouping_initialization_control/PROTOCOL.md),
+[frozen protocol](../results/grouping_initialization_control/protocol.json).
+
+Three parent seeds, blocks0/8, identical retained units and original/10role/10free
+fully mixed assignments from the completed study. Four crossed cells of
+initial/trained features and initial/trained consumer weights,504ridge fits;
+no new network training, producer compilation, accuracy or test/validation
+inference. Initial networks reproduce the frozen constructor/seed recipe, not
+an independently archived epoch0checkpoint. Initial BN state is unadapted.
+
+Primary metric is held-out SSE/target squared energy and its mixed-minus-original
+penalty, compared before/after training. Crossed cells help separate feature
+and consumer changes; BN and feature covariance still differ between states.
+This diagnoses an architectural baseline rather than proving learned semantics.
+Trained/trained126fits must replay previous results. Original-unit reordering,
+dense permutation, target/input scaling and saved-coefficient replay checks.
+
+Eight new tests, a12fit end-to-end CPU smoke with completed-case resume and a
+discarded-copy full-GPU gradient/update audit passed before source registration.
+Create `results/grouping_initialization_control/STOP` to pause; remove it and run
+`.venv-cuda/Scripts/python.exe -B -u -m scripts.grouping_initialization_control --run`
+to resume interrupted runs. Reinvocation verifies/reuses completed cells.
 
 ## Latest completed study: fixed-feature grouping mechanisms
 

@@ -2,6 +2,25 @@
 
 Citation keys and bibliographic metadata are canonical in [references.bib](references.bib). This index is a starting point, not a systematic review or proof of priority. Read the relevant primary sources before making detailed claims. The full previous annotated review and its targeted novelty audits are preserved in [docs/archive/LITERATURE_2026-11-07.md](docs/archive/LITERATURE_2026-11-07.md); its local relative links were written relative to the repository root.
 
+## Contribution versus completed evidence: 2026-11-26 audit
+
+The [contribution audit](docs/literature/PAPER_CONTRIBUTION_AUDIT_2026-11-26.md)
+compares the nearest sources with the completed initialization/statistics/BN
+and compact-grouping results. Candidate empirical value: separating retained
+information, constrained consumer maps, physical realization and bounded repair.
+No novel solver, compression gain, learned-group semantics or priority established.
+A bounded adaptive regrouping comparison has since completed without gain;
+random mixing remains a diagnostic control rather than a useful-method baseline.
+The separately authorized physical EuroSAT replication extends the practical
+scope; the audit itself did not authorize another numerical run.
+
+New `Kang2026QuaternionCovarianceEEG` is an official listed conference abstract
+comparing raw-EEG grouping for quaternion covariance representations. It is
+adjacent input-grouping prior art, not hidden-layer structural pruning. Its
+canonical entry was manually checked against the official page, which displayed
+no BibTeX export; no downloaded publisher BibTeX or full-paper status is claimed.
+[Inspection/provenance](docs/literature/PAPER_CONTRIBUTION_AUDIT_2026-11-26.sources.json).
+
 ## Grouping and substantive adaptation to QNNs: 2026-11-25 review
 
 The [targeted review](docs/literature/GROUPING_AND_TRANSFER_2026-11-25.md)
@@ -21,7 +40,7 @@ not establish informational equivalence: see `Bansal2021ModelStitching`,
 `Jordan2023REPAIR`. `Lakens2017Equivalence` supports planning small-effect tests,
 not a claim that our current study has demonstrated equivalence.
 
-Ten new entries and one publication-status upgrade have
+Ten new entries and two publication-status upgrades have
 [raw exports and verification records](docs/literature/exports/2026-11-25/sources.json).
 OpenReview export failures and the manually verified REPAIR entry are disclosed.
 The review records inspected sections/abstract-only limits and potential paper
@@ -43,6 +62,33 @@ to hypercomplex networks; topical fit is separate from contribution quality.
 - `KammaWada2021REAP`, `GRAIL2026`: feature reconstruction and compensation in real networks.
 
 ## Learned structure and budget allocation
+
+The [exchange experiment literature check](docs/literature/GROUPING_EXCHANGE_PRIOR_ART_2026-11-26.md)
+adds `Martinez2021PermuteQuantizeFineTune`: stochastic two-entry permutation
+search for vector quantization already exists. Author-provided inline BibTeX
+was extracted and checked against official CVF metadata/title-page evidence;
+direct .bib/CVF access failures are disclosed. This blocks a novelty claim for
+generic exchange search; the newly authorized fixed-set Hamilton experiment
+tested practical utility, not firstness. It completed with the original
+assignment selected for every seed; no gain or automatic continuation.
+Existing grouping/KD sources retained.
+
+The [2026-11-26 grouping/dimension note](docs/literature/GROUP_SELECTION_AND_DIMENSION_2026-11-26.md)
+records a proposed fixed-set exchange search scored on physically compiled
+block/network behavior, and the user's2/3/4/8component extension. Distinguish
+group size, multiplication, Kronecker rank and actual storage. Arbitrary-n PHM
+and adaptive multi-dimensional models already have canonical precedents
+(`ZhangEtAl2021`, `Grassucci2024`, `Cao2026Numerion`); no novelty or new run claimed.
+
+The [2026-11-26 four-dimensional-algebra note](docs/literature/OTHER_FOUR_DIMENSIONAL_ALGEBRAS_2026-11-26.md)
+checks the user's Valle reference: `VieiraNetoValle2025VEfficientNets` compares
+quaternions, coquaternions, tessarines and hyperbolic quaternions (author
+preprintv1 sectionsII-B/V, TablesI/II). Its IJCNN2025 conference DOI and pages
+are now verified against downloaded publisher-deposited metadata/BibTeX,
+preserving the existing key. `Valle2024VNets` supplies the broader framework.
+Possible extension: test grouping sensitivity across named products with
+separately trained parents and identical budgets. An accuracy ranking already
+has prior art; no non-Hamilton experiment has been launched.
 
 - `ZhangEtAl2021`, `Grassucci2024`: PHM/PHNN parameterizations and learned component matrices. Learned matrices do not automatically satisfy algebra axioms.
 - `IbnAhad2026HypercomplexQuantization`: pretrained dense-to-PHM conversion and layerwise allocation; PHM is not restricted to training from scratch.

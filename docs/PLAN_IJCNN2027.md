@@ -1,6 +1,6 @@
 # IJCNN 2027 research plan
 
-Updated: 2026-11-25. [CURRENT.md](CURRENT.md) records current execution and measured
+Updated: 2026-11-26. [CURRENT.md](CURRENT.md) records current execution and measured
 state; the [study index](RESEARCH_STATUS.md) links the evidence. This file records
 future decisions. The [JSON agenda](../configs/ijcnn_research_queue.json) contains
 historical execution notes and is not an active scheduler.
@@ -8,16 +8,52 @@ historical execution notes and is not an active scheduler.
 ## Scientific objective
 
 Study structured compression of fixed and learned hypercomplex representations.
-The current user-proposed direction selects individual scalar components,
-reassembles them into new quaternions and fits genuinely smaller Hamilton
-producer/consumer layers. The earlier learned-basis adaptation branch is closed
-under its failed continuation gate. Neither direction has established novelty.
+The current paper direction is an empirical analysis of quaternion channel
+grouping: retained information, constrained reconstruction, physically smaller
+producer/consumer layers and bounded repair. Tested reassembly/adaptation methods
+have not established a useful new-method gain or novelty. The earlier learned-
+basis adaptation branch and bounded exchange pilot remain closed under their
+failed continuation screens.
 
 The real/Q ResNet-20 baselines, discovery compression, two-seed replication,
 bounded structure catalogue, initialization diagnostic and from-scratch PHM4
 baseline are complete. Do not restart their finished queues.
 
+## Working title, evidence map and remaining work
+
+**Quaternion Channel Grouping under Structural Compression: Reconstruction,
+Realizability, and Repair** is the proposed working title.
+[PAPER_EVIDENCE_MAP.md](PAPER_EVIDENCE_MAP.md) records the roles of earlier
+baselines/compression/replication, synthetic realizability examples, grouping
+studies, initialization/statistical controls and related PHM negative findings.
+This is an editorial map, not an article draft or novelty certificate.
+
+The user has now authorized the next numerical study: original versus role-preserving100%mixed versus
+free-role100%mixed on three existing EuroSAT Q parents, nine compact models,
+fixed retained scalar sets/size and equal predetermined repair within seed.
+This fills a full-network grouping-accuracy gap; existing EuroSAT work already
+contains local diagnostics and other compression protocols. It also changes
+architecture/input encoding, not dataset alone. The nine-model replication is
+completed under a new checked/frozen protocol below. Do not alter frozen studies.
+
+After that, consolidate a small set of cross-study tables/figures with seed-level
+values, accurate model/parameter/repair budgets and negative results. Lock the
+procedure before any final test evaluation and audit previous split access.
+No new algebra/dimension grid, optimizer search or normalization sweep queued.
+
 ## Paper positioning after targeted literature review
+
+The post-completion [2026-11-26 contribution audit](literature/PAPER_CONTRIBUTION_AUDIT_2026-11-26.md)
+supersedes provisional interpretations: candidate empirical contribution is the
+separation of retained information, Hamilton map constraints, producer realization
+and repair. It remains incremental and incompletely differentiated. The primary
+objection was the absence of a data-chosen fixed-set regrouping comparator;
+the bounded exchange pilot below now evaluates one without improvement.
+Random mixing alone does not establish useful compression. Its comparison used FIT-only selection,
+actual compact compilation, original groups allowed, equal continuous-refit
+opportunities and matched repair. The audit itself authorized no run; the user
+separately authorized the completed pilot. Broader
+dataset/repair/algebra grids cannot substitute for a clear contribution.
 
 The [2026-11-25 review](literature/GROUPING_AND_TRANSFER_2026-11-25.md) finds
 published precedents for substantive real-to-QNN adaptation and empirical
@@ -32,6 +68,123 @@ real-valued architectures/algorithms. The current call lists six pages and
 Verified citations/inspection limits and potential paper structure are in the
 review; no additional numerical experiment is authorized by this literature work.
 
+## Completed: EuroSAT full-network grouping replication
+
+Completed2026-11-26 at03:32Europe/Warsaw:9models,18physical pairs,18new FP32
+reference fits;84output and729source/input hashes passed.
+[Interpretation](../results/eurosat_grouping_fp32_replication/INTERPRETATION.md).
+Final means93.33%original,86.57%role,83.83%free; all6paired gaps favor original.
+The direction repeats CIFAR, with different architecture/input encoding,
+39.38%versus14.48%savings and462versus1125attempts. AMP skipped17/4158attempts.
+No significance/semantic claim. Shared tables/figure are saved; next consolidate
+the argument and locked final-evaluation protocol. No further run queued.
+
+Authorized2026-11-26; corrected version launched03:22Europe/Warsaw after the
+first version's archived-TF32/current-FP32 replay mismatch stopped it before SGD.
+The failure is preserved; no frozen source or tolerance edited.
+[Corrected protocol](../results/eurosat_grouping_fp32_replication/PROTOCOL.md): original and
+role/free100%mixing, three source parents, nine physical compact CNN6 models.
+Frozen retained sets/draw0, pairs0/2,44794vs73898real trainables; about39.4%
+whole-model savings. All500FIT positions, fixed zero-centered Q consumer ridge,
+matched three-epoch repair and462attempted updates/model. Report every seed,
+before/after accuracy and CE, CHECK outcomes and all negative/reversed gaps.
+No group search, new algebra/dimension/parent, official test or automatic sequel.
+
+Assessment for the venue: the empirical scope fits the official
+[hypercomplex session](https://ijcnn.org/2027/authors/special-sessions)
+(rechecked2026-11-26). Contribution strength remains incremental/unproved;
+replication improves scope but does not turn expected architectural sensitivity
+into a novel method. Candidate value is the controlled separation of information,
+realizability and repair, with contrary evidence explicitly reported. No acceptance
+probability or guarantee is implied by topic fit.
+
+## Completed: fixed-set exchange search and matched repair
+
+Completed2026-11-26 at02:39:37Europe/Warsaw;538source/input and27artifact
+hashes passed.298local fits,12network combinations. All3seeds selected the
+original groups at both sites, yielding bitwise-identical initializations;
+historical repair reused,0new repair runs. Mean gain0pp/CEdelta0, practical
+screen failed. [Interpretation](../results/grouping_exchange_pilot/INTERPRETATION.md).
+This bounded method is closed; no global-optimum claim or automatic further run.
+
+Explicitly authorized2026-11-26 after the contribution audit.
+[Protocol](../results/grouping_exchange_pilot/PROTOCOL.md): one bounded d4
+experiment, existing three parents/two sites and same retained scalars. Two
+starts, two rounds,16proposals; disjoint64inner/64outer FIT images. Score real
+compiled block outputs then teacher KL for whole-model finalists; same full-FIT
+refit and paired repair as intact. Reuse controls and bitwise-identical outcomes.
+No other algebra/dimension or further automatic run. Prior art includes PQF
+two-entry permutation search; no search/solver/KD novelty asserted. Read the
+[targeted check](literature/GROUPING_EXCHANGE_PRIOR_ART_2026-11-26.md).
+
+## Completed: BN-only full-model accuracy control
+
+Completed2026-11-26 at01:43:51Europe/Warsaw;18models and audit passed.
+[Interpretation](../results/grouping_bn_accuracy_control/INTERPRETATION.md):
+BN-only recalibration did not recover the accuracy loss. Gap reduced3/12pairs,
+widened9/12; mean gap widened in all4mixed conditions. Free100% gap9.90pp
+native,11.80ppBN-only,2.27ppafter historical repair. Parent accuracy also
+decreased1.0ppon average; no grouping-specific causal or semantic claim.
+This bounded control is closed. No further computation queued.
+
+User authorized2026-11-26. [Protocol](../results/grouping_bn_accuracy_control/PROTOCOL.md).
+All15fixed compact cases plus3parents; same1024TRAIN calibration images,
+sequential BN population recalibration only. No optimizer or feature scaling.
+Primary: reduction in original-minus-mixed validation-accuracy gap, separately
+for each of12seed/case pairs. All native/BN-only accuracy and CE, CHECK outcomes,
+parent controls and historical epoch3repair retained. Historical repair is not
+an intervention starting from the newly calibrated state. Previously explored
+validation/CHECK splits, no official test, significance or novelty claim.
+No automatic extra control, supervised repair or algebra study queued.
+
+## Completed: BN/statistics controls and second-dataset check
+
+Completed2026-11-26 at00:19:51Europe/Warsaw; audit passed.
+[Interpretation](../results/grouping_statistics_control/INTERPRETATION.md):
+the earlier uniform training-associated amplification is not robust to these
+controls. Primary positive increments:6/12CIFAR and4/12EuroSAT, compared with
+12/12and11/12native. Original-group advantage persists before and after training,
+but does not establish learned quaternion semantics. Standardization recomputes
+the diagnostic teacher; this is not a pure causal estimate for BN alone.
+No new method, accuracy gain or paper readiness established. Next decision:
+choose a narrow falsifiable contribution from the completed evidence before
+authorizing more computation. No further run queued.
+
+The user authorized the remaining statistics control and second-dataset check.
+[Protocol](../results/grouping_statistics_control/PROTOCOL.md): common sequential
+BN recalibration on1024unlabelled TRAIN images, then separate FIT-only marginal
+standardization. CIFAR10 Q ResNet20 and already trained EuroSAT Q CNN6,3seeds,
+early/late sites, initial/trained states.1260new ridge fits plus252CIFAR native
+rows reused; no new supervised baselines. Primary endpoint and all native/BN-only
+controls specified before fitting. Check [CURRENT](CURRENT.md) for execution.
+
+Named4D algebras are a potential later extension. Valle's IJCNN2025 V-EfficientNet
+study compares H/coquaternions/tessarines/hyperbolic quaternions. An extension
+should ask whether grouping sensitivity depends on the multiplication, rather
+than merely rank classification accuracies again. Each algebra needs its own
+trained parent, equal scalar parameter budget and initialization/BN controls;
+swapping the table inside a trained Hamilton model is not a fair substitute.
+No multi-algebra run is queued and no algebra-independent claim is established.
+
+## Completed: initialization control of the grouping penalty
+
+The user authorized a paired step0/trained control on2026-11-25. The
+[registered diagnostic](../results/grouping_initialization_control/PROTOCOL.md)
+holds masks/group assignments fixed and normalizes reconstruction errors by
+target energy. Crossed initial/trained feature and consumer states distinguish
+architectural compatibility from changes associated with learning.504local
+ridge fits,126predecessor replays, no new supervised training. Do not interpret
+the earlier random-mixing penalty as learned quaternion semantics by itself.
+No continuation threshold, significance claim or further automatic queue.
+
+Completed at23:25Europe/Warsaw. The penalty is present at initialization and
+larger after training in all12seed/site/policy means. Crossed controls associate
+the late-block increase mainly with feature-state changes. The comparison still
+includes BN/mean/covariance differences; no pure semantic effect is established.
+The completed statistics control above weakens a universal training-amplification
+interpretation; do not cite the initialization study alone for that claim.
+See [interpretation](../results/grouping_initialization_control/INTERPRETATION.md).
+
 ## Completed: fixed-feature grouping mechanisms
 
 The user authorized all three proposed follow-up experiments on2026-11-25.
@@ -43,8 +196,8 @@ two sites.138local cases (including repeated predetermined random assignments),
 Completed2026-11-25 at23:07Europe/Warsaw. Every mixed full-model condition
 scored below its matched original control across the three source seeds.
 See [CURRENT](CURRENT.md) and the [report](../results/grouping_mechanism_study/REPORT.md)
-for measurements. Next action: analyze exact-feature versus compiled-producer
-errors and repair effects before proposing more computation. No novel-method, significance or
+for measurements. Subsequent initialization/statistics controls above qualify
+its interpretation. No novel-method, significance or
 equivalence claim; original pilot's gate remains failed. No extra study queued.
 
 The earlier selector imposed a reserve of untouched original units to ensure

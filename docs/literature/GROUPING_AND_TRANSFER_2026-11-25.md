@@ -5,6 +5,12 @@ This is a targeted review for paper positioning, not a systematic review or a
 priority certificate. Hypotheses below are not measured findings. Numerical
 protocols and the running study were not modified for this review.
 
+Post-completion follow-up2026-11-26: the
+[contribution audit](PAPER_CONTRIBUTION_AUDIT_2026-11-26.md) incorporates the
+initialization/statistics/BN outcomes, qualifies the candidate claims, and
+identifies the unresolved adaptive-regrouping comparator. Use it for current
+positioning rather than the provisional pre-completion interpretations below.
+
 ## Main assessment
 
 A defensible contribution can adapt an existing real-network idea to QNNs when
@@ -30,6 +36,19 @@ realization, and equal repair. Outcomes are still to be interpreted from its
 final report; nothing here establishes that quaternion structure is dispensable.
 
 ## Published examples of useful adaptation or analysis
+
+Interpretation update after the user's straw-man objection: reconstructing a
+Hamilton layer with another Hamilton layer inherently favors compatible input
+grouping. A generic scalar permutation changes the admissible linear-map class;
+an arbitrary reorder of complete units does not. Thus a penalty for random
+mixing can exist before any training, and beating this destructive control is
+not itself evidence of learned quaternion semantics or a useful compression
+method. The separately authorized
+[initialization control](../../results/grouping_initialization_control/PROTOCOL.md)
+measures this architectural baseline using identical masks/assignments,
+energy-normalized errors and crossed feature/consumer states. Training-state
+differences still include BN/statistics and coefficient/feature geometry; no
+pure semantic or universal algebraic claim follows automatically.
 
 | Key | Inspected evidence | Relevance and boundary |
 |---|---|---|
@@ -166,6 +185,12 @@ unpublished timezone or an extra reference-page allowance.
 [call](https://ijcnn.org/2027/authors/call-for-papers).
 
 ## Bibliography provenance and limits
+
+Follow-up2026-11-26: the user's four-dimensional-algebra question is documented
+in [a separate note](OTHER_FOUR_DIMENSIONAL_ALGEBRAS_2026-11-26.md).
+`VieiraNetoValle2025VEfficientNets` now has verified IJCNN2025 publication
+metadata/DOI, upgrading the preprint-only entry while preserving its key.
+The combined raw-export count is now15. Numerical protocols were not modified.
 
 Ten new canonical entries were added; `Valle2024VNets` was upgraded without a
 key change. Existing `Vecchi2020`, `Chaudhary2024`, `Singh2026` were rechecked

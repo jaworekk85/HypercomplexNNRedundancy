@@ -1,8 +1,13 @@
 # Experiment report index
 
-Updated: 2026-11-25. Use [CURRENT.md](CURRENT.md) for current state and
+Updated: 2026-11-26. Use [CURRENT.md](CURRENT.md) for current state and
 [PLAN_IJCNN2027.md](PLAN_IJCNN2027.md) for next decisions. This index links
 per-study evidence instead of duplicating metrics and old execution notes.
+
+For the current paper claim assessment and missing comparison, see the
+[2026-11-26 contribution audit](literature/PAPER_CONTRIBUTION_AUDIT_2026-11-26.md).
+The [paper evidence map](PAPER_EVIDENCE_MAP.md) records the latest working title,
+which earlier experiments support the paper, and proposed remaining work.
 
 Reports, protocols, failed checks and interrupted-run records remain in their
 original result directories. Each report states its own seeds, data access,
@@ -12,6 +17,12 @@ verification and limitations; a listed study is not a novelty or gain claim.
 
 | Study | Documents |
 |---|---|
+| eurosat_grouping_fp32_replication (completed; corrected precision) | [Interpretation](../results/eurosat_grouping_fp32_replication/INTERPRETATION.md), [REPORT](../results/eurosat_grouping_fp32_replication/REPORT.md), [cross-dataset results](../results/eurosat_grouping_fp32_replication/CROSS_DATASET.md), [audit](../results/eurosat_grouping_fp32_replication/completion_audit.json) |
+| eurosat_grouping_replication (failed before repair; precision mismatch) | [Failure/development](../results/eurosat_grouping_replication/DEVELOPMENT.md), [protocol](../results/eurosat_grouping_replication/protocol.json), [diagnostic](../results/eurosat_grouping_replication/precision_diagnostic.json) |
+| grouping_exchange_pilot (completed; practical screen failed) | [Interpretation](../results/grouping_exchange_pilot/INTERPRETATION.md), [REPORT](../results/grouping_exchange_pilot/REPORT.md), [protocol](../results/grouping_exchange_pilot/protocol.json), [audit](../results/grouping_exchange_pilot/completion_audit.json) |
+| grouping_bn_accuracy_control (completed) | [Interpretation](../results/grouping_bn_accuracy_control/INTERPRETATION.md), [REPORT](../results/grouping_bn_accuracy_control/REPORT.md), [protocol](../results/grouping_bn_accuracy_control/protocol.json), [audit](../results/grouping_bn_accuracy_control/completion_audit.json) |
+| grouping_statistics_control (completed) | [Interpretation](../results/grouping_statistics_control/INTERPRETATION.md), [REPORT](../results/grouping_statistics_control/REPORT.md), [protocol](../results/grouping_statistics_control/protocol.json), [audit](../results/grouping_statistics_control/descriptive_summary.json) |
+| grouping_initialization_control (completed) | [Interpretation](../results/grouping_initialization_control/INTERPRETATION.md), [REPORT](../results/grouping_initialization_control/REPORT.md), [protocol](../results/grouping_initialization_control/protocol.json) |
 | grouping_mechanism_study (completed) | [REPORT](../results/grouping_mechanism_study/REPORT.md), [protocol](../results/grouping_mechanism_study/protocol.json), [audit](../results/grouping_mechanism_study/completion_audit.json) |
 | resnet_component_reassembly_pilot (completed; continuation gate failed) | [REPORT](../results/resnet_component_reassembly_pilot/REPORT.md), [Plan](../results/resnet_component_reassembly_pilot/PROTOCOL.md), [completion audit](../results/resnet_component_reassembly_pilot/completion_audit.json) |
 | phm_basis_compression_pilot (completed; continuation gate failed) | [Protocol](../results/phm_basis_compression_pilot/protocol.json), [REPORT](../results/phm_basis_compression_pilot/REPORT.md) |

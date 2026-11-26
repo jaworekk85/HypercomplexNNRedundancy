@@ -6,11 +6,13 @@ compression gains must be established by evidence.
 
 - [Current state and next action](docs/CURRENT.md)
 - [Research plan](docs/PLAN_IJCNN2027.md)
+- [Working title and paper evidence map](docs/PAPER_EVIDENCE_MAP.md)
+- [Contribution audit against the literature](docs/literature/PAPER_CONTRIBUTION_AUDIT_2026-11-26.md)
 - [Index of experiment reports](docs/RESEARCH_STATUS.md)
 - [Scientific scope](PROJECT.md), [literature](LITERATURE.md), and [canonical bibliography](references.bib)
 - [Agent instructions](AGENTS.md)
 
-As of 2026-11-25, the ResNet-20 real/Q baselines, core compression comparison,
+As of 2026-11-26, the ResNet-20 real/Q baselines, core compression comparison,
 independent-seed replication, two-block structure catalogue, PHM initialization
 diagnostic and from-scratch Q-stem/PHM4 baseline are complete. A registered
 two-block pilot comparing preserved, adapted and reinitialized PHM bases after
@@ -29,7 +31,48 @@ fixed and separates consumer grouping, physical producer error and repair.
 It contains138local comparisons and15matched compact models. Every mixed
 full-model condition scored below its original-group control within each seed;
 see the [measured report](results/grouping_mechanism_study/REPORT.md) for scope
-and limits. No further computation is queued.
+and limits. A separately authorized
+[initialization control](results/grouping_initialization_control/PROTOCOL.md)
+compared the grouping penalty before/after training with crossed
+feature/consumer states. All504fits and126predecessor replays completed.
+The penalty already exists before training and grows afterwards; BN/statistical
+state differences limit semantic interpretations.
+
+The [BN/statistics control and EuroSAT check](results/grouping_statistics_control/PROTOCOL.md)
+completed on two datasets/architectures and three existing parent seeds each:
+1512reported rows,1260new fits, audit passed. After BN/marginal controls the
+training-associated increase is inconsistent (6/12CIFAR,4/12EuroSAT comparisons).
+Original grouping remains favored at initialization and after training, but
+learned quaternion semantics are not established. See the
+[interpretation](results/grouping_statistics_control/INTERPRETATION.md) and
+[figure](results/grouping_statistics_control/figures/training_increment.png).
+These are reconstruction diagnostics, not new accuracy or compression gains.
+
+A separately authorized [BN-only full-network accuracy control](results/grouping_bn_accuracy_control/PROTOCOL.md)
+completed on the15saved compact grouping-study models plus3parent controls.
+BN-only calibration reduced the original-minus-mixed accuracy gap in3/12pairs;
+mean gaps widened for all4mixed conditions. Free100% mean gap:9.90ppnative,
+11.80ppBN-only,2.27ppafter historical3epoch repair. This particular recalibration
+does not recover grouping damage; parent controls also degraded on average.
+[Interpretation](results/grouping_bn_accuracy_control/INTERPRETATION.md).
+No new SGD or test run, and no further computation queued.
+
+The [fixed-set adaptive grouping pilot](results/grouping_exchange_pilot/INTERPRETATION.md)
+also completed:298local fits and12whole-network combinations across3seeds.
+The bounded search chose original groups at both sites for every seed, giving
+bitwise-identical initializations and0ppgain. Historical identical repair was
+reused; no new repair training or test inference. Its practical screen failed.
+
+The separately authorized [EuroSAT whole-network grouping replication](results/eurosat_grouping_fp32_replication/PROTOCOL.md)
+completed: nine actual compact models, three existing parents and three
+grouping conditions, with equal three-epoch repair within seed.44794real
+trainables versus73898parents. No official-test inference or new parent training.
+It uses fresh deterministic FP32 references after the first version's archived
+TF32 activation replay failed; that failed run and diagnostic remain preserved.
+Final means93.33%original,86.57%role-preserving mixing,83.83%free mixing; all
+six paired final comparisons favor original. [Interpretation](results/eurosat_grouping_fp32_replication/INTERPRETATION.md)
+and [cross-dataset table/figure](results/eurosat_grouping_fp32_replication/CROSS_DATASET.md)
+state the different budgets, AMP skips and limits. No further run queued.
 
 ## Windows CUDA environment
 

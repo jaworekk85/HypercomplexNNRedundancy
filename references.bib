@@ -342,16 +342,19 @@
   note = {Journal metadata and Crossref BibTeX verified 2026-11-25; replaces the earlier preprint-only citation, preserving its key and arXiv identifier. Abstract and preprint method passages inspected; no claim of final-version text identity},
 }
 
-@misc{VieiraNetoValle2025VEfficientNets,
+@inproceedings{VieiraNetoValle2025VEfficientNets,
   title = {{V-EfficientNets}: Vector-Valued Efficiently Scaled Convolutional Neural Network Models},
   author = {Guilherme Vieira Neto and Marcos Eduardo Valle},
   year = {2025},
   eprint = {2505.05659},
   archivePrefix = {arXiv},
   primaryClass = {eess.IV},
-  doi = {10.48550/arXiv.2505.05659},
-  url = {https://arxiv.org/abs/2505.05659},
-  note = {arXiv comment states accepted at IJCNN 2025; proceedings DOI not verified. Abstract and method passages inspected 2026-11-04},
+  booktitle = {2025 International Joint Conference on Neural Networks (IJCNN)},
+  publisher = {IEEE},
+  pages = {1--8},
+  doi = {10.1109/IJCNN64981.2025.11227779},
+  url = {https://doi.org/10.1109/IJCNN64981.2025.11227779},
+  note = {Conference DOI, year, ordered authors and pages checked against downloaded publisher-deposited Crossref metadata/BibTeX on2026-11-26; existing key/arXiv identifier retained. Author-preprintv1 sectionsII-B/IV and TableI inspected: quaternion, coquaternion, tessarine and hyperbolic-quaternion variants. Published-version text identity not assumed. Tests algebra-dependent EfficientNets, not post-training grouping sensitivity or our pruning procedure},
 }
 
 @misc{VieiraNetoValle2026Ghost,
@@ -798,4 +801,25 @@
   doi = {10.1177/1948550617697177},
   url = {https://doi.org/10.1177/1948550617697177},
   note = {Publisher-deposited Crossref BibTeX/metadata and publisher abstract checked2026-11-25. Raw BibTeX title contains HTML italic tags around t; normalized to TeX. Registry JSON truncates title to Equivalence Tests, so full subtitle checked against publisher/BibTeX. TOST is background for future prospectively justified equivalence margins, not an analysis claimed by our current three-seed study},
+}
+
+@misc{Kang2026QuaternionCovarianceEEG,
+  title = {Quaternion Covariance-Based Representation for Cross-Subject {EEG} Decoding},
+  author = {Kang, Youngshin and Lee, Junghwan and Park, Cheolsoo},
+  year = {2026},
+  howpublished = {APCMBE 2026 conference abstract O-T11-0419},
+  url = {https://www.apcmbe2026.org/index.php?ACT=View_Abs&GP=program/daily&SH=NON&num=O-T11-0419},
+  note = {Manually curated from the official conference abstract page checked2026-11-26. Title, ordered authors and abstract identifier verified; year follows the event label. No BibTeX export link was present on the inspected page; no downloaded publisher BibTeX, DOI, proceedings pages, full paper or independently verified presentation/publication status claimed. Abstract compares consecutive, spatially nearest and random grouping of raw EEG channels for quaternion covariance representations; not hidden-channel QNN pruning or compact Hamilton producer/consumer reassembly},
+}
+
+@inproceedings{Martinez2021PermuteQuantizeFineTune,
+  title = {Permute, Quantize, and Fine-Tune: Efficient Compression of Neural Networks},
+  author = {Martinez, Julieta and Shewakramani, Jashan and Liu, Ting Wei and B{\^a}rsan, Ioan Andrei and Zeng, Wenyuan and Urtasun, Raquel},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year = {2021},
+  pages = {15699--15708},
+  url = {https://openaccess.thecvf.com/content/CVPR2021/html/Martinez_Permute_Quantize_and_Fine-Tune_Efficient_Compression_of_Neural_Networks_CVPR_2021_paper.html},
+  eprint = {2010.15703},
+  archivePrefix = {arXiv},
+  note = {Author-provided inline BibTeX retrieved through web rendering and saved as an extracted payload2026-11-26; canonical title/authors/year/venue/pages checked against indexed official CVF proceedings record and author preprintv3 title page. Direct author .bib link returned cache miss; direct CVF page/PDF returned403, so no byte-for-byte raw publisher download or accepted/preprint text identity claimed. Inspected preprintv3 section3.2.1 and convolution appendix: stochastic two-row exchanges after initialization optimize a covariance criterion for vector quantization. This precedes generic local permutation search, not Hamilton-constrained fixed-scalar-set producer/consumer regrouping},
 }
