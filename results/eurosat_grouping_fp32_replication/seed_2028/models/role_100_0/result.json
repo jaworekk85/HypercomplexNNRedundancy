@@ -1,0 +1,87 @@
+{
+  "seed": 2028,
+  "case": "role_100_0",
+  "before": {
+    "validation": {
+      "cross_entropy": 1.8549543380737306,
+      "accuracy": 0.458
+    },
+    "check_calibration": {
+      "cross_entropy": 1.8162203369140626,
+      "accuracy": 0.458
+    }
+  },
+  "after": {
+    "validation": {
+      "cross_entropy": 0.37793763211369513,
+      "accuracy": 0.88
+    },
+    "check_calibration": {
+      "cross_entropy": 0.36756751060485837,
+      "accuracy": 0.868
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_augmented_loss": 1.0066460393399608,
+      "train_augmented_accuracy": 0.6800510204081632,
+      "learning_rate_end": 7.525e-05,
+      "epoch_seconds": 9.7319897999987,
+      "validation": {
+        "cross_entropy": 0.47239768809080124,
+        "accuracy": 0.829
+      },
+      "check_calibration": {
+        "cross_entropy": 0.45647073554992673,
+        "accuracy": 0.84
+      }
+    },
+    {
+      "epoch": 2,
+      "train_augmented_loss": 0.6441752001704002,
+      "train_augmented_accuracy": 0.7734183673469388,
+      "learning_rate_end": 2.5749999999999996e-05,
+      "epoch_seconds": 9.835308099995018,
+      "validation": {
+        "cross_entropy": 0.41498611617088316,
+        "accuracy": 0.856
+      },
+      "check_calibration": {
+        "cross_entropy": 0.38967237854003905,
+        "accuracy": 0.858
+      }
+    },
+    {
+      "epoch": 3,
+      "train_augmented_loss": 0.6089241370376276,
+      "train_augmented_accuracy": 0.7863775510204082,
+      "learning_rate_end": 1e-06,
+      "epoch_seconds": 9.739040000000386,
+      "validation": {
+        "cross_entropy": 0.37793763211369513,
+        "accuracy": 0.88
+      },
+      "check_calibration": {
+        "cross_entropy": 0.36756751060485837,
+        "accuracy": 0.868
+      }
+    }
+  ],
+  "optimizer_counts": {
+    "successful": 459,
+    "attempted": 462
+  },
+  "real_trainable_parameters": 44794,
+  "checkpoint_bytes": 193422,
+  "artifacts": {
+    "native.pt": "98247a1d32b10ffb1971944c9741d2f3c39b389d0f29a9c930f71b14c9e20aa0",
+    "model.pt": "a04159cb9fc9cf07ccc64629b131701ce2f681cfbdf756272e5042c7e883c8a4",
+    "logits.pt": "373e09c5b14150417db0b9551c2a8af0eae42c29d7bae47177eb5bce6ac6c997",
+    "discarded_update_audit.json": "6e92266815c1925865d8a65543e3f9cb431c3ab2bf2b4477ba28dfda7622eede"
+  },
+  "native_and_final_model_logit_replay_passed": true,
+  "discarded_update_audit_passed": true,
+  "test_evaluated": false,
+  "seconds": 31.07603250000102
+}

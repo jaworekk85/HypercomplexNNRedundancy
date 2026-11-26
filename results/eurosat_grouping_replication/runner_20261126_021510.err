@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "C:\Users\maciej.jaworski\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\maciej.jaworski\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Work\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\scripts\eurosat_grouping_replication.py", line 449, in <module>
+    run(config) if args.run else prepare(config)
+  File "C:\Work\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\scripts\eurosat_grouping_replication.py", line 421, in run
+    result = execute(config, baseline, sources, tensors, targets, mean, std, output)
+  File "C:\Work\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\scripts\eurosat_grouping_replication.py", line 299, in execute
+    local_pairs(config, source, seed, tensors, mean, std, output, stop, state)
+  File "C:\Work\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\scripts\eurosat_grouping_replication.py", line 177, in local_pairs
+    torch.testing.assert_close(probe[key], pack[key][:len(probe[key])], rtol=0, atol=0)
+  File "C:\Work\Maciek\Nauka\Projekty\HypercomplexNNRedundancy\.venv-cuda\lib\site-packages\torch\testing\_comparison.py", line 1530, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not equal!
+
+Mismatched elements: 272106 / 524288 (51.9%)
+Greatest absolute difference: 0.0016236305236816406 at index (11, 84, 3, 1)
+Greatest relative difference: inf at index (2, 10, 14, 6)

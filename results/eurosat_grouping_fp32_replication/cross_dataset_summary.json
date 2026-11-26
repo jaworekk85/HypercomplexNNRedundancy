@@ -1,0 +1,187 @@
+{
+  "descriptive_only": true,
+  "datasets": [
+    {
+      "name": "CIFAR-10 / ResNet-20",
+      "parent_real_parameters": 271594,
+      "compact_real_parameters": 232266,
+      "whole_model_savings_percent": 14.480437712173321,
+      "source_seed_count": 3,
+      "aggregates": [
+        {
+          "case": "original",
+          "before": {
+            "accuracy_percent": 87.83333333333333,
+            "cross_entropy": 0.3631368605295817
+          },
+          "after": {
+            "accuracy_percent": 90.13333333333333,
+            "cross_entropy": 0.29838576062520344
+          }
+        },
+        {
+          "case": "role_100_0",
+          "before": {
+            "accuracy_percent": 79.63333333333334,
+            "cross_entropy": 0.5992505747477214
+          },
+          "after": {
+            "accuracy_percent": 88.6,
+            "cross_entropy": 0.3458375161488851
+          }
+        },
+        {
+          "case": "free_100_0",
+          "before": {
+            "accuracy_percent": 77.93333333333334,
+            "cross_entropy": 0.6292243932088216
+          },
+          "after": {
+            "accuracy_percent": 87.86666666666667,
+            "cross_entropy": 0.3513341668446859
+          }
+        }
+      ],
+      "paired_validation_gaps_pp": [
+        {
+          "seed": 2026,
+          "case": "role_100_0",
+          "before": 9.499999999999996,
+          "after": 1.6000000000000014
+        },
+        {
+          "seed": 2026,
+          "case": "free_100_0",
+          "before": 10.099999999999998,
+          "after": 2.400000000000002
+        },
+        {
+          "seed": 2027,
+          "case": "role_100_0",
+          "before": 7.000000000000006,
+          "after": 2.500000000000002
+        },
+        {
+          "seed": 2027,
+          "case": "free_100_0",
+          "before": 7.799999999999995,
+          "after": 2.7000000000000024
+        },
+        {
+          "seed": 2028,
+          "case": "role_100_0",
+          "before": 8.099999999999996,
+          "after": 0.5000000000000004
+        },
+        {
+          "seed": 2028,
+          "case": "free_100_0",
+          "before": 11.799999999999999,
+          "after": 1.7000000000000015
+        }
+      ],
+      "attempted_updates_per_model": [
+        1125
+      ],
+      "successful_update_range": [
+        1125,
+        1125
+      ]
+    },
+    {
+      "name": "EuroSAT / CNN6",
+      "parent_real_parameters": 73898,
+      "compact_real_parameters": 44794,
+      "whole_model_savings_percent": 39.38401580556984,
+      "source_seed_count": 3,
+      "aggregates": [
+        {
+          "case": "original",
+          "before": {
+            "accuracy_percent": 79.73333333333333,
+            "cross_entropy": 0.6073807700475057
+          },
+          "after": {
+            "accuracy_percent": 93.33333333333333,
+            "cross_entropy": 0.18668834968904655
+          }
+        },
+        {
+          "case": "role_100_0",
+          "before": {
+            "accuracy_percent": 58.43333333333334,
+            "cross_entropy": 1.2894705168406169
+          },
+          "after": {
+            "accuracy_percent": 86.56666666666666,
+            "cross_entropy": 0.3850277017503977
+          }
+        },
+        {
+          "case": "free_100_0",
+          "before": {
+            "accuracy_percent": 50.4,
+            "cross_entropy": 1.5932278188069662
+          },
+          "after": {
+            "accuracy_percent": 83.83333333333333,
+            "cross_entropy": 0.47013610435525577
+          }
+        }
+      ],
+      "paired_validation_gaps_pp": [
+        {
+          "seed": 2026,
+          "case": "role_100_0",
+          "before": 27.800000000000004,
+          "after": 7.300000000000006
+        },
+        {
+          "seed": 2026,
+          "case": "free_100_0",
+          "before": 51.2,
+          "after": 9.800000000000008
+        },
+        {
+          "seed": 2027,
+          "case": "role_100_0",
+          "before": 7.300000000000006,
+          "after": 7.200000000000006
+        },
+        {
+          "seed": 2027,
+          "case": "free_100_0",
+          "before": 17.500000000000004,
+          "after": 9.700000000000008
+        },
+        {
+          "seed": 2028,
+          "case": "role_100_0",
+          "before": 28.799999999999997,
+          "after": 5.799999999999994
+        },
+        {
+          "seed": 2028,
+          "case": "free_100_0",
+          "before": 19.299999999999994,
+          "after": 8.999999999999996
+        }
+      ],
+      "attempted_updates_per_model": [
+        462
+      ],
+      "successful_update_range": [
+        459,
+        461
+      ]
+    }
+  ],
+  "official_test_evaluated": false,
+  "source_summary_hashes": {
+    "results/grouping_mechanism_study/summary.json": "aacc32062f5df84271a5f44bf72cd8c8ea5e8e27e27122551e50b6e762c1b6a3",
+    "results/eurosat_grouping_fp32_replication/summary.json": "4b36a232fe643c5d8485f289f1a766860f8343e00ca280d0489f7d644926215c"
+  },
+  "script_sha256": "98d33b72666bad9a4a79f9f10247b6ce0f0819095a982a1f227906bdf1463ad4",
+  "matplotlib": "3.10.7",
+  "generated_utc": "2026-11-26T02:32:15.903682+00:00"
+}

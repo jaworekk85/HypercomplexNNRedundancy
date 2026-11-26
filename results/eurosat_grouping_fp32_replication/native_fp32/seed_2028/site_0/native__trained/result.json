@@ -1,0 +1,43 @@
+{
+  "dataset": "eurosat",
+  "seed": 2028,
+  "site": 0,
+  "cell": "native__trained_fp32",
+  "rows": [
+    {
+      "case": "original",
+      "lambda": 4109.627086149973,
+      "zero_centered": true,
+      "relative_normal_residual": 4.833287828628717e-16,
+      "coefficient_count": 1152,
+      "fit_mse": 0.18819418488823908,
+      "check_mse": 0.18919186854869588,
+      "regularized_fit_objective": 12394347.649906345
+    },
+    {
+      "case": "role_100_0",
+      "lambda": 4109.627086149973,
+      "zero_centered": true,
+      "relative_normal_residual": 5.303375799834011e-16,
+      "coefficient_count": 1152,
+      "fit_mse": 0.3317928566848194,
+      "check_mse": 0.32265851595239703,
+      "regularized_fit_objective": 21825278.04841931
+    },
+    {
+      "case": "free_100_0",
+      "lambda": 4109.627086149973,
+      "zero_centered": true,
+      "relative_normal_residual": 5.761189646282541e-16,
+      "coefficient_count": 1152,
+      "fit_mse": 0.3347187290087045,
+      "check_mse": 0.3270594578885708,
+      "regularized_fit_objective": 22014427.617589258
+    }
+  ],
+  "coefficient_bank": "results/eurosat_grouping_fp32_replication/native_fp32/seed_2028/site_0/native__trained/coefficients.pt",
+  "coefficient_sha256": "d7bd50b5a7bddb334b7a21c5493b0ade14b8da527ad51e114941d42092531c74",
+  "new_exact_feature_fits": 3,
+  "tf32_disabled": true,
+  "frozen_masks_preserved": true
+}

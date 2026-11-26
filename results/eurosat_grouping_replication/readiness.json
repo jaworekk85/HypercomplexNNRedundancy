@@ -1,0 +1,470 @@
+{
+  "started_utc": "2026-11-26T02:14:28.172674+00:00",
+  "scientific_results": false,
+  "tests": {
+    "returncode": 0,
+    "stdout": "......                                                                   [100%]\n6 passed in 2.45s\n",
+    "stderr": ""
+  },
+  "smoke": {
+    "status": "passed",
+    "output": ".cache/eurosat_grouping_smoke_20261126T021431581930",
+    "local_pairs": 6,
+    "models": 3,
+    "repair_epochs": 3,
+    "completed_resume_passed": true
+  },
+  "discarded_gpu_update_audit": {
+    "parameters": [
+      {
+        "name": "blocks.0.0.kernel",
+        "shape": [
+          4,
+          4,
+          1,
+          3,
+          3
+        ],
+        "gradient_norm": 0.6241464018821716,
+        "max_abs_update": 0.00011864583939313889
+      },
+      {
+        "name": "blocks.0.1.weight",
+        "shape": [
+          16
+        ],
+        "gradient_norm": 0.1638590544462204,
+        "max_abs_update": 7.140636444091797e-05
+      },
+      {
+        "name": "blocks.0.1.bias",
+        "shape": [
+          16
+        ],
+        "gradient_norm": 0.15350264310836792,
+        "max_abs_update": 8.176956180250272e-05
+      },
+      {
+        "name": "blocks.0.3.kernel",
+        "shape": [
+          4,
+          8,
+          4,
+          3,
+          3
+        ],
+        "gradient_norm": 1.957571029663086,
+        "max_abs_update": 0.00019077956676483154
+      },
+      {
+        "name": "blocks.0.4.weight",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.26643484830856323,
+        "max_abs_update": 0.00013023614883422852
+      },
+      {
+        "name": "blocks.0.4.bias",
+        "shape": [
+          32
+        ],
+        "gradient_norm": 0.21028155088424683,
+        "max_abs_update": 0.000123527308460325
+      },
+      {
+        "name": "blocks.1.0.kernel",
+        "shape": [
+          4,
+          16,
+          8,
+          3,
+          3
+        ],
+        "gradient_norm": 2.436357021331787,
+        "max_abs_update": 0.0001406744122505188
+      },
+      {
+        "name": "blocks.1.1.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.19164718687534332,
+        "max_abs_update": 7.855892181396484e-05
+      },
+      {
+        "name": "blocks.1.1.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.1565607339143753,
+        "max_abs_update": 5.767405673395842e-05
+      },
+      {
+        "name": "blocks.1.3.kernel",
+        "shape": [
+          4,
+          16,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 3.2243728637695312,
+        "max_abs_update": 0.0001374427229166031
+      },
+      {
+        "name": "blocks.1.4.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.296512633562088,
+        "max_abs_update": 9.715557098388672e-05
+      },
+      {
+        "name": "blocks.1.4.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.2357209473848343,
+        "max_abs_update": 7.149817247409374e-05
+      },
+      {
+        "name": "blocks.2.0.kernel",
+        "shape": [
+          4,
+          16,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 4.876092433929443,
+        "max_abs_update": 0.00020014168694615364
+      },
+      {
+        "name": "blocks.2.1.weight",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.2943607568740845,
+        "max_abs_update": 0.00010645389556884766
+      },
+      {
+        "name": "blocks.2.1.bias",
+        "shape": [
+          64
+        ],
+        "gradient_norm": 0.23736289143562317,
+        "max_abs_update": 8.693579002283514e-05
+      },
+      {
+        "name": "blocks.2.3.kernel",
+        "shape": [
+          4,
+          32,
+          16,
+          3,
+          3
+        ],
+        "gradient_norm": 6.307114124298096,
+        "max_abs_update": 0.00020091235637664795
+      },
+      {
+        "name": "blocks.2.4.weight",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.9052286148071289,
+        "max_abs_update": 0.00019365549087524414
+      },
+      {
+        "name": "blocks.2.4.bias",
+        "shape": [
+          128
+        ],
+        "gradient_norm": 0.7768763899803162,
+        "max_abs_update": 0.00016582809621468186
+      },
+      {
+        "name": "readout.weight",
+        "shape": [
+          10,
+          128
+        ],
+        "gradient_norm": 7.050469398498535,
+        "max_abs_update": 0.0007408997043967247
+      },
+      {
+        "name": "readout.bias",
+        "shape": [
+          10
+        ],
+        "gradient_norm": 0.5771037936210632,
+        "max_abs_update": 0.0005076159141026437
+      }
+    ],
+    "quaternion_layers": {
+      "blocks.0.0": {
+        "component_gradient_norms": [
+          0.33905351161956787,
+          0.27968737483024597,
+          0.31997525691986084,
+          0.30658158659935
+        ],
+        "component_update_norms": [
+          0.00033904981683008373,
+          0.0002796886255964637,
+          0.0003199678903911263,
+          0.00030657745082862675
+        ]
+      },
+      "blocks.0.3": {
+        "component_gradient_norms": [
+          0.92585688829422,
+          1.034780502319336,
+          0.9290536642074585,
+          1.020275354385376
+        ],
+        "component_update_norms": [
+          0.0009258553036488593,
+          0.001034779823385179,
+          0.0009290543384850025,
+          0.0010202735429629683
+        ]
+      },
+      "blocks.1.0": {
+        "component_gradient_norms": [
+          1.2181047201156616,
+          1.282901406288147,
+          1.2368930578231812,
+          1.1297416687011719
+        ],
+        "component_update_norms": [
+          0.0012181047350168228,
+          0.0012828981271013618,
+          0.00123689288739115,
+          0.0011297414312139153
+        ]
+      },
+      "blocks.1.3": {
+        "component_gradient_norms": [
+          1.5292049646377563,
+          1.6517001390457153,
+          1.5915278196334839,
+          1.6724345684051514
+        ],
+        "component_update_norms": [
+          0.0015292033785954118,
+          0.001651700702495873,
+          0.0015915264375507832,
+          0.001672434969805181
+        ]
+      },
+      "blocks.2.0": {
+        "component_gradient_norms": [
+          2.5208983421325684,
+          2.348142147064209,
+          2.487863063812256,
+          2.3912580013275146
+        ],
+        "component_update_norms": [
+          0.0025208969600498676,
+          0.0023481412790715694,
+          0.0024878650438040495,
+          0.0023912566248327494
+        ]
+      },
+      "blocks.2.3": {
+        "component_gradient_norms": [
+          3.060458183288574,
+          3.1839866638183594,
+          3.189223527908325,
+          3.1787362098693848
+        ],
+        "component_update_norms": [
+          0.0030604589264839888,
+          0.0031839869916439056,
+          0.003189224749803543,
+          0.003178734565153718
+        ]
+      }
+    },
+    "checks": {
+      "all_variables_updated": true,
+      "all_quaternion_components_have_gradients_and_updates": true
+    },
+    "loss_before": 4.045949459075928,
+    "correct_before": 0
+  },
+  "status": "passed",
+  "source_hashes": {
+    ".cache/keras/datasets/cifar-10-batches-py-target_archive": "6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce",
+    "configs/compression_curve.json": "3cbe2d14ce27893a1e708d0eb1d728b729a7ae32dd2903441cf15f5fc496b4a5",
+    "configs/internal_replication.json": "3529c35413e9f73120903ce7ec708aa6225d7dd26e55b8d43b03746710962aae",
+    "configs/multisource_compensation.json": "57b2d8eac01bbee7030f5ef6318631f01eb3f709e2219f1819b4fef1bdebd105",
+    "results/cifar_cnn/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+    "results/cifar_cnn/quaternion/metrics.json": "3bd8c27ec75da13cb1fedb5a8dca6d572afbfb3d6e323abad98e36512be2cf92",
+    "results/cifar_cnn/quaternion/model.pt": "30d00aa6cf7b8a627bd8e99aa51e885cdfa555815ff7911d6048f88d70115101",
+    "results/cifar_cnn/real/metrics.json": "19f1f5f95d239c0916a86019b5458f537a3b0b97945ac9e795d9b250d0d33ec4",
+    "results/cifar_cnn/real/model.pt": "d83140d13ca702d62bbf81b1accd367a90400f3114ca76423fa7bcc51c13b3db",
+    "results/cifar_cnn/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+    "results/cifar_cnn/summary.json": "7746423e40c6481a56e28dbebc3ddf5d6705c993d776ee257067b521b51958b5",
+    "results/cnn_multiseed/seed_2027/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+    "results/cnn_multiseed/seed_2027/quaternion/metrics.json": "a1ad66bc982e57ee1cdcd516f690d9c7657a9068e58443c4e466361bb9af9f3e",
+    "results/cnn_multiseed/seed_2027/quaternion/model.pt": "2ef7484bf7e3b223f417296e481368e9fa1e5b7ff14c48ca5e2652f414ad1ba1",
+    "results/cnn_multiseed/seed_2027/real/metrics.json": "f042121e87ce2cfdc53072bc48aab8952d300d35493e855045ecdb46de30b970",
+    "results/cnn_multiseed/seed_2027/real/model.pt": "718329d38b6d737afcc6473f441392ec4de1b18fd06f8574b4a4b4b4ddb1e80a",
+    "results/cnn_multiseed/seed_2027/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+    "results/cnn_multiseed/seed_2027/summary.json": "fe7eaa871b9b86713103bc651234917a76574f937772e72243a71025c6476485",
+    "results/cnn_multiseed/seed_2028/data.json": "4c75d6fcf6a75fe8377cf14d642c226a27f6482194180bd4112d719272f661d3",
+    "results/cnn_multiseed/seed_2028/quaternion/metrics.json": "a9c9bb9432e62e5a0a1800c62101212a2831f32a9ca28637ab707436151c5eed",
+    "results/cnn_multiseed/seed_2028/quaternion/model.pt": "f10f19296c0096efb017a502a118b8dea3858177bac16531fae676a7ee5d8f31",
+    "results/cnn_multiseed/seed_2028/real/metrics.json": "c1e9ec7fa6bbcf93c849be333415a29d4cb160702a132042e9b9baadf0113f3c",
+    "results/cnn_multiseed/seed_2028/real/model.pt": "8cc1fe33ea8d5a9287a4a578909359eeeb56472d80ede9916c1b31632947a4d8",
+    "results/cnn_multiseed/seed_2028/split_indices.npz": "003bad520df3089b03059db085b18058b0f43e2dd91944c837335f2240fd0766",
+    "results/cnn_multiseed/seed_2028/summary.json": "0b47f1135e73ab4536388c8be3c59ca3f093596b32d8d37d968f947c11352f0b",
+    "scripts/cifar_cnn.py": "1917bcdf898ff89184901796f8b5a0a81a11b73a4a0fbd1cf9497c4485e509c9",
+    "scripts/compression_curve.py": "d3a3ba3788ae6890712b341276f44bc646cc12404e3119056186ff8ae34651da",
+    "scripts/eurosat_cnn.py": "4e4b1f8a71714f044219fc82231df926c405e7cb648a5bed638c84a3c29eb8f8",
+    "scripts/finetune_compression.py": "bb5eed8abf262370f667a5809d806abb9786d70b9cd8bc724d08d3e4db791daf",
+    "scripts/multisource_compensation.py": "84f5915d76dfaecd9c25e8addeaf0cc74b547b11a33dddcb98abdb86951faca5",
+    "scripts/run_compression_curves.py": "af36a96c7feff31bec88ef3877ae667284a10992dc75691db515b6710d9319ad",
+    "src/activations/diagnostics.py": "f44e26abceb095b404a55ca72e010605215289d365072b258d804c43638d9c51",
+    "src/activations/similarity.py": "b5eec8ce2f0faaa73cbc0d73b7c3571dea55f47db76af40f48edd07175cf7abc",
+    "src/cnn_training.py": "1c20071cff5beeb2e1c05d4962c96ef421dbfc68b6c1894d2474a8ae9ff9c0a9",
+    "src/compression/bn_magnitude.py": "25714ffe39e1e9aa38577dca2f2624e303bcfd28aa2fa0b16b265605f32f4654",
+    "src/compression/internal_merging.py": "2574dccd7957d79eb25564e49528643da818d1db69e869f7c90fe2de8bd04a51",
+    "src/compression/multilayer.py": "623af6fd9417782e661ca01eeb30d2e7459b352afeee831156a098e807ec8c14",
+    "src/compression/multisource.py": "bf1bdf648437bdaf90192aabbe1874683d8c13ce847b970334f07020b068d09e",
+    "src/compression/quaternion_channels.py": "12fe2b11bc0c9661714bf2414a4c0e11b21e3aa8fed4b0232cf97ee271569936",
+    "src/data/cifar_cached.py": "577d9062b55f59478bb93b417c305faca88fa6fab55ac63b1cebb979ab919393",
+    "src/evaluation/cnn_report.py": "9a60fca239cefd63b9186e7c075c5e4cf179bb284feee445c79cce90f301aad8",
+    "src/finetuning.py": "d8d06b000e357d655d71eb013da82474cd759b73d801edb613b2e0f296b8bc74",
+    "src/models/cifar_cnn_torch.py": "28fa4e826a11a6627473590eb30051918dbd6c75119853271df06c901683fa30",
+    "src/models/cifar_fourblock.py": "9f6792bbd24e2a30dc48028e46d7ba89318a07109b815577dc7b6d1ad97cede6",
+    "src/models/eurosat_cnn.py": "9bf8b1a8f4302c4d11d3d5f17e9b14bd2676f8cec2e2e02b22ca9470520a84d3",
+    "src/models/quaternion_conv_torch.py": "d09becc172a8022af070b3a6b6a82d4de87f77c9b5369b91f2d408f4b6753a1b",
+    "configs/compression_curve_eurosat.json": "a37c7b7d6e44f306c510a842d6f1131eec686a8deb9e990039be26c722412922",
+    "configs/compression_curve_eurosat_refinement.json": "e442ec9fea0834d802039323ca48021877981319148c7a1ed9ee443fc03d48a8",
+    "configs/compression_curve_queue.json": "efbdaa8711b2e806c1cda5868f5ed300be4888d42fb0463640b7392ef0e7ef50",
+    "configs/compression_curve_refinement.json": "c622c6313905860ae9f1cc82cc169a63e11b4fa9a51c5f94fbdfc19afad7dd30",
+    "scripts/run_curve_queue.py": "a4878ed1e190cec021c3b82ee5935026da90f5f6d3dfc6cc3ed94d4bdafa291f",
+    "configs/activation_curve_magnitude_tanh.json": "6b564284c2a1d895c72dab22834f7f705621c3d353aa9dbe12f43edfc954192f",
+    "configs/activation_curve_split_leaky_relu.json": "f4a95010833408002c0acfd4ad7fa0a961d5f49077364d043b13ebc6a4a41b77",
+    "configs/activation_sensitivity.json": "b8ba03641822902ce09561c6d341b1ffc5e58b7104d8359e654abc2be9f4a9d5",
+    "scripts/activation_sensitivity.py": "f5cd9407c8aedec800aa96a1a92d9cab5eb856e532d70cda3efaae557e78a88d",
+    "scripts/run_activation_queue.py": "bfad3f52a81082a319be03837d20d735961f52c81ea9c9cbe097ed359e846566",
+    "src/models/activation_cnn.py": "064b98a3866bb1ab884705b7afad98362c554e256b3e92c5bb33ad12051bc75e",
+    ".cache/pseudolabel_repair_readiness.json": "d24ecc64233895c63182e7dabde4e465bc29ba0a92e6b505140f22c726adfa9e",
+    "configs/pseudolabel_repair.json": "163dc6fbefe170731255586982c2e888c3b401805a810b1da8c371d841563b99",
+    "results/activation_sensitivity_queue_protocol.json": "1ac3f370e82e559989483de796270b8b67ffe76195b79b9f64e86c0e493a415c",
+    "results/compression_curve/compact/cnn6/seed_2026/f_250/greedy_comp.pt": "17890079a894046ba640394d03d00331e0cd0a5b2b50b2f9662f030bc5991556",
+    "results/compression_curve/compact/cnn6/seed_2027/f_250/greedy_comp.pt": "5ea2c0a6736dfb1200396d5f80a8b0e3924598b6a3e7f673253765b9f55056f9",
+    "results/compression_curve/compact/cnn6/seed_2028/f_250/greedy_comp.pt": "9024d18d52df4c62a6a96fc2e04ba54f245184ba1beba4c99d6b4b8c117d7dc7",
+    "results/compression_curve/phase_a/cnn6_seed_2026.json": "7e27501ae667ac3c0ba236abdbab84cc000c8c621d75b100f95cd200200e7406",
+    "results/compression_curve/phase_a/cnn6_seed_2027.json": "c88cb87073479c0ddc7b142925c667539fcdd5aaa7aa056f6649b0887ce5c1d4",
+    "results/compression_curve/phase_a/cnn6_seed_2028.json": "053b3931da942badf047024fd70c8932194e80349ed8636803a3071ee52aaadd",
+    "results/compression_curve/summary.json": "384884ac946d3b42c45e1c5815da753f23ff80024e16e4a28b62c6e6e38e410f",
+    "scripts/pseudolabel_repair.py": "a8d25a5b5ed0ae79e675d67de9ff794e67f770e4cb8ba85d65ee24fe5daf8e2d",
+    "scripts/run_pseudolabel_queue.py": "67dfd91a87d2759850d650ec96705539bacdd0378c54e48c1c78a8b16f2fa368",
+    "src/pseudolabel_repair.py": "a0ae919544ea7d4cea568628c09b409da68655179d674b9fc4bca502503cb3ad",
+    ".cache/structure_control_readiness.json": "e8a943879bfa25ffaddc2c7ec65a8d7f58678ef7054807473e95e2648e661b97",
+    "configs/structure_control.json": "ee606bf4db941f30c67877b8d32e5626b6a1f6226f9ab13849c46e51496b9332",
+    "results/pseudolabel_repair_queue_protocol.json": "a57f8d55ee6b74dfc4ec405c3bf1cef8c32de32e942576fdea6597896225c7e5",
+    "scripts/review_qnn_compression.py": "ebfe5005804a257c7ce59f9a16a34dccf4ac548a161ed9e09632ca1968d2c824",
+    "scripts/run_structure_queue.py": "19647e8fe25f80cfbfec25a3aaeb705276ff373b3d2ff4de5787c6cff3b5f3c9",
+    "scripts/structure_control.py": "b0a4cde09503b27f0130134e33561e34e1c8fd1a40b294194319b0da3dfb7594",
+    "src/compression/structured_blocks.py": "fb09d1535a12ac8e1fba38499a4e67300a126ce1cec24839070ad701bff6ce15",
+    "src/models/circulant_cnn.py": "a64e09adbc2ecbb70740517bb3f3e8c6fa382817736dddfdb8173fecb541542b",
+    "../FewshotLearning/configs/cifar10_pilot_ssl.json": "d41f22ad2c66356574c044bfbf3515f6c6a4260ed5dcd8a77fcc6e361a495acc",
+    "../FewshotLearning/fewshot_metric/__init__.py": "1b61879c36d533a1bc505b2eb0656a0cddf4b0cf13bdbfaffe1ade4450ac92fd",
+    "../FewshotLearning/fewshot_metric/active.py": "9ba9f5793223450535a319fdfd4af5640642c116f3048666c2a0586bb74acc88",
+    "../FewshotLearning/fewshot_metric/active_selection.py": "7a1673cad678678d96e4c58cc3e7f8632a7eff1649b3eb401f4a20f5a1787357",
+    "../FewshotLearning/fewshot_metric/comparison.py": "3a4eb1a24f943c1b094b43f8bc56038d854538dcb88bce52ff994984242c45cc",
+    "../FewshotLearning/fewshot_metric/config.py": "b4dccd805f2e87101156cbb8ac6a01126e51a79830a74c21d1b8cb11174e787d",
+    "../FewshotLearning/fewshot_metric/data.py": "d1ef0322d24367dd4c3dd4663b935d8af3c0acc2f1f96b91f55e40f251a82bb9",
+    "../FewshotLearning/fewshot_metric/ema_teacher.py": "355648219d5f4c9dc83dae7981a3b2285243536376c005b6a2c5b16232c7043b",
+    "../FewshotLearning/fewshot_metric/fixed_splits.py": "a91d4a5a353ca4a9bb77a39a5c891e651e0de036ac03754bdd16864884cde585",
+    "../FewshotLearning/fewshot_metric/losses.py": "54de2c48d1e5452a736974b3009b832a4eacbb8d8d72d925f3f9bc2d8d1a5326",
+    "../FewshotLearning/fewshot_metric/mined_triplets.py": "ee48dfaae552746f586391ebd3bdee2cc3f4205a4a0163069cd27c0e451de640",
+    "../FewshotLearning/fewshot_metric/mixed_contrastive.py": "78b2c29c6f0e9caa3177976ada3651e800d97adfdd186102e2015cfdc3fdcd07",
+    "../FewshotLearning/fewshot_metric/models.py": "add74684ab69c55c9de7cba460f0f4a8b61d07f3d629f4b66348868bac913b3e",
+    "../FewshotLearning/fewshot_metric/neighbor_reliability.py": "0245991bc12adb1b45a861975081552dec019645829f77b85363bd1852f83a89",
+    "../FewshotLearning/fewshot_metric/pilot.py": "97b11dd208099066f1c78e2bf858d121fcba969a22c1ef5a0c1fc7de5bbfc8a1",
+    "../FewshotLearning/fewshot_metric/reconstruction.py": "493eb9a268d6fa13d40083b2a2e303d5fc5503f965081b0aa12a1cbce21102a4",
+    "../FewshotLearning/fewshot_metric/reliability.py": "5379096b68aa6bea7a6fa3b0c17d87a62fd68b6ab393621c4e0ad0047c08c102",
+    "../FewshotLearning/fewshot_metric/representations.py": "d23566308328cadb344b54903159c592d18949eabefa659b38891dff17da0e3a",
+    "../FewshotLearning/fewshot_metric/supervised.py": "1b83dee4fce57d1b62b64ec3da07cd90eba7a7bb33f6db17a8882732050dbab5",
+    "../FewshotLearning/fewshot_metric/train.py": "2334db727a51a1e8b8b0689cf8796cbf536fb66148a8a44b6a7f6e442287f388",
+    "../FewshotLearning/fewshot_metric/transforms.py": "a41972e517dd8fac605dfad93f4ed63d44c55f730a1920183d44aaf97c93004d",
+    ".cache/ssl_bridge_readiness.json": "51c4b3248b4a69b3bff9657d60ad0de76a2f90235b7a549c31bbbc59c3e8fc17",
+    "configs/cifar_cnn.json": "abffe3cb4f6981ecf5f89716a012a1eed314d4a095f9d6d3e0f448cd6e28bfa7",
+    "configs/ssl_compression_pilot.json": "9b8aec0bb5a14cd7a9930f5012dcc6bbb6964149dbbe0fb9034aaad9cd5f3acb",
+    "results/structure_control_queue_protocol.json": "6b33cde6f49895d95fa7776a7a7b310470acb9f0a735ec2e5fcfd5430c3e1a3a",
+    "scripts/run_ssl_compression_pilot.py": "d5dafc238ac7347e85871799ae189050e76a904562188b43692760390c69da21",
+    "scripts/ssl_compression_pilot.py": "f7d9955bcf1e1fea49b2df4021dcf8c32d5fd04beb1d7795b9758ae228c237d2",
+    "src/compression/quaternion_merging.py": "4c1d1f118072b6976c5266502401aff413da9e09e1d1820ae39fb5877ae6abf3",
+    "src/ssl_bridge.py": "90324d229f588124b8483d50ed6b9a0b467ba5d27e6747b86590ccc1a0315c7c",
+    "configs/no_bn_pilot.json": "0aa2463a232a1d2bc88fa7e31bdd35ed1db077bb9fda6691d3f58b93c18f3bc3",
+    "scripts/no_bn_pilot.py": "cbf8b915541aa8491dc43fcfe6ab4365f1b95b752fd41664ad67c11fa601dc87",
+    "src/models/cifar_no_bn.py": "0aaec0d30b259b228e1a3a6c64fdca96d7765f5a207811af25378b29dcdc615f",
+    "configs/structure_cost_study.json": "6eece0efe9be41cc53aaf6751ad3d7656e9bba9a53b2734a5e6d5f91e0686e48",
+    "scripts/structure_cost_study.py": "6e4b7808187c1a41c268ca044889828d7d0b9ad0b792966a50c5152ccba1ebee",
+    "src/compression/structure_cost.py": "907e569f6ed4ff531d3f887de394feeac5c3a91df1f7ebbde2dd4ab4a885574c",
+    "tests_torch/test_structure_cost.py": "9ad06d9be294354b0fc80cd9e6e730c1c45620cfe2bccf8c1e99cad295408c16",
+    "scripts/paper_a_controls.py": "32d8ec5ce47690594133dca0ade80fa2166f704261770078abe8b6afb9712de5",
+    "configs/direct_consumer_pilot.json": "a24b9b686573ba3a2ff2e93b2cdab9e3d2a305da5af8204523cbf4a16abd3ff1",
+    "scripts/direct_consumer_pilot.py": "2735d5c6829767aea40f01a438470912afc2f540b38d7cb89188d6db6057f922",
+    "src/compression/direct_consumer.py": "50a1b42a2996d1ab1a34cd5730533a72aa25e39ca0560ebeadea4dbaea7ea106",
+    "tests_torch/test_direct_consumer.py": "0e94486b4b3f7157f30bd096b93bcf0a5baa8f08bc6383522e89cf3a70fa1afe",
+    "configs/direct_consumer_replication.json": "de3587b569e21cfe56731c9780f583739cc0c74c58c5890242fdca9f51fdecc2",
+    "scripts/direct_consumer_replication.py": "0c7b9e7a1badd61e8765e86acb2aed2b2f1d368e5e2c53cda39afab09a0d911b",
+    "configs/tail_compensation_pilot.json": "3cde76cf395a89b1ec0e05a0bd607700a0a4c31ca64911742943b89abb27e417",
+    "scripts/tail_compensation_pilot.py": "f26f0d7f7eab52a894beef6833fe7e48cb444e6512db6ebd877245c031aa019b",
+    "src/compression/tail_compensation.py": "5b7bd06b45b69a09c6e1ee0157d50656117fbb21985aef8f5ad1df0fce8b7a15",
+    "tests_torch/test_tail_compensation.py": "073ef1ae527ff21c997bb37a857348f92991857c4f65db9f99746b06fb1639d2",
+    "configs/trainable_maps_pilot.json": "85e58f8f4bc9130eef82c0af1f3ea0833693cf4b9ed73ba81974c38f69ecba30",
+    "scripts/trainable_maps_pilot.py": "ce41b0f2fccccb2f63a6bbfd2c96f3882fecc23db4f2db96228a082519426402",
+    "src/compression/trainable_maps.py": "7b16c0b13e518c9394e243982f861e58b5602988059e1986580adae921fbf684",
+    "src/trainable_map_repair.py": "98a2486eb8f362f0777bc3390958a95fe0074708d2311c501d47c630fba49f35",
+    "tests_torch/test_trainable_maps.py": "f17672728ac0c4cc46afb7777adb1f86feff4c60ebec7bc271f5550369d3741b",
+    "configs/centered_maps_pilot.json": "cc287e1c07e09e8346c0e61fefccdce1ee2d8263c2b458c11dcc2c28113ef615",
+    "scripts/centered_maps_pilot.py": "246b99241d83f8bf1a5924b57aa21ef87c0e2975fe6d606a3ed6f70a35fd87e3",
+    "src/compression/centered_maps.py": "743c5cd9eb665a1900c462d4c03c9d864a6f99bf1c9d679c3d657f1cfd1c88f3",
+    "tests_torch/test_centered_maps.py": "910c8ebab2d35ff4ff97f6e11ee481732a64407c84cdf58f03ef1a8c4932d6bf",
+    "configs/resnet20_baselines.json": "73ad7b1e665b012138a6936e49ccef463235a1e201b0601219a97b48f0e3f0f9",
+    "src/models/cifar_resnet.py": "df47236bdfe24efd15e2d340bec5af2bc95cdb20c64ec288c196a005e61421a7",
+    "src/resnet_training.py": "31605e078e70e8dca97af33f38db87fc91df77303e436c47148f75012f7dddeb",
+    "scripts/resnet20_baselines.py": "ecf54c63efc38671da18219658c28bd1eaa85623d83bc39a75bcc4cf226f21f7",
+    "tests_torch/test_cifar_resnet.py": "1dac06b977e21db55d9c27bace093aaa167f5136d0a24db1e2eef06d708a0798",
+    "configs/resnet20_compression.json": "c78a7106d8772143596a9af33b8f71ca1291eb467ccb77e7bc8d61be6dda2b7d",
+    "scripts/resnet20_compression.py": "2395187f7de7c605debc0763be323d8f914afae8b96e63f14af63f38798206b8",
+    "src/compression/resnet_core.py": "2b12da8d6e2ec44216aa137dcc6fd6253033a6304f14361d4f14bc13112ee005",
+    "tests_torch/test_resnet_core.py": "b8bb0273bb386c27175e99bfb2e61feddc40f12b034dcccc1ed16bde3cabc3eb",
+    "scripts/smoke_resnet20_compression.py": "d4faad45bfa4f2f16fc55cd41f16d7ff3ad2c04fc53550ce3f43d44628a4cffe",
+    "src/compression/structure_catalogue.py": "1014aec9289da0bff0f7f89985cf0b9d7be2a45aff90d65f6eb4707843c72e32",
+    "src/models/phm_conv.py": "dec7917a81632f58b4d2c3cfdce81a231030c954e3b3a3db7e4b75b10e854012",
+    "configs/resnet_component_reassembly_pilot.json": "8c197688bf078b584d23548a9370e72fb0cfe85fdc10b425eb3d2fb8fd6c4d25",
+    "scripts/resnet_component_reassembly_pilot.py": "b62205bd18975448b01d0b52259412b315efd2fb0a88a02885fb047a01f8b1b9",
+    "src/compression/resnet_reassembly.py": "b54bd6c0e1816b496767de6f53ed6242fb50592798dce72fa5aed451f0fb4695",
+    "tests_torch/test_resnet_reassembly.py": "1b818dd7759d43659ba11e501f9ced22703821795f1930e0d3f374d1dd597420",
+    "src/compression/component_reassembly.py": "3184d644b651d801300be19ec2b4de248aeee496ae5895fc627830c6241cf251",
+    "configs/grouping_mechanism_study.json": "a1c0741e5d5d103e94c0027b112443467dff4a91f0802405d3d498d3846d4359",
+    "scripts/grouping_mechanism_study.py": "d13771ab9c7c839035b0adf40ee5b150fbdc100110ac73638965508d487b2cb7",
+    "src/compression/grouping_mechanism.py": "1b20921102aa4b7bc4835f94232bcd841625d73b61ed4e3301901339436d86a9",
+    "tests_torch/test_grouping_mechanism.py": "9d6df32b2176edaefe17f23fcd9e909ad59671ee0ce49347a7dce3d9a99e9b0f",
+    "configs/grouping_initialization_control.json": "f7ada3cfb2de98607087f2094be58b2bb7473cf5dfedabead885e5597f4e48c8",
+    "scripts/grouping_initialization_control.py": "629d8c48304a2bdbfac85851c29537b0db9dac9eea7c217c0b56121046a377b5",
+    "src/compression/grouping_initialization_control.py": "61f03f51a38e7c99fae1d9180a9e27a36bafd9227275e5ad38175587e1c6efbf",
+    "tests_torch/test_grouping_initialization_control.py": "ab3f1055913dd5ef48a4d8eea04f2d11222472d23455e5f90162f64a9e8142b8",
+    "scripts/prepare_eurosat.py": "49fc9923ce34e032d6b994ce43bed0377c953d31b07b8f6402870847dd8a22be",
+    "configs/grouping_statistics_control.json": "c91b8a46c6a6f7825aded13f05dcb136332c00cfaf35e84ddbbef926e3267776",
+    "scripts/grouping_statistics_control.py": "720c3ae5dbf3cb2276603b51bd1366246a0557c1e869f553ed341116a1cbb4a1",
+    "src/compression/grouping_statistics_control.py": "4e346844d1c27b2b444bb2d86b46630a06e79a8628878a693c23dca6c6d90232",
+    "tests_torch/test_grouping_statistics_control.py": "429a4aced46d826e332d9d3024b68e6319bd02fafaca77108335d0fe85df8644",
+    "configs/eurosat_grouping_replication.json": "a21923891c12788b910b792357aa98f1f00fcdfc16cce862aa8982908e2cdf9b",
+    "scripts/eurosat_grouping_replication.py": "237a1c13261fe0cbbf28a6e5e38b94d214f71dc603feb28cbd6b10e19ac78b35",
+    "src/compression/eurosat_grouping.py": "538d2b6b93af6b8d02c6249cbd18201567b74cbda47c56e7e8d76f15b92cdbc7",
+    "tests_torch/test_eurosat_grouping.py": "3eb56b04d269828f00ad787bdcebea8b7ce6bf1f41cad48f5186cc33f1af1c31"
+  },
+  "updated_utc": "2026-11-26T02:14:59.372288+00:00"
+}
