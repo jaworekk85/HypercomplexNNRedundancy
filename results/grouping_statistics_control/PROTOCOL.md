@@ -1,0 +1,35 @@
+# BN/marginal-statistics and second-dataset grouping controls
+
+## Hypothesis
+
+The training-associated grouping penalty may reflect BN state and marginal feature statistics. Test whether the contrast persists after common BN recalibration and additional feature marginal standardization, then measure the same question on an existing second dataset.
+
+## Scope
+
+Two existing datasets and architectures,3seeds each: CIFAR10 Q ResNet20, EuroSAT four-band Q CNN6. Initial versus trained weights; native, BN-recalibrated, BN-recalibrated-plus-standardized feature states. Two early/late consumers per model.21groupings per site (original plus10role/10free fully mixed draws).1512reported fits:252CIFAR native rows reused from predecessor and1260new float64 ridge fits. No supervised training, new algebra, architecture search, classification prediction or official-test/validation inference. EuroSAT is a second dataset AND architecture/input encoding, not an isolated dataset-factor experiment.
+
+## Data
+
+Per dataset use existing train/calibration splits.1024unlabelled TRAIN images selected by private generator with fixed dataset-specific seed, identical across model seeds/initial-vs-trained states. They estimate BN only and are disjoint from500even-calibration fit and500odd-calibration check images. CIFAR masks/assignments exactly inherited. EuroSAT masks are top-half whole-unit summed native-trained fit feature energy, sorted source indices; deterministic grouping helper and seed offsets fixed before outcomes. Same retained scalar set/assignments across ALL states within dataset/seed/site. No check-dependent choices.
+
+## Bn
+
+Clone each model; preserve every trainable parameter, including BN affine. In model.eval mode, recalibrate every BN in forward order. For each layer stream the1024train images through the already recalibrated prefix, stop at that BN input, estimate float64 per-channel population mean/variance over images/spatial locations, copy to running_mean/var and record observation counts. Earlier layers use their new statistics, later layers do not execute. No dropout, mini-batch normalization or gradient updates. Full parameter hashes must remain identical. BN affine and non-Gaussian/cross-channel feature structure may still differ across training states.
+
+## Standardization
+
+From BN-recalibrated FIT activations estimate each full scalar channel's mean/population variance; transform fit/check using ONLY those fit statistics, subtract mean and divide by std clamped at1e-6. Count constant channels. Recompute full-width consumer targets from these transformed features and unchanged source Hamilton weights. This defines a modified exact-feature diagnostic teacher, NOT function-preserving graph surgery or a compact deployment model. Means/scales are controlled, covariance/sparsity/higher moments are not. Native and BN-only targets use actual full consumer outputs before BN2.
+
+## Fit
+
+Frozen zero-centered Hamilton ridge and grouping fitter. Lambda=alpha times original-group fit Q Gram mean diagonal, independently per feature state and fixed across its groupings. Report existing raw-energy normalized SSE and additional SSE divided by target energy centered using FIT per-output-channel means. Check centering denominator uses those fit means, not a refitted intercept; regression itself remains unchanged and zero-bias. Primary statistics-control endpoint: mean10draws mixed-minus-original centered-normalized held-out error for the standardized condition, trained minus initial, separately per seed/site/policy. Raw-energy endpoint and native/BN-only states are secondary explanatory results. Save target means/denominators, all individual draws and coefficient banks.
+
+## Checks
+
+New CPU tests verify sequential eval-prefix calibration, parameter/affine immutability, fit-only feature scaling, centered energy arithmetic, hook removal on STOP, fixed scalar sets and saved-state replay. End-to-end synthetic check and discarded-copy GPU four-band gradient/update audit before registration. Initial models saved/hash-frozen before fitting. Every saved coefficient bank reloads exactly; CIFAR native reuses frozen predecessor rows rather than silently changing their endpoint. STOP between BN batches/layers, sources/cells and ridge assignments. Recalibration repeats at most one model after an incomplete save; completed cells hash-checked and reused.
+
+## Analysis
+
+Report native/BN/standardized contrasts and all seeds/sites; no pooling random draws as independent training seeds. Opposite or vanished effects must be reported. This addresses stated marginal/BN confounds, not full distribution matching or semantic identifiability. No equivalence/significance/novelty claim, continuation threshold, choice of successful condition or automatic further experiment. Previous failed reassembly gate remains failed.
+
+Prior art: Vecchi2020, Comminiello2024InductiveBiases, Valle2024VNets, Helber2019EuroSAT, Shomron2020BNRecalibration, Jordan2023REPAIR, VieiraValle2022ELM (references.bib).
