@@ -3,6 +3,42 @@
 Updated: 2026-11-26. Read the relevant `state.json`, recent log tail and process
 state before reporting activity. This page is a handoff, not a process monitor.
 
+## Manuscript draft: first complete LaTeX version
+
+The user authorized drafting on2026-11-26. [Manuscript source](../paper/main.tex),
+[reading PDF](../paper/draft.pdf), [build/evidence/review notes](../paper/README.md).
+Initial IEEE conference draft:6Letter pages, anonymous authors, actual Times-compatible
+fonts,5printed tables and2figures (six table sources are generated; full seed values
+also remain in the unused seed-table source and plotted points). The expansion adds all-draw local exact/physical
+reconstruction means and two explicitly constructed synthetic reassembly examples;
+these use existing results, not new fits or classification. Synthetic selection changes
+the retained scalar set and all scalar selectors tie, unlike fixed-mask comparisons.
+Tables/citation subset regenerate from canonical saved evidence;24model rows,
+126local rows,8synthetic rows and23citation keys checked. Six existing canonical
+sources now expand related work/statistical interpretation; two raw BibTeX exports
+were newly downloaded, and Kim2020pages/publisher verified. Short AI-assistance
+citations remain per affected section under the explicit IJCNN instruction, while
+the acknowledgment now states the actual assistance concisely; review reminders
+stay in the manuscript README. [Reference/policy verification](../paper/literature_verification.json).
+Scientific and
+human author review remain pending; this is not submission-ready or final-test
+evidence. The current initial IJCNN2027 instructions were checked online and
+their required AI-drafting disclosure is included. The user has now supplied external
+GPT and Claude model reviews; these are assessed in[PAPER_REVIEW_ACTIONS.md](PAPER_REVIEW_ACTIONS.md).
+They are not independent artifact verification or calibrated acceptance predictions.
+The editorial revision shortens the abstract, adds explicit empirical contributions,
+defines producer/consumer, adds a same-component grouping diagram and existing parent
+accuracy(91.03%CIFAR,96.67%EuroSATmeans). Implementation failure details remain in the
+repository; validation-only status and failed scientific comparisons remain explicit.
+Unchanged IEEEtran class/style were obtained from CTAN after direct IEEE ZIP
+requests returned empty payloads; vendor/tool provenance is recorded in`paper/vendor`.
+Numerical protocols/sources were not edited and no new model was evaluated.
+Next numerical proposal:common30epoch repair trajectories from the saved pre-repair
+initializations, report0/1/3/10/30,18runs across the two settings. The old3epoch cosine
+schedule cannot simply be extended as an unchanged trajectory. This is a proposal,
+not a registered/launched run; no new training or test inference is active. Final
+procedure/reporting lock and prior-split-access audit precede test evaluation.
+
 The user requested a concise literature review during the grouping study.
 The [2026-11-25 adaptation/grouping review](literature/GROUPING_AND_TRANSFER_2026-11-25.md)
 is complete:10new canonical entries, verified journal/conference-status upgrades

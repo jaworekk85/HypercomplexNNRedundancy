@@ -5,6 +5,26 @@ state; the [study index](RESEARCH_STATUS.md) links the evidence. This file recor
 future decisions. The [JSON agenda](../configs/ijcnn_research_queue.json) contains
 historical execution notes and is not an active scheduler.
 
+## External review response and next priority
+
+The user supplied GPT and Claude manuscript feedback on2026-11-26.
+[PAPER_REVIEW_ACTIONS.md](PAPER_REVIEW_ACTIONS.md) checks suggestions against
+existing studies and separates editorial changes, the next proposed study and
+conditional extensions. The draft now has a shorter abstract, contribution list,
+conceptual grouping diagram and already measured uncompressed-parent accuracy.
+No additional model was trained or test split evaluated.
+
+Highest-priority numerical proposal:18matched compact-model trajectories
+(two settings, three source seeds, three assignments), a single30epoch repair
+schedule from pre-repair initializations, snapshots0/1/3/10/30. Existing3epoch
+cosine scheduling reaches its minimum at3; the new curve needs a separately
+frozen schedule and cannot be presented as an unchanged continuation of that run.
+The proposed endpoint, checks and exact-architecture scratch/selection gaps are
+documented in the review response. New runs are not launched by this plan update.
+Lock final methods/reporting and audit split access before test evaluation;
+do not test now and continue choosing methods on those outcomes. Compression
+grids, more parents/draws and new theory are conditional, not an automatic queue.
+
 ## Scientific objective
 
 Study structured compression of fixed and learned hypercomplex representations.
@@ -27,6 +47,13 @@ Realizability, and Repair** is the proposed working title.
 baselines/compression/replication, synthetic realizability examples, grouping
 studies, initialization/statistical controls and related PHM negative findings.
 This is an editorial map, not an article draft or novelty certificate.
+
+The user subsequently authorized the first manuscript draft, now in
+[paper/main.tex](../paper/main.tex) and [paper/draft.pdf](../paper/draft.pdf).
+The six-page IEEE conference draft records the completed evidence, including
+negative controls, a generated bibliography/table subset and paired-seed figure.
+Next review the scientific argument and limitations, then freeze final evaluation
+and reporting choices. No new exploratory run or test inference was part of drafting.
 
 The user has now authorized the next numerical study: original versus role-preserving100%mixed versus
 free-role100%mixed on three existing EuroSAT Q parents, nine compact models,
