@@ -19,7 +19,10 @@ matched repair study. The initial commits are pushed; new source/config/tests
 and[protocol](../results/grouping_repair_curve/PROTOCOL.md)are now prepared/frozen.
 Read[CURRENT.md](CURRENT.md)and the live state before reporting execution.
 All18initial-model replays and both compact CUDA update audits passed. Only this
-repair study is next; no automatic execution of every suggestion in the reviews.
+repair study is running under its separate frozen protocol; no automatic execution
+of every suggestion in the reviews. Code/protocol commitf89a14bwas pushed before
+launch2026-11-26at18:11Europe/Warsaw. Check live state rather than this plan for
+progress or completion.
 
 Highest-priority numerical proposal:18matched compact-model trajectories
 (two settings, three source seeds, three assignments), a single30epoch repair

@@ -14,7 +14,14 @@ New independent source/config: [protocol](../results/grouping_repair_curve/PROTO
 Preparation passed5CPU tests, a full synthetic trajectory/completed resume,
 all18bitwise initial-model/logit replays, and discarded CUDA tracked-variable/
 all-four-component gradient/update audits in both settings. New sources are frozen;
-no predecessor was edited. Ready to launch; no new scientific repair SGD yet.
+no predecessor was edited. The checked experiment was committed/pushed asf89a14b,
+then launched2026-11-26at18:11Europe/Warsaw. Windows launcher PID14980;
+worker PID23888from the live state. Logs:
+`results/grouping_repair_curve/runner_20261126_171118.log`and`.err`.
+Read state/recent log/process before reporting progress; no final result yet.
+Launch verified at18:12Europe/Warsaw:first CIFAR seed2026original epoch completed,
+375/375successful/attempted updates, epoch1model/logit snapshot and reload passed.
+This is a launch check, not the final comparison between grouping conditions.
 
 Scope:18trajectories(two settings, three existing parent seeds, three frozen
 assignments), snapshots0/1/3/10/30, same pre-repair compact weights/masks/counts.
