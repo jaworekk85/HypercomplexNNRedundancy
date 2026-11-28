@@ -5,6 +5,34 @@ state; the [study index](RESEARCH_STATUS.md) links the evidence. This file recor
 future decisions. The [JSON agenda](../configs/ijcnn_research_queue.json) contains
 historical execution notes and is not an active scheduler.
 
+## Required next: component selection versus whole-unit pruning
+
+**User decision,2026-11-26: this is the key next experiment after the current
+repair curve, not an optional extension if time remains.** It addresses the
+reviewers' practical "so what?": does preserving original quaternion units
+help compression, or prevent retaining useful individual components?
+
+- Compare selection of individual scalar components followed by regrouping and
+  physical Hamilton compilation against selection/removal of whole quaternion units.
+- Match actual compact architecture, real trainable parameter count/storage
+  accounting and repair recipe/budget across methods. Report attempted/successful
+  updates and any AMP skips. Masked sparsity alone does not satisfy the budget.
+- Use several independent source-parent seeds(at least3), paired across methods.
+  Retained scalar sets may differ: this study tests selection plus regrouping,
+  unlike the current fixed-set grouping intervention.
+- Audit and remove the earlier selector's candidate-coverage/completion bias.
+  Mixed candidates must have a fair opportunity; original intact groups remain
+  legitimate answers. Do not force reassembly to look beneficial or harmful.
+- Freeze selection, fitting, repair and reporting choices under a separate
+  protocol before new computation. Use training/calibration for development;
+  final method/reporting lock and prior-split-access audit precede test evaluation.
+
+The existing one-seed90.8%versus90.4%pilot is context, not completion of this
+task. Report unfavorable results accurately. The next study is required for the
+planned practical argument; improvement or novelty is not assumed. Exact-architecture
+scratch, additional compression ratios, more draws and other suggested extensions
+remain separate decisions. Do not modify frozen sources of the running study.
+
 ## External review response and next priority
 
 The user supplied GPT and Claude manuscript feedback on2026-11-26.
@@ -19,8 +47,13 @@ matched repair study. The initial commits are pushed; new source/config/tests
 and[protocol](../results/grouping_repair_curve/PROTOCOL.md)are now prepared/frozen.
 Read[CURRENT.md](CURRENT.md)and the live state before reporting execution.
 All18initial-model replays and both compact CUDA update audits passed. Only this
-repair study is running under its separate frozen protocol; no automatic execution
-of every suggestion in the reviews. Code/protocol commitf89a14bwas pushed before
+repair study ran under its separate frozen protocol and completed18/18models on
+2026-11-26at20:52Europe/Warsaw; no automatic execution of every suggestion in the
+reviews. [Completed interpretation](../results/grouping_repair_curve/INTERPRETATION.md)
+reports small final CIFAR accuracy gaps(0.33pp)but persistent EuroSAT gaps
+(2.13--2.37pp), with CIFAR CE slightly favoring mixed conditions. Integration into
+the manuscript is pending; the required component-selection comparison above
+remains next. Code/protocol commitf89a14bwas pushed before
 launch2026-11-26at18:11Europe/Warsaw. Check live state rather than this plan for
 progress or completion.
 

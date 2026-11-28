@@ -1,9 +1,38 @@
 # Current research state
 
-Updated: 2026-11-26. Read the relevant `state.json`, recent log tail and process
+Updated: 2026-11-28. Read the relevant `state.json`, recent log tail and process
 state before reporting activity. This page is a handoff, not a process monitor.
 
-## Authorized next study: matched repair trajectories
+## Required next experiment after the repair curve
+
+User decision2026-11-26: **component-level selection + regrouping versus
+whole-quaternion-unit pruning is a key required next study, not an optional
+"if time remains" extension.** See[the research plan](PLAN_IJCNN2027.md#required-next-component-selection-versus-whole-unit-pruning).
+Match actual compact architecture/real parameter budget and repair protocol
+across methods; use several independent source seeds(at least3). Allow retained
+scalar sets to differ, since selection itself is the intervention. Audit/remove
+the old selector's candidate/completion bias without forcing mixed groups or
+excluding the intact answer. The existing90.8%/90.4%single-seed pilot does not
+satisfy this requirement. Prepare a separate frozen protocol after the current
+repair study, before final method/reporting lock and test evaluation. No claim
+of gain/novelty or automatic launch follows from this planning note.
+
+## Completed: matched repair trajectories
+
+Completed2026-11-26at20:52:27Europe/Warsaw:18/18models,90snapshots,
+142787successful/142830attempted updates(43AMP skips). Audit and independent
+recheck passed798frozen hashes and180snapshot artifacts. Worker exited.
+[Interpretation](../results/grouping_repair_curve/INTERPRETATION.md),
+[report](../results/grouping_repair_curve/REPORT.md).
+[Full repair curve](../results/grouping_repair_curve/figures/repair_curve.png),
+[PDF](../results/grouping_repair_curve/figures/repair_curve.pdf), generated from
+all saved epoch histories on2026-11-28(no new inference).
+Epoch30validation means(original/role/free):CIFAR91.33/91.00/91.00%,
+EuroSAT94.80/92.43/92.67%. Final gaps0.33/0.33ppand2.37/2.13pp;
+CIFAR mean CE slightly favors mixed models. No equivalence/significance claim.
+The new30epoch cosine trajectory differs from the old3epoch recipe; compare
+its own1/3/10/30points. Manuscript integration remains pending. The required
+component-selection comparison above is next; no further training is active.
 
 The user explicitly authorized the repair experiment after requesting commits/push
 on2026-11-26. Manuscript/review commits7293f53and8da0a8bwere pushed first.
@@ -18,7 +47,7 @@ no predecessor was edited. The checked experiment was committed/pushed asf89a14b
 then launched2026-11-26at18:11Europe/Warsaw. Windows launcher PID14980;
 worker PID23888from the live state. Logs:
 `results/grouping_repair_curve/runner_20261126_171118.log`and`.err`.
-Read state/recent log/process before reporting progress; no final result yet.
+Read state/recent log/process before reporting progress; completion is recorded above.
 Launch verified at18:12Europe/Warsaw:first CIFAR seed2026original epoch completed,
 375/375successful/attempted updates, epoch1model/logit snapshot and reload passed.
 This is a launch check, not the final comparison between grouping conditions.

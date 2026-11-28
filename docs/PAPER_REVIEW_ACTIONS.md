@@ -13,7 +13,7 @@ conference statistics are not used to predict acceptance.
 | Three repair epochs cannot distinguish a persistent grouping cost from slower recovery. | Correct. All full-network grouping conditions stop at epoch3. | Highest-priority prospective experiment: a common30epoch trajectory with reports at0/1/3/10/30. |
 | Test results are missing. | Correct for these grouping studies; explored validation remains exploratory. | Freeze methods, repair/reporting choices and prior-split-access audit before a final test pass. Do not open test during exploratory repair design. |
 | Original versus random groups may be structurally predictable. | Already acknowledged by the initialization, statistics, dense inverse-permutation and adaptive-search controls. | State the contribution as separating constrained representation, physical realization and finite-budget recovery. Do not infer semantic entities or a new successful algorithm. |
-| Component-level selection versus whole-unit retention has not been tried. | It exists in the earlier single-seed pilot: whole_joint90.4%, scalar_energy88.6%, role_fixed90.4%, free_roles90.8%, all232266real trainables. Different masks, completion bias, and failed+0.5ppscreen limit it. | Show the existing comparison clearly as exploratory history; a cleaner multi-seed selection comparison is a possible later study, not a new discovery or an already-solved question. |
+| Component-level selection versus whole-unit retention has not been tried. | It exists in the earlier single-seed pilot: whole_joint90.4%, scalar_energy88.6%, role_fixed90.4%, free_roles90.8%, all232266real trainables. Different masks, completion bias, and failed+0.5ppscreen limit it. | User decision2026-11-26: a clean multi-seed selection/regrouping versus whole-unit comparison is the required next experiment after the repair curve, not optional if time remains. Match physical parameter/architecture and repair budgets; audit/remove old candidate/completion bias, allowing intact answers. The old pilot does not settle it. |
 | Uncompressed parent results are missing from the article. | Six parent validation replays already exist: CIFAR91.0/91.4/90.7%, EuroSAT96.5/96.5/97.0%. | Add their descriptive means to the accuracy table without new inference. |
 | Compact scratch baseline is missing. | Correct for the exact fixed-Hamilton grouping architecture. The earlier PHM scratch has233418stored reals and a different parameterization, versus232266in this CIFAR study. Existing real/Q studies also use different masks/scopes. | Never relabel PHM scratch or nine-site compression as a matched grouping baseline. Consider a separately specified exact-architecture scratch control after the repair study. |
 | More seeds, full-network draws and compression ratios. | Three parent seeds and one fixed full-network draw per mixed condition are limited. | Later strengthening, not a simultaneous automatic grid. Distinguish input information, mask changes, compression fraction and whole-model parameter reduction. |
@@ -72,10 +72,13 @@ checkpoint initialization replay, all-component gradients/updates and an exact
 interrupted-resume check. Freeze all choices, disk/budget/STOP behavior and final
 reporting before launch. No training was started by receiving these reviews.
 
-Afterward, decide whether an exact-architecture scratch control or a cleaner
-component-selection comparison is needed to support the final claim. A25/50/75%
-compression grid, extra parents and more draws are conditional extensions, not an
-automatic requirement to perform every proposed experiment.
+Subsequent user decision2026-11-26: after this repair study, perform the required
+clean multi-seed component-selection/regrouping versus whole-unit-pruning
+comparison described in[the research plan](PLAN_IJCNN2027.md#required-next-component-selection-versus-whole-unit-pruning).
+It must match actual compact size and repair and address the old selector's
+candidate/completion bias. An exact-architecture scratch control, a25/50/75%
+compression grid, extra parents and more draws remain separate conditional
+extensions, not an automatic requirement to perform every proposed experiment.
 
 ## Theory scope to investigate
 
