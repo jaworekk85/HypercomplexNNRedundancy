@@ -16,6 +16,8 @@ neighbors have reserved evaluation quotas alongside whole-unit substitutions.
 Three starts and equal rounds/proposal caps bound each policy; this is not
 exhaustive global search. All methods receive matched actual size and30epoch
 repair. See[CURRENT.md](CURRENT.md)and live state for launch/progress.
+The prepared code/protocol commit05df080was pushed first; execution launched
+2026-11-28at03:40Europe/Warsaw. Do not modify frozen numerical sources/config.
 
 **User decision,2026-11-26: this is the key next experiment after the current
 repair curve, not an optional extension if time remains.** It addresses the

@@ -3,7 +3,7 @@
 Updated: 2026-11-28. Read the relevant `state.json`, recent log tail and process
 state before reporting activity. This page is a handoff, not a process monitor.
 
-## Authorized/prepared: component selection versus whole-unit pruning
+## Running: component selection versus whole-unit pruning
 
 The user explicitly authorized execution2026-11-28. A separate new
 [protocol](../results/component_selection_study/PROTOCOL.md),
@@ -14,6 +14,14 @@ resume smoke,6parent validation replays,12native reference/input batch replays
 and both full compact CUDA gradient/update audits passed. The initial development
 checksum-wrapper failure was fixed before freeze and is documented in
 [DEVELOPMENT.md](../results/component_selection_study/DEVELOPMENT.md).
+Code/protocol were committed/pushed as05df080before launch2026-11-28at
+03:40Europe/Warsaw. Windows launcher PID23836, worker PID25164.
+Logs:`results/component_selection_study/runner_20261128_024005.log`and`.err`.
+Live check at03:41confirmed candidate fitting for CIFAR seed2026block0,
+including whole-unit and component proposals, with no stderr output. This is
+launch verification, not a measured gain. Read current state/log/process before
+reporting progress. STOP:`results/component_selection_study/STOP`; resume after
+removing STOP with`.venv-cuda/Scripts/python.exe -B -u -m scripts.component_selection_study --run`.
 
 18models:both settings,3source seeds, unit_energy/unit_search/component_search.
 All methods have identical actual compact architecture/parameter counts and the
@@ -23,8 +31,8 @@ both policies, scalar replacement/role swaps for component search, three starts
 and equal bounded rounds/proposal caps. There is no partial-quartet completion
 reserve. Whole-energy baseline is a legal network-selection answer; no useful
 gain, novel solver or global optimum is assumed. Native/full refits use500FIT,
-CHECK/validation report outcomes, no test inference. Scientific run is not yet
-started at this preparation record; read live state before reporting activity.
+CHECK/validation report outcomes, no test inference. Scientific selection and
+repair are now running under this frozen protocol; no automatic follow-up.
 
 ## Required next experiment after the repair curve
 
