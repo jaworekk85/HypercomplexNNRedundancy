@@ -3,6 +3,29 @@
 Updated: 2026-11-28. Read the relevant `state.json`, recent log tail and process
 state before reporting activity. This page is a handoff, not a process monitor.
 
+## Authorized/prepared: component selection versus whole-unit pruning
+
+The user explicitly authorized execution2026-11-28. A separate new
+[protocol](../results/component_selection_study/PROTOCOL.md),
+[readiness](../results/component_selection_study/readiness.json)and
+[state](../results/component_selection_study/state.json)are prepared/frozen.
+11tests, a six-model two-architecture synthetic selection/refit/repair/completed-
+resume smoke,6parent validation replays,12native reference/input batch replays
+and both full compact CUDA gradient/update audits passed. The initial development
+checksum-wrapper failure was fixed before freeze and is documented in
+[DEVELOPMENT.md](../results/component_selection_study/DEVELOPMENT.md).
+
+18models:both settings,3source seeds, unit_energy/unit_search/component_search.
+All methods have identical actual compact architecture/parameter counts and the
+same30epoch repair recipe. Selection uses inner64/outer64FIT only; retained
+scalar sets can change. Complete assignments, whole-unit replacement moves for
+both policies, scalar replacement/role swaps for component search, three starts
+and equal bounded rounds/proposal caps. There is no partial-quartet completion
+reserve. Whole-energy baseline is a legal network-selection answer; no useful
+gain, novel solver or global optimum is assumed. Native/full refits use500FIT,
+CHECK/validation report outcomes, no test inference. Scientific run is not yet
+started at this preparation record; read live state before reporting activity.
+
 ## Required next experiment after the repair curve
 
 User decision2026-11-26: **component-level selection + regrouping versus

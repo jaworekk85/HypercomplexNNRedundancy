@@ -7,6 +7,16 @@ historical execution notes and is not an active scheduler.
 
 ## Required next: component selection versus whole-unit pruning
 
+Execution was explicitly authorized2026-11-28. The bounded18-model comparison
+is now prepared/frozen under[its own protocol](../results/component_selection_study/PROTOCOL.md):
+both datasets/architectures, three existing seeds, energy whole-unit baseline,
+optimized whole-unit selection and complete-assignment component selection.
+The old completion reserve is absent; legal scalar replacement and role-swap
+neighbors have reserved evaluation quotas alongside whole-unit substitutions.
+Three starts and equal rounds/proposal caps bound each policy; this is not
+exhaustive global search. All methods receive matched actual size and30epoch
+repair. See[CURRENT.md](CURRENT.md)and live state for launch/progress.
+
 **User decision,2026-11-26: this is the key next experiment after the current
 repair curve, not an optional extension if time remains.** It addresses the
 reviewers' practical "so what?": does preserving original quaternion units
